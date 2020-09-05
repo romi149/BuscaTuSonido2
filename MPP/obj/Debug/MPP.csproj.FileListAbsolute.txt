@@ -1,0 +1,10 @@
+C:\Users\romina\source\repos\BuscaTuSonido\MPP\bin\Debug\MPP.dll
+C:\Users\romina\source\repos\BuscaTuSonido\MPP\bin\Debug\MPP.pdb
+C:\Users\romina\source\repos\BuscaTuSonido\MPP\bin\Debug\DAL.dll
+C:\Users\romina\source\repos\BuscaTuSonido\MPP\bin\Debug\DAL.pdb
+C:\Users\romina\source\repos\BuscaTuSonido\MPP\bin\Debug\DAL.dll.config
+C:\Users\romina\source\repos\BuscaTuSonido\MPP\obj\Debug\MPP.csprojAssemblyReference.cache
+C:\Users\romina\source\repos\BuscaTuSonido\MPP\obj\Debug\MPP.csproj.CoreCompileInputs.cache
+C:\Users\romina\source\repos\BuscaTuSonido\MPP\obj\Debug\MPP.csproj.CopyComplete
+C:\Users\romina\source\repos\BuscaTuSonido\MPP\obj\Debug\MPP.dll
+C:\Users\romina\source\repos\BuscaTuSonido\MPP\obj\Debug\MPP.pdb
