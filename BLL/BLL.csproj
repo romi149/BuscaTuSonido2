@@ -45,6 +45,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BE\BE.csproj">
+      <Project>{5808f967-b98d-4183-a867-e92ea56c5ca7}</Project>
+      <Name>BE</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MPP\MPP.csproj">
       <Project>{eccc39a7-a1b0-4042-bdcb-f6f915270376}</Project>
       <Name>MPP</Name>

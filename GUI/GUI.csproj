@@ -151,6 +151,28 @@
     <Content Include="Content\vendor\jquery\jquery.min.map" />
     <Content Include="Content\vendor\jquery\jquery.slim.min.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Imagenes\Catalogo\Bajos\Cort.png" />
+    <Content Include="Imagenes\Catalogo\Bajos\IbanezGRS200.png" />
+    <Content Include="Imagenes\Catalogo\Baterias\Medeli 508.PNG" />
+    <Content Include="Imagenes\Catalogo\Baterias\Pearl Vision 1455.PNG" />
+    <Content Include="Imagenes\Catalogo\Baterias\Zildjian Crash.PNG" />
+    <Content Include="Imagenes\Catalogo\Baterias\Zildjian.PNG" />
+    <Content Include="Imagenes\Catalogo\Guitarras\ClassisPlayerJaguarSpecial.PNG" />
+    <Content Include="Imagenes\Catalogo\Guitarras\EpiphoneLP.PNG" />
+    <Content Include="Imagenes\Catalogo\Guitarras\Fonseca 10.PNG" />
+    <Content Include="Imagenes\Catalogo\Guitarras\Fonseca 10_2.PNG" />
+    <Content Include="Imagenes\Catalogo\Guitarras\Fonseca 10_3.PNG" />
+    <Content Include="Imagenes\Catalogo\Guitarras\IbanezRG35.PNG" />
+    <Content Include="Imagenes\Catalogo\Guitarras\Yamaha Stratocaster.PNG" />
+    <Content Include="Imagenes\Catalogo\Teclados\Yamaha PSRE263.PNG" />
+    <Content Include="Imagenes\Portada\Guitarra1.png" />
+    <Content Include="Imagenes\Portada\Guitarra2.png" />
+    <Content Include="Imagenes\Portada\Guitarra3.png" />
+    <Content Include="Imagenes\Portada\Guitarra4.png" />
+    <Content Include="Imagenes\Portada\Guitarra5.png" />
+    <Content Include="Imagenes\Portada\Guitarra6.png" />
+    <Content Include="Imagenes\Portada\Guitarra7.png" />
+    <Content Include="Imagenes\Portada\Guitarra8.png" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -258,6 +280,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BE\BE.csproj">
+      <Project>{5808f967-b98d-4183-a867-e92ea56c5ca7}</Project>
+      <Name>BE</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{7765968b-e508-4991-a3d8-f3a2b03c6b9b}</Project>
       <Name>BLL</Name>
