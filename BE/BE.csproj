@@ -51,7 +51,6 @@
     <Compile Include="Factura.cs" />
     <Compile Include="Idioma.cs" />
     <Compile Include="Marca.cs" />
-    <Compile Include="Modelo.cs" />
     <Compile Include="Newsletter.cs" />
     <Compile Include="NotaPedido.cs" />
     <Compile Include="Oferta.cs" />
