@@ -1,7 +1,7 @@
-﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="GUI.Contact" %>
+﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FAQ.aspx.cs" Inherits="GUI.Contact" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
 	<meta charset="UTF-8">
@@ -49,7 +49,7 @@
 					Formar parte de la comunidad de Busca Tu Sonido es muy fácil solo tenes que hacer clic 
 					en la parte superior derecha del sitio en el botón “Registrarse”.
 				</p>
-				<span class="icon-arrow-buttom"></span>
+				<%--<span class="chevron-down"></span>--%>
 			</div>
 		</li>
 		<h4 class="menues">¿Cómo puedo editar mis datos personales y cambiar mi contraseña?</h4>
@@ -76,7 +76,6 @@
 			anulación de tu compra envinado un correo a ventas@buscatusonido.com. 
 			¡Tené en cuenta que este trámite puede demorar hasta 72 horas!
 		</li>
-		</li>
 		<h4 class="menues">Quiero solicitar el cambio de un producto</h4>
 		<li class="contenido_acordeon">
 			Para solicitar un cambio de producto envianos un correo a cambiosydevoluciones@buscatusonido.com. 
@@ -84,18 +83,15 @@
 			será necesario que el producto esté en el mismo estado que se entregó: embalaje en perfectas condiciones, 
 			con accesorios y manuales completos.
 		</li>
-		</li>
 		<h4 class="menues">Los cambios y devoluciones ¿tienen algún costo adicional?</h4>
 		<li class="contenido_acordeon">
 			Los cambios y/o devoluciones no tienen costo. En el caso de un cambio por un producto de mayor valor, 
 			se cobrará la diferencia.
 		</li>
-		</li>
 		<h4 class="menues">¿Existe un tiempo máximo para solicitar un cambio y/o devolución?</h4>
 		<li class="contenido_acordeon">
 			Una vez transcurridos los 10 días de haber recibido tu pedido, debés contactarte con la garantía 
 			del mismo para efectuar la reparación o cambio del producto.
-		</li>
 		</li>
 		<h4 class="menues">Quiero modificar el domicilio de entrega</h4>
 		<li class="contenido_acordeon">
@@ -104,14 +100,12 @@
 			queres modificar el domicilio de entrega, comunícate con nosotros antes de los 
 			3 días hábiles de realizada la compra.
 		</li>
-		</li>
 		<h4 class="menues">Inconvenientes con la entrega</h4>
 		<li class="contenido_acordeon">
 			En el caso que no podamos concretar la entrega te contactaremos para pactar una nueva visita.
 			Recordá que si el producto no se encuentra en condiciones o no cumple con tus expectativas podés 
 			rechazarlo en el momento de la entrega. En este caso deberás firmar el remito indicando los motivos 
 			del rechazo y luego te contactaremos para coordinar una nueva entrega.
-		</li>
 		</li>
 		<h4 class="menues">Compré un producto en BuscaTuSonido.com y no lo recibí, ¿qué hago?</h4>
 		<li class="contenido_acordeon">
