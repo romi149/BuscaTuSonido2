@@ -27,24 +27,6 @@ namespace GUI
             Response.Redirect("~/Default");
         }
 
-        protected void registrarse_Click(object sender, EventArgs e)
-        {
-            //bool Insertado = mapper.InsertarUsuario(new DAL.Usuario
-            //{
-            //    Nombre = this.Nombre.Text.Trim(),
-            //    Apellido = this.Apellido.Text.Trim(),
-            //    Dni = int.Parse(this.dni.Text.Trim()),
-            //    Pass = this.Password.Text.Trim(),
-            //    Usuario1 = this.Usuario.Text.Trim()
-            //});
-            //if (Insertado)
-            //{
-            //    Helpers.EnviarMail("romi.caste@gmail.com",
-            //                        "Mail de Confirmacion",
-            //                        $"<h1>Codigo de Seguridad</h1>" +
-            //                        $"<p>{Helpers.md5(this.Password.Text.Trim())}</p>");
-            //}
-        }
 
         
     }

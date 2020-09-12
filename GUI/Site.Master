@@ -70,10 +70,10 @@
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <%--<hr />--%>
-           <%-- <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET</p>
-            </footer>--%>
+            <hr />
+            <footer>
+                <a href="TermyCond">Términos y Condiciones</a>
+            </footer>
         </div>
 
     </form>
