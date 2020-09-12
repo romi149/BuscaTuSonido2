@@ -39,7 +39,7 @@ namespace MPP
             BTSDataContext BaseDeDatos = new BTSDataContext();
             int filasAFECTADAS = BaseDeDatos.InsertarProveedor(proveedor.CodProveedor, proveedor.NombreEmpresa,
                 proveedor.RazonSocial, proveedor.Domicilio, proveedor.Email, proveedor.Telefono, proveedor.Descripcion,
-                proveedor.Cuit);
+                int.Parse(proveedor.Cuit.ToString()));
 
             if (filasAFECTADAS > 0)
             {

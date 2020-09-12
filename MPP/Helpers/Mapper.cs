@@ -24,4 +24,15 @@ namespace MPP.Helpers
         public int? IdIdioma { get; internal set; }
         public int? Dni { get; internal set; }
     }
+
+    public class ProductoTbl
+    {
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
+        public string Categoria { get; set; }
+        public int Marca { get; set; }
+        public string Modelo { get; set; }
+        public string Color { get; set; }
+        public float Precio { get; set; }
+    }
 }

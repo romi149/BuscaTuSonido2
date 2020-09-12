@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\Mapper.cs" />
+    <Compile Include="MapperCliente.cs" />
     <Compile Include="MapperGestionRoles.cs" />
     <Compile Include="MapperMarca.cs" />
     <Compile Include="MapperPermiso.cs" />

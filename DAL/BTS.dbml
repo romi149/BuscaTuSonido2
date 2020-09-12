@@ -50,7 +50,7 @@
       <Column Name="Nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Domicilio" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Telefono" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Cuit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cuit" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.Factura" Member="Factura">
@@ -92,7 +92,6 @@
       <Column Name="Nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="Modelo_OrdenCompra" Member="OrdenCompra" ThisKey="IdModelo" OtherKey="IdModelo" Type="OrdenCompra" />
-      <Association Name="Modelo_Producto" Member="Producto" ThisKey="IdModelo" OtherKey="IdModelo" Type="Producto" />
     </Type>
   </Table>
   <Table Name="dbo.NotaDePedido" Member="NotaDePedido">
@@ -182,11 +181,11 @@
       <Column Name="IdProd" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Upc" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="Categoria" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="TipoInstrumento" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="IdMarca" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IdModelo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Modelo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="CodProveedor" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="IdProveedor" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Color" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
@@ -195,7 +194,6 @@
       <Association Name="Producto_ProductosxNP" Member="ProductosxNP" ThisKey="IdProd" OtherKey="IdProd" Type="ProductosxNP" />
       <Association Name="Producto_ProductosxOC" Member="ProductosxOC" ThisKey="IdProd" OtherKey="IdProd" Type="ProductosxOC" />
       <Association Name="Marca_Producto" Member="Marca" ThisKey="IdMarca" OtherKey="IdMarca" Type="Marca" IsForeignKey="true" />
-      <Association Name="Modelo_Producto" Member="Modelo" ThisKey="IdModelo" OtherKey="IdModelo" Type="Modelo" IsForeignKey="true" />
       <Association Name="Proveedor_Producto" Member="Proveedor" ThisKey="IdProveedor" OtherKey="IdProveedor" Type="Proveedor" IsForeignKey="true" />
     </Type>
   </Table>
@@ -227,7 +225,7 @@
       <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Telefono" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Descripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Cuit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cuit" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Association Name="Proveedor_OrdenCompra" Member="OrdenCompra" ThisKey="IdProveedor" OtherKey="IdProveedor" Type="OrdenCompra" />
       <Association Name="Proveedor_OrdenPago" Member="OrdenPago" ThisKey="IdProveedor" OtherKey="IdProveedor" Type="OrdenPago" />
       <Association Name="Proveedor_Producto" Member="Producto" ThisKey="IdProveedor" OtherKey="IdProveedor" Type="Producto" />

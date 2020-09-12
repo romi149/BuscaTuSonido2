@@ -4,7 +4,6 @@ C:\Users\romina\source\repos\BuscaTuSonido\BLL\bin\Debug\MPP.dll
 C:\Users\romina\source\repos\BuscaTuSonido\BLL\bin\Debug\DAL.dll
 C:\Users\romina\source\repos\BuscaTuSonido\BLL\bin\Debug\MPP.pdb
 C:\Users\romina\source\repos\BuscaTuSonido\BLL\bin\Debug\DAL.pdb
-C:\Users\romina\source\repos\BuscaTuSonido\BLL\bin\Debug\DAL.dll.config
 C:\Users\romina\source\repos\BuscaTuSonido\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
 C:\Users\romina\source\repos\BuscaTuSonido\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
 C:\Users\romina\source\repos\BuscaTuSonido\BLL\obj\Debug\BLL.csproj.CopyComplete

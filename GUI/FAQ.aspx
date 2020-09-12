@@ -40,7 +40,11 @@
 	<ul id="acordeon_didesweb">
 		<h4 class="menues">¿Cómo puedo saber si un producto tiene stock?</h4>
 		<li class="contenido_acordeon">
-			Siempre que un producto esté disponible en la web, significa que tiene stock para su compra.
+			<div>
+				<p>
+					Siempre que un producto esté disponible en la web, significa que tiene stock para su compra.
+				</p>
+			</div>
 		</li>
 		<h4 class="menues">¿Cómo me registro?</h4>
 		<li class="contenido_acordeon">
@@ -54,63 +58,103 @@
 		</li>
 		<h4 class="menues">¿Cómo puedo editar mis datos personales y cambiar mi contraseña?</h4>
 		<li class="contenido_acordeon">
-			Una vez que iniciaste sesión en Mi Cuenta ingresa a la sección ‘Mis Datos’ y desde allí podrás 
-			editar tus datos personales y generar una nueva contraseña para tu cuenta.
+			<div>
+				<p>
+					Una vez que iniciaste sesión en Mi Cuenta ingresa a la sección ‘Mis Datos’ y desde allí podrás 
+					editar tus datos personales y generar una nueva contraseña para tu cuenta.
+				</p>
+			</div>
 		</li>
 		<h4 class="menues">¿Es seguro comprar en BuscaTuSonido.com?</h4>
 		<li class="contenido_acordeon">
-			Gracias al respaldo de SSL (Secure Socket Layer), el sistema de seguridad que utilizamos en 
-			BuscaTuSonido.com, te aseguramos que tu información personal será cifrada y no podrá ser leída 
-			ni utilizada por terceros mientras realices una compra. A su vez, Busca Tu Sonido te asegura que 
-			dichos datos no saldrán de la compañía, manejándolos con total responsabilidad, de manera 
-			absolutamente confidencial y conforme a lo dispuesto por la legislación vigente.
+			<div>
+				<p>
+					Gracias al respaldo de SSL (Secure Socket Layer), el sistema de seguridad que utilizamos en 
+					BuscaTuSonido.com, te aseguramos que tu información personal será cifrada y no podrá ser leída 
+					ni utilizada por terceros mientras realices una compra. A su vez, Busca Tu Sonido te asegura que 
+					dichos datos no saldrán de la compañía, manejándolos con total responsabilidad, de manera 
+					absolutamente confidencial y conforme a lo dispuesto por la legislación vigente.
+				</p>
+			</div>
 		</li>
 		<h4 class="menues">Olvide mi Contraseña ¿Qué hago?</h4>
 		<li class="contenido_acordeon">
-			Para recuperar tu contraseña deberás ingresar a Iniciar Sesión y luego hacer clic en la opción 
-			“Recuperar contraseña”
+			<div>
+				<p>
+					Para recuperar tu contraseña deberás ingresar a Iniciar Sesión y luego hacer clic en la opción 
+					“Recuperar contraseña”
+				</p>
+			</div>
 		</li>
 		<h4 class="menues">Quiero anular una compra realizada en BuscaTuSonido.com</h4>
 		<li class="contenido_acordeon">
-			Si compraste por error dos veces el mismo producto o todavía no lo recibiste, podés solicitar la 
-			anulación de tu compra envinado un correo a ventas@buscatusonido.com. 
-			¡Tené en cuenta que este trámite puede demorar hasta 72 horas!
+			<div>
+				<p>
+					Si compraste por error dos veces el mismo producto o todavía no lo recibiste, podés solicitar la 
+					anulación de tu compra envinado un correo a ventas@buscatusonido.com. 
+					¡Tené en cuenta que este trámite puede demorar hasta 72 horas!
+				</p>
+			</div>
 		</li>
 		<h4 class="menues">Quiero solicitar el cambio de un producto</h4>
 		<li class="contenido_acordeon">
-			Para solicitar un cambio de producto envianos un correo a cambiosydevoluciones@buscatusonido.com. 
-			Tené en cuenta que los cambios se encuentran sujetos a disponibilidad de stock y que para realizarlo 
-			será necesario que el producto esté en el mismo estado que se entregó: embalaje en perfectas condiciones, 
-			con accesorios y manuales completos.
+			<div>
+				<p>
+					Para solicitar un cambio de producto envianos un correo a cambiosydevoluciones@buscatusonido.com. 
+					Tené en cuenta que los cambios se encuentran sujetos a disponibilidad de stock y que para realizarlo 
+					será necesario que el producto esté en el mismo estado que se entregó: embalaje en perfectas condiciones, 
+					con accesorios y manuales completos.
+				</p>
+			</div>
 		</li>
 		<h4 class="menues">Los cambios y devoluciones ¿tienen algún costo adicional?</h4>
 		<li class="contenido_acordeon">
-			Los cambios y/o devoluciones no tienen costo. En el caso de un cambio por un producto de mayor valor, 
-			se cobrará la diferencia.
+			<div>
+				<p>
+					Los cambios y/o devoluciones no tienen costo. En el caso de un cambio por un producto de mayor valor, 
+					se cobrará la diferencia.
+				</p>
+			</div>
 		</li>
 		<h4 class="menues">¿Existe un tiempo máximo para solicitar un cambio y/o devolución?</h4>
 		<li class="contenido_acordeon">
-			Una vez transcurridos los 10 días de haber recibido tu pedido, debés contactarte con la garantía 
-			del mismo para efectuar la reparación o cambio del producto.
+			<div>
+				<p>
+					Una vez transcurridos los 10 días de haber recibido tu pedido, debés contactarte con la garantía 
+					del mismo para efectuar la reparación o cambio del producto.
+				</p>
+			</div>
 		</li>
 		<h4 class="menues">Quiero modificar el domicilio de entrega</h4>
 		<li class="contenido_acordeon">
-			Para modificar el domicilio de entrega antes de realizar tu compra, debes ingresar a tu cuenta 
-			y en los datos personales modificas el domicilio de entrega. Si ya realizaste la compra y 
-			queres modificar el domicilio de entrega, comunícate con nosotros antes de los 
-			3 días hábiles de realizada la compra.
+			<div>
+				<p>
+					Para modificar el domicilio de entrega antes de realizar tu compra, debes ingresar a tu cuenta 
+					y en los datos personales modificas el domicilio de entrega. Si ya realizaste la compra y 
+					queres modificar el domicilio de entrega, comunícate con nosotros antes de los 
+					3 días hábiles de realizada la compra.
+				</p>
+			</div>
 		</li>
 		<h4 class="menues">Inconvenientes con la entrega</h4>
 		<li class="contenido_acordeon">
-			En el caso que no podamos concretar la entrega te contactaremos para pactar una nueva visita.
-			Recordá que si el producto no se encuentra en condiciones o no cumple con tus expectativas podés 
-			rechazarlo en el momento de la entrega. En este caso deberás firmar el remito indicando los motivos 
-			del rechazo y luego te contactaremos para coordinar una nueva entrega.
+			<div>
+				<p>
+					En el caso que no podamos concretar la entrega te contactaremos para pactar una nueva visita.
+					Recordá que si el producto no se encuentra en condiciones o no cumple con tus expectativas podés 
+					rechazarlo en el momento de la entrega. En este caso deberás firmar el remito indicando los motivos 
+					del rechazo y luego te contactaremos para coordinar una nueva entrega.
+				</p>
+			</div>
 		</li>
 		<h4 class="menues">Compré un producto en BuscaTuSonido.com y no lo recibí, ¿qué hago?</h4>
 		<li class="contenido_acordeon">
-			Si no recibiste tu producto en la fecha pactada envianos un correo a envios@buscatusonido.com 
-			y te contactaremos en las próximas 48 horas para reprogramar el envío.
+			<div>
+				<p>
+					Si no recibiste tu producto en la fecha pactada envianos un correo a envios@buscatusonido.com 
+					y te contactaremos en las próximas 48 horas para reprogramar el envío.
+				</p>
+			</div>
 		</li>
 	</ul>
 	<script>

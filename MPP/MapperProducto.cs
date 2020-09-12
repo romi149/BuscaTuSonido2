@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
+using MPP.Helpers;
 
 namespace MPP
 {
@@ -13,20 +15,40 @@ namespace MPP
         /// Retorna todos los productos de la Bd
         /// </summary>
         /// <returns></returns>
-        public List<Producto> ListarProductos()
+        public static List<ProductoTbl> ListarProductos()
         {
             try
             {
                 BTSDataContext BaseDeDatos = new BTSDataContext();
                 List<Producto> productos = (from tblProducto in BaseDeDatos.Producto
-                                        select tblProducto).ToList();
-                return productos;
+                                        select tblProducto).Take(10).ToList();
+
+                List<ProductoTbl> lista = new List<ProductoTbl>();
+
+                foreach (var item in productos)
+                {
+                    lista.Add(ConvertirProducto(item));
+                }
+
+                return lista;
             }
             catch (Exception e)
             {
 
-                return new List<Producto>();
+                return new List<ProductoTbl>();
             }
+        }
+
+
+        private static ProductoTbl ConvertirProducto(Producto producto)
+        {
+            ProductoTbl prod = new ProductoTbl();
+            prod.Nombre = producto.Nombre;
+            prod.Descripcion = producto.Descripcion;
+            prod.Precio = float.Parse(producto.Precio.ToString());
+            
+
+            return prod;
         }
 
         /// <summary>
@@ -41,7 +63,7 @@ namespace MPP
                 producto.Categoria,
                 producto.TipoInstrumento,
                 producto.IdMarca,
-                producto.IdModelo,
+                int.Parse(producto.Modelo),
                 producto.CodProveedor,
                 producto.IdProveedor,
                 producto.Color,
@@ -69,7 +91,7 @@ namespace MPP
                 producto.Categoria,
                 producto.TipoInstrumento,
                 producto.IdMarca,
-                producto.IdModelo,
+                int.Parse(producto.Modelo),
                 producto.CodProveedor,
                 producto.IdProveedor,
                 producto.Color,

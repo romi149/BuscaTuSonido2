@@ -80,6 +80,5 @@ C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\DAL.dll
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\BLL.pdb
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\MPP.pdb
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\DAL.pdb
-C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\DAL.dll.config
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\BE.dll
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\BE.pdb

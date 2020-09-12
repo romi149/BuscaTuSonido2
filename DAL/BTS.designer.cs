@@ -1366,7 +1366,7 @@ namespace DAL
 		
 		private string _Telefono;
 		
-		private System.Nullable<int> _Cuit;
+		private System.Nullable<long> _Cuit;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
@@ -1382,7 +1382,7 @@ namespace DAL
     partial void OnDomicilioChanged();
     partial void OnTelefonoChanging(string value);
     partial void OnTelefonoChanged();
-    partial void OnCuitChanging(System.Nullable<int> value);
+    partial void OnCuitChanging(System.Nullable<long> value);
     partial void OnCuitChanged();
     #endregion
 		
@@ -1491,8 +1491,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cuit", DbType="Int")]
-		public System.Nullable<int> Cuit
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cuit", DbType="BigInt")]
+		public System.Nullable<long> Cuit
 		{
 			get
 			{
@@ -2222,8 +2222,6 @@ namespace DAL
 		
 		private EntitySet<OrdenCompra> _OrdenCompra;
 		
-		private EntitySet<Producto> _Producto;
-		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2239,7 +2237,6 @@ namespace DAL
 		public Modelo()
 		{
 			this._OrdenCompra = new EntitySet<OrdenCompra>(new Action<OrdenCompra>(this.attach_OrdenCompra), new Action<OrdenCompra>(this.detach_OrdenCompra));
-			this._Producto = new EntitySet<Producto>(new Action<Producto>(this.attach_Producto), new Action<Producto>(this.detach_Producto));
 			OnCreated();
 		}
 		
@@ -2316,19 +2313,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Modelo_Producto", Storage="_Producto", ThisKey="IdModelo", OtherKey="IdModelo")]
-		public EntitySet<Producto> Producto
-		{
-			get
-			{
-				return this._Producto;
-			}
-			set
-			{
-				this._Producto.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2356,18 +2340,6 @@ namespace DAL
 		}
 		
 		private void detach_OrdenCompra(OrdenCompra entity)
-		{
-			this.SendPropertyChanging();
-			entity.Modelo = null;
-		}
-		
-		private void attach_Producto(Producto entity)
-		{
-			this.SendPropertyChanging();
-			entity.Modelo = this;
-		}
-		
-		private void detach_Producto(Producto entity)
 		{
 			this.SendPropertyChanging();
 			entity.Modelo = null;
@@ -4199,7 +4171,7 @@ namespace DAL
 		
 		private System.Nullable<int> _IdMarca;
 		
-		private System.Nullable<int> _IdModelo;
+		private string _Modelo;
 		
 		private string _CodProveedor;
 		
@@ -4216,8 +4188,6 @@ namespace DAL
 		private EntitySet<ProductosxOC> _ProductosxOC;
 		
 		private EntityRef<Marca> _Marca;
-		
-		private EntityRef<Modelo> _Modelo;
 		
 		private EntityRef<Proveedor> _Proveedor;
 		
@@ -4239,8 +4209,8 @@ namespace DAL
     partial void OnTipoInstrumentoChanged();
     partial void OnIdMarcaChanging(System.Nullable<int> value);
     partial void OnIdMarcaChanged();
-    partial void OnIdModeloChanging(System.Nullable<int> value);
-    partial void OnIdModeloChanged();
+    partial void OnModeloChanging(string value);
+    partial void OnModeloChanged();
     partial void OnCodProveedorChanging(string value);
     partial void OnCodProveedorChanged();
     partial void OnIdProveedorChanging(System.Nullable<int> value);
@@ -4258,7 +4228,6 @@ namespace DAL
 			this._ProductosxNP = new EntitySet<ProductosxNP>(new Action<ProductosxNP>(this.attach_ProductosxNP), new Action<ProductosxNP>(this.detach_ProductosxNP));
 			this._ProductosxOC = new EntitySet<ProductosxOC>(new Action<ProductosxOC>(this.attach_ProductosxOC), new Action<ProductosxOC>(this.detach_ProductosxOC));
 			this._Marca = default(EntityRef<Marca>);
-			this._Modelo = default(EntityRef<Modelo>);
 			this._Proveedor = default(EntityRef<Proveedor>);
 			OnCreated();
 		}
@@ -4323,7 +4292,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(250)")]
 		public string Descripcion
 		{
 			get
@@ -4407,26 +4376,22 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdModelo", DbType="Int")]
-		public System.Nullable<int> IdModelo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Modelo", DbType="VarChar(50)")]
+		public string Modelo
 		{
 			get
 			{
-				return this._IdModelo;
+				return this._Modelo;
 			}
 			set
 			{
-				if ((this._IdModelo != value))
+				if ((this._Modelo != value))
 				{
-					if (this._Modelo.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdModeloChanging(value);
+					this.OnModeloChanging(value);
 					this.SendPropertyChanging();
-					this._IdModelo = value;
-					this.SendPropertyChanged("IdModelo");
-					this.OnIdModeloChanged();
+					this._Modelo = value;
+					this.SendPropertyChanged("Modelo");
+					this.OnModeloChanged();
 				}
 			}
 		}
@@ -4591,40 +4556,6 @@ namespace DAL
 						this._IdMarca = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Marca");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Modelo_Producto", Storage="_Modelo", ThisKey="IdModelo", OtherKey="IdModelo", IsForeignKey=true)]
-		public Modelo Modelo
-		{
-			get
-			{
-				return this._Modelo.Entity;
-			}
-			set
-			{
-				Modelo previousValue = this._Modelo.Entity;
-				if (((previousValue != value) 
-							|| (this._Modelo.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Modelo.Entity = null;
-						previousValue.Producto.Remove(this);
-					}
-					this._Modelo.Entity = value;
-					if ((value != null))
-					{
-						value.Producto.Add(this);
-						this._IdModelo = value.IdModelo;
-					}
-					else
-					{
-						this._IdModelo = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Modelo");
 				}
 			}
 		}
@@ -5114,7 +5045,7 @@ namespace DAL
 		
 		private string _Descripcion;
 		
-		private System.Nullable<int> _Cuit;
+		private System.Nullable<long> _Cuit;
 		
 		private EntitySet<OrdenCompra> _OrdenCompra;
 		
@@ -5142,7 +5073,7 @@ namespace DAL
     partial void OnTelefonoChanged();
     partial void OnDescripcionChanging(string value);
     partial void OnDescripcionChanged();
-    partial void OnCuitChanging(System.Nullable<int> value);
+    partial void OnCuitChanging(System.Nullable<long> value);
     partial void OnCuitChanged();
     #endregion
 		
@@ -5314,8 +5245,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cuit", DbType="Int")]
-		public System.Nullable<int> Cuit
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cuit", DbType="BigInt")]
+		public System.Nullable<long> Cuit
 		{
 			get
 			{
