@@ -13,5 +13,15 @@ namespace GUI
         {
 
         }
+
+        protected void sendregistrarse_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void sendcancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default");
+        }
     }
 }

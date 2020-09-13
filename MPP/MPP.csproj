@@ -42,21 +42,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\Mapper.cs" />
+    <Compile Include="Helpers\StoreProcedureHelper.cs" />
     <Compile Include="MapperCliente.cs" />
     <Compile Include="MapperGestionRoles.cs" />
-    <Compile Include="MapperMarca.cs" />
     <Compile Include="MapperPermiso.cs" />
     <Compile Include="MapperPrecio.cs" />
     <Compile Include="MapperProducto.cs" />
     <Compile Include="MapperProveedor.cs" />
-    <Compile Include="MapperRecibo.cs" />
     <Compile Include="MapperRemito.cs" />
     <Compile Include="MapperRol.cs" />
     <Compile Include="MapperUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BE\BE.csproj">
+      <Project>{5808F967-B98D-4183-A867-E92EA56C5CA7}</Project>
+      <Name>BE</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{3ff254ab-27be-42fa-abfb-0b548292829c}</Project>
       <Name>DAL</Name>

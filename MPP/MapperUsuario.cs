@@ -6,26 +6,36 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
+using BE;
 
 namespace MPP
 {
     public class MapperUsuario
     {
-       public static UsuarioTbl ValidarUsuario(string user, string pass)
+        public static Usuario ValidarUsuario(string user, string pass)
         {
             try
             {
-                BTSDataContext BaseDatos = new BTSDataContext();
-                var listausuarios = (from lista in BaseDatos.Usuario
-                                     select lista).ToList();
-
-                foreach (var item in listausuarios)
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("usuario", DbType.String, ParameterDirection.Input, user));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("password", DbType.String, ParameterDirection.Input, pass));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ValidarUsuario", ListaParametros);
+                if (respuesta != null)
                 {
-                    if (item.Usuario1.Equals(user.Trim()) && item.Usuario1.Equals(pass.Trim()))
-                    {
-                        return ConvertirUsuario(item);
-                    }
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Usuario
+                      {
+                          User = dataRow.Field<string>("Usuario"),
+                          Nombre = dataRow.Field<string>("Nombre"),
+                          Apellido = dataRow.Field<string>("Apellido"),
+                          Dni = dataRow.Field<int>("Dni")
+
+                      }).ToList();
+                    return empList.FirstOrDefault();
                 }
+
 
                 return null;
             }
@@ -36,16 +46,133 @@ namespace MPP
             }
         }
 
-        private static UsuarioTbl ConvertirUsuario(Usuario usuario)
+        /// <summary>
+        /// Retorna todos los usuarios de la Bd
+        /// </summary>
+        /// <returns></returns>
+        public static List<Usuario> ListarUsuarios()
         {
-            UsuarioTbl user = new UsuarioTbl();
-            user.Usuario1 = usuario.Usuario1;
-            user.Nombre = usuario.Nombre;
-            user.Apellido = usuario.Apellido;
-            user.IdIdioma = usuario.IdIdioma;
-            user.Dni = usuario.Dni;
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarUsuarios", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Usuario
+                      {
+                          User = dataRow.Field<string>("user"),
+                          Nombre = dataRow.Field<string>("nombre"),
+                          Apellido = dataRow.Field<string>("apellido"),
+                          Pass = dataRow.Field<string>("password"),
+                          Estado = dataRow.Field<string>("estado"),
+                          IdIdioma = dataRow.Field<int>("IdIdioma"),
+                          Dni = dataRow.Field<int>("Dni"),
+                          
+                      }).ToList();
 
-            return user;
+                    return empList;
+                }
+
+
+                return null;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
+
+
+
+        /// <summary>
+        /// Inserta un usuario en Bd
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns>Devuelve si se inserto o no</returns>
+        public static bool InsertarUsuario(string user, string nombre, string ape, string pass, string estado,
+                                            int Ididioma, int dni)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, user));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, nombre));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Apellido", DbType.String, ParameterDirection.Input, ape));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Password", DbType.String, ParameterDirection.Input, pass));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Estado", DbType.String, ParameterDirection.Input, estado));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdIdioma", DbType.Int16, ParameterDirection.Input, Ididioma));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Dni", DbType.Int32, ParameterDirection.Input, dni));
+                var respuesta = Conexion.GetInstance.EjecutarStore("InsertarUsuario", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+
+        /// <summary>
+        /// Actualiza un usuario en Bd
+        /// </summary>
+        /// <param name="usuario">Tipo Producto</param>
+        /// <returns>Devuelve si se actualiza o no</returns>
+        public static bool ActualizarUsuario(int IdUser, string user, string nombre, string ape, string pass, string estado,
+                                            int Ididioma, int dni)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdUsuario", DbType.String, ParameterDirection.Input, IdUser));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, user));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, nombre));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Apellido", DbType.String, ParameterDirection.Input, ape));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Password", DbType.String, ParameterDirection.Input, pass));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Estado", DbType.String, ParameterDirection.Input, estado));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdIdioma", DbType.Int16, ParameterDirection.Input, Ididioma));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Dni", DbType.Int32, ParameterDirection.Input, dni));
+                var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarUsuario", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return false;
+            }
+
+
+        }
+
+        /// <summary>
+        /// Elimina un usuario en Bd
+        /// </summary>
+        /// <param name="usuario">Tipo Producto</param>
+        /// <returns>Devuelve si se elimino o no</returns>
+        public static bool EliminarUsuario(int IdUser)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdUsuario", DbType.Int32, ParameterDirection.Input, IdUser));
+                var respuesta = Conexion.GetInstance.EjecutarStore("EliminarUsuario", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return false;
+            }
+
         }
     }
+
+
+
 }
+

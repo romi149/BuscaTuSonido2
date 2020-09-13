@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BE;
 using DAL;
+using MPP.Helpers;
 
 namespace MPP
 {
@@ -13,19 +17,33 @@ namespace MPP
         /// Retorna todos los permisos de la Bd
         /// </summary>
         /// <returns></returns>
-        public List<Permiso> ListarPermisos()
+        public static List<Permiso> ListarPermisos()
         {
             try
             {
-                BTSDataContext BaseDeDatos = new BTSDataContext();
-                List<Permiso> permisos = (from tblPermiso in BaseDeDatos.Permiso
-                                   select tblPermiso).ToList();
-                return permisos;
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarPermisos", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Permiso
+                      {
+                          NombrePermiso = dataRow.Field<string>("nombre"),
+                          Descripcion = dataRow.Field<string>("descrip"),
+                          TipoPermiso = dataRow.Field<string>("tipoPermiso")
+
+                      }).ToList();
+
+                    return empList;
+                }
+
+
+                return null;
             }
             catch (Exception e)
             {
 
-                return new List<Permiso>();
+                return null;
             }
         }
 
@@ -34,17 +52,23 @@ namespace MPP
         /// </summary>
         /// <param name="permiso">Tipo Permiso</param>
         /// <returns>Devuelve si se inserto o no</returns>
-        public bool InsertarPermiso(Permiso permiso)
+        public static bool InsertarPermiso(string nombre, string descrip, string tipoPermiso)
         {
-            BTSDataContext BaseDeDatos = new BTSDataContext();
-            int filasAFECTADAS = BaseDeDatos.InsertarPermiso(permiso.Nombre, permiso.Descripcion, permiso.TipoPermiso);
-
-            if (filasAFECTADAS > 0)
+            try
             {
-                return true;
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, nombre));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, descrip));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("TipoPermiso", DbType.String, ParameterDirection.Input, tipoPermiso));
+                var respuesta = Conexion.GetInstance.EjecutarStore("InsertarPermiso", ListaParametros);
+
+                return respuesta;
             }
 
-            return false;
+            catch (Exception e)
+            {
+                return false;
+            }
         }
 
 
@@ -53,18 +77,24 @@ namespace MPP
         /// </summary>
         /// <param name="permiso">Tipo permiso</param>
         /// <returns>Devuelve si se actualiza o no</returns>
-        public bool Actualizar(Permiso permiso)
+        public static bool ActualizarPermiso(int IdPermiso, string nombre, string descrip, string tipoPermiso)
         {
-            BTSDataContext BaseDeDatos = new BTSDataContext();
-            int filasAFECTADAS = BaseDeDatos.ActualizarPermiso(permiso.IdPermiso, permiso.Nombre, permiso.Descripcion, 
-                permiso.TipoPermiso);
-
-            if (filasAFECTADAS > 0)
+            try
             {
-                return true;
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdPermiso", DbType.Int32, ParameterDirection.Input, IdPermiso));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, nombre));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, descrip));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("TipoPermiso", DbType.String, ParameterDirection.Input, tipoPermiso));
+                var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarPermiso", ListaParametros);
+
+                return respuesta;
             }
 
-            return false;
+            catch (Exception e)
+            {
+                return false;
+            }
         }
 
         /// <summary>
@@ -72,17 +102,21 @@ namespace MPP
         /// </summary>
         /// <param name="permiso">Tipo Permiso</param>
         /// <returns>Devuelve si se elimino o no</returns>
-        public bool Eliminar(Permiso permiso)
+        public static bool EliminarPermiso(int IdPermiso)
         {
-            BTSDataContext BaseDeDatos = new BTSDataContext();
-            int filasAFECTADAS = BaseDeDatos.EliminarPermiso(permiso.IdPermiso);
-
-            if (filasAFECTADAS > 0)
+            try
             {
-                return true;
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdPermiso", DbType.Int32, ParameterDirection.Input, IdPermiso));
+                var respuesta = Conexion.GetInstance.EjecutarStore("EliminarPermiso", ListaParametros);
+
+                return respuesta;
             }
 
-            return false;
+            catch (Exception e)
+            {
+                return false;
+            }
         }
     }
 }

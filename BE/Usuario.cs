@@ -14,5 +14,6 @@ namespace BE
         public int Dni { get; set; }
         public string Pass { get; set; }
         public string Estado { get; set; }
+        public int IdIdioma { get; set; }
     }
 }

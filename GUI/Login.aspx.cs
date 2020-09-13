@@ -18,17 +18,20 @@ namespace GUI
 
         protected void sendlogin_Click(object sender, EventArgs e)
         {
-            GestorUsuario.ObtenerUsuario(username.Text.Trim(), password.Text.Trim());
-           
+            if(GestorUsuario.ObtenerUsuario(username.Text.Trim(), password.Text.Trim()) != null)
+            {
+                Response.Write("<script>alert('Bienvenido')</script>");
+            }else
+            {
+                Response.Write("alert('Credenciales incorrectas')");
+            }
+
         }
 
-        protected void btnVolver_Click(object sender, EventArgs e)
+        protected void sendvolver_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Default");
         }
-
-
-        
     }
     
 }

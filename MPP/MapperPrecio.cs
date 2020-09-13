@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BE;
 using DAL;
+using MPP.Helpers;
 
 namespace MPP
 {
@@ -13,19 +17,35 @@ namespace MPP
         /// Retorna todos los precios de la Bd
         /// </summary>
         /// <returns></returns>
-        public List<Precio> ListarPrecios()
+        public static List<Precio> ListarPrecios()
         {
             try
             {
-                BTSDataContext BaseDeDatos = new BTSDataContext();
-                List<Precio> precios = (from tblPrecios in BaseDeDatos.Precio
-                                          select tblPrecios).ToList();
-                return precios;
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarPrecios", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Precio
+                      {
+                          Fecha = dataRow.Field<DateTime>("fecha"),
+                          PrecioCompra = dataRow.Field<float>("precioCompra"),
+                          PrecioAnterior = dataRow.Field<float>("precioAnterior"),
+                          PrecioPublicado = dataRow.Field<float>("precioPublicado"),
+                          Descripcion = dataRow.Field<string>("Descip")
+                          
+                      }).ToList();
+
+                    return empList;
+                }
+
+
+                return null;
             }
             catch (Exception e)
             {
 
-                return new List<Precio>();
+                return null;
             }
         }
 
@@ -34,19 +54,26 @@ namespace MPP
         /// </summary>
         /// <param name="precio">Tipo Precio</param>
         /// <returns>Devuelve si se inserto o no</returns>
-        public bool InsertarPrecio(Precio precio)
+        public static bool InsertarPrecio(DateTime fecha, float precioCompra, float precioAnterior, 
+                                        float precioPublicado, string descrip)
         {
-            BTSDataContext BaseDeDatos = new BTSDataContext();
-            int filasAFECTADAS = BaseDeDatos.InsertarPrecio(precio.Fecha, precio.PrecioCompra, precio.PrecioAnterior,
-                precio.PorcentajeVenta,
-                precio.PrecioPublicado,
-                precio.Descripcion);
-            if (filasAFECTADAS > 0)
+            try
             {
-                return true;
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Fecha", DbType.String, ParameterDirection.Input, fecha));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("PrecioCompra", DbType.Double, ParameterDirection.Input, precioCompra));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("PrecioAnterior", DbType.Double, ParameterDirection.Input, precioAnterior));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("PrecioPublicado", DbType.Double, ParameterDirection.Input, precioPublicado));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, descrip));
+                var respuesta = Conexion.GetInstance.EjecutarStore("InsertarPrecio", ListaParametros);
+
+                return respuesta;
             }
 
-            return false;
+            catch (Exception e)
+            {
+                return false;
+            }
         }
 
 
@@ -55,21 +82,28 @@ namespace MPP
         /// </summary>
         /// <param name="precio">Tipo Precio</param>
         /// <returns>Devuelve si se actualiza o no</returns>
-        public bool Actualizar(Precio precio)
+        public static bool ActualizarPrecio(int IdPrecio, DateTime fecha, float precioCompra, float precioAnterior,
+                                        float precioPublicado, string descrip)
         {
-            BTSDataContext BaseDeDatos = new BTSDataContext();
-            int filasAFECTADAS = BaseDeDatos.ActualizarPrecio(precio.IdPrecio, precio.Fecha,
-                precio.PrecioCompra,
-                precio.PrecioAnterior,
-                precio.PorcentajeVenta,
-                precio.PrecioPublicado,
-                precio.Descripcion);
-            if (filasAFECTADAS > 0)
+            try
             {
-                return true;
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdPrecio", DbType.String, ParameterDirection.Input, IdPrecio));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Fecha", DbType.String, ParameterDirection.Input, fecha));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("PrecioCompra", DbType.Double, ParameterDirection.Input, precioCompra));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("PrecioAnterior", DbType.Double, ParameterDirection.Input, precioAnterior));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("PrecioPublicado", DbType.Double, ParameterDirection.Input, precioPublicado));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, descrip));
+                var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarPrecio", ListaParametros);
+
+                return respuesta;
             }
 
-            return false;
+            catch (Exception e)
+            {
+                return false;
+            }
+
         }
 
         /// <summary>
@@ -77,17 +111,21 @@ namespace MPP
         /// </summary>
         /// <param name="precio">Tipo Precio</param>
         /// <returns>Devuelve si se elimino o no</returns>
-        public bool Borrar(Precio precio)
+        public static bool EliminarPrecio(int IdPrecio)
         {
-            BTSDataContext BaseDeDatos = new BTSDataContext();
-            int filasAFECTADAS = BaseDeDatos.EliminarPrecio(precio.IdPrecio);
-
-            if (filasAFECTADAS > 0)
+            try
             {
-                return true;
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdPrecio", DbType.Int32, ParameterDirection.Input, IdPrecio));
+                var respuesta = Conexion.GetInstance.EjecutarStore("EliminarPrecio", ListaParametros);
+
+                return respuesta;
             }
 
-            return false;
+            catch (Exception e)
+            {
+                return false;
+            }
         }
     }
 }

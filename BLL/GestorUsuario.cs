@@ -1,4 +1,5 @@
-﻿using MPP;
+﻿using BE;
+using MPP;
 using MPP.Helpers;
 using System;
 using System.Collections.Generic;
@@ -10,18 +11,28 @@ namespace BLL
 {
     public class GestorUsuario
     {
-        public static UsuarioTbl ObtenerUsuario(string user, string pass)
+        public static Usuario ObtenerUsuario(string user, string pass)
         {
-           var respuesta = MapperUsuario.ValidarUsuario(user, pass);
-
-            if(respuesta != null)
-            {
-
-            }
-
+            var respuesta = MapperUsuario.ValidarUsuario(user, pass);
             return respuesta;
         }
 
-       
+        public static bool Agregar(string user, string nombre, string ape, string pass, string estado,
+                                   int Ididioma, int dni)
+        {
+            return MapperUsuario.InsertarUsuario(user, nombre, ape, pass, estado, Ididioma, dni);
+        }
+
+        public static bool ModificarUsuario(int IdUser, string user, string nombre, string ape, string pass, string estado,
+                                            int Ididioma, int dni)
+        {
+            return MapperUsuario.ActualizarUsuario(IdUser, user, nombre, ape, pass, estado, Ididioma, dni);
+        }
+
+        public static bool Eliminar(int IdUser)
+        {
+            return MapperUsuario.EliminarUsuario(IdUser);
+        }
+
     }
 }

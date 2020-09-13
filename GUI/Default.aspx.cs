@@ -19,7 +19,8 @@ namespace GUI
             foreach (var item in GestorProducto.ObtenerProductos())
             {
 
-                DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Precio.ToString(), item.Descripcion, "http://placehold.it/700x400");
+                //DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Precio.ToString(), item.Categoria, "http://placehold.it/700x400");
+                DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Categoria, "http://placehold.it/700x400");
             }
             DivContenedor.InnerHtml += "</div>";
             this.contenedor.Controls.Add(DivContenedor);
@@ -27,15 +28,14 @@ namespace GUI
 
 
         public string CrearCardProducto(string NombreProducto,
-                                        string PrecioProducto,
-                                        string Descripcion,
+                                        string Categoria,
                                         string urlImagen)
         {
             return
                 $" <div class='card h-100'> <a href='#'><img class='card-img-top' src='{urlImagen}' alt='' /></a> <div class='card-body'>" +
                 $" <h4 class='card-title'>" +
-                $" <a href='#'> {NombreProducto}</a> </h4> <h5>${PrecioProducto}</h5> " +
-                $"<p class='card-text'>{Descripcion}</p> </div> <div class='card-footer'> " +
+                $" <a href='#'> {NombreProducto}</a> </h4> " +
+                $"<p class='card-text'>{Categoria}</p> </div> <div class='card-footer'> " +
                 $"</div> </div> </div>  ";
 
             //return @"<div class='panel panel-default'> <div class='panel-heading'>Panel Heading</div> <div class='panel-body'>Panel Content</div> <div class='panel-footer'>Panel Footer</div> </div>";

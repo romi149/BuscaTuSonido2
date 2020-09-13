@@ -1,31 +1,63 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BE;
 using DAL;
+using Microsoft.SqlServer.Server;
+using MPP.Helpers;
 
 namespace MPP
 {
     public class MapperRemito
     {
         /// <summary>
+        /// Devuelve todas las NP en estado "Facturado" para generarles el remito
+        /// </summary>
+        /// <returns></returns>
+        //public static List<Remito> ListarNpFacturadas()
+        //{
+            
+        //}
+
+        /// <summary>
         /// Retorna todos los remitos de la Bd
         /// </summary>
         /// <returns></returns>
-        public List<Remito> ListarRemitos()
+        public static List<Remito> ListarRemitos()
         {
             try
             {
-                BTSDataContext BaseDeDatos = new BTSDataContext();
-                List<Remito> remitos = (from tblRemito in BaseDeDatos.Remito
-                                          select tblRemito).ToList();
-                return remitos;
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarRemitos", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Remito
+                      {
+                          NroRemito = dataRow.Field<int>("nroRemito"),
+                          Fecha = dataRow.Field<DateTime>("fecha"),
+                          NroNP = dataRow.Field<int>("nroNP"),
+                          NroFactura = dataRow.Field<int>("nroFactura"),
+                          Descripcion = dataRow.Field<string>("descrip"),
+                          Notas = dataRow.Field<string>("notas"),
+                          Estado = dataRow.Field<string>("estado")
+
+                      }).ToList();
+
+                    return empList;
+                }
+
+
+                return null;
             }
             catch (Exception e)
             {
 
-                return new List<Remito>();
+                return null;
             }
         }
 
@@ -34,37 +66,50 @@ namespace MPP
         /// </summary>
         /// <param name="remito">Tipo Remito</param>
         /// <returns>Devuelve si se inserto o no</returns>
-        public bool InsertarRemito(Remito remito)
+        public static bool InsertarRemito(DateTime fecha, int nroNp, int nroFactura, string descrip, string notas,
+                                          string estado)
         {
-            BTSDataContext BaseDeDatos = new BTSDataContext();
-            int filasAFECTADAS = BaseDeDatos.InsertarRemito(remito.Fecha, remito.NroPedido, remito.NroFactura,
-                remito.Descripcion, remito.Notas, remito.Estado);
-
-            if (filasAFECTADAS > 0)
+            try
             {
-                return true;
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Fecha", DbType.DateTime, ParameterDirection.Input, fecha));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroPedido", DbType.Int16, ParameterDirection.Input, nroNp));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroFactura", DbType.Int32, ParameterDirection.Input, nroFactura));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.Int32, ParameterDirection.Input, descrip));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Notas", DbType.Int32, ParameterDirection.Input, notas));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Estado", DbType.Int32, ParameterDirection.Input, estado));
+                var respuesta = Conexion.GetInstance.EjecutarStore("InsertarRemito", ListaParametros);
+
+                return respuesta;
             }
 
-            return false;
+            catch (Exception e)
+            {
+                return false;
+            }
         }
 
 
         /// <summary>
-        /// Anula un remito en Bd
+        /// Anula un remito en Bd (coloca el estado "Anulado")
         /// </summary>
         /// <param name="remito">Tipo remito</param>
         /// <returns>Devuelve si se actualiza o no</returns>
-        public bool AnularRemito(Remito remito)
+        public static bool AnularRemito(int nroRemito)
         {
-            BTSDataContext BaseDeDatos = new BTSDataContext();
-            int filasAFECTADAS = BaseDeDatos.AnularRemito(remito.NroRemito, remito.Estado);
-
-            if (filasAFECTADAS > 0)
+            try
             {
-                return true;
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroRemito", DbType.Int32, ParameterDirection.Input, nroRemito));
+                var respuesta = Conexion.GetInstance.EjecutarStore("AnularRemito", ListaParametros);
+
+                return respuesta;
             }
 
-            return false;
+            catch (Exception e)
+            {
+                return false;
+            }
         }
 
         

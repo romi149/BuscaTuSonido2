@@ -43,7 +43,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GestorCliente.cs" />
+    <Compile Include="GestorGestionRoles.cs" />
+    <Compile Include="GestorPermiso.cs" />
+    <Compile Include="GestorPrecio.cs" />
     <Compile Include="GestorProducto.cs" />
+    <Compile Include="GestorProveedor.cs" />
+    <Compile Include="GestorRemito.cs" />
+    <Compile Include="GestorRol.cs" />
     <Compile Include="GestorUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

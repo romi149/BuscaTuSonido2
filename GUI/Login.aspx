@@ -23,7 +23,7 @@
                             <br />
                             <br />
                             <asp:Button runat="server" content="login" id="sendlogin" cssclass="btn btn-primary btn-lg" Text="Ingresar" OnClick="sendlogin_Click"/>
-                            <asp:Button runat="server" content="login" id="btnVolver" cssclass="btn btn-warning btn-lg" Text="Volver" OnClick="sendlogin_Click"/>
+                            <asp:Button runat="server" content="login" id="btnVolver" cssclass="btn btn-warning btn-lg" Text="Volver" OnClick="sendvolver_Click"/>
                         </div>
                       </div>
                    </div>

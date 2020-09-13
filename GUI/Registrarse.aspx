@@ -47,12 +47,12 @@
                                  <label>Domicilio de Facturación</label>
                                  <asp:TextBox runat="server" type="text" cssclass="form-control" id="domFactura"/>
                             </div>
-                            <asp:CheckBox runat="server" content="login" id="tyc" CssClass="" />
+                            <asp:CheckBox runat="server" content="registrarse" id="tyc" CssClass="" />
                             <a href="TermyCond.aspx">Términos y Condiciones</a>
                             <br />
                             <br />
-                            <%--<asp:Button runat="server" content="login" id="registrarse" cssclass="btn btn-primary btn-lg" Text="Registrarse" OnClick="sendlogin_Click"/>
-                            <asp:Button runat="server" content="login" id="cancelar" cssclass="btn btn-warning btn-lg" Text="Cancelar" OnClick="sendlogin_Click"/>--%>
+                            <asp:Button runat="server" content="registrarse" id="registrarse" cssclass="btn btn-primary btn-lg" Text="Registrarse" OnClick="sendregistrarse_Click"/>
+                            <asp:Button runat="server" content="registrarse" id="cancelar" cssclass="btn btn-warning btn-lg" Text="Cancelar" OnClick="sendcancelar_Click"/>
                         </div>
                     </div>
               </div>

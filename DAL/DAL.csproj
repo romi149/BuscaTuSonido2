@@ -43,11 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BTS.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BTS.dbml</DependentUpon>
-    </Compile>
     <Compile Include="Conexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -57,14 +52,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="BTS.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>BTS.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BTS.dbml.layout">
-      <DependentUpon>BTS.dbml</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
