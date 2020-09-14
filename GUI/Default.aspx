@@ -11,9 +11,10 @@
 
         <h1 class="my-4">BuscaTuSonido</h1>
         <div class="list-group">
-          <a href="#" class="list-group-item">Category 1</a>
-          <a href="#" class="list-group-item">Category 2</a>
-          <a href="#" class="list-group-item">Category 3</a>
+          <a href="#" class="list-group-item">Instrumentos de Cuerdas</a>
+          <a href="#" class="list-group-item">Instrumentos de Viento</a>
+          <a href="#" class="list-group-item">Instrumentos de Percusión</a>
+          <a href="#" class="list-group-item">Instrumentos Electrónicos</a>
         </div>
 
       </div>
@@ -72,5 +73,9 @@
             width:120px;
         }
     </style>
+    <hr />
+    <footer>
+        <a href="TermyCond">Términos y Condiciones</a>
+    </footer>
 
 </asp:Content>

@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\StoreProcedureHelper.cs" />
+    <Compile Include="MapperBitacora.cs" />
     <Compile Include="MapperCliente.cs" />
     <Compile Include="MapperGestionRoles.cs" />
     <Compile Include="MapperPermiso.cs" />

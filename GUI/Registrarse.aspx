@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Registrarse.aspx.cs" Inherits="GUI.Registrarse" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-<%--    <div>
+    <%--    <div>
        <h2>Iniciar Sesión</h2>
     </div>--%>
 <div class="container">
@@ -48,7 +48,7 @@
                                  <asp:TextBox runat="server" type="text" cssclass="form-control" id="domFactura"/>
                             </div>
                             <asp:CheckBox runat="server" content="registrarse" id="tyc" CssClass="" />
-                            <a href="TermyCond.aspx">Términos y Condiciones</a>
+                            <a href="TermyCond.aspx">Acepto los Términos y Condiciones</a>
                             <br />
                             <br />
                             <asp:Button runat="server" content="registrarse" id="registrarse" cssclass="btn btn-primary btn-lg" Text="Registrarse" OnClick="sendregistrarse_Click"/>

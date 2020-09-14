@@ -19,7 +19,7 @@
 
     <script>
         function abrir(url) {
-        open(url,'','top=300,left=300,width=300,height=300') ;
+        open(url,'','top=100,left=300,width=450,height=500') ;
         }
     </script>
 
@@ -60,7 +60,7 @@
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Inicio</a></li>
                         <li><a runat="server" href="~/About">Acerca de</a></li>
-                        <li><a runat="server" href="~/TermyCond">Noticias y Eventos</a></li>
+                        <li><a runat="server" href="~/News">Noticias y Eventos</a></li>
                         <li><a runat="server" href="~/FAQ">Preguntas Frecuentes</a></li>
                         <li><a runat="server" href="javascript:abrir('Login.aspx')">Ingresar</a></li>
                     </ul>
@@ -71,9 +71,9 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
-            <footer>
+ <%--           <footer>
                 <a href="TermyCond">Términos y Condiciones</a>
-            </footer>
+            </footer>--%>
         </div>
 
     </form>

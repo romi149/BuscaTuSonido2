@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GestorBitacorra.cs" />
     <Compile Include="GestorCliente.cs" />
     <Compile Include="GestorGestionRoles.cs" />
     <Compile Include="GestorPermiso.cs" />

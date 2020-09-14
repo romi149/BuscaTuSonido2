@@ -10,6 +10,6 @@ namespace BE
         public string TipoEvento { get; set; }
         public string Usuario { get; set; }
         public string EntidadInvolucrada { get; set; }
-        public string Criticidad { get; set; }
+        public int  IdBitacora { get; set; }
     }
 }
