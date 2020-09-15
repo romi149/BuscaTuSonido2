@@ -15,12 +15,22 @@ namespace GUI
         {
             HtmlGenericControl DivContenedor = new HtmlGenericControl("div");
 
-            DivContenedor.InnerHtml = $"<div class='col-lg-4 col-md-6 mb-4 d-flex'>";
-            foreach (var item in GestorProducto.ObtenerProductos())
+            DivContenedor.InnerHtml = $"<div>";
+            int cont = 0;
+            foreach (var item in GestorProducto.ObtenerCatalogo())
             {
-
-                //DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Precio.ToString(), item.Categoria, "http://placehold.it/700x400");
-                DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Categoria, "http://placehold.it/700x400");
+                if (cont == 0)
+                    DivContenedor.InnerHtml += "<div clas='row'>";
+                if (cont < 3)
+                {
+                    DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Precio.ToString(), item.Categoria, "http://placehold.it/700x400");
+                }
+                else
+                {
+                    DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Precio.ToString(), item.Categoria, "http://placehold.it/700x400") + "</div>";
+                    cont = 0;
+                }
+                cont++;
             }
             DivContenedor.InnerHtml += "</div>";
             this.contenedor.Controls.Add(DivContenedor);
@@ -28,17 +38,13 @@ namespace GUI
 
 
         public string CrearCardProducto(string NombreProducto,
-                                        string Categoria,
-                                        string urlImagen)
+                                          string PrecioProducto,
+                                          string Descripcion,
+                                          string urlImagen)
         {
             return
-                $" <div class='card h-100'> <a href='#'><img class='card-img-top' src='{urlImagen}' alt='' /></a> <div class='card-body'>" +
-                $" <h4 class='card-title'>" +
-                $" <a href='#'> {NombreProducto}</a> </h4> " +
-                $"<p class='card-text'>{Categoria}</p> </div> <div class='card-footer'> " +
-                $"</div> </div> </div>  ";
+            $"<div class='col-md-4 col-sm-4'><div class='card'><a href='#'><img class='card-img-top' src='http://placehold.it/700x400' alt='' /></a><div class='card-body'><h4 class='card-title'><a href='#'>NombreProducto</a></h4><h5>0</h5><p class='card-text'>Descripcion</p></div><div class='card-footer'></div></div></div>";
 
-            //return @"<div class='panel panel-default'> <div class='panel-heading'>Panel Heading</div> <div class='panel-body'>Panel Content</div> <div class='panel-footer'>Panel Footer</div> </div>";
         }
 
     }

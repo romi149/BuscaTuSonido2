@@ -55,7 +55,7 @@ namespace MPP
         /// <param name="cliente"></param>
         /// <returns>Devuelve si se inserto o no</returns>
         public static bool InsertarCliente(string nombre, string apellido, string email, string tel, 
-                                            string domEntrega,int domFact, string pass, int dni)
+                                            string domEntrega,string domFact, string pass, int dni)
         {
             try
             {
@@ -64,8 +64,9 @@ namespace MPP
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Apellido", DbType.String, ParameterDirection.Input, apellido));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Email", DbType.String, ParameterDirection.Input, email));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Telefono", DbType.String, ParameterDirection.Input, tel));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("DomicilioEntrega", DbType.Int16, ParameterDirection.Input, domEntrega));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("DomicilioEntrega", DbType.String, ParameterDirection.Input, domEntrega));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("DomicilioFact", DbType.String, ParameterDirection.Input, domFact));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Pass", DbType.String, ParameterDirection.Input, pass));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Dni", DbType.Int32, ParameterDirection.Input, dni));
                 var respuesta = Conexion.GetInstance.EjecutarStore("InsertarCliente", ListaParametros);
 

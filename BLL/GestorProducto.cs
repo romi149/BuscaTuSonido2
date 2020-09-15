@@ -11,7 +11,7 @@ namespace BLL
 {
     public class GestorProducto
     {
-        public static List<Producto> ObtenerProductos()
+        public static List<Producto> ObtenerCatalogo()
         {
             return MapperProducto.ListarProductosTOP();
 

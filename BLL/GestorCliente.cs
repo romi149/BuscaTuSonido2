@@ -16,7 +16,7 @@ namespace BLL
         }
 
         public static bool Agregar(string nombre, string apellido, string email, string tel,
-                                   string domEntrega, int domFact, string pass, int dni)
+                                   string domEntrega, string domFact, string pass, int dni)
         {
             return MapperCliente.InsertarCliente(nombre,apellido,email,tel,domEntrega,domFact,pass,dni);
         }
