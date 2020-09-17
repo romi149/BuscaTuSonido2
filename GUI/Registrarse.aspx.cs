@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,12 @@ namespace GUI
 
         protected void sendregistrarse_Click(object sender, EventArgs e)
         {
-            //GestorCliente gestor = new GestorCliente();
+            if(!tyc.Checked)
+            {
+                Response.Write("<script>alert('Debe aceptar los Términos y Condiciones')</script>");
+                return;
+            }
+
             bool Insertado = GestorCliente.Agregar(
                                        nombre.Text.Trim(),
                                        apellido.Text.Trim(),
@@ -26,19 +32,38 @@ namespace GUI
                                        telefono.Text.Trim(),
                                        domEntrega.Text.Trim(),
                                        domFactura.Text.Trim(),
-                                       password.Text.Trim(),
+                                       EnvioEmails.md5(password.Text.Trim()),
+                                       int.Parse(dni.Text.Trim()),
+                                       username.Text.Trim());
+            
+            bool UserNuevo = GestorUsuario.Agregar(
+                                       username.Text.Trim(),
+                                       nombre.Text.Trim(),
+                                       apellido.Text.Trim(),
+                                       EnvioEmails.md5(password.Text.Trim()),
+                                       "Activo",
+                                       1,
                                        int.Parse(dni.Text.Trim()));
+
+            bool Cliente = GestorGestionRoles.AsignarRolCliente(int.Parse(dni.Text.Trim()),8);
+
             if (Insertado)
             {
-               EnvioEmails.EnviarMail("romi.caste@gmail.com",
-                                    "Mail de Confirmacion",
-                                    $"<h1>Codigo de Seguridad</h1>" +
-                                    $"<p>{EnvioEmails.md5(this.password.Text.Trim())}</p>");
+                EnvioEmails.EnviarMail(email.Text.Trim(),
+                                     "Mail de Confirmacion",
+                                     //$"<h1>Codigo de Seguridad</h1>" +
+                                     //$"<p>{EnvioEmails.md5(this.password.Text.Trim())}</p>");
+                                     $"Su registro se ha realizado correctamente.");
+
+                Response.Write("<script>alert('Se ha registrado correctamente')</script>");
+                
             }
+
+            //Response.Redirect("~/Login");
         }
         protected void sendcancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Default");
+            Response.Write("<script>window.close()</script>");
         }
     }
 }

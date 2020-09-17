@@ -15,10 +15,15 @@ namespace BLL
             return MapperCliente.ValidarEmail(email);
         }
 
-        public static bool Agregar(string nombre, string apellido, string email, string tel,
-                                   string domEntrega, string domFact, string pass, int dni)
+        public static Cliente ValidadRolCliente(string user)
         {
-            return MapperCliente.InsertarCliente(nombre,apellido,email,tel,domEntrega,domFact,pass,dni);
+            return MapperCliente.ValidarCliente(user);
+        }
+
+        public static bool Agregar(string nombre, string apellido, string email, string tel,
+                                   string domEntrega, string domFact, string pass, int dni, string user)
+        {
+            return MapperCliente.InsertarCliente(nombre,apellido,email,tel,domEntrega,domFact,pass,dni,user);
         }
 
     }

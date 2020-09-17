@@ -153,6 +153,29 @@ namespace MPP
         }
 
         /// <summary>
+        /// Crea un rol cliente en la tabla UsuarioRol
+        /// </summary>
+        /// <param name="rol"></param>
+        /// <returns></returns>
+        public static bool AsignarRolCliente(int dni, int IdRol)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Dni", DbType.Int32, ParameterDirection.Input, dni));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdRol", DbType.Int32, ParameterDirection.Input, IdRol));
+                var respuesta = Conexion.GetInstance.EjecutarStore("AsignarRolCliente", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
         /// Elimina un Rol asociado al usuario, se borra un registro de la tabla UsuarioRol
         /// </summary>
         /// <param name="rol"></param>

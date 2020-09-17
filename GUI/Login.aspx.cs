@@ -18,9 +18,20 @@ namespace GUI
 
         protected void sendlogin_Click(object sender, EventArgs e)
         {
-            if(GestorUsuario.ObtenerUsuario(username.Text.Trim(), password.Text.Trim()) != null)
+            var pass = EnvioEmails.md5(password.Text.Trim());
+            
+            if (GestorUsuario.ObtenerUsuario(username.Text.Trim(), pass) != null)
             {
-                Response.Write("<script>alert('Bienvenido')</script>");
+                var esCliente = GestorCliente.ValidadRolCliente(username.Text.Trim());
+                
+                if (esCliente != null)
+                {
+                    Response.Write("<script>alert('Bienvenido')</script>");
+                }else
+                {
+                    Response.Redirect("/InicioBackend");
+                }
+                
             }else
             {
                 Response.Write("alert('Credenciales incorrectas')");
@@ -30,7 +41,7 @@ namespace GUI
 
         protected void sendvolver_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Default");
+            Response.Write("<script>window.close()</script>");
         }
     }
     

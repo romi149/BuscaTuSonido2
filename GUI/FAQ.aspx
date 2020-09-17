@@ -171,6 +171,14 @@
 			}
 		});
     </script>
+
+	<br />
+	<br />
+
+	<footer>
+        <hr />
+       <a href="TermyCond">Términos y Condiciones</a>
+    </footer>
 </body>
 </html>
 </asp:Content>

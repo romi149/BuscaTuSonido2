@@ -33,8 +33,42 @@ namespace MPP
                       {
                           Nombre = dataRow.Field<string>("Nombre"),
                           Apellido = dataRow.Field<string>("Apellido"),
+                          Usuario = dataRow.Field<string>("Usuario"),
                           Email = dataRow.Field<string>("email")
 
+                      }).ToList();
+                    return empList.FirstOrDefault();
+                }
+
+
+                return null;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Valida si el usuario es un cliente
+        /// </summary>
+        /// <param name="Cliente">Usuario</param>
+        /// <returns>Devuelve si se inserto o no</returns>
+        public static Cliente ValidarCliente(string user)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, user));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ValidarCliente", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Cliente
+                      {
+                          Usuario = dataRow.Field<string>("Usuario")
+                          
                       }).ToList();
                     return empList.FirstOrDefault();
                 }
@@ -55,7 +89,7 @@ namespace MPP
         /// <param name="cliente"></param>
         /// <returns>Devuelve si se inserto o no</returns>
         public static bool InsertarCliente(string nombre, string apellido, string email, string tel, 
-                                            string domEntrega,string domFact, string pass, int dni)
+                                            string domEntrega,string domFact, string pass, int dni, string usuario)
         {
             try
             {
@@ -68,6 +102,7 @@ namespace MPP
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("DomicilioFact", DbType.String, ParameterDirection.Input, domFact));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Pass", DbType.String, ParameterDirection.Input, pass));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Dni", DbType.Int32, ParameterDirection.Input, dni));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, usuario));
                 var respuesta = Conexion.GetInstance.EjecutarStore("InsertarCliente", ListaParametros);
 
                 return respuesta;

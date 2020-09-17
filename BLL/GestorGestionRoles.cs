@@ -44,6 +44,10 @@ namespace BLL
         {
             return MapperGestionRoles.AsignarRol(IdRol, IdUser);
         }
+        static public bool AsignarRolCliente(int dni, int IdRol)
+        {
+            return MapperGestionRoles.AsignarRolCliente(dni, IdRol);
+        }
 
         static public bool EliminarRolAsignado(int IdRol)
         {

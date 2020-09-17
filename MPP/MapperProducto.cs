@@ -29,8 +29,9 @@ namespace MPP
                       .Select(dataRow => new Producto
                       {
                           Nombre = dataRow.Field<string>("Nombre"),
-                          Categoria = dataRow.Field<string>("Categoria")
-                          //Precio = dataRow.Field<float>("Precio")
+                          Categoria = dataRow.Field<string>("Categoria"),
+                          Modelo = dataRow.Field<string>("Modelo"),
+                          Precio = dataRow.Field<string>("Precio")
 
                       }).ToList();
 
@@ -73,7 +74,7 @@ namespace MPP
                           IdProveedor = dataRow.Field<int>("IdProveedor"),
                           Color = dataRow.Field<string>("color"),
                           Estado = dataRow.Field<string>("estado"),
-                          Precio = dataRow.Field<float>("precio")
+                          Precio = dataRow.Field<string>("precio")
                       }).ToList();
 
                     return empList;
@@ -98,7 +99,7 @@ namespace MPP
         /// <returns>Devuelve si se inserto o no</returns>
         public static bool InsertarProducto(string upc, string nombre, string descrip, string categ, string TipoInst,
                                      int IdMarca, string modelo, string codProveedor, int IdProveedor, string color,
-                                     string estado, float precio)
+                                     string estado, string precio)
         {
             try
             {
@@ -114,7 +115,7 @@ namespace MPP
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("IdProveedor", DbType.Int32, ParameterDirection.Input, IdProveedor));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Color", DbType.String, ParameterDirection.Input, color));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Estado", DbType.String, ParameterDirection.Input, estado));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Precio", DbType.Double, ParameterDirection.Input, precio));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Precio", DbType.String, ParameterDirection.Input, precio));
                 var respuesta = Conexion.GetInstance.EjecutarStore("InsertarProducto", ListaParametros);
                 
                     return respuesta;
@@ -134,7 +135,7 @@ namespace MPP
         /// <returns>Devuelve si se actualiza o no</returns>
         public static bool ActualizarProducto(int IdProd, string upc, string nombre, string descrip, string categ, string TipoInst,
                                      int IdMarca, string modelo, string codProveedor, int IdProveedor, string color,
-                                     string estado, float precio)
+                                     string estado, string precio)
         {
             try
             {
@@ -151,7 +152,7 @@ namespace MPP
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("IdProveedor", DbType.Int32, ParameterDirection.Input, IdProveedor));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Color", DbType.String, ParameterDirection.Input, color));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Estado", DbType.String, ParameterDirection.Input, estado));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Precio", DbType.Double, ParameterDirection.Input, precio));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Precio", DbType.String, ParameterDirection.Input, precio));
                 var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarProducto", ListaParametros);
 
                 return respuesta;
@@ -186,6 +187,40 @@ namespace MPP
                 return false;
             }
 
+        }
+
+        public static Producto ListarDetalleProducto(string nombre, string modelo)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, nombre));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Modelo", DbType.String, ParameterDirection.Input, modelo));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarDetalleProducto", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Producto
+                      {
+                          Nombre = dataRow.Field<string>("Nombre"),
+                          Modelo = dataRow.Field<string>("Modelo"),
+                          //Categoria = dataRow.Field<string>("Categoria"),
+                          Descripcion = dataRow.Field<string>("Descripcion"),
+                          Precio = dataRow.Field<string>("Precio")
+
+                      }).ToList().FirstOrDefault();
+
+                    return empList;
+                }
+
+
+                return null;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
         }
     }
 }

@@ -15,5 +15,6 @@ namespace BE
         public string Email { get; set; }
         public string Pass { get; set; }
         public string Telefono { get; set; }
+        public string Usuario { get; set; }
     }
 }

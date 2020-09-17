@@ -3,6 +3,7 @@ using MPP;
 using MPP.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,5 +35,9 @@ namespace BLL
             return MapperUsuario.EliminarUsuario(IdUser);
         }
 
+        public static DataSet Listar()
+        {
+            return MapperUsuario.ListarUsuarios();
+        }
     }
 }

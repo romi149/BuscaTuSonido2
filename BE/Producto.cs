@@ -17,6 +17,6 @@ namespace BE
         public int IdProveedor { get; set; }
         public string Color { get; set; }
         public string Estado { get; set; }
-        public float Precio { get; set; }
+        public string Precio { get; set; }
     }
 }

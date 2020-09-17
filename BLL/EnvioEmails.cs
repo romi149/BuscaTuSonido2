@@ -13,7 +13,7 @@ namespace BLL
     {
         public static void EnviarMail(string destinatario, string asunto, string mensaje)
         {
-            var fromAddress = new MailAddress("buscatusonido.org@gmail.com", "From Name");
+            var fromAddress = new MailAddress("buscatusonido.org@gmail.com", "Busca Tu Sonido");
             var toAddress = new MailAddress(destinatario, "To Name");
             const string fromPassword = "Adrian1234";
             string subject = asunto;

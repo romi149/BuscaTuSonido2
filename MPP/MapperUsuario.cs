@@ -50,32 +50,14 @@ namespace MPP
         /// Retorna todos los usuarios de la Bd
         /// </summary>
         /// <returns></returns>
-        public static List<Usuario> ListarUsuarios()
+        public static DataSet ListarUsuarios()
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
                 var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarUsuarios", ListaParametros);
-                if (respuesta != null)
-                {
-                    var empList = respuesta.Tables[0].AsEnumerable()
-                      .Select(dataRow => new Usuario
-                      {
-                          User = dataRow.Field<string>("user"),
-                          Nombre = dataRow.Field<string>("nombre"),
-                          Apellido = dataRow.Field<string>("apellido"),
-                          Pass = dataRow.Field<string>("password"),
-                          Estado = dataRow.Field<string>("estado"),
-                          IdIdioma = dataRow.Field<int>("IdIdioma"),
-                          Dni = dataRow.Field<int>("Dni"),
-                          
-                      }).ToList();
-
-                    return empList;
-                }
-
-
-                return null;
+ 
+                return respuesta;
             }
             catch (Exception e)
             {
