@@ -52,36 +52,14 @@ namespace MPP
         /// Retorna todos los productos de la Bd
         /// </summary>
         /// <returns></returns>
-        public static List<Producto> ListarProductos()
+        public static DataSet ListarProductos()
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
                 var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarProductos", ListaParametros);
-                if (respuesta != null)
-                {
-                    var empList = respuesta.Tables[0].AsEnumerable()
-                      .Select(dataRow => new Producto
-                      {
-                          Upc = dataRow.Field<string>("upc"),
-                          Nombre = dataRow.Field<string>("nombre"),
-                          Descripcion = dataRow.Field<string>("descrip"),
-                          Categoria = dataRow.Field<string>("categ"),
-                          TipoInstrumento = dataRow.Field<string>("TipoInst"),
-                          IdMarca = dataRow.Field<int>("IdMarca"),
-                          Modelo = dataRow.Field<string>("modelo"),
-                          CodProveedor = dataRow.Field<string>("codProveedor"),
-                          IdProveedor = dataRow.Field<int>("IdProveedor"),
-                          Color = dataRow.Field<string>("color"),
-                          Estado = dataRow.Field<string>("estado"),
-                          Precio = dataRow.Field<string>("precio")
-                      }).ToList();
 
-                    return empList;
-                }
-
-
-                return null;
+                return respuesta;
             }
             catch (Exception e)
             {

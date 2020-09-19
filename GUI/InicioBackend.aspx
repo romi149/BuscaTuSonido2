@@ -13,18 +13,18 @@
 <body>
     <script src="js/bootstrap.min.js"></script>
       <div class="Inicio">
-           <p style="text-align: center; "> <img src="/imagenes/Portada/BuscaTuSonidoLogo.png" alt=""></p>
+           <p style="text-align: center; "> <img class="imglogo" src="/imagenes/Portada/BuscaTuSonidoLogo.png" alt=""></p>
            
-            <p style="text-align: center">
-                Bienvenidos
-            </p>
+            <h1 style="text-align: center">
+                ¡Bienvenido!
+            </h1>
       </div>
 </body>
 </html>
 
 <style>
-    img {
-            width: 900px; height: 200px;
+    .imglogo {
+            width: 700px; height: 200px;
         }
 
    </style>

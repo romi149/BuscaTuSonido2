@@ -56,14 +56,32 @@ namespace GUI
                                      $"Su registro se ha realizado correctamente.");
 
                 Response.Write("<script>alert('Se ha registrado correctamente')</script>");
+                LimpiarCampos();
+                return;
                 
             }
+            else
+                Response.Write("<script>alert('No se pudo realizar el registro, intente nuevamente')</script>");
 
             //Response.Redirect("~/Login");
         }
         protected void sendcancelar_Click(object sender, EventArgs e)
         {
-            Response.Write("<script>window.close()</script>");
+            //Response.Write("<script>window.close()</script>");
+            Response.Redirect("~/Login");
+        }
+
+        protected void LimpiarCampos()
+        {
+            nombre.Text = "";
+            apellido.Text = "";
+            email.Text = "";
+            telefono.Text = "";
+            domEntrega.Text = "";
+            domFactura.Text = "";
+            password.Text = "";
+            dni.Text = "";
+            username.Text = "";
         }
     }
 }

@@ -20,7 +20,7 @@
                                 <label>Contraseña</label>
                                 <asp:TextBox runat="server" type="password" cssclass="form-control" id="password"/>
                             </div>
-                            <asp:HyperLink id="hyperlink1" Text="Olvide mi contraseña" Target="_new" runat="server"/> <a href="Registrarse.aspx">Registrarse</a>
+                            <a href="RecuperarPass.aspx">Olvide mi contraseña</a> <a href="Registrarse.aspx">Registrarse</a>
                             <br />
                             <br />
                             <asp:Button runat="server" content="login" id="sendlogin" cssclass="btn btn-primary btn-lg" Text="Ingresar" OnClick="sendlogin_Click"/>

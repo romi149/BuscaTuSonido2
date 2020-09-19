@@ -83,7 +83,7 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
                               <a class="dropdown-item" href="#">Proveedores</a>
                               <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="#">Productos</a>
+                              <a class="dropdown-item" href="/ABMC-Productos">Productos</a>
                               <div class="dropdown-divider"></div>
                               <a class="dropdown-item" href="#">Orden de Compra</a>
                               <div class="dropdown-divider"></div>
@@ -126,7 +126,7 @@
                               <a class="dropdown-item" href="#">Consultar Bitácora</a>
                             </div>
                           </li>
-                        <li><a runat="server" href="~/Configuracion">Salir</a></li>
+                        <li><a runat="server" href="~/Default">Salir</a></li>
                     </ul>
                 </div>
             </div>

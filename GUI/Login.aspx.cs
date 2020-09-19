@@ -41,7 +41,8 @@ namespace GUI
 
         protected void sendvolver_Click(object sender, EventArgs e)
         {
-            Response.Write("<script>window.close()</script>");
+            //Response.Write("<script>window.close()</script>");
+            Response.Redirect("~/");
         }
     }
     

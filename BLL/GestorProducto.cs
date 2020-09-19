@@ -3,6 +3,7 @@ using MPP;
 using MPP.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,6 +42,11 @@ namespace BLL
         public static Producto ListarDetalleProducto(string nombre, string modelo)
         {
             return MapperProducto.ListarDetalleProducto(nombre, modelo);
+        }
+
+        public static DataSet ListarProductos()
+        {
+            return MapperProducto.ListarProductos();
         }
     }
 }

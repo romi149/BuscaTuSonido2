@@ -57,6 +57,8 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" runat="server" href="~/">Busca Tu Sonido</a>
+                        <%--<img src="/Imagenes/Portada/BuscaTuSonidoLogo.png" width="30" height="30" alt="">--%>
+                   <%-- </a>--%>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -64,8 +66,14 @@
                         <li><a runat="server" href="~/About">Acerca de</a></li>
                         <li><a runat="server" href="~/News">Noticias y Eventos</a></li>
                         <li><a runat="server" href="~/FAQ">Preguntas Frecuentes</a></li>
-                        <li><a runat="server" href="javascript:abrir('Login.aspx')">Ingresar</a></li>
+                        <li><a runat="server" href="~/Login">Ingresar</a></li>
+                       <%-- <li><a  runat="server" class="nav-item nav-link disabled">Disabled</a></li>--%>
+                        <%--<li><a runat="server" href="javascript:abrir('Login.aspx')">Ingresar</a></li>--%>
                     </ul>
+                  <%--  <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-secondary" type="submit">Search</button>
+                    </form>--%>
                 </div>
             </div>
         </div>
