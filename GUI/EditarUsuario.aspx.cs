@@ -35,25 +35,25 @@ namespace GUI
 
         protected void sendEditar_Click(object sender, EventArgs e)
         {
-            //bool Modificado = GestorUsuario.ModificarUsuario(
-            //                           int.Parse(Id.Text.Trim()),
-            //                           username.Text.Trim(),
-            //                           nombre.Text.Trim(),
-            //                           apellido.Text.Trim(),
-            //                           password.Text.Trim(),
-            //                           estado.Text.Trim(),
-            //                           1,
-            //                           int.Parse(dni.Text.Trim()));
+            bool Modificado = GestorUsuario.ModificarUsuario(
+                                       int.Parse(Id.Text.Trim()),
+                                       username.Text.Trim(),
+                                       nombre.Text.Trim(),
+                                       apellido.Text.Trim(),
+                                       EnvioEmails.md5(password.Text.Trim()),
+                                       estado.Text.Trim(),
+                                       1,
+                                       int.Parse(dni.Text.Trim()));
 
-            //if (Modificado)
-            //{
-            //    Response.Write("<script>alert('Los cambios se guardaron correctamente')</script>");
-            //    return;
-            //    //Response.Redirect("/ABMC-Usuarios");
+            if (Modificado)
+            {
+                Response.Write("<script>alert('Los cambios se guardaron correctamente')</script>");
+                return;
+                //Response.Redirect("/ABMC-Usuarios");
+            }
         }
 
-
-        protected void sendcancelar_Click(object sender, EventArgs e)
+            protected void sendcancelar_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/ABMC-Usuarios");
         }

@@ -5,58 +5,112 @@
        <h2>Iniciar Sesión</h2>
     </div>--%>
 <div class="container">
-        <div class="row justify-content-center align-items-center" style="height:100vh">
-            <div class="col-4">
+        <div class="row justify-content-center align-items-center" style="height: 100vh">
+            <div class="ContenedorRegistrase ">
+                <div class="centrarFormulario">
+                     <h2>Nueva Cuenta</h2>
                 <div class="row">
-                     <div class="col-md-4 order-md-1 mb-4">
-                        <h2>Nueva Cuenta</h2>
+                    <div class="col-md-6" >
                         <div class="card-body">
                             <div class="form-group">
                                 <label>Usuario</label>
-                                <asp:TextBox runat="server" type="text" cssclass="form-control" id="username"/>
+                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="username" />
                             </div>
                             <div class="form-group">
                                 <label>Contraseña</label>
-                                <asp:TextBox runat="server" type="password" cssclass="form-control" id="password"/>
+                                <asp:TextBox runat="server" type="password" CssClass="form-control" ID="password" />
                             </div>
                             <div class="form-group">
                                 <label>Nombre</label>
-                                <asp:TextBox runat="server" type="text" cssclass="form-control" id="nombre"/>
+                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="nombre" />
                             </div>
                             <div class="form-group">
-                                 <label>Apellido</label>
-                                 <asp:TextBox runat="server" type="text" cssclass="form-control" id="apellido"/>
+                                <label>Apellido</label>
+                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="apellido" />
                             </div>
                             <div class="form-group">
-                                 <label>Email</label>
-                                 <asp:TextBox runat="server" type="text" cssclass="form-control" id="email"/>
+                                <label>Email</label>
+                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="email" />
                             </div>
-                            <div class="form-group">
-                                 <label>Dni</label>
-                                 <asp:TextBox runat="server" type="text" cssclass="form-control" id="dni"/>
-                            </div>
-                            <div class="form-group">
-                                 <label>Teléfono</label>
-                                 <asp:TextBox runat="server" type="text" cssclass="form-control" id="telefono"/>
-                            </div>
-                            <div class="form-group">
-                                 <label>Domicilio de Entrega</label>
-                                 <asp:TextBox runat="server" type="text" cssclass="form-control" id="domEntrega"/>
-                            </div>
-                            <div class="form-group">
-                                 <label>Domicilio de Facturación</label>
-                                 <asp:TextBox runat="server" type="text" cssclass="form-control" id="domFactura"/>
-                            </div>
-                            <asp:CheckBox runat="server" content="registrarse" id="tyc" CssClass="" />
-                            <a href="TermyCond.aspx">Acepto los Términos y Condiciones</a>
-                            <br />
-                            <br />
-                            <asp:Button runat="server" content="registrarse" id="registrarse" cssclass="btn btn-primary btn-lg" Text="Registrarse" OnClick="sendregistrarse_Click"/>
-                            <asp:Button runat="server" content="registrarse" id="cancelar" cssclass="btn btn-warning btn-lg" Text="Cancelar" OnClick="sendcancelar_Click"/>
+
                         </div>
                     </div>
-              </div>
+
+                    <div class="col-md-6">
+
+                        <div class="form-group">
+                            <label>Dni</label>
+                            <asp:TextBox runat="server" type="text" CssClass="form-control" ID="dni" />
+                        </div>
+                        <div class="form-group">
+                            <label>Teléfono</label>
+                            <asp:TextBox runat="server" type="text" CssClass="form-control" ID="telefono" />
+                        </div>
+                        <div class="form-group">
+                            <label>Domicilio de Entrega</label>
+                            <asp:TextBox runat="server" type="text" CssClass="form-control" ID="domEntrega" />
+                        </div>
+                        <div class="form-group">
+                            <label>Domicilio de Facturación</label>
+                            <asp:TextBox runat="server" type="text" CssClass="form-control" ID="domFactura" />
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="terminos">
+                         <asp:CheckBox runat="server" content="registrarse" ID="tyc" CssClass="" />
+                         <a href="TermyCond.aspx">Acepto los Términos y Condiciones</a>
+                    </div>
+                  <br />
+                    <div  class="terminosBtn">
+                        <div>
+                          <asp:Button runat="server" content="registrarse" ID="registrarse" CssClass="btn btn-primary btn-lg" Text="Registrarse" OnClick="sendregistrarse_Click" />
+                        </div>
+                        <div>
+                            <asp:Button runat="server" content="registrarse" ID="cancelar" CssClass="btn btn-warning btn-lg" Text="Cancelar" OnClick="sendcancelar_Click" />
+                        </div>
+                    </div>
+
+                </div>
+                </div>
+               
+            </div>
         </div>
     </div>
-</div>
+    <style>
+        .ContenedorRegistrase{
+            width:80%;
+            margin:auto;
+             background-color:hsla(218, 74%, 60%, 0.171);
+            border-radius:15px;
+       
+        }
+        .centrarFormulario{
+            width:80%;
+            margin:auto;       
+            padding:3%;        
+            margin-top:2% !important;
+           
+        }
+        h2{
+            text-align:center;
+            font-weight:bold;
+        }
+
+        .terminos{
+            display:flex;
+            justify-content:left;
+        }
+        .terminosBtn{
+            display:flex;
+            justify-content:space-around;
+        }
+        .botones{
+            margin-left:20px;
+          }
+       
+    </style>
 </asp:Content>

@@ -17,33 +17,42 @@ namespace MPP
         /// Devuelve una lista de registros en bitacora
         /// </summary>
         /// <returns></returns>
-        public static List<Bitacora> ListarBitacora()
+        public static DataSet ListarBitacora()
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarBitacora", ListaParametros);
-                if (respuesta != null)
-                {
-                    var empList = respuesta.Tables[0].AsEnumerable()
-                      .Select(dataRow => new Bitacora
-                      {
-                          Fecha = dataRow.Field<DateTime>("fecha"),
-                          TipoEvento = dataRow.Field<string>("tipoEvento"),
-                          Usuario = dataRow.Field<string>("user"),
-                          EntidadInvolucrada = dataRow.Field<string>("entidadInv")
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarEventosBitacora", ListaParametros);
 
-                      }).ToList();
-
-                    return empList;
-                }
-
-
-                return null;
+                return respuesta;
             }
+
             catch (Exception e)
             {
+                return null;
+            }
 
+        }
+
+        /// <summary>
+        /// Devuelve una lista de registros en bitacora
+        /// filtrando por todos los campos
+        /// </summary>
+        /// <returns></returns>
+        public static DataSet ListarBitacoraFiltroTotal(string tipo, string entidadIn)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("TipoEvento", DbType.String, ParameterDirection.Input, tipo));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("EntidadInvolucrada", DbType.String, ParameterDirection.Input, entidadIn));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarBitacoraFiltroTotal", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
                 return null;
             }
 

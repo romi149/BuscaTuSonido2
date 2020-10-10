@@ -31,13 +31,6 @@ namespace GUI
                 Response.Write("<script>alert('Se ha eliminado el usuario')</script>");
 
             Response.Redirect("/ABMC-Usuarios.aspx");
-
-            //Console.WriteLine(Id);
-            //string customerId = row.Cells[0].Text.Trim();
-            //string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-
-            //BindGridView();
-
         }
 
         protected void btnEdit_Click(object sender, EventArgs e)
@@ -46,17 +39,51 @@ namespace GUI
             string Id = row.Cells[0].Text.Trim();
             string Usuario = row.Cells[1].Text.Trim();
             string Nombre = row.Cells[2].Text.Trim();
-            string Apellido = row.Cells[3].Text.Trim();
-            string Password = row.Cells[4].Text.Trim();
-            string Dni = row.Cells[5].Text.Trim();
-            string Estado = row.Cells[6].Text.Trim();
+            string Dni = row.Cells[3].Text.Trim();
+            string Apellido = row.Cells[4].Text.Trim();
+            string Estado = row.Cells[5].Text.Trim();
+            string Password = row.Cells[6].Text.Trim();
 
-            Response.Redirect($"/EditarUsuario.aspx?Id={Id}&Usuario={Usuario}&Nombre={Nombre}&Apellido={Apellido}&Password{Password}&Dni={Dni}&Estado={Estado}");
+            Response.Redirect($"/EditarUsuario.aspx?Id={Id}&Usuario={Usuario}&Nombre={Nombre}&Apellido={Apellido}&" +
+                $"Password={Password}&Dni={Dni}&Estado={Estado}");
         }
 
         public DataSet CargarDatos()
         {
             return GestorUsuario.Listar();
+        }
+
+        protected void Buscar_Click(object sender, EventArgs e)
+        {
+
+            //this.gvProductos.DataSource = CargarDatos();
+            //this.gvProductos.DataBind();
+        }
+
+        protected void sendAgregar_Click(object sender, EventArgs e)
+        {
+            bool Insertado = GestorUsuario.Agregar(
+                                       usuario.Text.Trim(),
+                                       nombre.Text.Trim(),
+                                       apellido.Text.Trim(),
+                                       EnvioEmails.md5(password.Text.Trim()),
+                                       "Activo",
+                                       1,
+                                       int.Parse(dni.Text.Trim()));
+
+            if (Insertado)
+            {
+                Response.Write("alert('El usuario se ha agregado correctamente')");
+                //Response.Redirect("/ABMC-Usuarios");
+            }
+
+            Response.Redirect("~/ABMC-Usuarios");
+
+        }
+
+        protected void sendcancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ABMC-Usuarios");
         }
     }
 }

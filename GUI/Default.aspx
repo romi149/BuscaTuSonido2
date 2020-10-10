@@ -8,8 +8,8 @@
         <div class="row">
 
             <div class="col-lg-3">
-
-                <h1 class="my-4">BuscaTuSonido</h1>
+                <img class="imglogo" src="/imagenes/Portada/BuscaTuSonidoLogo.png" alt="">
+                <%--<h1 class="my-4">BuscaTuSonido</h1>--%>
                 <div class="list-group">
                     <a href="#" class="list-group-item">Instrumentos de Cuerda</a>
                     <a href="#" class="list-group-item">Instrumentos de Viento</a>

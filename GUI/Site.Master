@@ -67,32 +67,33 @@
                         <li><a runat="server" href="~/News">Noticias y Eventos</a></li>
                         <li><a runat="server" href="~/FAQ">Preguntas Frecuentes</a></li>
                         <li><a runat="server" href="~/Login">Ingresar</a></li>
-                       <%-- <li><a  runat="server" class="nav-item nav-link disabled">Disabled</a></li>--%>
-                        <%--<li><a runat="server" href="javascript:abrir('Login.aspx')">Ingresar</a></li>--%>
                     </ul>
-                  <%--  <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-secondary" type="submit">Search</button>
-                    </form>--%>
                 </div>
             </div>
         </div>
-        <div class="container body-content">
+        <main>
+           <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
-            <hr />
-           
-            <footer>
-                <div id="google_translate_element"></div>
+            </asp:ContentPlaceHolder>        
+        </div>
+        </main>
+   
+         <hr />
+        <footer>
+                <div id="google_translate_element" ></div>
                  <script type="text/javascript">
                      function googleTranslateElementInit() {
                          new google.translate.TranslateElement({ pageLanguage: 'es' }, 'google_translate_element');
                      }
                  </script>
-            </footer>
-        </div>
+        </footer>
 
     </form>
+    <style>
+        main{
+            padding:1%;
+        }
+    </style>
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>

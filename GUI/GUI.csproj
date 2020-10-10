@@ -111,7 +111,9 @@
     <Content Include="AgregarProducto.aspx" />
     <Content Include="AgregarUsuario.aspx" />
     <Content Include="Configuracion.aspx" />
+    <Content Include="ConsultarBitacora.aspx" />
     <Content Include="DescripcionProducto.aspx" />
+    <Content Include="EditarProducto.aspx" />
     <Content Include="EditarUsuario.aspx" />
     <Content Include="FAQ.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -184,6 +186,7 @@
     <Content Include="Imagenes\Portada\Guitarra6.png" />
     <Content Include="Imagenes\Portada\Guitarra7.png" />
     <Content Include="Imagenes\Portada\Guitarra8.png" />
+    <Content Include="Imagenes\Portada\pexels.png" />
     <Content Include="InicioBackend.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="News.aspx" />
@@ -275,12 +278,26 @@
     <Compile Include="Configuracion.aspx.designer.cs">
       <DependentUpon>Configuracion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ConsultarBitacora.aspx.cs">
+      <DependentUpon>ConsultarBitacora.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarBitacora.aspx.designer.cs">
+      <DependentUpon>ConsultarBitacora.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DescripcionProducto.aspx.cs">
       <DependentUpon>DescripcionProducto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="DescripcionProducto.aspx.designer.cs">
       <DependentUpon>DescripcionProducto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditarProducto.aspx.cs">
+      <DependentUpon>EditarProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditarProducto.aspx.designer.cs">
+      <DependentUpon>EditarProducto.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditarUsuario.aspx.cs">
       <DependentUpon>EditarUsuario.aspx</DependentUpon>

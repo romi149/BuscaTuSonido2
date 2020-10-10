@@ -53,8 +53,48 @@ namespace GUI
             string Precio = row.Cells[12].Text.Trim();
 
             Response.Redirect($"/EditarProducto.aspx?Id={Id}&Upc={Upc}&Nombre={Nombre}&Descripcion={Descripcion}" +
-                $"&Categoria{Categoria}&TipoInstrumento={TipoInst}&IdMarca={IdMarca}&Modelo={Modelo}&" +
+                $"&Categoria={Categoria}&TipoInstrumento={TipoInst}&IdMarca={IdMarca}&Modelo={Modelo}&" +
                 $"CodProveedor={CodProv}&IdProveedor={IdProv}&Color={Color}&Estado={Estado}&Precio={Precio}");
+
+
+        }
+
+        protected void sendAgregar_Click(object sender, EventArgs e)
+        {
+            bool Insertado = GestorProducto.Agregar(
+                                       upc.Text.Trim(),
+                                       nombre.Text.Trim(),
+                                       descripcion.Text.Trim(),
+                                       categoria.Text.Trim(),
+                                       tipoInstrumento.Text.Trim(),
+                                       int.Parse(idMarca.Text.Trim()),
+                                       modelo.Text.Trim(),
+                                       codProv.Text.Trim(),
+                                       int.Parse(idProv.Text.Trim()),
+                                       color.Text.Trim(),
+                                       estado.Text.Trim(),
+                                       precio.Text.Trim()
+                                        );
+
+            if (Insertado)
+            {
+                Response.Write("<script>alert('El producto se ha agregado correctamente')</script>");
+                //Response.Redirect("/ABMC-Usuarios");
+            }
+
+            Response.Redirect("~/ABMC-Productos");
+
+        }
+        protected void sendcancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ABMC-Productos");
+        }
+
+        protected void Buscar_Click(object sender, EventArgs e)
+        {
+
+            //this.gvProductos.DataSource = CargarDatos();
+            //this.gvProductos.DataBind();
         }
     }
 }

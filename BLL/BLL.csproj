@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EnvioEmails.cs" />
-    <Compile Include="GestorBitacorra.cs" />
+    <Compile Include="GestorBitacora.cs" />
     <Compile Include="GestorCliente.cs" />
     <Compile Include="GestorGestionRoles.cs" />
     <Compile Include="GestorPermiso.cs" />
