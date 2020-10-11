@@ -11,62 +11,35 @@ namespace GUI
 {
 
 
-    public partial class Editar_Proveedor
+    public partial class Remitos
     {
 
         /// <summary>
-        /// Control Id.
+        /// Control nroPedido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Id;
+        protected global::System.Web.UI.WebControls.TextBox nroPedido;
 
         /// <summary>
-        /// Control username.
+        /// Control nroFactura.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox username;
+        protected global::System.Web.UI.WebControls.TextBox nroFactura;
 
         /// <summary>
-        /// Control nombre.
+        /// Control fecha.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nombre;
-
-        /// <summary>
-        /// Control apellido.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox apellido;
-
-        /// <summary>
-        /// Control password.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox password;
-
-        /// <summary>
-        /// Control dni.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox dni;
+        protected global::System.Web.UI.WebControls.TextBox fecha;
 
         /// <summary>
         /// Control estado.
@@ -78,21 +51,12 @@ namespace GUI
         protected global::System.Web.UI.WebControls.TextBox estado;
 
         /// <summary>
-        /// Control Editar.
+        /// Control gvRemitos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Editar;
-
-        /// <summary>
-        /// Control cancelar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button cancelar;
+        protected global::System.Web.UI.WebControls.GridView gvRemitos;
     }
 }

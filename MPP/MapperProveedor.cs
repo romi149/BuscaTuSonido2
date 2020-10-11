@@ -17,37 +17,18 @@ namespace MPP
         /// Retorna todos los proveedores de la Bd
         /// </summary>
         /// <returns></returns>
-        public static List<Proveedor> ListarProveedores()
+        public static DataSet ListarProveedores()
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
                 var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarProveedores", ListaParametros);
-                if (respuesta != null)
-                {
-                    var empList = respuesta.Tables[0].AsEnumerable()
-                      .Select(dataRow => new Proveedor
-                      {
-                          CodProveedor = dataRow.Field<string>("codProveedor"),
-                          NombreEmpresa = dataRow.Field<string>("nombreEmpresa"),
-                          RazonSocial = dataRow.Field<string>("razonSocial"),
-                          Domicilio = dataRow.Field<string>("dom"),
-                          Email = dataRow.Field<string>("email"),
-                          Telefono = dataRow.Field<string>("tel"),
-                          Descripcion = dataRow.Field<string>("descip"),
-                          Cuit = dataRow.Field<long>("cuit")
 
-                      }).ToList();
-
-                    return empList;
-                }
-
-
-                return null;
+                return respuesta;
             }
+
             catch (Exception e)
             {
-
                 return null;
             }
         }
@@ -58,7 +39,7 @@ namespace MPP
         /// <param name="proveedor">Tipo Proveedor</param>
         /// <returns>Devuelve si se inserto o no</returns>
         public static bool InsertarProveedor(string codProveedor, string nombreEmpesa, string razonSocial, string dom,
-                                       string email, string tel, string descrip, long cuit)
+                                       string email, string tel, string descrip, string cuit)
         {
             try
             {
@@ -68,9 +49,9 @@ namespace MPP
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("RazonSocial", DbType.String, ParameterDirection.Input, razonSocial));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Domicilio", DbType.String, ParameterDirection.Input, dom));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Email", DbType.String, ParameterDirection.Input, email));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Telefono", DbType.Int16, ParameterDirection.Input, tel));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Telefono", DbType.String, ParameterDirection.Input, tel));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, descrip));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Cuit", DbType.Int64, ParameterDirection.Input, cuit));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Cuit", DbType.String, ParameterDirection.Input, cuit));
                 var respuesta = Conexion.GetInstance.EjecutarStore("InsertarProveedor", ListaParametros);
 
                 return respuesta;
@@ -89,7 +70,7 @@ namespace MPP
         /// <param name="proveedor">Tipo proveedor</param>
         /// <returns>Devuelve si se actualiza o no</returns>
         public static bool ActualizarProveedor(int IdProveedor, string codProveedor, string nombreEmpesa, string razonSocial, string dom,
-                                       string email, string tel, string descrip, long cuit)
+                                       string email, string tel, string descrip, string cuit)
         {
             try
             {
@@ -100,9 +81,9 @@ namespace MPP
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("RazonSocial", DbType.String, ParameterDirection.Input, razonSocial));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Domicilio", DbType.String, ParameterDirection.Input, dom));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Email", DbType.String, ParameterDirection.Input, email));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Telefono", DbType.Int16, ParameterDirection.Input, tel));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Telefono", DbType.String, ParameterDirection.Input, tel));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, descrip));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Cuit", DbType.Int64, ParameterDirection.Input, cuit));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Cuit", DbType.String, ParameterDirection.Input, cuit));
                 var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarProveedor", ListaParametros);
 
                 return respuesta;

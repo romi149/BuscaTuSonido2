@@ -27,38 +27,21 @@ namespace MPP
         /// Retorna todos los remitos de la Bd
         /// </summary>
         /// <returns></returns>
-        public static List<Remito> ListarRemitos()
+        public static DataSet ListarRemitos()
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
                 var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarRemitos", ListaParametros);
-                if (respuesta != null)
-                {
-                    var empList = respuesta.Tables[0].AsEnumerable()
-                      .Select(dataRow => new Remito
-                      {
-                          NroRemito = dataRow.Field<int>("nroRemito"),
-                          Fecha = dataRow.Field<DateTime>("fecha"),
-                          NroNP = dataRow.Field<int>("nroNP"),
-                          NroFactura = dataRow.Field<int>("nroFactura"),
-                          Descripcion = dataRow.Field<string>("descrip"),
-                          Notas = dataRow.Field<string>("notas"),
-                          Estado = dataRow.Field<string>("estado")
 
-                      }).ToList();
-
-                    return empList;
-                }
-
-
-                return null;
+                return respuesta;
             }
+
             catch (Exception e)
             {
-
                 return null;
             }
+
         }
 
         /// <summary>

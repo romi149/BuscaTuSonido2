@@ -81,7 +81,7 @@
                               Compras
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                              <a class="dropdown-item" href="#">Proveedores</a>
+                              <a class="dropdown-item" href="/ABMC-Proveedores">Proveedores</a>
                               <div class="dropdown-divider"></div>
                               <a class="dropdown-item" href="/ABMC-Productos">Productos</a>
                               <div class="dropdown-divider"></div>
@@ -97,7 +97,7 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                               <a class="dropdown-item" href="#">Generar Remito</a>
                               <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="#">Listado de Remitos</a>
+                              <a class="dropdown-item" href="/Remitos">Listado de Remitos</a>
                             </div>
                           </li>
                         <li class="nav-item dropdown">

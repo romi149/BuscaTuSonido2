@@ -18,14 +18,14 @@ namespace BLL
         }
 
         public static bool Agregar(string codProveedor, string nombreEmpesa, string razonSocial, string dom,
-                                   string email, string tel, string descrip, long cui)
+                                   string email, string tel, string descrip, string cui)
         {
             return MapperProveedor.InsertarProveedor(codProveedor,nombreEmpesa,razonSocial,dom,email,
                                                         tel,descrip,cui);
         }
 
         public static bool Modificar(int IdProveedor, string codProveedor, string nombreEmpesa, string razonSocial, 
-                                    string dom, string email, string tel, string descrip, long cui)
+                                    string dom, string email, string tel, string descrip, string cui)
         {
             return MapperProveedor.ActualizarProveedor(IdProveedor, codProveedor, nombreEmpesa, razonSocial, dom, 
                                                         email,tel, descrip, cui);

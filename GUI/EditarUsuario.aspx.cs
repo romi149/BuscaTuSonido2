@@ -15,7 +15,7 @@ namespace GUI
             if (IsPostBack)
                 return;
 
-            string IdUser = Request.QueryString["Id"].ToString();
+            string IdUsuario = Request.QueryString["IdUsuario"].ToString();
             string Usuario = Request.QueryString["Usuario"].ToString();
             string Nombre = Request.QueryString["Nombre"].ToString();
             string Apellido = Request.QueryString["Apellido"].ToString();
@@ -23,7 +23,7 @@ namespace GUI
             string Dni = Request.QueryString["Dni"].ToString();
             string Estado = Request.QueryString["Estado"].ToString();
 
-            Id.Text = IdUser;
+            Id.Text = IdUsuario;
             username.Text = Usuario;
             nombre.Text = Nombre;
             apellido.Text = Apellido;

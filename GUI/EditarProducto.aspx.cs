@@ -19,7 +19,7 @@ namespace GUI
             string UPC = Request.QueryString["upc"].ToString();
             string Nombre = Request.QueryString["nombre"].ToString();
             string Descrip = Request.QueryString["descripcion"].ToString();
-            string Categ = Request.QueryString["categoria"].ToString();
+            string Categoria = Request.QueryString["Categoria"].ToString();
             string Tipo = Request.QueryString["tipoInst"].ToString();
             string IdMarca = Request.QueryString["idMarca"].ToString();
             string Modelo = Request.QueryString["modelo"].ToString();
@@ -32,7 +32,7 @@ namespace GUI
             Id.Text = IdProd;
             upc.Text = UPC;
             nombre.Text = Nombre;
-            categoria.Text = Categ;
+            categoria.Text = Categoria;
             tipoInst.Text = Tipo;
             idMarca.Text = IdMarca;
             modelo.Text = Modelo;

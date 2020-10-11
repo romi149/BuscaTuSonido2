@@ -106,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ABMC-Productos.aspx" />
+    <Content Include="ABMC-Proveedores.aspx" />
     <Content Include="ABMC-Usuarios.aspx" />
     <Content Include="About.aspx" />
     <Content Include="AgregarProducto.aspx" />
@@ -113,6 +114,7 @@
     <Content Include="Configuracion.aspx" />
     <Content Include="ConsultarBitacora.aspx" />
     <Content Include="DescripcionProducto.aspx" />
+    <Content Include="EditarProveedor.aspx" />
     <Content Include="EditarProducto.aspx" />
     <Content Include="EditarUsuario.aspx" />
     <Content Include="FAQ.aspx" />
@@ -191,6 +193,7 @@
     <Content Include="Login.aspx" />
     <Content Include="News.aspx" />
     <Content Include="Registrarse.aspx" />
+    <Content Include="Remitos.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -233,6 +236,13 @@
     </Compile>
     <Compile Include="ABMC-Productos.aspx.designer.cs">
       <DependentUpon>ABMC-Productos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ABMC-Proveedores.aspx.cs">
+      <DependentUpon>ABMC-Proveedores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMC-Proveedores.aspx.designer.cs">
+      <DependentUpon>ABMC-Proveedores.aspx</DependentUpon>
     </Compile>
     <Compile Include="ABMC-Usuarios.aspx.cs">
       <DependentUpon>ABMC-Usuarios.aspx</DependentUpon>
@@ -291,6 +301,13 @@
     </Compile>
     <Compile Include="DescripcionProducto.aspx.designer.cs">
       <DependentUpon>DescripcionProducto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditarProveedor.aspx.cs">
+      <DependentUpon>EditarProveedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditarProveedor.aspx.designer.cs">
+      <DependentUpon>EditarProveedor.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditarProducto.aspx.cs">
       <DependentUpon>EditarProducto.aspx</DependentUpon>
@@ -351,6 +368,13 @@
     </Compile>
     <Compile Include="Registrarse.aspx.designer.cs">
       <DependentUpon>Registrarse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Remitos.aspx.cs">
+      <DependentUpon>Remitos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Remitos.aspx.designer.cs">
+      <DependentUpon>Remitos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

@@ -71,7 +71,7 @@ namespace GUI
                                        email.Text.Trim(),
                                        tel.Text.Trim(),
                                        descripcion.Text.Trim(),
-                                       int.Parse(cuit.Text.Trim()));
+                                       cuit.Text.Trim());
 
             if (Insertado)
             {

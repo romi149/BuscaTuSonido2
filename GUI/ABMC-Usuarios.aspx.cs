@@ -36,7 +36,7 @@ namespace GUI
         protected void btnEdit_Click(object sender, EventArgs e)
         {
             GridViewRow row = (sender as Button).NamingContainer as GridViewRow;
-            string Id = row.Cells[0].Text.Trim();
+            string IdUsuario = row.Cells[0].Text.Trim();
             string Usuario = row.Cells[1].Text.Trim();
             string Nombre = row.Cells[2].Text.Trim();
             string Dni = row.Cells[3].Text.Trim();
@@ -44,7 +44,7 @@ namespace GUI
             string Estado = row.Cells[5].Text.Trim();
             string Password = row.Cells[6].Text.Trim();
 
-            Response.Redirect($"/EditarUsuario.aspx?Id={Id}&Usuario={Usuario}&Nombre={Nombre}&Apellido={Apellido}&" +
+            Response.Redirect($"/EditarUsuario.aspx?IdUsuario={IdUsuario}&Usuario={Usuario}&Nombre={Nombre}&Apellido={Apellido}&" +
                 $"Password={Password}&Dni={Dni}&Estado={Estado}");
         }
 
