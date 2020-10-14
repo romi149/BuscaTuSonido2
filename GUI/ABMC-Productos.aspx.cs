@@ -31,6 +31,9 @@ namespace GUI
             bool eliminado = GestorProducto.Eliminar(int.Parse(Id));
 
             if (eliminado)
+            {
+                GestorBitacora.Agregar(DateTime.Now, "Se elimino un registro", "RespCompras", "Producto");
+            }
 
             Response.Redirect("/ABMC-Productos.aspx");
 
@@ -78,6 +81,7 @@ namespace GUI
 
             if (Insertado)
             {
+                GestorBitacora.Agregar(DateTime.Now, "Se inserto un registro", "RespCompras", "Producto");
                 Response.Write("<script>alert('El producto se ha agregado correctamente')</script>");
                 //Response.Redirect("/ABMC-Usuarios");
             }

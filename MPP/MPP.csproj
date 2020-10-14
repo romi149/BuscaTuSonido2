@@ -52,6 +52,7 @@
     <Compile Include="MapperProveedor.cs" />
     <Compile Include="MapperRemito.cs" />
     <Compile Include="MapperRol.cs" />
+    <Compile Include="MapperSuscripcion.cs" />
     <Compile Include="MapperUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

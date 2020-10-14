@@ -26,8 +26,10 @@ namespace GUI
             bool eliminado = GestorProveedor.Eliminar(int.Parse(Id));
 
             if (eliminado)
-
+            {
+                GestorBitacora.Agregar(DateTime.Now,"Se elimino un registro","RespCompras","Proveedor");
                 Response.Write("<script>alert('Se ha eliminado el proveedor')</script>");
+            }
 
             Response.Redirect("/ABMC-Proveedores.aspx");
         }
@@ -75,6 +77,7 @@ namespace GUI
 
             if (Insertado)
             {
+                GestorBitacora.Agregar(DateTime.Now, "Se inserto un registro", "RespCompras", "Proveedor");
                 Response.Write("alert('El proveedor se ha agregado correctamente')");
                 //Response.Redirect("/ABMC-Usuarios");
             }

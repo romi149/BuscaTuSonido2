@@ -11,10 +11,10 @@
                 <img class="imglogo" src="/imagenes/Portada/BuscaTuSonidoLogo.png" alt="">
                 <%--<h1 class="my-4">BuscaTuSonido</h1>--%>
                 <div class="list-group">
-                    <a href="#" class="list-group-item">Instrumentos de Cuerda</a>
-                    <a href="#" class="list-group-item">Instrumentos de Viento</a>
-                    <a href="#" class="list-group-item">Instrumentos de Percusión</a>
-                    <a href="#" class="list-group-item">Instrumentos Eléctricos</a>
+                    <a href="/InstrumentosCuerdas" class="list-group-item">Instrumentos de Cuerda</a>
+                    <a href="/InstrumentosViento" class="list-group-item">Instrumentos de Viento</a>
+                    <a href="/InstrumentosPercusion" class="list-group-item">Instrumentos de Percusión</a>
+                    <a href="InstrumentosElectronicos" class="list-group-item">Instrumentos Electrónicos</a>
                     <a href="#" class="list-group-item">Instrumentos en Alquiler</a>
                 </div>
 
@@ -33,7 +33,44 @@
 
     <footer>
         <hr />
-       <a href="TermyCond">Términos y Condiciones</a>
+        <div class="container-footer">
+            <div class="row justify-content-left align-items-center" style="height: 100vh">
+                <div class="contenedor-suscripcion">
+                    <div class="title">
+                        <h4 style="color: white; font-weight: 400;">Contáctenos</h4>
+                    </div>
+                    <div class="row">
+                        <div class="body-content">
+                            <div class="col-lg-6">
+                                <p>
+                                    Tel.: 116045-2099
+                                </p>
+                                <p>
+                                    Email: info@buscatusonido.com
+                                </p>
+
+                                <a href="TermyCond">Términos y Condiciones</a>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <h4 style="color: white">Suscribirse</h4>
+                                <div class="form-group">
+                                    <label style="font-weight: 200">Nombre</label>
+                                    <asp:TextBox runat="server" type="text" CssClass="form-control" ID="nombre" />
+                                </div>
+                                <div class="form-group">
+                                    <label style="font-weight: 200">Email</label>
+                                    <asp:TextBox runat="server" type="text" CssClass="form-control" ID="email" />
+                                </div>
+                                <div>
+                                    <asp:Button runat="server" content="suscribirse" ID="suscribirse" CssClass="btn btn-primary btn-md" Text="Enviar" OnClick="sendSuscribirse_Click" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
     
   <!-- /.container -->
@@ -54,6 +91,24 @@
             }
 
         }
+        .container-footer{
+            background-color:black;
+            /*margin:auto;*/
+            width:auto;
+            margin-bottom:5%;
+            
+            
+        }
+
+        .contenedor-suscripcion{
+            width:80%;
+            margin:auto;
+        }
+
+        .body-content{
+            color:#a6a6a6;
+        }
+
     </style>
 
 </asp:Content>

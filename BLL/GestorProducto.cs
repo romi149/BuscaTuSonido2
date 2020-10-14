@@ -48,5 +48,25 @@ namespace BLL
         {
             return MapperProducto.ListarProductos();
         }
+
+        public static List<Producto> ListarProdCuerdas()
+        {
+            return MapperProducto.ListarInstCuerdas();
+        }
+
+        public static List<Producto> ListarProdViento()
+        {
+            return MapperProducto.ListarInstViento();
+        }
+
+        public static List<Producto> ListarProdPercusion()
+        {
+            return MapperProducto.ListarInstPercusion();
+        }
+
+        public static List<Producto> ListarProdElectronicos()
+        {
+            return MapperProducto.ListarInstElectronicos();
+        }
     }
 }

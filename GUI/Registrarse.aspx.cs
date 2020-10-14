@@ -49,6 +49,7 @@ namespace GUI
 
             if (Insertado)
             {
+                GestorBitacora.Agregar(DateTime.Now,"Se inserto un registro","Cliente","Cliente");
                 EnvioEmails.EnviarMail(email.Text.Trim(),
                                      "Mail de Confirmacion",
                                      //$"<h1>Codigo de Seguridad</h1>" +

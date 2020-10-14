@@ -51,6 +51,7 @@ namespace GUI
 
             if (Modificado)
             {
+                GestorBitacora.Agregar(DateTime.Now, "Se edito un registro", "RespCompras", "Proveedor");
                 Response.Write("<script>alert('Los cambios se guardaron correctamente')</script>");
                 return;
                 //Response.Redirect("/ABMC-Usuarios");

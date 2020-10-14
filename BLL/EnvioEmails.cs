@@ -37,6 +37,33 @@ namespace BLL
             }
         }
 
+        //public static void EnviarMail(string destinatario, string mensaje)
+        //{
+        //    try
+        //    {
+
+        //        MailMessage mail = new MailMessage();
+        //        SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+        //        mail.From = new MailAddress("buscatusonido.org@gmail.com");
+        //        mail.To.Add(destinatario);
+        //        mail.Subject = destinatario;
+        //        mail.Body = mensaje;
+        //        mail.IsBodyHtml = true;
+        //        SmtpServer.Port = 587;
+        //        SmtpServer.Host = "smtp.gmail.com";
+        //        SmtpServer.EnableSsl = true;
+        //        SmtpServer.UseDefaultCredentials = false;
+        //        SmtpServer.Credentials = new System.Net.NetworkCredential("buscatusonido.org@gmail.com", "Adrian1234");
+
+        //        SmtpServer.Send(mail);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Application.Current.MainPage.DisplayAlert("Faild", ex.Message, "OK");
+        //    }
+        //}
+
         public static string md5(string Value)
         {
             MD5CryptoServiceProvider provDeEncriptacion = new MD5CryptoServiceProvider();

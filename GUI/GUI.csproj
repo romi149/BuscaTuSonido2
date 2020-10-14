@@ -109,8 +109,6 @@
     <Content Include="ABMC-Proveedores.aspx" />
     <Content Include="ABMC-Usuarios.aspx" />
     <Content Include="About.aspx" />
-    <Content Include="AgregarProducto.aspx" />
-    <Content Include="AgregarUsuario.aspx" />
     <Content Include="Configuracion.aspx" />
     <Content Include="ConsultarBitacora.aspx" />
     <Content Include="DescripcionProducto.aspx" />
@@ -190,8 +188,13 @@
     <Content Include="Imagenes\Portada\Guitarra8.png" />
     <Content Include="Imagenes\Portada\pexels.png" />
     <Content Include="InicioBackend.aspx" />
+    <Content Include="InstrumentosCuerdas.aspx" />
+    <Content Include="InstrumentosElectronicos.aspx" />
+    <Content Include="InstrumentosPercusion.aspx" />
+    <Content Include="InstumentosViento.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="News.aspx" />
+    <Content Include="NuevoRegistro.aspx" />
     <Content Include="Registrarse.aspx" />
     <Content Include="Remitos.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -250,20 +253,6 @@
     </Compile>
     <Compile Include="ABMC-Usuarios.aspx.designer.cs">
       <DependentUpon>ABMC-Usuarios.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AgregarProducto.aspx.cs">
-      <DependentUpon>AgregarProducto.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AgregarProducto.aspx.designer.cs">
-      <DependentUpon>AgregarProducto.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AgregarUsuario.aspx.cs">
-      <DependentUpon>AgregarUsuario.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AgregarUsuario.aspx.designer.cs">
-      <DependentUpon>AgregarUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
@@ -347,6 +336,34 @@
     <Compile Include="InicioBackend.aspx.designer.cs">
       <DependentUpon>InicioBackend.aspx</DependentUpon>
     </Compile>
+    <Compile Include="InstrumentosCuerdas.aspx.cs">
+      <DependentUpon>InstrumentosCuerdas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InstrumentosCuerdas.aspx.designer.cs">
+      <DependentUpon>InstrumentosCuerdas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InstrumentosElectronicos.aspx.cs">
+      <DependentUpon>InstrumentosElectronicos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InstrumentosElectronicos.aspx.designer.cs">
+      <DependentUpon>InstrumentosElectronicos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InstrumentosPercusion.aspx.cs">
+      <DependentUpon>InstrumentosPercusion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InstrumentosPercusion.aspx.designer.cs">
+      <DependentUpon>InstrumentosPercusion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InstumentosViento.aspx.cs">
+      <DependentUpon>InstumentosViento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InstumentosViento.aspx.designer.cs">
+      <DependentUpon>InstumentosViento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -360,6 +377,13 @@
     </Compile>
     <Compile Include="News.aspx.designer.cs">
       <DependentUpon>News.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NuevoRegistro.aspx.cs">
+      <DependentUpon>NuevoRegistro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NuevoRegistro.aspx.designer.cs">
+      <DependentUpon>NuevoRegistro.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registrarse.aspx.cs">

@@ -28,6 +28,7 @@ namespace GUI
 
             if (eliminado)
 
+                GestorBitacora.Agregar(DateTime.Now,"Se elimino un registro","Admin","Usuario");
                 Response.Write("<script>alert('Se ha eliminado el usuario')</script>");
 
             Response.Redirect("/ABMC-Usuarios.aspx");
@@ -73,6 +74,7 @@ namespace GUI
 
             if (Insertado)
             {
+                GestorBitacora.Agregar(DateTime.Now, "Se agrego un registro", "Admin", "Usuario");
                 Response.Write("alert('El usuario se ha agregado correctamente')");
                 //Response.Redirect("/ABMC-Usuarios");
             }

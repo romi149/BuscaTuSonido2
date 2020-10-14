@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace GUI
 {
-    public partial class _Default : Page
+    public partial class InstrumentosElectronicos : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -17,7 +17,7 @@ namespace GUI
 
             DivContenedor.InnerHtml = $"<div>";
             int cont = 0;
-            foreach (var item in GestorProducto.ObtenerCatalogo())
+            foreach (var item in GestorProducto.ListarProdElectronicos())
             {
                 if (cont == 0)
                     DivContenedor.InnerHtml += "<div clas='row'>";
@@ -36,7 +36,6 @@ namespace GUI
             this.contenedor.Controls.Add(DivContenedor);
         }
 
-
         public string CrearCardProducto(string NombreProducto,
                                           string Modelo,
                                           string PrecioProducto,
@@ -48,25 +47,6 @@ namespace GUI
             $"src='/Imagenes/Catalogo/Guitarras/ClassisPlayerJaguarSpecial.png' alt='' /></a><div class='card-body'><h4 class='card-title'>" +
             $"<a href='DescripcionProducto.aspx?Nombre={NombreProducto}&Modelo={Modelo}'>{NombreProducto}</a></h4><h5>${PrecioProducto}</h5><p class='card-text'>" +
             $"{Descripcion}</p></div><div class='card-footer'></div></div></div>";
-
-        }
-
-        protected void sendSuscribirse_Click(object sender, EventArgs e)
-        {
-            bool Insertado = GestorSuscripcion.Agregar(
-                                       email.Text.Trim(),
-                                       nombre.Text.Trim(),
-                                       "Activo");
-
-            if (Insertado)
-            {
-                Response.Write("<script>alert('¡Suscripción realizada con éxito!')</script>");
-
-                email.Text = "";
-                nombre.Text = "";
-
-                return;
-            }
 
         }
     }

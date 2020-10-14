@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Registrarse.aspx.cs" Inherits="GUI.Registrarse" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <%--    <div>
-       <h2>Iniciar Sesión</h2>
-    </div>--%>
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
 <div class="container">
         <div class="row justify-content-center align-items-center" style="height: 100vh">
             <div class="ContenedorRegistrase ">
@@ -55,6 +55,7 @@
                             <asp:TextBox runat="server" type="text" CssClass="form-control" ID="domFactura" />
                         </div>
 
+                        <div class="g-recaptcha" data-sitekey="6LeXoNYZAAAAAPt4XnAqGRNOc50awLezbacv0X6Q"></div>
 
                     </div>
                 </div>
@@ -84,7 +85,7 @@
         .ContenedorRegistrase{
             width:80%;
             margin:auto;
-             background-color:hsla(218, 74%, 60%, 0.171);
+            background-color:hsla(218, 74%, 60%, 0.171);
             border-radius:15px;
        
         }
@@ -113,4 +114,5 @@
           }
        
     </style>
+    <script src='https://www.google.com/recaptcha/api.js?hl=es'></script>
 </asp:Content>

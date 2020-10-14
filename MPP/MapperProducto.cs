@@ -68,6 +68,145 @@ namespace MPP
             }
         }
 
+        /// <summary>
+        /// Retorna los productos del tipo Instrumentos de Cuerdas
+        /// </summary>
+        /// <returns></returns>
+        public static List<Producto> ListarInstCuerdas()
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarInstCuerdas", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Producto
+                      {
+                          Nombre = dataRow.Field<string>("Nombre"),
+                          Categoria = dataRow.Field<string>("Categoria"),
+                          Modelo = dataRow.Field<string>("Modelo"),
+                          Precio = dataRow.Field<string>("Precio")
+
+                      }).ToList();
+
+                    return empList;
+                }
+
+
+                return null;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Retorna los productos del tipo Instrumentos de Viento
+        /// </summary>
+        /// <returns></returns>
+        public static List<Producto> ListarInstViento()
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarInstViento", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Producto
+                      {
+                          Nombre = dataRow.Field<string>("Nombre"),
+                          Categoria = dataRow.Field<string>("Categoria"),
+                          Modelo = dataRow.Field<string>("Modelo"),
+                          Precio = dataRow.Field<string>("Precio")
+
+                      }).ToList();
+
+                    return empList;
+                }
+
+
+                return null;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Retorna los productos del tipo Instrumentos de Percusión
+        /// </summary>
+        /// <returns></returns>
+        public static List<Producto> ListarInstPercusion()
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarInstPercusion", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Producto
+                      {
+                          Nombre = dataRow.Field<string>("Nombre"),
+                          Categoria = dataRow.Field<string>("Categoria"),
+                          Modelo = dataRow.Field<string>("Modelo"),
+                          Precio = dataRow.Field<string>("Precio")
+
+                      }).ToList();
+
+                    return empList;
+                }
+
+
+                return null;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Retorna los productos del tipo Instrumentos Electrónicos
+        /// </summary>
+        /// <returns></returns>
+        public static List<Producto> ListarInstElectronicos()
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarInstElectronicos", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Producto
+                      {
+                          Nombre = dataRow.Field<string>("Nombre"),
+                          Categoria = dataRow.Field<string>("Categoria"),
+                          Modelo = dataRow.Field<string>("Modelo"),
+                          Precio = dataRow.Field<string>("Precio")
+
+                      }).ToList();
+
+                    return empList;
+                }
+
+
+                return null;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
 
 
         /// <summary>

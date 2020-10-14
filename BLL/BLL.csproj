@@ -52,6 +52,7 @@
     <Compile Include="GestorProveedor.cs" />
     <Compile Include="GestorRemito.cs" />
     <Compile Include="GestorRol.cs" />
+    <Compile Include="GestorSuscripcion.cs" />
     <Compile Include="GestorUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
