@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -22,33 +23,51 @@ namespace GUI
         public DataSet CargarDatos()
         {
             return GestorBitacora.Listar();
+
         }
 
         protected void Buscar_Click(object sender, EventArgs e)
         {
-            var tipo = tipoEvento.Text.Trim();
             var entidadIn = entidad.Text.Trim();
+            var fechaDesde = desde.Text.Trim();
+            var fechaHasta = hasta.Text.Trim();
+            var status = "GET";
 
-            if (tipo != null)
+            //if(entidadIn != null || entidadIn != "")
+            //{
+            //    GestorBitacora.ListarFiltradoEntidad(entidadIn);
+            //}
+
+
+            if (fechaDesde == null && fechaHasta != null
+                || fechaDesde != null && fechaHasta == null)
+            {
+                Response.Write("alert('Seleccione la fecha desde y fecha  hasta para filtrar la información')");
+
+                fechaDesde = null;
+                fechaHasta = null;
+                return;
+            }
+            else if ((fechaDesde != null || fechaDesde != "") && (fechaHasta != null || fechaHasta != ""))
             {
                 if (entidadIn != null)
                 {
-                    //filtro por todos los campos
-                    GestorBitacora.ListarFiltradoTotal(tipo, entidadIn);
+                    GestorBitacora.ListarFiltrado(entidadIn, fechaDesde, fechaHasta, status);
                 }
                 else
                 {
-                    //filtro solo por tipo
-
-
+                    entidadIn = null;
+                    GestorBitacora.ListarFiltrado(entidadIn, fechaDesde, fechaHasta, status);
                 }
             }
-            else if(entidadIn != null)
+            else if (entidadIn != null)
             {
-                //filtro solo por entidad
+                fechaDesde = null;
+                fechaHasta = null;
 
+                GestorBitacora.ListarFiltrado(entidadIn, fechaDesde, fechaHasta, status);
             }
-            
+
         }
     }
 }

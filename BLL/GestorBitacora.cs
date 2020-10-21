@@ -16,14 +16,19 @@ namespace BLL
             return MapperBitacora.ListarBitacora();
         }
 
-        static public DataSet ListarFiltradoTotal(string tipo, string entidadIn)
+        static public DataSet ListarFiltrado(string entidad, string fechaDesde, string fechaHasta, string status)
         {
-            return MapperBitacora.ListarBitacoraFiltroTotal(tipo,entidadIn);
+            return MapperBitacora.ListarBitacoraFiltrado(entidad, fechaDesde, fechaHasta, status);
         }
 
         static public bool Agregar(DateTime fecha, string tipoEvento, string user, string entidadInv)
         {
             return MapperBitacora.InsertarEnBicatora(fecha,tipoEvento,user,entidadInv);
+        }
+
+        static public DataSet ListarFiltradoEntidad(string entidad)
+        {
+            return MapperBitacora.ListarFiltroEntidad(entidad);
         }
     }
 }

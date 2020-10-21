@@ -94,7 +94,7 @@
                 <asp:BoundField DataField="IdProd" HeaderText="Id" />
                 <asp:BoundField DataField="Upc" HeaderText="UPC" />
                 <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
+                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" ItemStyle-CssClass="anchoCol" />
                 <asp:BoundField DataField="Categoria" HeaderText="Categoria" />
                 <asp:BoundField DataField="TipoInstrumento" HeaderText="Tipo de Instrumento" />
                 <asp:BoundField DataField="IdMarca" HeaderText="Id Marca" />
@@ -166,6 +166,11 @@
         .BtnBuscar{
             background-color:#eeeeee;
         }
+
+        .anchoCol{
+            width: 150vw;
+        }
+
     </style>
 
 </asp:Content>

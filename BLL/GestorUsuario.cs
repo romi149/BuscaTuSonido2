@@ -39,5 +39,15 @@ namespace BLL
         {
             return MapperUsuario.ListarUsuarios();
         }
+
+        public static DataSet ListarUsuariosConFiltro(string username, string dni, string status)
+        {
+            return MapperUsuario.ListarUsuariosFiltrados(username, dni, status);
+        }
+
+        public static DataSet ListarUsuariosFiltroTotal(string username, string dni)
+        {
+            return MapperUsuario.ListarUsuariosFiltroTotal(username, dni);
+        }
     }
 }

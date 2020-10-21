@@ -56,9 +56,30 @@ namespace GUI
 
         protected void Buscar_Click(object sender, EventArgs e)
         {
+            //var Dato = buscar.Text.Trim();
+            var userbuscado = user.Text.Trim();
+            var dni = doc.Text.Trim();
+            var status = "GET";
 
-            //this.gvProductos.DataSource = CargarDatos();
-            //this.gvProductos.DataBind();
+            if (userbuscado != null || userbuscado != "")
+            {
+                if (dni != null || dni != "")
+                {
+                    //filtro por todos los campos
+                    GestorUsuario.ListarUsuariosFiltroTotal(userbuscado,dni);
+                }
+                else
+                {
+                    //filtro por usuario
+                    dni = null;
+                    GestorUsuario.ListarUsuariosConFiltro(userbuscado, dni, status);
+                }
+            }
+            else if(dni != null || dni != "")
+            {
+                //filtro solo por dni
+                GestorUsuario.ListarUsuariosConFiltro(userbuscado, dni, status);
+            }
         }
 
         protected void sendAgregar_Click(object sender, EventArgs e)

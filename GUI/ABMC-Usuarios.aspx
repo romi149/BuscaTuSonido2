@@ -8,10 +8,30 @@
             <div class="BuscadorDiv">
                 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Agregar</button>
                 <div class="input-group" id="BuscarControl">
-                    <span class="input-group-addon">Buscar</span>
-                    <asp:TextBox runat="server" type="text" CssClass="form-control"  />
+                    <table>
+                        <tr>
+                            <td>
+                                <label>Filtrar por:</label>
+                            </td>
+                            <td colspan="2">  </td>
+                            <td>
+                                <label>Usuario</label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="user" runat="server" type="text" CssClass="form-control"></asp:TextBox>
+                            </td>
+                            <td>
+                                <label>DNI</label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="doc" runat="server" type="text" CssClass="form-control"></asp:TextBox>
+                            </td>
+                        </tr>
+                    </table>
+                    <%--<span class="input-group-addon">Buscar</span>
+                    <asp:TextBox runat="server" type="text" CssClass="form-control" ID="buscar" />--%>
                 </div>
-                <asp:Button runat="server" CssClass="btn btnBuscar" Text="Buscar" OnClick="Buscar_Click" ></asp:Button>
+                <asp:Button runat="server" CssClass="btn btn-primary btn-md" Text="Buscar" OnClick="Buscar_Click" ></asp:Button>
             </div>
         </div>
         <div id="demo" class="collapse">

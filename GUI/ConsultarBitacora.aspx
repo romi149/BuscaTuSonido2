@@ -13,15 +13,19 @@
                         <tr>
                             <td>
                                 <label>Tipo de Evento</label>
-                            </td>
-                            <td>
                                 <asp:TextBox ID="tipoEvento" runat="server" type="text" CssClass="form-control"></asp:TextBox>
                             </td>
                             <td>
                                 <label>Entidad Involucrada</label>
+                                <asp:TextBox ID="entidad" runat="server" type="text" CssClass="form-control"></asp:TextBox>
                             </td>
                             <td>
-                                <asp:TextBox ID="entidad" runat="server" type="text" CssClass="form-control"></asp:TextBox>
+                                <label>Fecha desde</label>
+                                <asp:TextBox ID="desde" runat="server" type="date" CssClass="form-control"></asp:TextBox>
+                            </td>
+                            <td>
+                                <label>Fecha hasta</label>
+                                <asp:TextBox ID="hasta" runat="server" type="date" CssClass="form-control"></asp:TextBox>
                             </td>
                         </tr>
                     </table>

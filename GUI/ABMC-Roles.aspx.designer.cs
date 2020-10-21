@@ -11,52 +11,61 @@ namespace GUI
 {
 
 
-    public partial class ConsultarBitacora
+    public partial class ABMC_Roles
     {
 
         /// <summary>
-        /// Control tipoEvento.
+        /// Control nombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tipoEvento;
+        protected global::System.Web.UI.WebControls.TextBox nombre;
 
         /// <summary>
-        /// Control entidad.
+        /// Control tipoRol.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox entidad;
+        protected global::System.Web.UI.WebControls.TextBox tipoRol;
 
         /// <summary>
-        /// Control desde.
+        /// Control descripcion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox desde;
+        protected global::System.Web.UI.WebControls.TextBox descripcion;
 
         /// <summary>
-        /// Control hasta.
+        /// Control Agregar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hasta;
+        protected global::System.Web.UI.WebControls.Button Agregar;
 
         /// <summary>
-        /// Control gvBitacora.
+        /// Control cancelar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvBitacora;
+        protected global::System.Web.UI.WebControls.Button cancelar;
+
+        /// <summary>
+        /// Control gvRoles.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvRoles;
     }
 }

@@ -152,6 +152,52 @@ namespace MPP
             }
 
         }
+
+
+        /// <summary>
+        /// Retorna todos los usuarios de la Bd según el filtro aplicado
+        /// </summary>
+        /// <returns></returns>
+        public static DataSet ListarUsuariosFiltrados(string username, string dni, string status)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, username));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Dni", DbType.String, ParameterDirection.Input, dni));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("status", DbType.String, ParameterDirection.Input, status));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("FiltrarUsuarios", ListaParametros);
+
+                return respuesta;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Retorna todos los usuarios de la Bd según el filtro
+        /// </summary>
+        /// <returns></returns>
+        public static DataSet ListarUsuariosFiltroTotal(string username, string dni)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, username));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Dni", DbType.String, ParameterDirection.Input, dni));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarUsuariosFiltroTotal", ListaParametros);
+
+                return respuesta;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
     }
 
 

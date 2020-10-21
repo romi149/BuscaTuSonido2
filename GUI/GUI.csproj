@@ -107,6 +107,7 @@
   <ItemGroup>
     <Content Include="ABMC-Productos.aspx" />
     <Content Include="ABMC-Proveedores.aspx" />
+    <Content Include="ABMC-Roles.aspx" />
     <Content Include="ABMC-Usuarios.aspx" />
     <Content Include="About.aspx" />
     <Content Include="Configuracion.aspx" />
@@ -191,7 +192,7 @@
     <Content Include="InstrumentosCuerdas.aspx" />
     <Content Include="InstrumentosElectronicos.aspx" />
     <Content Include="InstrumentosPercusion.aspx" />
-    <Content Include="InstumentosViento.aspx" />
+    <Content Include="InstrumentosViento.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="News.aspx" />
     <Content Include="NuevoRegistro.aspx" />
@@ -246,6 +247,13 @@
     </Compile>
     <Compile Include="ABMC-Proveedores.aspx.designer.cs">
       <DependentUpon>ABMC-Proveedores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ABMC-Roles.aspx.cs">
+      <DependentUpon>ABMC-Roles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMC-Roles.aspx.designer.cs">
+      <DependentUpon>ABMC-Roles.aspx</DependentUpon>
     </Compile>
     <Compile Include="ABMC-Usuarios.aspx.cs">
       <DependentUpon>ABMC-Usuarios.aspx</DependentUpon>
@@ -357,12 +365,12 @@
     <Compile Include="InstrumentosPercusion.aspx.designer.cs">
       <DependentUpon>InstrumentosPercusion.aspx</DependentUpon>
     </Compile>
-    <Compile Include="InstumentosViento.aspx.cs">
-      <DependentUpon>InstumentosViento.aspx</DependentUpon>
+    <Compile Include="InstrumentosViento.aspx.cs">
+      <DependentUpon>InstrumentosViento.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="InstumentosViento.aspx.designer.cs">
-      <DependentUpon>InstumentosViento.aspx</DependentUpon>
+    <Compile Include="InstrumentosViento.aspx.designer.cs">
+      <DependentUpon>InstrumentosViento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
