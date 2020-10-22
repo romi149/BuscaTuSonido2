@@ -5,7 +5,7 @@
         <div class="containerProducto">
             <div class="row">
                 <div class="col-lg-6 col-md-6">
-                    <img class="imgProducto" src="https://http2.mlstatic.com/D_NQ_NP_2X_706800-MLA42842125254_072020-F.webp" alt="">
+                     <asp:Image CssClass="imgProducto" runat="server" ID="ImagenProducto" />
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <h1><asp:Panel runat="server" ID="TxtNombre"></asp:Panel></h1>
@@ -19,9 +19,9 @@
     </div>
 
     <style>
-        .imgProducto{
-            width:100%;
-            height:100%;
+       .imgProducto{
+            width:30vw;
+            height:50vh;
         }
     </style>
 </asp:Content>

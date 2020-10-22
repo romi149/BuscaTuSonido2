@@ -30,6 +30,7 @@ namespace GUI
                 TxtModelo.Controls.Add(textoTitulo1);
                 TxtPrecio.Controls.Add(textoTitulo2);
                 TxtDescripcion.Controls.Add(textoTitulo3);
+                this.ImagenProducto.ImageUrl = GestorProducto.GestionImagen(nombre, "sin categoria");
 
             }
             catch (Exception)

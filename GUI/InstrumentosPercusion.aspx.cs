@@ -23,11 +23,11 @@ namespace GUI
                     DivContenedor.InnerHtml += "<div clas='row'>";
                 if (cont < 3)
                 {
-                    DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Modelo, item.Precio.ToString(), item.Descripcion, "http://placehold.it/700x400");
+                    DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Modelo, item.Precio.ToString(), item.Descripcion, GestorProducto.GestionImagen(item.Nombre, "sin categoria"));
                 }
                 else
                 {
-                    DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Modelo, item.Precio.ToString(), item.Descripcion, "http://placehold.it/700x400") + "</div>";
+                    DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Modelo, item.Precio.ToString(), item.Descripcion, GestorProducto.GestionImagen(item.Nombre, "sin categoria")) + "</div>";
                     cont = 0;
                 }
                 cont++;
@@ -44,7 +44,7 @@ namespace GUI
         {
             return
             $"<div class='col-md-4 col-sm-4'><div class='card'><a href='#'><img class='card-img-top' " +
-            $"src='/Imagenes/Catalogo/Guitarras/ClassisPlayerJaguarSpecial.png' alt='' /></a><div class='card-body'><h4 class='card-title'>" +
+            $"src='{urlImagen}' alt='' /></a><div class='card-body'><h4 class='card-title'>" +
             $"<a href='DescripcionProducto.aspx?Nombre={NombreProducto}&Modelo={Modelo}'>{NombreProducto}</a></h4><h5>${PrecioProducto}</h5><p class='card-text'>" +
             $"{Descripcion}</p></div><div class='card-footer'></div></div></div>";
 

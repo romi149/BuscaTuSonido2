@@ -339,5 +339,32 @@ namespace MPP
                 return null;
             }
         }
+
+
+        public static string ObtenerRutaImagen(string nombreImg, string categoria)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombreImagen", DbType.String, ParameterDirection.Input, nombreImg));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Categoria", DbType.String, ParameterDirection.Input, categoria));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ObtenerImagen", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable().FirstOrDefault().Field<string>("Urlimg");
+
+                    return empList;
+                }
+                //PONER IMAGEN POR DEFECTO
+                return null;
+            }
+            catch (Exception e)
+            {
+                //PONER IMAGEN POR DEFECTO
+                return null;
+
+            }
+
+        }
     }
 }

@@ -2,13 +2,13 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-      <!-- Page Content -->
+    <!-- Page Content -->
     <div class="container">
 
         <div class="row">
 
             <div class="col-lg-3">
-                <img class="imglogo" src="/imagenes/Portada/BuscaTuSonidoLogo.png" alt="">
+                <img id="logo" class="imglogo" src="/imagenes/Portada/BuscaTuSonidoLogo.png" alt="">
                 <%--<h1 class="my-4">BuscaTuSonido</h1>--%>
                 <div class="list-group">
                     <a href="/InstrumentosCuerdas" class="list-group-item">Instrumentos de Cuerda</a>
@@ -34,20 +34,19 @@
     <footer>
         <hr />
         <div class="container-footer">
-            <div class="row justify-content-left align-items-center" style="height: 100vh">
+            <div class="row justify-content-left align-items-center">
                 <div class="contenedor-suscripcion">
-                    <div class="title">
-                        <h4 style="color: white; font-weight: 400;">Contáctenos</h4>
-                    </div>
+
                     <div class="row">
                         <div class="body-content">
                             <div class="col-lg-6">
-                                <p>
-                                    Tel.: 116045-2099
-                                </p>
-                                <p>
-                                    Email: info@buscatusonido.com
-                                </p>
+                            <div class="title">
+                                <h4 style="color: white; font-weight: 400;">Contáctenos</h4>
+                            </div>
+                                <h4>Tel.: 116045-2099
+                                </h4>
+                                <h4>Email: info@buscatusonido.com
+                                </h4>
 
                                 <a href="TermyCond">Términos y Condiciones</a>
                             </div>
@@ -72,14 +71,23 @@
             </div>
         </div>
     </footer>
-    
-  <!-- /.container -->
 
-     <style>
+    <!-- /.container -->
+
+    <style>
         img {
-            width: 10vw;
+            width: 15vw;
+            height: 200px;
         }
 
+        #logo{
+            width: 20vw;
+            height: 25vh;
+        }
+
+        footer{
+            width:100vw !important
+        }
         @media (max-width: 700px) {
             img {
                 width: 50vw;
@@ -89,26 +97,22 @@
                 width: 50vw;
                 margin: auto;
             }
-
         }
-        .container-footer{
-            background-color:black;
+
+        .container-footer {
+            background-color: #222222;
+            padding:2%;
             /*margin:auto;*/
-            width:auto;
-            margin-bottom:5%;
-            
-            
         }
 
-        .contenedor-suscripcion{
-            width:80%;
-            margin:auto;
+        .contenedor-suscripcion {
+            width: 80%;
+            margin: auto;
         }
 
-        .body-content{
-            color:#a6a6a6;
+        .body-content {
+            color: #a6a6a6;
         }
-
     </style>
 
 </asp:Content>

@@ -68,5 +68,10 @@ namespace BLL
         {
             return MapperProducto.ListarInstElectronicos();
         }
+
+        public static string GestionImagen(string NombreImg, string Categoria)
+        {
+            return MapperProducto.ObtenerRutaImagen(NombreImg, Categoria);
+        }
     }
 }
