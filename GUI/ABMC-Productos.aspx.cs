@@ -100,5 +100,49 @@ namespace GUI
             //this.gvProductos.DataSource = CargarDatos();
             //this.gvProductos.DataBind();
         }
+
+        protected void UploadButton_Click(object sender, EventArgs e)
+        {
+            var nombreProd = nombre.Text.Trim();
+            var Tipo = tipoInstrumento.Text.Trim();
+            string ruta;
+
+            if(nombreProd != "" && Tipo != "")
+            {
+                switch(Tipo)
+                {
+                    case "Cuerdas":
+                        ruta = @"/Imagenes/Catalogo/Cuerdas";
+                        FileUpload.SaveAs(ruta);
+                        GestorProducto.AgregarImg(nombreProd, "Sin categoria", ruta);
+                        break;
+
+                    case "Electronico":
+                        ruta = @"/Imagenes/Catalogo/Electronicos";
+                        FileUpload.SaveAs(ruta);
+                        GestorProducto.AgregarImg(nombreProd, "Sin categoria", ruta);
+                        break;
+
+                    case "Viento":
+                        ruta = @"/Imagenes/Catalogo/Viento";
+                        FileUpload.SaveAs(ruta);
+                        GestorProducto.AgregarImg(nombreProd, "Sin categoria", ruta);
+                        break;
+
+                    case "Percusion":
+                        ruta = @"/Imagenes/Catalogo/Percusion";
+                        FileUpload.SaveAs(ruta);
+                        GestorProducto.AgregarImg(nombreProd, "Sin categoria", ruta);
+                        break;
+                }
+
+            }
+            else
+            {
+                Response.Write("<script>alert('Debe completar los datos del producto')</script>");
+            }
+
+            
+        }
     }
 }

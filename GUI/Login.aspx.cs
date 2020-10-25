@@ -44,6 +44,39 @@ namespace GUI
             //Response.Write("<script>window.close()</script>");
             Response.Redirect("~/");
         }
+
+        protected void sendemail_Click(object sender, EventArgs e)
+        {
+            var Email = email.Text.Trim();
+
+            if (Email != null || Email != "")
+            {
+                var Existe = GestorCliente.ValidadMailCliente(Email);
+
+                if(Existe != null)
+                {
+                    EnvioEmails.EnviarMailRecuperoPass(Email,"");
+                }
+                else
+                {
+                    Response.Write("<script>alert('El email ingresado no se encuentra registrado')</script>");
+                }
+            }
+            else
+            {
+                EnvioEmails.EnviarMailRecuperoPass(Email,"");
+
+                Response.Write("<script>alert('Se ha enviado un correo electronico a su casilla de email para que pueda recuperar su contraseña')</script>");
+            }
+
+        }
+
+
+        protected void sendcancelar_Click(object sender, EventArgs e)
+        {
+            Response.Write("<script>window.close()</script>");
+            //Response.Redirect("~/");
+        }
     }
     
 }

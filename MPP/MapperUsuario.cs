@@ -131,6 +131,31 @@ namespace MPP
         }
 
         /// <summary>
+        /// Actualiza la contraseña de un usuario en Bd
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns>Devuelve si se actualiza o no</returns>
+        public static bool ActualizarPass(int IdUser, string pass)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdUsuario", DbType.String, ParameterDirection.Input, IdUser));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Password", DbType.String, ParameterDirection.Input, pass));
+                var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarUsuario", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return false;
+            }
+
+
+        }
+
+        /// <summary>
         /// Elimina un usuario en Bd
         /// </summary>
         /// <param name="usuario">Tipo Producto</param>

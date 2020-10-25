@@ -196,7 +196,7 @@
     <Content Include="InstrumentosViento.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="News.aspx" />
-    <Content Include="NuevoRegistro.aspx" />
+    <Content Include="RecuperoPass.aspx" />
     <Content Include="Registrarse.aspx" />
     <Content Include="Remitos.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -387,12 +387,12 @@
     <Compile Include="News.aspx.designer.cs">
       <DependentUpon>News.aspx</DependentUpon>
     </Compile>
-    <Compile Include="NuevoRegistro.aspx.cs">
-      <DependentUpon>NuevoRegistro.aspx</DependentUpon>
+    <Compile Include="RecuperoPass.aspx.cs">
+      <DependentUpon>RecuperoPass.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="NuevoRegistro.aspx.designer.cs">
-      <DependentUpon>NuevoRegistro.aspx</DependentUpon>
+    <Compile Include="RecuperoPass.aspx.designer.cs">
+      <DependentUpon>RecuperoPass.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registrarse.aspx.cs">

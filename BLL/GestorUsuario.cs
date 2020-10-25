@@ -30,6 +30,11 @@ namespace BLL
             return MapperUsuario.ActualizarUsuario(IdUser, user, nombre, ape, pass, estado, Ididioma, dni);
         }
 
+        public static bool ModificarPass(int IdUser, string pass)
+        {
+            return MapperUsuario.ActualizarPass(IdUser, pass);
+        }
+
         public static bool Eliminar(int IdUser)
         {
             return MapperUsuario.EliminarUsuario(IdUser);

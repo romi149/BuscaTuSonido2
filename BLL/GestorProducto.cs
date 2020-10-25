@@ -73,5 +73,10 @@ namespace BLL
         {
             return MapperProducto.ObtenerRutaImagen(NombreImg, Categoria);
         }
+
+        public static bool AgregarImg(string nombre, string categ, string url)
+        {
+            return MapperProducto.InsertarImagen(nombre, categ, url);
+        }
     }
 }

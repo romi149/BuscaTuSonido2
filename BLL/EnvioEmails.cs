@@ -11,58 +11,86 @@ namespace BLL
 {
     public static class EnvioEmails
     {
-        public static void EnviarMail(string destinatario, string asunto, string mensaje)
+        public static void EnviarMail(string destinatario, string mensaje)
         {
-            var fromAddress = new MailAddress("buscatusonido.org@gmail.com", "Busca Tu Sonido");
-            var toAddress = new MailAddress(destinatario, "To Name");
-            const string fromPassword = "Adrian1234";
-            string subject = asunto;
-            string body = mensaje;
-            var smtp = new SmtpClient
+            try
             {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
-            };
-            using (var message = new MailMessage(fromAddress, toAddress)
+
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress("buscatusonido.org@gmail.com");
+                mail.To.Add(destinatario);
+                mail.Subject = "Confirmación de registro";
+                mail.Body = "Su registro se ha realizado correctamente.";
+                mail.IsBodyHtml = true;
+                SmtpServer.Port = 587;
+                SmtpServer.Host = "smtp.gmail.com";
+                SmtpServer.EnableSsl = true;
+                SmtpServer.UseDefaultCredentials = false;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("buscatusonido.org@gmail.com", "Adrian1234");
+
+                SmtpServer.Send(mail);
+            }
+            catch (Exception ex)
             {
-                Subject = subject,
-                Body = body
-            })
-            {
-                smtp.Send(message);
+                
             }
         }
 
-        //public static void EnviarMail(string destinatario, string mensaje)
-        //{
-        //    try
-        //    {
+        public static void EnviarMailRecuperoPass(string destinatario, string mensaje)
+        {
+            try
+            {
 
-        //        MailMessage mail = new MailMessage();
-        //        SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
-        //        mail.From = new MailAddress("buscatusonido.org@gmail.com");
-        //        mail.To.Add(destinatario);
-        //        mail.Subject = destinatario;
-        //        mail.Body = mensaje;
-        //        mail.IsBodyHtml = true;
-        //        SmtpServer.Port = 587;
-        //        SmtpServer.Host = "smtp.gmail.com";
-        //        SmtpServer.EnableSsl = true;
-        //        SmtpServer.UseDefaultCredentials = false;
-        //        SmtpServer.Credentials = new System.Net.NetworkCredential("buscatusonido.org@gmail.com", "Adrian1234");
+                mail.From = new MailAddress("buscatusonido.org@gmail.com");
+                mail.To.Add(destinatario);
+                mail.Subject = "Recupero de contraseña";
+                mail.Body = mensaje;
+                mail.IsBodyHtml = true;
+                SmtpServer.Port = 587;
+                SmtpServer.Host = "smtp.gmail.com";
+                SmtpServer.EnableSsl = true;
+                SmtpServer.UseDefaultCredentials = false;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("buscatusonido.org@gmail.com", "Adrian1234");
 
-        //        SmtpServer.Send(mail);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Application.Current.MainPage.DisplayAlert("Faild", ex.Message, "OK");
-        //    }
-        //}
+                SmtpServer.Send(mail);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        public static void EnviarMailConfirmacionCambioPass(string destinatario, string mensaje)
+        {
+            try
+            {
+
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress("buscatusonido.org@gmail.com");
+                mail.To.Add(destinatario);
+                mail.Subject = "Cambio de contraseña";
+                mail.Body = mensaje;
+                mail.IsBodyHtml = true;
+                SmtpServer.Port = 587;
+                SmtpServer.Host = "smtp.gmail.com";
+                SmtpServer.EnableSsl = true;
+                SmtpServer.UseDefaultCredentials = false;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("buscatusonido.org@gmail.com", "Adrian1234");
+
+                SmtpServer.Send(mail);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
 
         public static string md5(string Value)
         {

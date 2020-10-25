@@ -366,5 +366,29 @@ namespace MPP
             }
 
         }
+
+        /// <summary>
+        /// Inserta una imagen en Bd
+        /// </summary>
+        /// <param name="producto"></param>
+        /// <returns>Devuelve si se inserto o no</returns>
+        public static bool InsertarImagen(string nombre, string categ, string url)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, nombre));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Categoria", DbType.String, ParameterDirection.Input, categ));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Url", DbType.String, ParameterDirection.Input, url));
+                var respuesta = Conexion.GetInstance.EjecutarStore("InsertarImagen", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
     }
 }

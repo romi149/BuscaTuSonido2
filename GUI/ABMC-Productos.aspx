@@ -38,12 +38,12 @@
                                 <label>Categoria</label>
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="categoria" />
                             </div>
-                        </div>
-                        <div class="col-md-4">
                             <div class="form-group">
                                 <label>Tipo Instrumento</label>
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="tipoInstrumento" />
                             </div>
+                        </div>
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label>Id Marca</label>
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="idMarca" />
@@ -56,8 +56,6 @@
                                 <label>Precio</label>
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="precio" />
                             </div>
-                        </div>
-                        <div class="col-md-4">
                             <div class="form-group">
                                 <label>Id Proveedor</label>
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="idProv" />
@@ -66,6 +64,8 @@
                                 <label>Color</label>
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="color" />
                             </div>
+                        </div>
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label>Estado</label>
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="estado" />
@@ -73,6 +73,12 @@
                             <div class="form-group">
                                 <label>Descripción</label>
                                 <asp:TextBox runat="server" CssClass="form-control" type="text" TextMode="MultiLine" ID="descripcion" />
+                            </div>
+                            <div class="form-group">
+                                <label>Imagen de producto</label>
+                                <asp:FileUpload ID="FileUpload" runat="server"></asp:FileUpload>
+                                <br />
+                                <asp:Button ID="UploadButton" Text="Subir Imagen" CssClass="btn btn-primary btn-md" OnClick="UploadButton_Click" runat="server"></asp:Button>
                             </div>
                         </div>
                     </div>
