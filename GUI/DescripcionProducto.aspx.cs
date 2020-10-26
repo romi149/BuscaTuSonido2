@@ -40,5 +40,11 @@ namespace GUI
             }
             //Poner validacion de pagina externa
         }
+
+        protected void sendPreguntar_Click(object sender, EventArgs e)
+        {
+
+            //
+        }
     }
 }

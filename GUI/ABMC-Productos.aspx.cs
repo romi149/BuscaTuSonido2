@@ -107,13 +107,17 @@ namespace GUI
             var Tipo = tipoInstrumento.Text.Trim();
             string ruta;
 
-            if(nombreProd != "" && Tipo != "")
+            if (string.IsNullOrEmpty(nombreProd))
+            {
+                Response.Write("<script>alert('Debe completar los datos del producto')</script>");
+            }
+            else 
             {
                 switch(Tipo)
                 {
                     case "Cuerdas":
                         ruta = @"/Imagenes/Catalogo/Cuerdas";
-                        FileUpload.SaveAs(ruta);
+                        FileUpload.SaveAs(Server.MapPath(".") + "/Imagenes/Catalogo/Cuerdas");
                         GestorProducto.AgregarImg(nombreProd, "Sin categoria", ruta);
                         break;
 
@@ -137,11 +141,6 @@ namespace GUI
                 }
 
             }
-            else
-            {
-                Response.Write("<script>alert('Debe completar los datos del producto')</script>");
-            }
-
             
         }
     }
