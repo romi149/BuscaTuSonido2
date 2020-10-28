@@ -46,8 +46,25 @@ namespace GUI
             $"<div class='col-md-4 col-sm-4'><div class='card'><a href='#'><img class='card-img-top' " +
             $"src='{urlImagen}' alt='' /></a><div class='card-body'><h4 class='card-title'>" +
             $"<a href='DescripcionProducto.aspx?Nombre={NombreProducto}&Modelo={Modelo}'>{NombreProducto}</a></h4><h5>${PrecioProducto}</h5><p class='card-text'>" +
-            $"{Descripcion}</p></div><div class='card-footer'></div></div></div>";
+            $"{Descripcion}</p></div><div class='card-footer'>" + 
+            $"<input type='checkbox' id='ck' name='producto' value={NombreProducto} onclick='Comparar_Click'> " +
+            $"<label for ='producto'> Comparar producto</label></div></div></div>";
 
+        }
+
+        protected void Comparar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default");
+        }
+
+        protected void Eliminar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default");
+        }
+
+        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
