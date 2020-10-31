@@ -22,7 +22,7 @@ namespace BLL
                 mail.From = new MailAddress("buscatusonido.org@gmail.com");
                 mail.To.Add(destinatario);
                 mail.Subject = "Confirmación de registro";
-                mail.Body = "Su registro se ha realizado correctamente.";
+                mail.Body = "<!DOCTYPE html> <html lang='en'> <head> <meta charset='UTF-8'> <meta name='viewport' content='width=device-width, initial-scale=1.0'> <title>Document</title> </head> <body> <div width='300px' style='width: 50%; display: flex; justify-content: center; margin: 18% auto; background-color: navy;color: white; '> <table style='width: 50%'> <thead> <tr> <td colspan='3'>Gracias Por Registrarte, para confirmar tu registro ingresa al siguiente link</td> </tr> </thead> <TBody> <tr> <td colspan='3'>Link a pagina Principal</td> </tr> </TBody> </table> </div> </body> </html>";
                 mail.IsBodyHtml = true;
                 SmtpServer.Port = 587;
                 SmtpServer.Host = "smtp.gmail.com";
@@ -49,7 +49,7 @@ namespace BLL
                 mail.From = new MailAddress("buscatusonido.org@gmail.com");
                 mail.To.Add(destinatario);
                 mail.Subject = "Recupero de contraseña";
-                mail.Body = mensaje;
+                mail.Body = "<!DOCTYPE html> <html lang='en'> <head> <meta charset='UTF-8'> <meta name='viewport' content='width=device-width, initial-scale=1.0'> <title>Document</title> </head> <body> <div width='300px' style='width: 50%; display: flex; justify-content: center; margin: 18% auto; background-color: navy;color: white; '> <table style='width: 50%'> <thead> <tr> <td colspan='3'>Para cambiar su contraseña ingrese al siguiente link</td> </tr> </thead> <TBody> <tr> <td colspan='3'>Link a pagina cambio contraseña</td> </tr> </TBody> </table> </div> </body> </html>";
                 mail.IsBodyHtml = true;
                 SmtpServer.Port = 587;
                 SmtpServer.Host = "smtp.gmail.com";
@@ -76,7 +76,7 @@ namespace BLL
                 mail.From = new MailAddress("buscatusonido.org@gmail.com");
                 mail.To.Add(destinatario);
                 mail.Subject = "Cambio de contraseña";
-                mail.Body = mensaje;
+                mail.Body = "< !DOCTYPE html > < html lang = 'en' > < head > < meta charset = 'UTF-8' > < meta name = 'viewport' content = 'width=device-width, initial-scale=1.0' > < title > Document </ title > </ head > < body > < div width = '300px' style = 'width: 50%; display: flex; justify-content: center; margin: 18% auto; background-color: navy;color: white; ' > < table style = 'width: 50%' > < thead > < tr > < td colspan = '3' > Su contraseña se ha cambiado correctamente</ td > </ tr > </ thead > < TBody > < tr > < td colspan = '3' > Link a login </ td > </ tr > </ TBody > </ table > </ div > </ body > </ html > ";
                 mail.IsBodyHtml = true;
                 SmtpServer.Port = 587;
                 SmtpServer.Host = "smtp.gmail.com";

@@ -49,24 +49,25 @@ namespace GUI
         {
             var Email = email.Text.Trim();
 
-            if (Email != null || Email != "")
+            if (!string.IsNullOrEmpty(Email))
             {
                 var Existe = GestorCliente.ValidadMailCliente(Email);
 
                 if(Existe != null)
                 {
                     EnvioEmails.EnviarMailRecuperoPass(Email,"");
+                    Response.Write("<script>alert('Se ha enviado un correo electronico a su casilla de email para que pueda recuperar su contraseña')</script>");
+                    Email = "";
                 }
                 else
                 {
                     Response.Write("<script>alert('El email ingresado no se encuentra registrado')</script>");
+                    Email = "";
                 }
             }
             else
             {
-                EnvioEmails.EnviarMailRecuperoPass(Email,"");
-
-                Response.Write("<script>alert('Se ha enviado un correo electronico a su casilla de email para que pueda recuperar su contraseña')</script>");
+                Response.Write("<script>alert('Debe ingresar un email')</script>");
             }
 
         }

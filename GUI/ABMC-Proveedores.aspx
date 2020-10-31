@@ -7,11 +7,11 @@
         <div class="row">
             <div class="BuscadorDiv">
                 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Agregar</button>
-                <div class="input-group" id="BuscarControl">
+                <%--<div class="input-group" id="BuscarControl">
                     <span class="input-group-addon">Buscar</span>
                     <asp:TextBox runat="server" type="text" CssClass="form-control"  />
                 </div>
-                <asp:Button runat="server" CssClass="btn btnBuscar" Text="Buscar" OnClick="Buscar_Click" ></asp:Button>
+                <asp:Button runat="server" CssClass="btn btnBuscar" Text="Buscar" OnClick="Buscar_Click" ></asp:Button>--%>
             </div>
         </div>
         <div id="demo" class="collapse">

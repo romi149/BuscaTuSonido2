@@ -13,6 +13,39 @@ namespace GUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            CargarProductos();
+            CargarMenuVertical();
+        }
+
+
+        protected void CargarMenuVertical()
+        {
+            HtmlGenericControl DivContenedor = new HtmlGenericControl("div");
+
+            DivContenedor.InnerHtml = $"<div>";
+            int cont = 0;
+            foreach (var item in GestorMenu.ObtenerMenuVertical())
+            {
+                if (cont == 0)
+                    DivContenedor.InnerHtml += "<div clas='row'>";
+                if (cont < 3)
+                {
+                    DivContenedor.InnerHtml += CrearMenuVertical(item.NombreMenu);
+                }
+                else
+                {
+                    DivContenedor.InnerHtml += CrearMenuVertical(item.NombreMenu) + "</div>";
+                    cont = 0;
+                }
+                cont++;
+            }
+            DivContenedor.InnerHtml += "</div>";
+            this.contenedorMenu.Controls.Add(DivContenedor);
+        }
+
+
+        protected void CargarProductos()
+        {
             HtmlGenericControl DivContenedor = new HtmlGenericControl("div");
 
             DivContenedor.InnerHtml = $"<div>";
@@ -27,7 +60,7 @@ namespace GUI
                 }
                 else
                 {
-                    DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Modelo, item.Precio.ToString(), item.Descripcion, GestorProducto.GestionImagen(item.Nombre,"sin categoria")) + "</div>";
+                    DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Modelo, item.Precio.ToString(), item.Descripcion, GestorProducto.GestionImagen(item.Nombre, "sin categoria")) + "</div>";
                     cont = 0;
                 }
                 cont++;
@@ -35,6 +68,8 @@ namespace GUI
             DivContenedor.InnerHtml += "</div>";
             this.contenedor.Controls.Add(DivContenedor);
         }
+
+
 
 
         public string CrearCardProducto(string NombreProducto,
@@ -50,6 +85,8 @@ namespace GUI
             $"{Descripcion}</p></div><div class='card-footer'></div></div></div>";
 
         }
+
+        
 
         protected void sendSuscribirse_Click(object sender, EventArgs e)
         {
@@ -67,6 +104,13 @@ namespace GUI
 
                 return;
             }
+
+        }
+
+        public string CrearMenuVertical(string Nombre)
+        {
+            return
+            $"<div class='list-group'><a href='/InstrumentosCuerdas' class='list - group - item' >{Nombre}</a></div>";
 
         }
     }

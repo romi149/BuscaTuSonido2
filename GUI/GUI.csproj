@@ -105,6 +105,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ABMC-Menus.aspx" />
     <Content Include="ABMC-Productos.aspx" />
     <Content Include="ABMC-Proveedores.aspx" />
     <Content Include="ABMC-Roles.aspx" />
@@ -113,6 +114,7 @@
     <Content Include="Configuracion.aspx" />
     <Content Include="ConsultarBitacora.aspx" />
     <Content Include="DescripcionProducto.aspx" />
+    <Content Include="EditarMenu.aspx" />
     <Content Include="EditarProveedor.aspx" />
     <Content Include="EditarProducto.aspx" />
     <Content Include="EditarUsuario.aspx" />
@@ -235,6 +237,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABMC-Menus.aspx.cs">
+      <DependentUpon>ABMC-Menus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMC-Menus.aspx.designer.cs">
+      <DependentUpon>ABMC-Menus.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ABMC-Productos.aspx.cs">
       <DependentUpon>ABMC-Productos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -299,6 +308,13 @@
     </Compile>
     <Compile Include="DescripcionProducto.aspx.designer.cs">
       <DependentUpon>DescripcionProducto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditarMenu.aspx.cs">
+      <DependentUpon>EditarMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditarMenu.aspx.designer.cs">
+      <DependentUpon>EditarMenu.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditarProveedor.aspx.cs">
       <DependentUpon>EditarProveedor.aspx</DependentUpon>

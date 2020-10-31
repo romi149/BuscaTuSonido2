@@ -11,43 +11,61 @@ namespace GUI
 {
 
 
-    public partial class ConsultarBitacora
+    public partial class ABMC_Menus
     {
 
         /// <summary>
-        /// Control entidad.
+        /// Control nombreControl.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox entidad;
+        protected global::System.Web.UI.WebControls.TextBox nombreControl;
 
         /// <summary>
-        /// Control desde.
+        /// Control descripcion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox desde;
+        protected global::System.Web.UI.WebControls.TextBox descripcion;
 
         /// <summary>
-        /// Control hasta.
+        /// Control ubicacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hasta;
+        protected global::System.Web.UI.WebControls.TextBox ubicacion;
 
         /// <summary>
-        /// Control gvBitacora.
+        /// Control Agregar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvBitacora;
+        protected global::System.Web.UI.WebControls.Button Agregar;
+
+        /// <summary>
+        /// Control cancelar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button cancelar;
+
+        /// <summary>
+        /// Control gvMenus.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvMenus;
     }
 }

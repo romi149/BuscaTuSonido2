@@ -17,7 +17,7 @@
                     <a href="#" class="list-group-item">Instrumentos en Alquiler</a>
                     <br />
                     <br />
-                    <%--<asp:Button runat="server" CssClass="btn btn-primary btn-md" Text="Comparar productos" OnClick="Comparar_Click" ></asp:Button>--%>
+                    
                   
                     <div class="compareBox-content">
                         <div class="compareBox gb--appear ">

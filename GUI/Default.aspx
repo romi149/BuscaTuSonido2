@@ -10,13 +10,17 @@
             <div class="col-lg-3">
                 <img id="logo" class="imglogo" src="/imagenes/Portada/BuscaTuSonidoLogo.png" alt="">
                 <%--<h1 class="my-4">BuscaTuSonido</h1>--%>
-                <div class="list-group">
-                    <a href="/InstrumentosCuerdas" class="list-group-item">Instrumentos de Cuerda</a>
-                    <a href="/InstrumentosViento" class="list-group-item">Instrumentos de Viento</a>
-                    <a href="/InstrumentosPercusion" class="list-group-item">Instrumentos de Percusión</a>
-                    <a href="InstrumentosElectronicos" class="list-group-item">Instrumentos Electrónicos</a>
-                    <a href="#" class="list-group-item">Instrumentos en Alquiler</a>
-                </div>
+                <%--<div class="list-group">--%>
+
+                    <asp:Panel runat="server" ID="contenedorMenu">
+                    </asp:Panel>
+
+                    <%--<a href="/InstrumentosCuerdas" class="list-group-item" >Instrumentos de Cuerda</a>
+                    <a href="/InstrumentosViento" class="list-group-item" >Instrumentos de Viento</a>
+                    <a href="/InstrumentosPercusion" class="list-group-item" >Instrumentos de Percusión</a>
+                    <a href="InstrumentosElectronicos" class="list-group-item" >Instrumentos Electrónicos</a>
+                    <a href="#" class="list-group-item" id="5">Instrumentos en Alquiler</a>--%>
+                <%--</div>--%>
 
             </div>
             <div class="col-lg-9">
@@ -52,7 +56,7 @@
                             </div>
 
                             <div class="col-lg-6">
-                                <h4 style="color: white">Suscribirse</h4>
+                                <h4 style="color: white">Suscribirse al Newsletter</h4>
                                 <div class="form-group">
                                     <label style="font-weight: 200">Nombre</label>
                                     <asp:TextBox runat="server" type="text" CssClass="form-control" ID="nombre" />

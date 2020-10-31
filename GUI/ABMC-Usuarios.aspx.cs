@@ -61,9 +61,9 @@ namespace GUI
             var dni = doc.Text.Trim();
             var status = "GET";
 
-            if (userbuscado != null || userbuscado != "")
+            if (!string.IsNullOrEmpty(userbuscado))
             {
-                if (dni != null || dni != "")
+                if (!string.IsNullOrEmpty(dni))
                 {
                     //filtro por todos los campos
                     GestorUsuario.ListarUsuariosFiltroTotal(userbuscado,dni);
@@ -75,11 +75,16 @@ namespace GUI
                     GestorUsuario.ListarUsuariosConFiltro(userbuscado, dni, status);
                 }
             }
-            else if(dni != null || dni != "")
+            else if(!string.IsNullOrEmpty(dni))
             {
                 //filtro solo por dni
                 GestorUsuario.ListarUsuariosConFiltro(userbuscado, dni, status);
             }
+            else
+            {
+                Response.Write("<script>alert('Debe indicar un dato a buscar')</script>");
+            }
+        
         }
 
         protected void sendAgregar_Click(object sender, EventArgs e)

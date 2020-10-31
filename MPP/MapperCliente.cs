@@ -24,17 +24,14 @@ namespace MPP
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Email", DbType.String, ParameterDirection.Input, email));
-                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ValidarEmail", ListaParametros);
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("email", DbType.String, ParameterDirection.Input, email));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ValidarEmailCliente", ListaParametros);
                 if (respuesta != null)
                 {
                     var empList = respuesta.Tables[0].AsEnumerable()
                       .Select(dataRow => new Cliente
                       {
-                          Nombre = dataRow.Field<string>("Nombre"),
-                          Apellido = dataRow.Field<string>("Apellido"),
-                          Usuario = dataRow.Field<string>("Usuario"),
-                          Email = dataRow.Field<string>("email")
+                          Email = dataRow.Field<string>("Email")
 
                       }).ToList();
                     return empList.FirstOrDefault();

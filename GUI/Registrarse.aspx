@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-<script src='https://www.google.com/recaptcha/api.js'></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <div class="container">
         <div class="row justify-content-center align-items-center" style="height: 100vh">
@@ -55,7 +55,7 @@
                             <asp:TextBox runat="server" type="text" CssClass="form-control" ID="domFactura" />
                         </div>
 
-                        <div class="g-recaptcha" data-sitekey="6LeXoNYZAAAAAPt4XnAqGRNOc50awLezbacv0X6Q"></div>
+                        <div class="g-recaptcha" data-sitekey="6LcGyNwZAAAAAM_H5PKmCCUoYW1GBMbgjj0jzr3n"></div>
 
                     </div>
                 </div>

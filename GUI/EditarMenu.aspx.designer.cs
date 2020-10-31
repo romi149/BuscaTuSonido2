@@ -11,43 +11,61 @@ namespace GUI
 {
 
 
-    public partial class ConsultarBitacora
+    public partial class EditarMenu
     {
 
         /// <summary>
-        /// Control entidad.
+        /// Control id.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox entidad;
+        protected global::System.Web.UI.WebControls.TextBox id;
 
         /// <summary>
-        /// Control desde.
+        /// Control nombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox desde;
+        protected global::System.Web.UI.WebControls.TextBox nombre;
 
         /// <summary>
-        /// Control hasta.
+        /// Control descripcion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hasta;
+        protected global::System.Web.UI.WebControls.TextBox descripcion;
 
         /// <summary>
-        /// Control gvBitacora.
+        /// Control ubicacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvBitacora;
+        protected global::System.Web.UI.WebControls.TextBox ubicacion;
+
+        /// <summary>
+        /// Control Editar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Editar;
+
+        /// <summary>
+        /// Control cancelar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button cancelar;
     }
 }

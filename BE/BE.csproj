@@ -46,6 +46,7 @@
     <Compile Include="Catalogo.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Cliente.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="Empresa.cs" />
     <Compile Include="Encriptado.cs" />
     <Compile Include="Factura.cs" />

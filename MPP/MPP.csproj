@@ -46,6 +46,7 @@
     <Compile Include="MapperBitacora.cs" />
     <Compile Include="MapperCliente.cs" />
     <Compile Include="MapperGestionRoles.cs" />
+    <Compile Include="MapperMenus.cs" />
     <Compile Include="MapperPermiso.cs" />
     <Compile Include="MapperPrecio.cs" />
     <Compile Include="MapperProducto.cs" />
