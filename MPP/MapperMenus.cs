@@ -49,8 +49,6 @@ namespace MPP
                       .Select(dataRow => new Menu
                       {
                           NombreMenu = dataRow.Field<string>("NombreControl")
-                          //Descripcion = dataRow.Field<string>("Descripcion"),
-                          //UbicacionMenu = dataRow.Field<string>("UbicacionControl")
 
                       }).ToList();
 

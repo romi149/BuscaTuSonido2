@@ -18,8 +18,8 @@
                     <%--<a href="/InstrumentosCuerdas" class="list-group-item" >Instrumentos de Cuerda</a>
                     <a href="/InstrumentosViento" class="list-group-item" >Instrumentos de Viento</a>
                     <a href="/InstrumentosPercusion" class="list-group-item" >Instrumentos de Percusión</a>
-                    <a href="InstrumentosElectronicos" class="list-group-item" >Instrumentos Electrónicos</a>
-                    <a href="#" class="list-group-item" id="5">Instrumentos en Alquiler</a>--%>
+                    <a href="InstrumentosElectronicos" class="list-group-item" >Instrumentos Electrónicos</a>--%>
+                    <%--<a href="#" class="list-group-item" >Instrumentos en Alquiler</a>--%>
                 <%--</div>--%>
 
             </div>

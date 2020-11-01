@@ -110,7 +110,7 @@ namespace GUI
         public string CrearMenuVertical(string Nombre)
         {
             return
-            $"<div class='list-group'><a href='/InstrumentosCuerdas' class='list - group - item' >{Nombre}</a></div>";
+            $"<div class='list-group'><a id='{Nombre}' href='/CatalogoProductos' class='list - group - item' >{Nombre}</a></div>";
 
         }
     }

@@ -42,7 +42,7 @@ namespace GUI
         protected void sendvolver_Click(object sender, EventArgs e)
         {
             //Response.Write("<script>window.close()</script>");
-            Response.Redirect("~/");
+            Response.Redirect("/PaginaPrincipal");
         }
 
         protected void sendemail_Click(object sender, EventArgs e)

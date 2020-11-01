@@ -113,6 +113,9 @@
     <Content Include="About.aspx" />
     <Content Include="Configuracion.aspx" />
     <Content Include="ConsultarBitacora.aspx" />
+    <Content Include="css\estilo.css" />
+    <Content Include="css\one-page-wonder.css" />
+    <Content Include="css\one-page-wonder.min.css" />
     <Content Include="DescripcionProducto.aspx" />
     <Content Include="EditarMenu.aspx" />
     <Content Include="EditarProveedor.aspx" />
@@ -164,6 +167,9 @@
     <Content Include="Content\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Backend.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Imagenes\01.jpg" />
+    <Content Include="Imagenes\02.jpg" />
+    <Content Include="Imagenes\03.jpg" />
     <Content Include="Imagenes\Catalogo\Cuerdas\Classic Player Jaguar Special.png" />
     <Content Include="Imagenes\Catalogo\Cuerdas\Cort Action.png" />
     <Content Include="Imagenes\Catalogo\Cuerdas\Epiphone LP100.PNG" />
@@ -191,13 +197,35 @@
     <Content Include="Imagenes\Portada\Guitarra7.png" />
     <Content Include="Imagenes\Portada\Guitarra8.png" />
     <Content Include="Imagenes\Portada\pexels.png" />
+    <Content Include="img\apuntar.svg" />
+    <Content Include="img\bombos.jpg" />
+    <Content Include="img\console.jpg" />
+    <Content Include="img\doremi.svg" />
+    <Content Include="img\elec1.jpg" />
+    <Content Include="img\guitar.jpg" />
+    <Content Include="img\Guitarra1.png" />
+    <Content Include="img\Guitarra2.png" />
+    <Content Include="img\Guitarra3.png" />
+    <Content Include="img\Guitarra4.png" />
+    <Content Include="img\Guitarra6.png" />
+    <Content Include="img\Guitarra7.png" />
+    <Content Include="img\Guitarra8.png" />
+    <Content Include="img\marshmello.svg" />
+    <Content Include="img\pexels.png" />
+    <Content Include="img\Piano.svg" />
+    <Content Include="img\PianoBlack.jpg" />
+    <Content Include="img\runnin.svg" />
+    <Content Include="img\saxo.jpg" />
+    <Content Include="img\Violin.jpg" />
+    <Content Include="img\wonderfullwomen.jpg" />
     <Content Include="InicioBackend.aspx" />
-    <Content Include="InstrumentosCuerdas.aspx" />
+    <Content Include="CatalogoProductos.aspx" />
     <Content Include="InstrumentosElectronicos.aspx" />
     <Content Include="InstrumentosPercusion.aspx" />
     <Content Include="InstrumentosViento.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="News.aspx" />
+    <Content Include="PaginaPrincipal.aspx" />
     <Content Include="RecuperoPass.aspx" />
     <Content Include="Registrarse.aspx" />
     <Content Include="Remitos.aspx" />
@@ -361,12 +389,12 @@
     <Compile Include="InicioBackend.aspx.designer.cs">
       <DependentUpon>InicioBackend.aspx</DependentUpon>
     </Compile>
-    <Compile Include="InstrumentosCuerdas.aspx.cs">
-      <DependentUpon>InstrumentosCuerdas.aspx</DependentUpon>
+    <Compile Include="CatalogoProductos.aspx.cs">
+      <DependentUpon>CatalogoProductos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="InstrumentosCuerdas.aspx.designer.cs">
-      <DependentUpon>InstrumentosCuerdas.aspx</DependentUpon>
+    <Compile Include="CatalogoProductos.aspx.designer.cs">
+      <DependentUpon>CatalogoProductos.aspx</DependentUpon>
     </Compile>
     <Compile Include="InstrumentosElectronicos.aspx.cs">
       <DependentUpon>InstrumentosElectronicos.aspx</DependentUpon>
@@ -402,6 +430,13 @@
     </Compile>
     <Compile Include="News.aspx.designer.cs">
       <DependentUpon>News.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PaginaPrincipal.aspx.cs">
+      <DependentUpon>PaginaPrincipal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaginaPrincipal.aspx.designer.cs">
+      <DependentUpon>PaginaPrincipal.aspx</DependentUpon>
     </Compile>
     <Compile Include="RecuperoPass.aspx.cs">
       <DependentUpon>RecuperoPass.aspx</DependentUpon>
@@ -461,6 +496,13 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="scss\one-page-wonder.scss" />
+    <Content Include="scss\_bootstrap-overrides.scss" />
+    <Content Include="scss\_global.scss" />
+    <Content Include="scss\_masthead.scss" />
+    <Content Include="scss\_mixins.scss" />
+    <Content Include="scss\_navbar.scss" />
+    <Content Include="scss\_variables.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
