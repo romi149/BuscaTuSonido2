@@ -9,7 +9,7 @@ namespace BE
         public int CodCliente { get; set; }
         public string Apellido { get; set; }
         public string Nombre { get; set; }
-        public int Dni { get; set; }
+        public string Dni { get; set; }
         public string DomEntrega { get; set; }
         public string DomFacturacion { get; set; }
         public string Email { get; set; }

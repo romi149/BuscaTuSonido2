@@ -39,7 +39,7 @@ namespace GUI
                                        domEntrega.Text.Trim(),
                                        domFactura.Text.Trim(),
                                        EnvioEmails.md5(password.Text.Trim()),
-                                       int.Parse(dni.Text.Trim()),
+                                       dni.Text.Trim(),
                                        username.Text.Trim());
 
                 bool UserNuevo = GestorUsuario.Agregar(

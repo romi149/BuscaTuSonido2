@@ -224,6 +224,7 @@
     <Content Include="InstrumentosPercusion.aspx" />
     <Content Include="InstrumentosViento.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="MiCuenta.aspx" />
     <Content Include="News.aspx" />
     <Content Include="PaginaPrincipal.aspx" />
     <Content Include="RecuperoPass.aspx" />
@@ -423,6 +424,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MiCuenta.aspx.cs">
+      <DependentUpon>MiCuenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MiCuenta.aspx.designer.cs">
+      <DependentUpon>MiCuenta.aspx</DependentUpon>
     </Compile>
     <Compile Include="News.aspx.cs">
       <DependentUpon>News.aspx</DependentUpon>

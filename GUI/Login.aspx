@@ -149,5 +149,17 @@ body {font-family: Arial, Helvetica, sans-serif;}
             padding:5%;
             margin-top:5%;
         }
+        .modal-content{
+            width:80%;
+            margin:auto;
+            /*background-color:hsla(218, 74%, 60%, 0.171);*/
+            align-items:center;
+            border-radius:15px;
+       
+        }
+        h2 {
+            text-align: center;
+            font-weight: bold;
+        }
     </style>
 </asp:Content>

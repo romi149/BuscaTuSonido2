@@ -8,6 +8,7 @@
                     <div class="row">
                         <div>
                             <h2>Nueva contraseña</h2>
+                            <br />
                             <div class="card-body">
                                 <h4>Ingrese su nueva contraseña</h4>
                                 <div class="form-group">
@@ -41,6 +42,11 @@
             border-radius:15px;
             padding:5%;
             margin-top:5%;
+        }
+
+        h2 {
+            text-align: center;
+            font-weight: bold;
         }
     </style>
 </asp:Content>

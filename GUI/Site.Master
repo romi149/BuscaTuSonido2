@@ -65,7 +65,7 @@
                         <li><a runat="server" href="~/PaginaPrincipal">Inicio</a></li>
                         <li><a runat="server" href="~/About">Acerca de</a></li>
                         <li><a runat="server" href="~/Default">Productos</a></li>
-                        <li><a runat="server" href="~/News">Noticias y Eventos</a></li>
+                        <li><a runat="server" href="~/MiCuenta">Noticias y Eventos</a></li>
                         <li><a runat="server" href="~/FAQ">Preguntas Frecuentes</a></li>
                         <li><a runat="server" href="~/Login">Ingresar</a></li>
                     </ul>
