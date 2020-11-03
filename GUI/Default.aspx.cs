@@ -92,7 +92,7 @@ namespace GUI
         {
             bool Insertado = GestorSuscripcion.Agregar(
                                        email.Text.Trim(),
-                                       nombre.Text.Trim(),
+                                       "",
                                        "Activo");
 
             if (Insertado)
@@ -100,8 +100,7 @@ namespace GUI
                 Response.Write("<script>alert('¡Suscripción realizada con éxito!')</script>");
 
                 email.Text = "";
-                nombre.Text = "";
-
+                
                 return;
             }
 
@@ -111,6 +110,26 @@ namespace GUI
         {
             return
             $"<div class='list-group'><a id='{Nombre}' href='/CatalogoProductos' class='list - group - item' >{Nombre}</a></div>";
+
+        }
+
+        protected void opcionSuscribirse_Click(object sender, EventArgs e)
+        {
+            email.Visible = true;
+            suscribirse.Visible = true;
+            desuscribirse.Visible = false;
+        }
+
+        protected void opcionDesuscribirse_Click(object sender, EventArgs e)
+        {
+            email.Visible = true;
+            desuscribirse.Visible = true;
+            suscribirse.Visible = false;
+        }
+
+        protected void sendDesuscribirse_Click(object sender, EventArgs e)
+        {
+            
 
         }
     }

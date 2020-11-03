@@ -56,17 +56,17 @@
                             </div>
 
                             <div class="col-lg-6">
-                                <h4 style="color: white">Suscribirse al Newsletter</h4>
-                                <div class="form-group">
-                                    <label style="font-weight: 200">Nombre</label>
-                                    <asp:TextBox runat="server" type="text" CssClass="form-control" ID="nombre" />
-                                </div>
+                                <%--<asp:Button runat="server" content="suscrib" ID="suscrib" CssClass="btn btn-link" Text="Suscribirse" OnClick="opcionSuscribirse_Click" />--%>
+                                <asp:button runat="server" type="button" id="suscrib" class="btn btn-info" data-toggle="collapse" data-target="#demo" onclick="opcionSuscribirse_Click" Text="Suscribirse" />
+                                <asp:button runat="server" type="button" id="desuscrib" class="btn btn-info" data-toggle="collapse" data-target="#demo" onclick="opcionDesuscribirse_Click" Text="Cancelar Suscripción" />
+                                <%--<h4 style="color: white">Suscribirse al Newsletter</h4>--%>
                                 <div class="form-group">
                                     <label style="font-weight: 200">Email</label>
-                                    <asp:TextBox runat="server" type="text" CssClass="form-control" ID="email" />
+                                    <asp:TextBox runat="server" type="text" CssClass="form-control" ID="email" Visible="false" />
                                 </div>
                                 <div>
-                                    <asp:Button runat="server" content="suscribirse" ID="suscribirse" CssClass="btn btn-primary btn-md" Text="Enviar" OnClick="sendSuscribirse_Click" />
+                                    <asp:Button runat="server" content="suscribirse" ID="suscribirse" CssClass="btn btn-primary btn-md" Text="Confirmar" OnClick="sendSuscribirse_Click" Visible="false" />
+                                    <asp:Button runat="server" content="suscribirse" ID="desuscribirse" CssClass="btn btn-primary btn-md" Text="Confirmar" OnClick="sendDesuscribirse_Click" Visible="false" />
                                 </div>
                             </div>
                         </div>

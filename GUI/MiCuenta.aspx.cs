@@ -1,5 +1,6 @@
 ﻿using BE;
 using BLL;
+using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -78,5 +79,6 @@ namespace GUI
             //Response.Write("<script>window.close()</script>");
             Response.Redirect("~/RecuperoPass");
         }
+
     }
 }

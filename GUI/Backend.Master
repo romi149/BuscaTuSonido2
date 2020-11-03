@@ -119,14 +119,14 @@
                               Seguridad
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="#">Generar Backup</a>
+                              <a class="dropdown-item" href="/Backup">Generar Backup</a>
                               <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="#">Generar Restore</a>
+                              <a class="dropdown-item" href="/Restore">Generar Restore</a>
                               <div class="dropdown-divider"></div>
                               <a class="dropdown-item" href="/ConsultarBitacora">Consultar Bitácora</a>
                             </div>
                           </li>
-                        <li><a runat="server" href="~/Default">Salir</a></li>
+                        <li><a runat="server" onserverclick="Unnamed_ServerClick" >Salir</a></li>
                     </ul>
                 </div>
             </div>

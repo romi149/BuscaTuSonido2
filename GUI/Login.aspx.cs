@@ -19,22 +19,27 @@ namespace GUI
         protected void sendlogin_Click(object sender, EventArgs e)
         {
             var pass = EnvioEmails.md5(password.Text.Trim());
-            
-            if (GestorUsuario.ObtenerUsuario(username.Text.Trim(), pass) != null)
+
+            BE.Usuario usuario = null;
+            usuario = GestorUsuario.ObtenerUsuario(username.Text.Trim(), pass);
+            if (usuario != null)
             {
                 var esCliente = GestorCliente.ValidadRolCliente(username.Text.Trim());
                 
                 if (esCliente != null)
                 {
-                    Response.Write("<script>alert('Bienvenido')</script>");
-                }else
+                    Session["usuarioCliente"] = usuario;
+                    Response.Redirect("Default");
+                }
+                else
                 {
+                    Session["usuarioBackEnd"] = usuario;
                     Response.Redirect("/InicioBackend");
                 }
                 
             }else
             {
-                Response.Write("alert('Credenciales incorrectas')");
+                Response.Write("<script>alert('Credenciales incorrectas')</script>");
             }
 
         }

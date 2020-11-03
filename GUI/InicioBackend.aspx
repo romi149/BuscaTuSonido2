@@ -15,9 +15,10 @@
       <div class="Inicio">
            <p style="text-align: center; "> <img class="imglogo" src="/imagenes/Portada/BuscaTuSonidoLogo.png" alt=""></p>
            
-            <h1 style="text-align: center">
-                ¡Bienvenido!
-            </h1>
+            <h1 style="text-align: center">¡Bienvenido!</h1>
+            <h2 runat="server" id="NombreUsuario" style="text-align: center">
+              
+            </h2>
       </div>
 </body>
 </html>

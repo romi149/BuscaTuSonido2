@@ -7,12 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace GUI
 {
-    public partial class InicioBackend : System.Web.UI.Page
+    public partial class Backup : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            BE.Usuario UsuarioActual = (BE.Usuario)Session["usuario"];
-            this.NombreUsuario.InnerHtml = $"{UsuarioActual?.Nombre} {UsuarioActual?.Apellido}";
+
         }
     }
 }

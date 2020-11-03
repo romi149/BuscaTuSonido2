@@ -111,6 +111,7 @@
     <Content Include="ABMC-Roles.aspx" />
     <Content Include="ABMC-Usuarios.aspx" />
     <Content Include="About.aspx" />
+    <Content Include="Backup.aspx" />
     <Content Include="Configuracion.aspx" />
     <Content Include="ConsultarBitacora.aspx" />
     <Content Include="css\estilo.css" />
@@ -230,6 +231,7 @@
     <Content Include="RecuperoPass.aspx" />
     <Content Include="Registrarse.aspx" />
     <Content Include="Remitos.aspx" />
+    <Content Include="Restore.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -316,6 +318,13 @@
     </Compile>
     <Compile Include="Backend.Master.designer.cs">
       <DependentUpon>Backend.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Backup.aspx.cs">
+      <DependentUpon>Backup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Backup.aspx.designer.cs">
+      <DependentUpon>Backup.aspx</DependentUpon>
     </Compile>
     <Compile Include="Configuracion.aspx.cs">
       <DependentUpon>Configuracion.aspx</DependentUpon>
@@ -467,6 +476,13 @@
     </Compile>
     <Compile Include="Remitos.aspx.designer.cs">
       <DependentUpon>Remitos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Restore.aspx.cs">
+      <DependentUpon>Restore.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Restore.aspx.designer.cs">
+      <DependentUpon>Restore.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

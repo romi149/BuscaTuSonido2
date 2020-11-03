@@ -11,7 +11,16 @@ namespace GUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["usuarioBackEnd"] == null)
+            {
+                Response.Redirect("Default.aspx");
+            }
+        }
 
+        protected void Unnamed_ServerClick(object sender, EventArgs e)
+        {
+            Session["usuarioBackEnd"] = null;
+            Response.Redirect("PaginaPrincipal.aspx");
         }
     }
 }
