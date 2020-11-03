@@ -177,12 +177,13 @@ namespace MPP
         /// Retorna los productos del tipo Instrumentos Electrónicos
         /// </summary>
         /// <returns></returns>
-        public static List<Producto> ListarInstElectronicos()
+        public static List<Producto> ListarInstElectronicos(string nombre)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarInstElectronicos", ListaParametros);
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, nombre));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarProductosPorCategoria", ListaParametros);
                 if (respuesta != null)
                 {
                     var empList = respuesta.Tables[0].AsEnumerable()

@@ -64,9 +64,9 @@ namespace BLL
             return MapperProducto.ListarInstPercusion();
         }
 
-        public static List<Producto> ListarProdElectronicos()
+        public static List<Producto> ListarProdElectronicos(string nombre)
         {
-            return MapperProducto.ListarInstElectronicos();
+            return MapperProducto.ListarInstElectronicos(nombre);
         }
 
         public static string GestionImagen(string NombreImg, string Categoria)
