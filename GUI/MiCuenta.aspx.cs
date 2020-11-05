@@ -20,12 +20,12 @@ namespace GUI
 
         protected void CargarDatos()
         {
-            var DNI = "32123321";
-            var EMAIL = "romi.caste@gmail.com";
-
+            var DNI = $"{((BE.Usuario)Session["usuarioCliente"])?.Dni}";
+            var NOMBRE = $"{((BE.Usuario)Session["usuarioCliente"])?.Nombre}";
+            
             int cont = 0;
 
-            foreach (var item in GestorCliente.ObtenerDatosCliente(DNI,EMAIL))
+            foreach (var item in GestorCliente.ObtenerDatosCliente(DNI,NOMBRE))
             {
                 username.Text = item.Usuario;
                 nombre.Text = item.Nombre;
@@ -71,14 +71,42 @@ namespace GUI
         protected void sendcancelar_Click(object sender, EventArgs e)
         {
             //Response.Write("<script>window.close()</script>");
-            Response.Redirect("~/MiCuenta");
+            Response.Redirect("~/MiCuenta.aspx");
         }
 
         protected void sendcambiarPass_Click(object sender, EventArgs e)
         {
-            //Response.Write("<script>window.close()</script>");
-            Response.Redirect("~/RecuperoPass");
+            password.Visible = true;
+            repeatPass.Visible = true;
+            confirmarPass.Visible = true;
+
         }
+
+        protected void confirmarCambioPass_Click(object sender, EventArgs e)
+        {
+            var Iduser = $"{((BE.Usuario)Session["usuarioCliente"])?.IdUsuario}";
+            var nombreUser = $"{((BE.Usuario)Session["usuarioCliente"])?.Nombre}";
+
+            if (password.Text == repeatPass.Text)
+            {
+                bool modificado = GestorCliente.ModificarPassCliente(int.Parse(Iduser),
+                                                                     EnvioEmails.md5(password.Text.Trim()),
+                                                                     int.Parse(codCliente.Text.Trim()));
+
+                if (modificado)
+                {
+                    EnvioEmails.EnviarMailConfirmacionCambioPass(email.Text.Trim(),"");
+                    GestorBitacora.Agregar(DateTime.Now, "Se edito un registro", nombreUser, "Cliente");
+                    Response.Write("<script>alert('Los cambios se guardaron correctamente')</script>");
+                    return;
+                }
+            }
+            else
+            {
+                Response.Write("<script>alert('Las contraseñas no coinciden')</script>");
+            }
+        }
+
 
     }
 }

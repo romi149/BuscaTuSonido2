@@ -116,13 +116,13 @@ namespace MPP
         /// Retorna los datos del cliente logueado
         /// </summary>
         /// <returns></returns>
-        public static List<Cliente> ListarDatosCliente(string dni, string email)
+        public static List<Cliente> ListarDatosCliente(string dni, string nombre)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Dni", DbType.String, ParameterDirection.Input, dni));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Email", DbType.String, ParameterDirection.Input, email));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, nombre));
                 var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarDatosCliente", ListaParametros);
                 if (respuesta != null)
                 {
@@ -174,6 +174,32 @@ namespace MPP
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Dni", DbType.String, ParameterDirection.Input, dni));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, user));
                 var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarCliente", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return false;
+            }
+
+
+        }
+
+        /// <summary>
+        /// Actualiza la contraseña de un cliente en Bd
+        /// </summary>
+        /// <param name="Id">Cliente</param>
+        /// <returns>Devuelve si se actualiza o no</returns>
+        public static bool ActualizarPassCliente(int IdUser, string pass, int codigoCliente)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdUsuario", DbType.Int32, ParameterDirection.Input, IdUser));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Password", DbType.String, ParameterDirection.Input, pass));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("CodigoCliente", DbType.String, ParameterDirection.Input, codigoCliente));
+                var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarPassCliente", ListaParametros);
 
                 return respuesta;
             }

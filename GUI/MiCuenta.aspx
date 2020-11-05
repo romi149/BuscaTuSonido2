@@ -26,6 +26,10 @@
                                 <label>Email</label>
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="email" />
                             </div>
+                            <div class="form-group">
+                                <label>Contraseña</label>
+                                <asp:TextBox runat="server" type="password" CssClass="form-control" ID="password" Visible="false" />
+                            </div>
                         </div>
                     </div>
 
@@ -47,6 +51,10 @@
                             <asp:TextBox runat="server" type="text" CssClass="form-control" ID="domFactura" />
                         </div>
                         <div class="form-group">
+                                <label>Repetir Contraseña</label>
+                                <asp:TextBox runat="server" type="password" CssClass="form-control" ID="repeatPass" Visible="false" />
+                            </div>
+                        <div class="form-group">
                             <asp:TextBox runat="server" type="text" CssClass="form-control" ID="codCliente" Visible="false" />
                         </div>
                     </div>
@@ -62,6 +70,10 @@
                         </div>
                         <div>
                             <asp:Button runat="server" content="editarDatos" ID="pass" CssClass="btn btn-primary btn-md" Text="Modificar Contraseña" OnClick="sendcambiarPass_Click" />
+                        </div>
+                        <div>
+                            <asp:Button runat="server" content="editarDatos" ID="confirmarPass" CssClass="btn btn-warning btn-md" Text="Confirmar" Visible="false" OnClick="confirmarCambioPass_Click"
+                                OnClientClick="return confirm('¿Esta seguro que desea cambiar la contraseña?')" />
                         </div>
                     </div>
 

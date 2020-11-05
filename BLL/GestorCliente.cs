@@ -26,9 +26,9 @@ namespace BLL
             return MapperCliente.InsertarCliente(nombre,apellido,email,tel,domEntrega,domFact,pass,dni,user);
         }
 
-        public static List<Cliente> ObtenerDatosCliente(string dni, string email)
+        public static List<Cliente> ObtenerDatosCliente(string dni, string nombre)
         {
-            return MapperCliente.ListarDatosCliente(dni, email);
+            return MapperCliente.ListarDatosCliente(dni, nombre);
 
         }
 
@@ -38,5 +38,9 @@ namespace BLL
             return MapperCliente.ActualizarDatosCliente(codCliente, nombre, apellido, email, tel, domEntrega, domFact, dni, user);
         }
 
+        public static bool ModificarPassCliente(int IdUser, string pass, int codigoCliente)
+        {
+            return MapperCliente.ActualizarPassCliente(IdUser, pass, codigoCliente);
+        }
     }
 }

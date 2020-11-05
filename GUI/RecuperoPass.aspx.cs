@@ -27,14 +27,14 @@ namespace GUI
             }
             else
             {
-                Response.Write("<script>alert('El email ingresado no coincide')</script>");
+                Response.Write("<script>alert('La contraseña no coincide')</script>");
             }
 
         }
 
         protected void sendcancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Default.aspx");
+            Response.Redirect("/PaginaPrincipal.aspx");
         }
     }
 }
