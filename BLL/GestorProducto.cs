@@ -64,9 +64,9 @@ namespace BLL
             return MapperProducto.ListarInstPercusion();
         }
 
-        public static List<Producto> ListarProdElectronicos(string nombre)
+        public static List<Producto> ListarProdPorCategoria(string nombre)
         {
-            return MapperProducto.ListarInstElectronicos(nombre);
+            return MapperProducto.ListarProductosPorCategoria(nombre);
         }
 
         public static string GestionImagen(string NombreImg, string Categoria)
@@ -77,6 +77,11 @@ namespace BLL
         public static bool AgregarImg(string nombre, string categ, string url)
         {
             return MapperProducto.InsertarImagen(nombre, categ, url);
+        }
+
+        public static List<Producto> ListarProductosAComparar(string nombre)
+        {
+            return MapperProducto.ListarProductosAComparar(nombre);
         }
     }
 }

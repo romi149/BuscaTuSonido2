@@ -13,27 +13,27 @@ namespace GUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            HtmlGenericControl DivContenedor = new HtmlGenericControl("div");
+            //HtmlGenericControl DivContenedor = new HtmlGenericControl("div");
 
-            DivContenedor.InnerHtml = $"<div>";
-            int cont = 0;
-            foreach (var item in GestorProducto.ListarProdElectronicos())
-            {
-                if (cont == 0)
-                    DivContenedor.InnerHtml += "<div clas='row'>";
-                if (cont < 3)
-                {
-                    DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Modelo, item.Precio.ToString(), item.Descripcion, GestorProducto.GestionImagen(item.Nombre, "sin categoria"));
-                }
-                else
-                {
-                    DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Modelo, item.Precio.ToString(), item.Descripcion, GestorProducto.GestionImagen(item.Nombre, "sin categoria")) + "</div>";
-                    cont = 0;
-                }
-                cont++;
-            }
-            DivContenedor.InnerHtml += "</div>";
-            this.contenedor.Controls.Add(DivContenedor);
+            //DivContenedor.InnerHtml = $"<div>";
+            //int cont = 0;
+            //foreach (var item in GestorProducto.ListarProdElectronicos())
+            //{
+            //    if (cont == 0)
+            //        DivContenedor.InnerHtml += "<div clas='row'>";
+            //    if (cont < 3)
+            //    {
+            //        DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Modelo, item.Precio.ToString(), item.Descripcion, GestorProducto.GestionImagen(item.Nombre, "sin categoria"));
+            //    }
+            //    else
+            //    {
+            //        DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Modelo, item.Precio.ToString(), item.Descripcion, GestorProducto.GestionImagen(item.Nombre, "sin categoria")) + "</div>";
+            //        cont = 0;
+            //    }
+            //    cont++;
+            //}
+            //DivContenedor.InnerHtml += "</div>";
+            //this.contenedor.Controls.Add(DivContenedor);
         }
 
         public string CrearCardProducto(string NombreProducto,

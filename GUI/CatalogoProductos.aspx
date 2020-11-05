@@ -13,33 +13,23 @@
 
                     <asp:Panel runat="server" ID="contenedorMenu">
                     </asp:Panel>
-
-                    <%--<a href="/InstrumentosCuerdas" class="list-group-item">Instrumentos de Cuerda</a>
-                    <a href="/InstrumentosViento" class="list-group-item">Instrumentos de Viento</a>
-                    <a href="/InstrumentosPercusion" class="list-group-item">Instrumentos de Percusión</a>
-                    <a href="InstrumentosElectronicos" class="list-group-item">Instrumentos Electrónicos</a>
-                    <a href="#" class="list-group-item">Instrumentos en Alquiler</a>--%>
-                    <br />
-                    <br />
                     
-                  
+                    <br />
+                    <br />
                     <div class="compareBox-content">
                         <div class="compareBox gb--appear ">
                             <div class="compareBox-header">
-                                <p class="compareBox-tittle">Comparador de productos <strong><span class="gb-product-counter">0</span>/4</strong></p>
+                                <p class="compareBox-tittle">Comparador de productos <strong><span id="gb-product-counter">0</span>/4</strong></p>
                                 <a class="gb-icon-simple-thin-arrow-top"></a>
                             </div>
                             <div class="compareBox-body">
-                                <ul class="compare-item-list" id="compare_list">
-                                    <li class="grey-object" id="object-1"></li>
-                                    <li class="grey-object" id="object-2"></li>
-                                    <li class="grey-object" id="object-3"></li>
-                                    <li class="grey-object" id="object-4"></li>
+                                <ul class="compare-item-list" id="compare_list">                                                                      
                                 </ul>
                                 <div class="compareBox-actions">
-                                    <asp:Button runat="server" id="compare_link" Cssclass="btn btn-primary btn-md" Text="Comparar" Onclick="Comparar_Click" ></asp:Button>
-                                    <asp:Button runat="server" id="eliminar" Cssclass="btn btn-warning btn-md" Text="Eliminar todos" Onclick="Eliminar_Click" ></asp:Button>
+                                    <p id="compare_link" class="btn btn-primary btn-md" onclick="EnviarDatosAComparar()" >Comparar</p>
+                                    <button id="eliminar" class="btn btn-warning btn-md" Onclick="Eliminar_Click()" >Eliminar Todos</button>
                                 </div>
+                                <p id="mensajeError"></p>
                             </div>
                         </div>
                     </div>
@@ -61,4 +51,35 @@
             height: 25vh;
         }
     </style>
+    <script>
+        function addComparacion(parametro) {  
+            document.getElementById('mensajeError').innerHTML = ""
+            if (document.getElementById('compare_list').children.length<4) {
+                document.getElementById('compare_list').innerHTML += `<li>${parametro}</li>`  
+            
+            }
+            document.getElementById('gb-product-counter').innerText =
+                document.getElementById('compare_list').children.length
+        }
+        function Eliminar_Click(e) {
+            e.preventDefault()
+            document.getElementById('compare_list').innerHTML += ""
+            document.getElementById('gb-product-counter').innerText =
+                document.getElementById('compare_list').children.length
+          
+        }
+
+        function EnviarDatosAComparar(e) {
+            var Datos="";
+            if (document.getElementById('compare_list').children.length <= 1) {
+                document.getElementById('mensajeError').innerHTML=`<strong style='color:red'>Seleccione más de uno.</strong>`
+                return;
+            }
+            for (var i = 0; i < document.getElementById('compare_list').children.length; i++) {
+                Datos += `param${i+1}`+ '=' + document.getElementById('compare_list').children[i].innerText.trim() +'&'
+            }    
+            location.href='ComparacionProductos?'+Datos
+        }
+       
+    </script>
 </asp:Content>

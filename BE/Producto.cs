@@ -18,5 +18,6 @@ namespace BE
         public string Color { get; set; }
         public string Estado { get; set; }
         public string Precio { get; set; }
+        public string urlImg { get; set; }
     }
 }

@@ -11,25 +11,16 @@ namespace GUI
 {
 
 
-    public partial class InstrumentosCuerdas
+    public partial class ComparacionProductos
     {
 
         /// <summary>
-        /// Control contenedorMenu.
+        /// Control Productos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel contenedorMenu;
-
-        /// <summary>
-        /// Control contenedor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel contenedor;
+        protected global::System.Web.UI.WebControls.Panel Productos;
     }
 }

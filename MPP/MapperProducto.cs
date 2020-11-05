@@ -174,10 +174,10 @@ namespace MPP
         }
 
         /// <summary>
-        /// Retorna los productos del tipo Instrumentos Electrónicos
+        /// Retorna los productos para llenar el catalogo dinamico de productos 
         /// </summary>
         /// <returns></returns>
-        public static List<Producto> ListarInstElectronicos(string nombre)
+        public static List<Producto> ListarProductosPorCategoria(string nombre)
         {
             try
             {
@@ -389,6 +389,43 @@ namespace MPP
             catch (Exception e)
             {
                 return false;
+            }
+        }
+
+        /// <summary>
+        /// Retorna los productos que se seleccionaron para comparar
+        /// </summary>
+        /// <returns></returns>
+        public static List<Producto> ListarProductosAComparar(string nombre)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, nombre));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarProductosAComparar", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Producto
+                      {
+                          Nombre = dataRow.Field<string>("Nombre"),
+                          Modelo = dataRow.Field<string>("Modelo"),
+                          Precio = dataRow.Field<string>("Precio"),
+                          Descripcion = dataRow.Field<string>("Descripcion"),
+                          urlImg = dataRow.Field<string>("urlImg")
+
+                      }).ToList();
+
+                    return empList;
+                }
+
+
+                return null;
+            }
+            catch (Exception e)
+            {
+
+                return null;
             }
         }
     }

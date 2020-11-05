@@ -112,6 +112,7 @@
     <Content Include="ABMC-Usuarios.aspx" />
     <Content Include="About.aspx" />
     <Content Include="Backup.aspx" />
+    <Content Include="ComparacionProductos.aspx" />
     <Content Include="Configuracion.aspx" />
     <Content Include="ConsultarBitacora.aspx" />
     <Content Include="css\estilo.css" />
@@ -325,6 +326,13 @@
     </Compile>
     <Compile Include="Backup.aspx.designer.cs">
       <DependentUpon>Backup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ComparacionProductos.aspx.cs">
+      <DependentUpon>ComparacionProductos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComparacionProductos.aspx.designer.cs">
+      <DependentUpon>ComparacionProductos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Configuracion.aspx.cs">
       <DependentUpon>Configuracion.aspx</DependentUpon>
