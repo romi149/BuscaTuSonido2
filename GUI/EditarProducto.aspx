@@ -20,7 +20,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Nombre</label>
-                                <asp:TextBox runat="server" type="password" cssclass="form-control" id="nombre"/>
+                                <asp:TextBox runat="server" type="text" cssclass="form-control" id="nombre"/>
                             </div>
                             <div class="form-group">
                                  <label>Categoria</label>
@@ -28,7 +28,7 @@
                             </div>
                             <div class="form-group">
                                  <label>Tipo Instrumento</label>
-                                 <asp:TextBox runat="server" type="text" cssclass="form-control" id="tipoInst"/>
+                                 <asp:TextBox runat="server" type="text" cssclass="form-control" id="tipoInstrumento"/>
                             </div>
                             <div class="form-group">
                                  <label>Id Marca</label>

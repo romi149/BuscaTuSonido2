@@ -155,7 +155,7 @@
         }
 
         footer{
-            width:100vw !important
+      /*      width:100vw !important*/
         }
         
         .container-footer {

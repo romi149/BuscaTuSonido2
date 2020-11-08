@@ -16,20 +16,16 @@ namespace GUI
         protected void Page_Load(object sender, EventArgs e)
         {
             string parametros = string.Empty;
-            var cont = 0;
             for (int i = 0; i < Request.QueryString.Count; i++)
             {
-                parametros += Request.QueryString[i].ToString().Replace("%20", " ") + ',';
-
-                foreach (var item in GestorProducto.ListarProductosAComparar(parametros))
-                {
-                    if (cont <= i)
-                    {
-                        CargarComparador(item.Nombre, item.Modelo, item.Precio, item.Descripcion, item.urlImg);
-                    }
-                    cont++;
-                }
-
+                parametros = Request.QueryString[i].ToString().Replace("%20", " ");
+                var item = GestorProducto.ListarProductosAComparar(parametros);
+                if (item.Count > 0)
+                    CargarComparador(item.FirstOrDefault()?.Nombre,
+                                   item.FirstOrDefault()?.Modelo,
+                                   item.FirstOrDefault()?.Precio,
+                                   item.FirstOrDefault()?.Descripcion,
+                                   item.FirstOrDefault()?.urlImg);
             }
             parametros.TrimEnd(',');
         }
@@ -37,11 +33,12 @@ namespace GUI
         protected void CargarComparador(string nombre, string modelo, string precio, string desc, string url)
         {
             HtmlGenericControl DivContenedor = new HtmlGenericControl("div");
-            DivContenedor.InnerHtml = $"<div id='productos'><div class='thumbnail'>" +
+            DivContenedor.InnerHtml = $"<div class='thumbnail'>" +
                 $"<img src='{url}' alt=''><div class='caption'><h3>{nombre}</h3>" +
                 $"<label >{modelo}</label><label>{precio}</label><label>{desc}</label>" +
-                $"<p><a href='#' class='btn btn-primary' role='button'>Button</a>" +
-                $"<a href='#' class='btn btn-default' role='button'>Button</a></p></div></div></div>";
+                $"<div>" +
+                $"<br></br><p><a href='#' class='btn btn-success' role='button'>Comprar</a>" +
+                $"<a href='/Default' class='btn btn-default' role='button'>Volver</a></p></div></div></div>";
             this.Productos.Controls.Add(DivContenedor);
         }
 

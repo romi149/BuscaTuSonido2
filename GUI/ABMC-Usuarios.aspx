@@ -56,7 +56,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Contraseña</label>
-                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="password" />
+                                <asp:TextBox runat="server" type="password" CssClass="form-control" ID="password" />
                             </div>
                             <div class="form-group">
                                 <label>DNI</label>
@@ -64,7 +64,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Estado</label>
-                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="estado" />
+                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="estado" Text="Confirmado" ReadOnly="true" />
                             </div>
                         </div>
                     </div>

@@ -11,7 +11,7 @@ namespace GUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            BE.Usuario UsuarioActual = (BE.Usuario)Session["usuario"];
+            BE.Usuario UsuarioActual = (BE.Usuario)Session["usuarioBackEnd"];
             this.NombreUsuario.InnerHtml = $"{UsuarioActual?.Nombre} {UsuarioActual?.Apellido}";
         }
     }

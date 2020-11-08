@@ -198,7 +198,7 @@ namespace MPP
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("IdUsuario", DbType.Int32, ParameterDirection.Input, IdUser));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Password", DbType.String, ParameterDirection.Input, pass));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("CodigoCliente", DbType.String, ParameterDirection.Input, codigoCliente));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("CodigoCliente", DbType.Int32, ParameterDirection.Input, codigoCliente));
                 var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarPassCliente", ListaParametros);
 
                 return respuesta;

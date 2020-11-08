@@ -89,11 +89,14 @@ namespace GUI
 
             if (password.Text == repeatPass.Text)
             {
-                bool modificado = GestorCliente.ModificarPassCliente(int.Parse(Iduser),
+                bool modificadoCli = GestorCliente.ModificarPassCliente(int.Parse(Iduser),
                                                                      EnvioEmails.md5(password.Text.Trim()),
                                                                      int.Parse(codCliente.Text.Trim()));
 
-                if (modificado)
+                bool modidificadoUs = GestorUsuario.ModificarPass(int.Parse(Iduser), 
+                                                                  EnvioEmails.md5(password.Text.Trim()));
+
+                if (modificadoCli && modidificadoUs)
                 {
                     EnvioEmails.EnviarMailConfirmacionCambioPass(email.Text.Trim(),"");
                     GestorBitacora.Agregar(DateTime.Now, "Se edito un registro", nombreUser, "Cliente");

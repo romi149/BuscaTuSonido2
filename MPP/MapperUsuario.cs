@@ -25,15 +25,17 @@ namespace MPP
                 if (respuesta != null)
                 {
                     var empList = respuesta.Tables[0].AsEnumerable()
-                      .Select(dataRow => new Usuario
-                      {
-                          User = dataRow.Field<string>("Usuario"),
-                          Nombre = dataRow.Field<string>("Nombre"),
-                          Apellido = dataRow.Field<string>("Apellido"),
-                          Dni = dataRow.Field<int>("Dni")
+                       .Select(dataRow => new Usuario
+                       {
+                           User = dataRow.Field<string>("Usuario"),
+                           Nombre = dataRow.Field<string>("Nombre"),
+                           Apellido = dataRow.Field<string>("Apellido"),
+                           Dni = dataRow.Field<int>("Dni"),
+                           Estado = dataRow.Field<string>("Estado")
 
-                      }).ToList();
-                    return empList.FirstOrDefault();
+                       }).ToList();
+                    if (empList.FirstOrDefault() != null && empList.FirstOrDefault().Estado == EstadoCliente.CONFIRMADO)
+                        return empList.FirstOrDefault();
                 }
 
 
@@ -223,6 +225,130 @@ namespace MPP
                 return null;
             }
         }
+
+
+        public static bool ConfirmacionUsuario(string user, string hashRecibido)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("User", DbType.String, ParameterDirection.Input, user));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("VerificarRegistro", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new VerificacionUsuario
+                      {
+                          Hash = dataRow.Field<string>("codSeguridad"),
+                          Fecha = dataRow.Field<DateTime>("fecha")
+
+                      }).ToList();
+                    DateTime fechaF = empList.FirstOrDefault().Fecha;
+                    DateTime FechAc = DateTime.Now.Date;
+                    double minutosTrascurridos = (FechAc - fechaF).TotalMinutes;
+
+                    if (empList.FirstOrDefault() != null && empList.FirstOrDefault().Hash == hashRecibido && minutosTrascurridos <= 30)
+                    {
+                        ListaParametros.Clear();
+                        ListaParametros.Add(StoreProcedureHelper.SetParameter("userName", DbType.String, ParameterDirection.Input, user));
+                        bool respuestaUpdate = Conexion.GetInstance.EjecutarStore("ActualizarEstado", ListaParametros);
+                        if (respuestaUpdate)
+                            return true;
+
+                    }
+                }
+
+                return false;
+            }
+            catch (Exception e)
+            {
+
+                return false;
+            }
+        }
+
+
+        public static string RecuperarHashUsuario(string user)
+        {
+            List<SqlParameter> ListaParametros = new List<SqlParameter>();
+            ListaParametros.Add(StoreProcedureHelper.SetParameter("User", DbType.String, ParameterDirection.Input, user));
+            var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("VerificarRegistro", ListaParametros);
+            if (respuesta != null)
+            {
+                var empList = respuesta.Tables[0].AsEnumerable()
+                  .Select(dataRow => new VerificacionUsuario
+                  {
+                      Hash = dataRow.Field<string>("codSeguridad"),
+                      Fecha = dataRow.Field<DateTime>("fecha")
+
+                  }).ToList();
+
+                return empList.FirstOrDefault()?.Hash;
+            }
+            return null;
+        }
+
+
+        public static bool ConfirmacionCambioPass(string user, string hashRecibido, string pass)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("User", DbType.String, ParameterDirection.Input, user));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("VerificarRegistro", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new VerificacionUsuario
+                      {
+                          Hash = dataRow.Field<string>("codSeguridad"),
+                          Fecha = dataRow.Field<DateTime>("fecha")
+
+                      }).ToList();
+                    DateTime fechaF = empList.FirstOrDefault().Fecha;
+                    DateTime FechAc = DateTime.Now;
+                    double minutosTrascurridos = (FechAc - fechaF).TotalMinutes;
+
+                    if (empList.FirstOrDefault() != null && empList.FirstOrDefault().Hash == hashRecibido && minutosTrascurridos <= 30)
+                    {
+                        ListaParametros.Clear();
+                        ListaParametros.Add(StoreProcedureHelper.SetParameter("User", DbType.String, ParameterDirection.Input, user));
+                        ListaParametros.Add(StoreProcedureHelper.SetParameter("Password", DbType.String, ParameterDirection.Input, pass));
+                        bool respuestaUpdate = Conexion.GetInstance.EjecutarStore("ActualizarPassClientebyEmail", ListaParametros);
+                        if (respuestaUpdate)
+
+                            return true;
+
+                    }
+                }
+
+                return false;
+            }
+            catch (Exception e)
+            {
+
+                return false;
+            }
+        }
+
+        public static bool CrearHashCliente(string user)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, user));
+                var respuesta = Conexion.GetInstance.EjecutarStore("CrearHashEmailCliente", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return false;
+            }
+
+        }
+
     }
 
 

@@ -29,7 +29,7 @@ namespace GUI
                 if (esCliente != null)
                 {
                     Session["usuarioCliente"] = usuario;
-                    Response.Redirect("Default");
+                    Response.Redirect("/PaginaPrincipal");
                 }
                 else
                 {
@@ -60,14 +60,22 @@ namespace GUI
 
                 if(Existe != null)
                 {
-                    EnvioEmails.EnviarMailRecuperoPass(Email,"");
-                    Response.Write("<script>alert('Se ha enviado un correo electronico a su casilla de email para que pueda recuperar su contraseña')</script>");
-                    Email = "";
+                    if (GestorUsuario.ObtenerHash(usuario.Text.Trim()))
+                    {
+                        EnvioEmails.EnviarMailRecuperoPass(Email,
+                                                $"https://localhost:44328/RecuperoPass.aspx?clave={usuario.Text.Trim()}&hash={GestorUsuario.RecuperarHashUsuario(usuario.Text.Trim())}");
+                        Response.Write("<script>alert('Se ha enviado un correo electronico a su casilla de email para que pueda recuperar su contraseña')</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('Ha ocurrido un error, vuelva a intentarlo')</script>");
+                    }
+
                 }
                 else
                 {
                     Response.Write("<script>alert('El email ingresado no se encuentra registrado')</script>");
-                    Email = "";
+                    
                 }
             }
             else

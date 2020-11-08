@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -94,7 +95,7 @@ namespace GUI
                                        nombre.Text.Trim(),
                                        apellido.Text.Trim(),
                                        EnvioEmails.md5(password.Text.Trim()),
-                                       "Activo",
+                                       EstadoCliente.CONFIRMADO,
                                        1,
                                        int.Parse(dni.Text.Trim()));
 

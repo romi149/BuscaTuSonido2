@@ -16,4 +16,10 @@ namespace BE
         public string Estado { get; set; }
         public int IdIdioma { get; set; }
     }
+
+    public class VerificacionUsuario
+    {
+        public string Hash { get; set; }
+        public DateTime Fecha { get; set; }
+    }
 }

@@ -53,7 +53,7 @@
                         <div class="form-group">
                                 <label>Repetir Contraseña</label>
                                 <asp:TextBox runat="server" type="password" CssClass="form-control" ID="repeatPass" Visible="false" />
-                            </div>
+                        </div>
                         <div class="form-group">
                             <asp:TextBox runat="server" type="text" CssClass="form-control" ID="codCliente" Visible="false" />
                         </div>

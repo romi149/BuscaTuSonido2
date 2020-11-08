@@ -114,6 +114,7 @@
     <Content Include="Backup.aspx" />
     <Content Include="ComparacionProductos.aspx" />
     <Content Include="Configuracion.aspx" />
+    <Content Include="ConfirmarRegistro.aspx" />
     <Content Include="ConsultarBitacora.aspx" />
     <Content Include="css\estilo.css" />
     <Content Include="css\one-page-wonder.css" />
@@ -340,6 +341,13 @@
     </Compile>
     <Compile Include="Configuracion.aspx.designer.cs">
       <DependentUpon>Configuracion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmarRegistro.aspx.cs">
+      <DependentUpon>ConfirmarRegistro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfirmarRegistro.aspx.designer.cs">
+      <DependentUpon>ConfirmarRegistro.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConsultarBitacora.aspx.cs">
       <DependentUpon>ConsultarBitacora.aspx</DependentUpon>

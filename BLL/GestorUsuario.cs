@@ -54,5 +54,29 @@ namespace BLL
         {
             return MapperUsuario.ListarUsuariosFiltroTotal(username, dni);
         }
+
+        public static bool ConfirmacionUsuario(string user, string hashRecibido)
+        {
+            return MapperUsuario.ConfirmacionUsuario(user, hashRecibido);
+
+        }
+
+        public static string RecuperarHashUsuario(string user)
+        {
+            return MapperUsuario.RecuperarHashUsuario(user);
+
+        }
+
+        public static bool ObtenerHash(string user)
+        {
+            return MapperUsuario.CrearHashCliente(user);
+
+        }
+
+        public static bool ConfirmacionCambioPassword(string user, string hashRecibido, string pass)
+        {
+            return MapperUsuario.ConfirmacionCambioPass(user, hashRecibido, pass);
+
+        }
     }
 }

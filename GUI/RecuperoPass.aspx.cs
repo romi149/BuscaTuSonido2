@@ -22,8 +22,17 @@ namespace GUI
 
             if(pass1 == pass2)
             {
-                //actualizar la contraseña del usuario con el ID obtenido del link
-                //GestorUsuario.ModificarPass(IdUser, pass1);
+                var password = EnvioEmails.md5(pass1);
+                var usuario = Request.QueryString["clave"];
+                var hash = Request.QueryString["hash"];
+
+                bool Modificado = GestorUsuario.ConfirmacionCambioPassword(usuario, hash, password);
+
+                if(Modificado)
+                {
+                    Response.Write("<script>alert('Los cambios se guardaron correctamente')</script>");
+                }
+                
             }
             else
             {

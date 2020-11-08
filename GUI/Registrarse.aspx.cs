@@ -47,7 +47,7 @@ namespace GUI
                                            nombre.Text.Trim(),
                                            apellido.Text.Trim(),
                                            EnvioEmails.md5(password.Text.Trim()),
-                                           "Activo",
+                                           EstadoCliente.PENDIENTE,
                                            1,
                                            int.Parse(dni.Text.Trim()));
 
@@ -57,9 +57,9 @@ namespace GUI
                 {
                     GestorBitacora.Agregar(DateTime.Now, "Se inserto un registro", "Cliente", "Cliente");
                     EnvioEmails.EnviarMail(email.Text.Trim(),
-                                         "");
+                                         $"https://localhost:44328/ConfirmarRegistro.aspx?clave={username.Text.Trim()}&hash={GestorUsuario.RecuperarHashUsuario(username.Text.Trim())}");
 
-                    Response.Write("<script>alert('Se ha registrado correctamente')</script>");
+                    Response.Write("<script>alert('Se ha enviado un email a su casilla de correo para que confirme su registro')</script>");
                     LimpiarCampos();
                     return;
 

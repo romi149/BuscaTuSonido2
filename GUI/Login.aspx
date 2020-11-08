@@ -94,8 +94,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 <h2>Recuperar Contraseña</h2>
                 <br />
                 <div class="card-body">
-                    <h4>Ingrese un email a donde le enviaremos los datos para recuperar su contraseña</h4>
+                    <h4>Ingrese su usuario y un email a donde le enviaremos los datos para recuperar su contraseña</h4>
                     <br />
+                    <div class="form-group">
+                        <label>Usuario</label>
+                        <asp:TextBox runat="server" type="text" CssClass="form-control" ID="usuario" />
+                    </div>
                     <div class="form-group">
                         <label>Email</label>
                         <asp:TextBox runat="server" type="text" CssClass="form-control" ID="email" />
@@ -161,5 +165,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
             text-align: center;
             font-weight: bold;
         }
+
+
     </style>
 </asp:Content>

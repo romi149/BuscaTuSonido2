@@ -16,24 +16,24 @@ namespace GUI
                 return;
 
             string IdProd = Request.QueryString["Id"].ToString();
-            string UPC = Request.QueryString["upc"].ToString();
-            string Nombre = Request.QueryString["nombre"].ToString();
-            string Descrip = Request.QueryString["descripcion"].ToString();
-            string Categoria = Request.QueryString["Categoria"].ToString();
-            string Tipo = Request.QueryString["tipoInst"].ToString();
-            string IdMarca = Request.QueryString["idMarca"].ToString();
-            string Modelo = Request.QueryString["modelo"].ToString();
-            string CodProv = Request.QueryString["codProv"].ToString();
-            string IdProv = Request.QueryString["idProv"].ToString();
-            string Color = Request.QueryString["color"].ToString();
-            string Estado = Request.QueryString["estado"].ToString();
-            string Precio = Request.QueryString["precio"].ToString();
+            string UPC = Request.QueryString["UPC"].ToString();
+            string Nombre = Request.QueryString["Nombre"].ToString();
+            string Descripcion = Request.QueryString["Descripcion"].ToString();
+            string Categoria = Request.QueryString["Categoria"]?.ToString();
+            string TipoInst = Request.QueryString["TipoInst"].ToString();
+            string IdMarca = Request.QueryString["IdMarca"].ToString();
+            string Modelo = Request.QueryString["Modelo"].ToString();
+            string CodProv = Request.QueryString["CodProv"].ToString();
+            string IdProv = Request.QueryString["IdProv"].ToString();
+            string Color = Request.QueryString["Color"].ToString();
+            string Estado = Request.QueryString["Estado"].ToString();
+            string Precio = Request.QueryString["Precio"].ToString();
             
             Id.Text = IdProd;
             upc.Text = UPC;
             nombre.Text = Nombre;
             categoria.Text = Categoria;
-            tipoInst.Text = Tipo;
+            tipoInstrumento.Text = TipoInst;
             idMarca.Text = IdMarca;
             modelo.Text = Modelo;
             codProv.Text = CodProv;
@@ -41,7 +41,7 @@ namespace GUI
             color.Text = Color;
             precio.Text = Precio;
             estado.Text = Estado;
-            descripcion.Text = Descrip;
+            descripcion.Text = Descripcion;
         }
 
         protected void sendEditar_Click(object sender, EventArgs e)
@@ -52,7 +52,7 @@ namespace GUI
                                         nombre.Text.Trim(),
                                         descripcion.Text.Trim(),
                                         categoria.Text.Trim(),
-                                        tipoInst.Text.Trim(),
+                                        tipoInstrumento.Text.Trim(),
                                         int.Parse(idMarca.Text.Trim()),
                                         modelo.Text.Trim(),
                                         codProv.Text.Trim(),
