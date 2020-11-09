@@ -86,26 +86,6 @@ namespace GUI
 
         }
 
-        
-
-        protected void sendSuscribirse_Click(object sender, EventArgs e)
-        {
-            bool Insertado = GestorSuscripcion.Agregar(
-                                       email.Text.Trim(),
-                                       "",
-                                       "Activo");
-
-            if (Insertado)
-            {
-                Response.Write("<script>alert('¡Suscripción realizada con éxito!')</script>");
-
-                email.Text = "";
-                
-                return;
-            }
-
-        }
-
         public string CrearMenuVertical(string Nombre)
         {
             return
@@ -113,24 +93,6 @@ namespace GUI
 
         }
 
-        protected void opcionSuscribirse_Click(object sender, EventArgs e)
-        {
-            email.Visible = true;
-            suscribirse.Visible = true;
-            desuscribirse.Visible = false;
-        }
-
-        protected void opcionDesuscribirse_Click(object sender, EventArgs e)
-        {
-            email.Visible = true;
-            desuscribirse.Visible = true;
-            suscribirse.Visible = false;
-        }
-
-        protected void sendDesuscribirse_Click(object sender, EventArgs e)
-        {
-            
-
-        }
+        
     }
 }

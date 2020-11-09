@@ -16,9 +16,16 @@ namespace BLL
         }
 
         
-        static public bool Agregar(string email, string nombre, string estado)
+        static public bool Agregar(string email, string nombre, string estado, bool catOfertas, 
+                                    bool catEventos, bool catNoticias)
         {
-            return MapperSuscripcion.InsertarSuscripcion(email, nombre, estado);
+            return MapperSuscripcion.InsertarSuscripcion(email, nombre, estado, catOfertas, 
+                                                           catEventos, catNoticias);
+        }
+
+        static public bool Eliminar(string email, string motivo)
+        {
+            return MapperSuscripcion.EliminarSuscripcion(email, motivo);
         }
     }
 }

@@ -24,47 +24,7 @@
     <br />
     <br />
 
-    <footer>
-        <hr />
-        <div class="container-footer">
-            <div class="row justify-content-left align-items-center">
-                <div class="contenedor-suscripcion">
-
-                    <div class="row">
-                        <div class="body-content">
-                            <div class="col-lg-6">
-                            <div class="title">
-                                <h4 style="color: white; font-weight: 400;">Contáctenos</h4>
-                            </div>
-                                <h4>Tel.: 116045-2099
-                                </h4>
-                                <h4>Email: info@buscatusonido.com
-                                </h4>
-
-                                <a href="TermyCond">Términos y Condiciones</a>
-                            </div>
-
-                            <div class="col-lg-6">
-                                <%--<asp:Button runat="server" content="suscrib" ID="suscrib" CssClass="btn btn-link" Text="Suscribirse" OnClick="opcionSuscribirse_Click" />--%>
-                                <asp:button runat="server" type="button" id="suscrib" class="btn btn-info" data-toggle="collapse" data-target="#demo" onclick="opcionSuscribirse_Click" Text="Suscribirse" />
-                                <asp:button runat="server" type="button" id="desuscrib" class="btn btn-info" data-toggle="collapse" data-target="#demo" onclick="opcionDesuscribirse_Click" Text="Cancelar Suscripción" />
-                                <%--<h4 style="color: white">Suscribirse al Newsletter</h4>--%>
-                                <div class="form-group">
-                                    <label style="font-weight: 200">Email</label>
-                                    <asp:TextBox runat="server" type="text" CssClass="form-control" ID="email" Visible="false" />
-                                </div>
-                                <div>
-                                    <asp:Button runat="server" content="suscribirse" ID="suscribirse" CssClass="btn btn-primary btn-md" Text="Confirmar" OnClick="sendSuscribirse_Click" Visible="false" />
-                                    <asp:Button runat="server" content="suscribirse" ID="desuscribirse" CssClass="btn btn-primary btn-md" Text="Confirmar" OnClick="sendDesuscribirse_Click" Visible="false" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
+    
     <!-- /.container -->
 
     <style>
@@ -102,10 +62,7 @@
             width: 80%;
             margin: auto;
         }
-
-        .body-content {
-            color: #a6a6a6;
-        }
+        
     </style>
 
 </asp:Content>

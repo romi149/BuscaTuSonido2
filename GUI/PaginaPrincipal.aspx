@@ -112,33 +112,43 @@
                 <div class="contenedor-suscripcion">
 
                     <div class="row">
-                        <div class="body-content">
-                            <div class="col-lg-6">
-                            <div class="title">
-                                <h4 style="color: white; font-weight: 400;">Contáctenos</h4>
-                            </div>
-                                <h4>Tel.: 116045-2099
-                                </h4>
-                                <h4>Email: info@buscatusonido.com
-                                </h4>
+                        <div class="body-content-footer">
+                            <div class="col-lg-3">
+                                <div class="title">
+                                    <h4 style="color: white; font-weight: 400;">Contáctenos</h4>
+                                </div>
+                                <h5>Tel.: 116045-2099
+                                </h5>
+                                <h5>Email: info@buscatusonido.com
+                                </h5>
 
                                 <a href="TermyCond">Términos y Condiciones</a>
                             </div>
 
                             <div class="col-lg-6">
-                                <h4 style="color: white">Suscribirse al Newsletter</h4>
-                                <div class="form-group">
-                                    <label style="font-weight: 200">Nombre</label>
-                                    <asp:TextBox runat="server" type="text" CssClass="form-control" ID="nombre" />
-                                </div>
+                                <asp:Button runat="server" type="button" ID="suscrib" class="btn btn-info" data-toggle="collapse" data-target="#demo" OnClick="opcionSuscribirse_Click" Text="Suscribirse" />
+                                <asp:CheckBox ID="CheckOfertas" runat="server" AutoPostBack="true" Text="Ofertas" OnCheckedChanged="CheckOfertas_Clicked" Visible="false" />
+                                <asp:CheckBox ID="CheckEventos" runat="server" AutoPostBack="true" Text="Eventos" OnCheckedChanged="CheckEventos_Clicked" Visible="false" />
+                                <asp:CheckBox ID="CheckNoticias" runat="server" AutoPostBack="true" Text="Noticias" OnCheckedChanged="CheckNoticias_Clicked" Visible="false" />
+                                
                                 <div class="form-group">
                                     <label style="font-weight: 200">Email</label>
-                                    <asp:TextBox runat="server" type="text" CssClass="form-control" ID="email" />
+                                    <asp:TextBox runat="server" type="text" CssClass="form-control" ID="email" Visible="false" />
                                 </div>
                                 <div>
-                                    <%--<asp:Button runat="server" content="suscribirse" ID="suscribirse" CssClass="btn btn-primary btn-md" Text="Enviar" OnClick="sendSuscribirse_Click" />--%>
+                                    <asp:Button runat="server" content="suscribirse" ID="suscribirse" CssClass="btn btn-primary btn-md" Text="Confirmar" OnClick="sendSuscribirse_Click" Visible="false" />
                                 </div>
-                            </div>
+                             </div>
+                             <div class="col-lg-3">
+                                <asp:Button runat="server" type="button" ID="desuscrib" class="btn btn-info" data-toggle="collapse" data-target="#demo" OnClick="opcionDesuscribirse_Click" Text="Cancelar Suscripción" />
+                                <div>
+                                   <label style="font-weight: 200">Motivo</label>
+                                   <asp:TextBox runat="server" type="text" CssClass="form-control" ID="motivo" Visible="false" />
+                                </div>
+                                <div>
+                                   <asp:Button runat="server" content="suscribirse" ID="desuscribirse" CssClass="btn btn-primary btn-md" Text="Confirmar" OnClick="sendDesuscribirse_Click" Visible="false" />
+                                </div>
+                             </div>
                         </div>
                     </div>
                 </div>
@@ -167,6 +177,9 @@
         .contenedor-suscripcion {
             width: 80%;
             margin: auto;
+        }
+        .body-content-footer {
+            color: #a6a6a6;
         }
 
     </style>
