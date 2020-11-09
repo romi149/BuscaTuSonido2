@@ -24,21 +24,34 @@
     <br />
     <br />
     <div class="row">
-        <h3>Preguntas y Comentarios</h3>
         <br />
-        <table>
-            <tr>
-                <td>
-                <%--    <label>Preguntarle al vendedor</label>--%>
-                   <asp:TextBox ID="pregunta" runat="server" type="text" TextMode="MultiLine" Width="420" CssClass="form-control"></asp:TextBox>
-                </td>
-                <td>
-                    <asp:Button runat="server" content="pregunta" ID="btnPregunta" CssClass="btn btn-primary btn-md" Text="Preguntar" OnClick="sendPreguntar_Click" />
-                </td>
-            </tr>
-        </table>
-        
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Preguntas y Comentarios</h3>
+                <table>
+                    <tr>
+                        <td>
+                            <%--    <label>Preguntarle al vendedor</label>--%>
+                            <asp:TextBox ID="pregunta" runat="server" type="text" TextMode="MultiLine" Width="420" CssClass="form-control"></asp:TextBox>
+                        </td>
+                        <td>
+                            <asp:Button runat="server" content="pregunta" ID="btnPregunta" CssClass="btn btn-primary btn-md" Text="Preguntar" OnClick="sendPreguntar_Click" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <h3>Opiniones sobre el producto</h3>
+                <table>
+                    <tr>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
+    </div>
     <style>
        .imgProducto{
             width:30vw;

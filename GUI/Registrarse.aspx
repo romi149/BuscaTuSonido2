@@ -4,6 +4,7 @@
 
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
+
 <div class="container">
         <div class="row justify-content-center align-items-center" style="height: 100vh">
             <div class="ContenedorRegistrase ">
@@ -23,14 +24,23 @@
                             <div class="form-group">
                                 <label>Nombre</label>
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="nombre" />
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"
+                                    ValidationExpression="^[a-zA-Z ]*$" ControlToValidate="nombre"
+                                    ErrorMessage="No se admite numeros" ForeColor="Red" ></asp:RegularExpressionValidator>
                             </div>
                             <div class="form-group">
                                 <label>Apellido</label>
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="apellido" />
+                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server"
+                                    ValidationExpression="^[a-zA-Z ]*$" ControlToValidate="apellido" 
+                                    ErrorMessage="No se admite numeros" ForeColor="Red"></asp:RegularExpressionValidator>
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="email" />
+                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="email" required="true" />
+                                <asp:RegularExpressionValidator ID="regexEmailValid" runat="server"
+                                    ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="email" 
+                                    ErrorMessage="Formate de email invalido" ForeColor="Red"></asp:RegularExpressionValidator>
                             </div>
 
                         </div>
@@ -41,10 +51,16 @@
                         <div class="form-group">
                             <label>Dni</label>
                             <asp:TextBox runat="server" type="text" CssClass="form-control" ID="dni" />
+                             <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server"
+                                    ValidationExpression="^[0-9 ]*$" ControlToValidate="dni" 
+                                    ErrorMessage="Solo se admite numeros" ForeColor="Red"></asp:RegularExpressionValidator>
                         </div>
                         <div class="form-group">
                             <label>Teléfono</label>
                             <asp:TextBox runat="server" type="text" CssClass="form-control" ID="telefono" />
+                             <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server"
+                                    ValidationExpression="^[0-9 ]*$" ControlToValidate="telefono" 
+                                    ErrorMessage="Solo se admite numeros" ForeColor="Red"></asp:RegularExpressionValidator>
                         </div>
                         <div class="form-group">
                             <label>Domicilio de Entrega</label>

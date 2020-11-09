@@ -74,11 +74,16 @@ namespace GUI
             Response.Redirect("~/MiCuenta.aspx");
         }
 
+        protected void sendvolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/PaginaPrincipal.aspx");
+        }
         protected void sendcambiarPass_Click(object sender, EventArgs e)
         {
             password.Visible = true;
             repeatPass.Visible = true;
             confirmarPass.Visible = true;
+            cancelar.Visible = true;
 
         }
 

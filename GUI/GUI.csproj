@@ -223,9 +223,6 @@
     <Content Include="img\wonderfullwomen.jpg" />
     <Content Include="InicioBackend.aspx" />
     <Content Include="CatalogoProductos.aspx" />
-    <Content Include="InstrumentosElectronicos.aspx" />
-    <Content Include="InstrumentosPercusion.aspx" />
-    <Content Include="InstrumentosViento.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MiCuenta.aspx" />
     <Content Include="News.aspx" />
@@ -421,27 +418,6 @@
     </Compile>
     <Compile Include="CatalogoProductos.aspx.designer.cs">
       <DependentUpon>CatalogoProductos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="InstrumentosElectronicos.aspx.cs">
-      <DependentUpon>InstrumentosElectronicos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="InstrumentosElectronicos.aspx.designer.cs">
-      <DependentUpon>InstrumentosElectronicos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="InstrumentosPercusion.aspx.cs">
-      <DependentUpon>InstrumentosPercusion.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="InstrumentosPercusion.aspx.designer.cs">
-      <DependentUpon>InstrumentosPercusion.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="InstrumentosViento.aspx.cs">
-      <DependentUpon>InstrumentosViento.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="InstrumentosViento.aspx.designer.cs">
-      <DependentUpon>InstrumentosViento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

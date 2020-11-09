@@ -17,14 +17,23 @@
                             <div class="form-group">
                                 <label>Nombre</label>
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="nombre" />
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"
+                                    ValidationExpression="^[a-zA-Z ]*$" ControlToValidate="nombre"
+                                    ErrorMessage="No se admite numeros" ForeColor="Red" ></asp:RegularExpressionValidator>
                             </div>
                             <div class="form-group">
                                 <label>Apellido</label>
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="apellido" />
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server"
+                                    ValidationExpression="^[a-zA-Z ]*$" ControlToValidate="apellido"
+                                    ErrorMessage="No se admite numeros" ForeColor="Red" ></asp:RegularExpressionValidator>
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="email" />
+                                <asp:RegularExpressionValidator ID="regexEmailValid" runat="server"
+                                    ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="email" 
+                                    ErrorMessage="Formate de email invalido" ForeColor="Red"></asp:RegularExpressionValidator>
                             </div>
                             <div class="form-group">
                                 <label>Contraseña</label>
@@ -37,10 +46,16 @@
                         <div class="form-group">
                             <label>Dni</label>
                             <asp:TextBox runat="server" type="text" CssClass="form-control" ID="dni" />
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server"
+                                    ValidationExpression="^[0-9 ]*$" ControlToValidate="dni" 
+                                    ErrorMessage="Solo se admite numeros" ForeColor="Red"></asp:RegularExpressionValidator>
                         </div>
                         <div class="form-group">
                             <label>Teléfono</label>
                             <asp:TextBox runat="server" type="text" CssClass="form-control" ID="telefono" />
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server"
+                                    ValidationExpression="^[0-9 ]*$" ControlToValidate="telefono" 
+                                    ErrorMessage="Solo se admite numeros" ForeColor="Red"></asp:RegularExpressionValidator>
                         </div>
                         <div class="form-group">
                             <label>Domicilio de Entrega</label>
@@ -50,6 +65,7 @@
                             <label>Domicilio de Facturación</label>
                             <asp:TextBox runat="server" type="text" CssClass="form-control" ID="domFactura" />
                         </div>
+                        <br />
                         <div class="form-group">
                                 <label>Repetir Contraseña</label>
                                 <asp:TextBox runat="server" type="password" CssClass="form-control" ID="repeatPass" Visible="false" />
@@ -66,7 +82,7 @@
                               OnClientClick="return confirm('¿Esta seguro que desea editar los datos?')" />
                         </div>
                         <div>
-                            <asp:Button runat="server" content="editarDatos" ID="cancelar" CssClass="btn btn-danger btn-md" Text="Cancelar" OnClick="sendcancelar_Click" />
+                            <asp:Button runat="server" content="editarDatos" ID="volver" CssClass="btn btn-warning btn-md" Text="Volver" OnClick="sendvolver_Click" />
                         </div>
                         <div>
                             <asp:Button runat="server" content="editarDatos" ID="pass" CssClass="btn btn-primary btn-md" Text="Modificar Contraseña" OnClick="sendcambiarPass_Click" />
@@ -74,6 +90,9 @@
                         <div>
                             <asp:Button runat="server" content="editarDatos" ID="confirmarPass" CssClass="btn btn-warning btn-md" Text="Confirmar" Visible="false" OnClick="confirmarCambioPass_Click"
                                 OnClientClick="return confirm('¿Esta seguro que desea cambiar la contraseña?')" />
+                        </div>
+                        <div>
+                            <asp:Button runat="server" content="editarDatos" ID="cancelar" CssClass="btn btn-danger btn-md" Text="Cancelar" Visible="false" OnClick="sendcancelar_Click" />
                         </div>
                     </div>
 

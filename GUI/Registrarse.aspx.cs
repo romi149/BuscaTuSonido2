@@ -29,6 +29,14 @@ namespace GUI
                 return;
             }
 
+            
+            if(string.IsNullOrEmpty(email.Text.Trim()))
+            {
+                Response.Write("<script>alert('Debe ingresar un email')</script>");
+
+            }
+
+
             if (IsReCaptchValid())
             {
                 bool Insertado = GestorCliente.Agregar(
