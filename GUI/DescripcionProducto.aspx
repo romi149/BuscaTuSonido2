@@ -18,44 +18,94 @@
         </div>
     </div>
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+    <hr />
     <div class="row">
-        <br />
-        <div class="row">
-            <div class="col-md-6">
-                <h3>Preguntas y Comentarios</h3>
-                <table>
-                    <tr>
-                        <td>
-                            <%--    <label>Preguntarle al vendedor</label>--%>
-                            <asp:TextBox ID="pregunta" runat="server" type="text" TextMode="MultiLine" Width="420" CssClass="form-control"></asp:TextBox>
-                        </td>
-                        <td>
-                            <asp:Button runat="server" content="pregunta" ID="btnPregunta" CssClass="btn btn-primary btn-md" Text="Preguntar" OnClick="sendPreguntar_Click" />
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div class="col-md-6">
-                <h3>Opiniones sobre el producto</h3>
-                <table>
-                    <tr>
-                        <td>
-                            
-                        </td>
-                    </tr>
-                </table>
+        <div class="col-md-12">
+            <h3>Preguntas y Respuestas</h3>
+            <div id="PreguntasBox">
+                <asp:TextBox ID="pregunta" runat="server" type="text" TextMode="MultiLine" Width="" CssClass="form-control"></asp:TextBox>
+                <asp:Button runat="server" content="pregunta" ID="btnPregunta" CssClass="btn btn-primary" Text="Preguntar" OnClick="sendPreguntar_Click" />
             </div>
         </div>
     </div>
+    <asp:Panel runat="server" id="peopleComment">
+            
+    </asp:Panel>
+    <hr />
+    <div class="row">
+        <h3>Opiniones sobre el producto</h3>
+        <div class="col-md-4 ">
+            <div id="Puntuacion" class="text-center">
+                <h1>4,1%
+                </h1>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="45"
+                        aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                        100%
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="col-md-4">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100"
+                        aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                        100%
+                    </div>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80"
+                        aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                        80% 
+                    </div>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="35"
+                        aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                        35% 
+                    </div>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="25"
+                        aria-valuemin="0" aria-valuemax="100" style="width: 25%">
+                        25% 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div>
+            <div class="panel panel-default">
+                <div class="panel-heading">4.1-Nombre Usuario</div>
+                <div class="panel-body">Opinion</div>
+            </div>
+        </div>
+    </div>
+
     <style>
-       .imgProducto{
-            width:30vw;
-            height:50vh;
+        .imgProducto {
+            width: 30vw;
+            height: 50vh;
+        }
+
+        #PreguntasBox {
+            display: flex;
+        }
+
+        #pregunta {
+            width: 30vw !important;
+            max-width: 30vw !important;
+        }
+
+        .row {
+            margin-top: 30px;
+            margin-bottom: 30px
         }
     </style>
 </asp:Content>

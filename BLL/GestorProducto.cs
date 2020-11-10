@@ -83,5 +83,15 @@ namespace BLL
         {
             return MapperProducto.ListarProductosAComparar(nombre);
         }
+
+        public static bool InsertarPregunta(string NombreProducto, string modelo, string pregunta, string usuario)
+        {
+            return MapperProducto.InsertarPregunta(NombreProducto, modelo, pregunta, usuario);
+        }
+
+        public static List<Preguntas> ListarPreguntas(string nombre, string modelo)
+        {
+            return MapperProducto.ListarPreguntas(nombre, modelo);
+        }
     }
 }

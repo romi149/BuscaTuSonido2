@@ -20,4 +20,15 @@ namespace BE
         public string Precio { get; set; }
         public string urlImg { get; set; }
     }
+
+    public class Preguntas
+    {
+        public int Id { get; set; }
+        public string NombreProducto { get; set; }
+        public string Modelo { get; set; }
+        public string Pregunta { get; set; }
+        public string Respuesta { get; set; }
+        public string Usuario { get; set; }
+        public DateTime Fecha { get; set; }
+    }
 }

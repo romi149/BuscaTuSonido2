@@ -428,5 +428,61 @@ namespace MPP
                 return null;
             }
         }
+
+
+        public static bool InsertarPregunta(string NombreProducto, string modelo, string pregunta, string usuario)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombreProducto ", DbType.String, ParameterDirection.Input, NombreProducto));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("ModeloProducto ", DbType.String, ParameterDirection.Input, modelo));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Pregunta ", DbType.String, ParameterDirection.Input, pregunta));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("usuario  ", DbType.String, ParameterDirection.Input, usuario));
+                var respuesta = Conexion.GetInstance.EjecutarStore("InsertarPregunta", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public static List<Preguntas> ListarPreguntas(string NombreProducto, string modelo)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombreProducto ", DbType.String, ParameterDirection.Input, NombreProducto));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Modelo ", DbType.String, ParameterDirection.Input, modelo));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarPreguntasPorProducto", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Preguntas
+                      {
+                          Id = dataRow.Field<int>("id"),
+                          Modelo = dataRow.Field<string>("Modelo"),
+                          NombreProducto = dataRow.Field<string>("NombreProducto"),
+                          Pregunta = dataRow.Field<string>("Pregunta"),
+                          Fecha = dataRow.Field<DateTime>("Fecha"),
+                          Respuesta = dataRow.Field<string>("Respuesta"),
+                          Usuario = dataRow.Field<string>("Usuario")
+                      }).ToList();
+
+                    return empList;
+                }
+
+
+                return null;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
     }
 }
