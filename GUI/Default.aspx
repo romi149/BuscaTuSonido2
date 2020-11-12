@@ -9,9 +9,26 @@
 
             <div class="col-lg-3">
                 <img id="logo" class="imglogo" src="/imagenes/Portada/BuscaTuSonidoLogo.png" alt="">
-                
-                    <asp:Panel runat="server" ID="contenedorMenu">
-                    </asp:Panel>
+
+                <asp:Panel runat="server" ID="contenedorMenu">
+                </asp:Panel>
+                <div>
+                    <label>Buscar por:</label>
+                </div>
+                <br />
+                <div>
+                    <asp:DropDownList runat="server" ID="listMarca" CssClass="form-control" >
+                    </asp:DropDownList>
+                </div>
+                <br />
+                <div>
+                    <asp:DropDownList runat="server" ID="listCategoria" CssClass="form-control" >
+                    </asp:DropDownList>
+                </div>
+                <br />
+                <div>
+                    <asp:Button runat="server" content="buscadormenu" ID="buscar" CssClass="btn btn-info btn-md" Text="Buscar" OnClick="Buscar_Click" />
+                </div>
             </div>
             <div class="col-lg-9">
 

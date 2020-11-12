@@ -57,35 +57,35 @@ namespace GUI
 
         protected void Buscar_Click(object sender, EventArgs e)
         {
-            //var Dato = buscar.Text.Trim();
-            var userbuscado = user.Text.Trim();
-            var dni = doc.Text.Trim();
-            var status = "GET";
+            ////var Dato = buscar.Text.Trim();
+            //var userbuscado = user.Text.Trim();
+            //var dni = doc.Text.Trim();
+            //var status = "GET";
 
-            if (!string.IsNullOrEmpty(userbuscado))
-            {
-                if (!string.IsNullOrEmpty(dni))
-                {
-                    //filtro por todos los campos
-                    GestorUsuario.ListarUsuariosFiltroTotal(userbuscado,dni);
-                }
-                else
-                {
-                    //filtro por usuario
-                    dni = null;
-                    GestorUsuario.ListarUsuariosConFiltro(userbuscado, dni, status);
-                }
-            }
-            else if(!string.IsNullOrEmpty(dni))
-            {
-                //filtro solo por dni
-                GestorUsuario.ListarUsuariosConFiltro(userbuscado, dni, status);
-            }
-            else
-            {
-                Response.Write("<script>alert('Debe indicar un dato a buscar')</script>");
-            }
-        
+            //if (!string.IsNullOrEmpty(userbuscado))
+            //{
+            //    if (!string.IsNullOrEmpty(dni))
+            //    {
+            //        //filtro por todos los campos
+            //        GestorUsuario.ListarUsuariosFiltroTotal(userbuscado, dni);
+            //    }
+            //    else
+            //    {
+            //        //filtro por usuario
+            //        dni = null;
+            //        GestorUsuario.ListarUsuariosConFiltro(userbuscado, dni, status);
+            //    }
+            //}
+            //else if (!string.IsNullOrEmpty(dni))
+            //{
+            //    //filtro solo por dni
+            //    GestorUsuario.ListarUsuariosConFiltro(userbuscado, dni, status);
+            //}
+            //else
+            //{
+            //    Response.Write("<script>alert('Debe indicar un dato a buscar')</script>");
+            //}
+
         }
 
         protected void sendAgregar_Click(object sender, EventArgs e)

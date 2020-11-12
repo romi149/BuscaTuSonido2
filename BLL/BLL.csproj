@@ -46,6 +46,7 @@
     <Compile Include="GestorBitacora.cs" />
     <Compile Include="GestorCliente.cs" />
     <Compile Include="GestorGestionRoles.cs" />
+    <Compile Include="GestorMarca.cs" />
     <Compile Include="GestorMenu.cs" />
     <Compile Include="GestorPermiso.cs" />
     <Compile Include="GestorPrecio.cs" />

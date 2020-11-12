@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,9 @@ namespace GUI
         {
             CargarProductos();
             CargarMenuVertical();
+            CargarComboMarca();
+            CargarComboCategoria();
+            
         }
 
 
@@ -93,6 +97,76 @@ namespace GUI
 
         }
 
+        public void CargarComboMarca()
+        {
+            List<Marca> lista = GestorMarca.Listar();
+
+            listMarca.DataSource = lista;
+            listMarca.DataTextField = "Nombre";
+            listMarca.DataValueField = "IdMarca";
+            listMarca.DataBind();
+
+
+        }
+
+        public void CargarComboCategoria()
+        {
+            List<Producto> lista = GestorProducto.ListarCategorias();
+
+            listCategoria.DataSource = lista;
+            listCategoria.DataTextField = "Categoria";
+            listCategoria.DataValueField = "Categoria";
+            listCategoria.DataBind();
+        }
         
+        public void Buscar_Click(object sender, EventArgs e)
+        {
+            var marca = listMarca.SelectedItem.ToString();
+            var categ = listCategoria.SelectedItem.ToString();
+
+            if (!string.IsNullOrEmpty(marca))
+            {
+                if (!string.IsNullOrEmpty(categ))
+                {
+                    CargarProductosBuscados(marca, categ);
+                }
+                //else
+                //{
+                //    CargarProductosPorMarca(marca);
+                //}
+            }
+            //else if (!string.IsNullOrEmpty(categ))
+            //{
+            //    CargarProductosPorCategoria(categ);
+            //}
+
+        }
+
+        protected void CargarProductosBuscados(string marca, string categoria)
+        {
+            HtmlGenericControl DivContenedor = new HtmlGenericControl("div");
+
+            DivContenedor.InnerHtml = $"<div>";
+            int cont = 0;
+            foreach (var item in GestorProducto.ListarProductosBuscados(marca, categoria))
+            {
+                if (cont == 0)
+                    DivContenedor.InnerHtml += "<div clas='row'>";
+                if (cont < 3)
+                {
+                    DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Modelo, item.Precio.ToString(), item.Descripcion, GestorProducto.GestionImagen(item.Nombre, "sin categoria"));
+                }
+                else
+                {
+                    DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Modelo, item.Precio.ToString(), item.Descripcion, GestorProducto.GestionImagen(item.Nombre, "sin categoria")) + "</div>";
+                    cont = 0;
+                }
+                cont++;
+            }
+            DivContenedor.InnerHtml += "</div>";
+            this.contenedor.Controls.Add(DivContenedor);
+        }
+
+
     }
 }

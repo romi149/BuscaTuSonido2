@@ -49,19 +49,9 @@ namespace BLL
             return MapperProducto.ListarProductos();
         }
 
-        public static List<Producto> ListarProdCuerdas()
+        public static List<Producto> ListarCategorias()
         {
-            return MapperProducto.ListarInstCuerdas();
-        }
-
-        public static List<Producto> ListarProdViento()
-        {
-            return MapperProducto.ListarInstViento();
-        }
-
-        public static List<Producto> ListarProdPercusion()
-        {
-            return MapperProducto.ListarInstPercusion();
+            return MapperProducto.ListarCategorias();
         }
 
         public static List<Producto> ListarProdPorCategoria(string nombre)
@@ -92,6 +82,11 @@ namespace BLL
         public static List<Preguntas> ListarPreguntas(string nombre, string modelo)
         {
             return MapperProducto.ListarPreguntas(nombre, modelo);
+        }
+
+        public static List<Producto> ListarProductosBuscados(string marca, string categoria)
+        {
+            return MapperProducto.ListarProductosBuscados(marca, categoria);
         }
     }
 }

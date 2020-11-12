@@ -16,9 +16,9 @@ namespace BLL
             return MapperBitacora.ListarBitacora();
         }
 
-        static public DataSet ListarFiltrado(string entidad, string fechaDesde, string fechaHasta, string status)
+        static public DataSet ListarFiltrado(string entidad, string fechaDesde, string fechaHasta)
         {
-            return MapperBitacora.ListarBitacoraFiltrado(entidad, fechaDesde, fechaHasta, status);
+            return MapperBitacora.ListarBitacoraFiltrado(entidad, fechaDesde, fechaHasta);
         }
 
         static public bool Agregar(DateTime fecha, string tipoEvento, string user, string entidadInv)
@@ -29,6 +29,11 @@ namespace BLL
         static public DataSet ListarFiltradoEntidad(string entidad)
         {
             return MapperBitacora.ListarFiltroEntidad(entidad);
+        }
+
+        static public DataSet ListarFiltradoFechas(string fechadesde, string fechahasta)
+        {
+            return MapperBitacora.ListarFiltroFechas(fechadesde,fechahasta);
         }
     }
 }

@@ -58,11 +58,35 @@ namespace MPP
         }
 
         /// <summary>
+        /// Devuelve una lista de registros en bitacora filtrado
+        /// por fechas
+        /// </summary>
+        /// <returns></returns>
+        public static DataSet ListarFiltroFechas(string fechadesde, string fechahasta)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaDesde", DbType.DateTime, ParameterDirection.Input, fechadesde));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaHasta", DbType.DateTime, ParameterDirection.Input, fechahasta));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarBitacoraFiltroFechas", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
+
+        /// <summary>
         /// Devuelve una lista de registros en bitacora
         /// filtrando
         /// </summary>
         /// <returns></returns>
-        public static DataSet ListarBitacoraFiltrado(string entidad, string fechaDesde, string fechaHasta, string status)
+        public static DataSet ListarBitacoraFiltrado(string entidad, string fechaDesde, string fechaHasta)
         {
             try
             {
@@ -70,8 +94,7 @@ namespace MPP
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Entidad", DbType.String, ParameterDirection.Input, entidad));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("fechaDesde", DbType.DateTime, ParameterDirection.Input, fechaDesde));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("fechaHasta", DbType.DateTime, ParameterDirection.Input, fechaHasta));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("status", DbType.String, ParameterDirection.Input, status));
-                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("FiltrarBitacora", ListaParametros);
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarBitacoraFiltroTotal", ListaParametros);
 
                 return respuesta;
             }

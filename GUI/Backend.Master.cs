@@ -13,7 +13,7 @@ namespace GUI
         {
             if (Session["usuarioBackEnd"] == null)
             {
-                Response.Redirect("Default.aspx");
+                Response.Redirect("PaginaPrincipal.aspx");
             }
         }
 

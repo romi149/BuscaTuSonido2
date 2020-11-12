@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BE;
 using DAL;
+using MPP.Helpers;
 
 namespace MPP
 {
@@ -13,73 +17,127 @@ namespace MPP
         /// Retorna todas las marcas de la Bd
         /// </summary>
         /// <returns></returns>
-        public List<Marca> ListarMarcas()
+        public static List<Marca> ListarMarcas()
         {
             try
             {
-                BTSDataContext BaseDeDatos = new BTSDataContext();
-                List<Marca> marcas = (from tblMarca in BaseDeDatos.Marca
-                                        select tblMarca).ToList();
-                return marcas;
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarMarcas", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Marca
+                      {
+                          IdMarca = dataRow.Field<Int32>("IdMarca"),
+                          Nombre = dataRow.Field<string>("Nombre"),
+                          Descripcion = dataRow.Field<string>("Descripcion")
+                          
+                      }).ToList();
+
+                    return empList;
+                }
+
+
+                return null;
             }
             catch (Exception e)
             {
 
-                return new List<Marca>();
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Retorna todos las marcas de la Bd
+        /// </summary>
+        /// <returns></returns>
+        public static DataSet ListarMarcasDT()
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarMarcas", ListaParametros);
+
+                return respuesta;
+            }
+            catch (Exception e)
+            {
+
+                return null;
             }
         }
 
         /// <summary>
         /// Inserta una marca en Bd
         /// </summary>
-        /// <param name="marca">Tipo Marca</param>
+        /// <param name="marca"></param>
         /// <returns>Devuelve si se inserto o no</returns>
-        public bool InsertarMarca(Marca marca)
+        public static bool InsertarMarca(string nombre, string descrip)
         {
-            BTSDataContext BaseDeDatos = new BTSDataContext();
-            int filasAFECTADAS = BaseDeDatos.InsertarMarca(marca.Nombre, marca.Descripcion);
-            if (filasAFECTADAS > 0)
+            try
             {
-                return true;
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, nombre));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, descrip));
+                var respuesta = Conexion.GetInstance.EjecutarStore("InsertarMarca", ListaParametros);
+
+                return respuesta;
             }
 
-            return false;
+            catch (Exception e)
+            {
+                return false;
+            }
         }
 
 
         /// <summary>
         /// Actualiza una marca en Bd
         /// </summary>
-        /// <param name="marca">Tipo Marca</param>
+        /// <param name="marca"></param>
         /// <returns>Devuelve si se actualiza o no</returns>
-        public bool Actualizar(Marca marca)
+        public static bool ActualizarMarca(int Id, string nombre, string descrip)
         {
-            BTSDataContext BaseDeDatos = new BTSDataContext();
-            int filasAFECTADAS = BaseDeDatos.ActualizarMarca(marca.IdMarca, marca.Nombre, marca.Descripcion);
-            if (filasAFECTADAS > 0)
+            try
             {
-                return true;
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdMarca", DbType.String, ParameterDirection.Input, Id));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, nombre));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, descrip));
+                var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarMarca", ListaParametros);
+
+                return respuesta;
             }
 
-            return false;
+            catch (Exception e)
+            {
+                return false;
+            }
+
+
         }
 
         /// <summary>
         /// Elimina una marca en Bd
         /// </summary>
-        /// <param name="marca">Tipo Marca</param>
+        /// <param name="marca"></param>
         /// <returns>Devuelve si se elimino o no</returns>
-        public bool Borrar(Marca marca)
+        public static bool EliminarMarca(int Id)
         {
-            BTSDataContext BaseDeDatos = new BTSDataContext();
-            int filasAFECTADAS = BaseDeDatos.EliminarMarca(marca.IdMarca);
-
-            if (filasAFECTADAS > 0)
+            try
             {
-                return true;
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdMarca", DbType.Int32, ParameterDirection.Input, Id));
+                var respuesta = Conexion.GetInstance.EjecutarStore("EliminarMarca", ListaParametros);
+
+                return respuesta;
             }
 
-            return false;
+            catch (Exception e)
+            {
+                return false;
+            }
+
         }
     }
 }

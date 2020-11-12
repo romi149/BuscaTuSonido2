@@ -105,6 +105,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ABMC-Marcas.aspx" />
     <Content Include="ABMC-Menus.aspx" />
     <Content Include="ABMC-Productos.aspx" />
     <Content Include="ABMC-Proveedores.aspx" />
@@ -116,9 +117,16 @@
     <Content Include="Configuracion.aspx" />
     <Content Include="ConfirmarRegistro.aspx" />
     <Content Include="ConsultarBitacora.aspx" />
+    <Content Include="css\animate.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
     <Content Include="css\estilo.css" />
+    <Content Include="css\font-awesome.min.css" />
     <Content Include="css\one-page-wonder.css" />
     <Content Include="css\one-page-wonder.min.css" />
+    <Content Include="css\owl.carousel.css" />
+    <Content Include="css\style-color.css" />
+    <Content Include="css\style.css" />
     <Content Include="DescripcionProducto.aspx" />
     <Content Include="EditarMenu.aspx" />
     <Content Include="EditarProveedor.aspx" />
@@ -146,6 +154,7 @@
     <Content Include="Content\vendor\jquery\jquery.slim.min.js" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -169,6 +178,11 @@
     <Content Include="Content\vendor\jquery\jquery.min.map" />
     <Content Include="Content\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Backend.Master" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Imagenes\01.jpg" />
     <Content Include="Imagenes\02.jpg" />
@@ -200,7 +214,13 @@
     <Content Include="Imagenes\Portada\Guitarra7.png" />
     <Content Include="Imagenes\Portada\Guitarra8.png" />
     <Content Include="Imagenes\Portada\pexels.png" />
+    <Content Include="img\1.jpg" />
+    <Content Include="img\2.jpg" />
+    <Content Include="img\3.jpg" />
+    <Content Include="img\4.jpg" />
     <Content Include="img\apuntar.svg" />
+    <Content Include="img\b1.jpg" />
+    <Content Include="img\b2.jpg" />
     <Content Include="img\bombos.jpg" />
     <Content Include="img\console.jpg" />
     <Content Include="img\doremi.svg" />
@@ -267,6 +287,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABMC-Marcas.aspx.cs">
+      <DependentUpon>ABMC-Marcas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMC-Marcas.aspx.designer.cs">
+      <DependentUpon>ABMC-Marcas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ABMC-Menus.aspx.cs">
       <DependentUpon>ABMC-Menus.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

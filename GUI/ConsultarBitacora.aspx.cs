@@ -31,43 +31,38 @@ namespace GUI
             var entidadIn = entidad.Text.Trim();
             var fechaDesde = desde.Text.Trim();
             var fechaHasta = hasta.Text.Trim();
-            var status = "GET";
+            
 
-            //if(entidadIn != null || entidadIn != "")
-            //{
-            //    GestorBitacora.ListarFiltradoEntidad(entidadIn);
-            //}
-
-
-            if (fechaDesde == null && fechaHasta != null
-                || fechaDesde != null && fechaHasta == null)
+            if ((string.IsNullOrEmpty(fechaDesde) && (!string.IsNullOrEmpty(fechaHasta)))
+                || ((!string.IsNullOrEmpty(fechaDesde)) && (string.IsNullOrEmpty(fechaHasta))))
             {
-                Response.Write("alert('Seleccione la fecha desde y fecha  hasta para filtrar la información')");
+                Response.Write("<script>alert('¡Para filtrar por fechas debe seleccionar fecha desde y fecha hasta!')</script>");
 
-                fechaDesde = null;
-                fechaHasta = null;
                 return;
             }
-            else if ((fechaDesde != null || fechaDesde != "") && (fechaHasta != null || fechaHasta != ""))
+            else if (!string.IsNullOrEmpty(fechaDesde) && (!string.IsNullOrEmpty(fechaHasta)))
             {
-                if (entidadIn != null)
+                if (!string.IsNullOrEmpty(entidadIn))
                 {
-                    GestorBitacora.ListarFiltrado(entidadIn, fechaDesde, fechaHasta, status);
+                    gvBitacora.DataSource = null;
+                    gvBitacora.DataSource = GestorBitacora.ListarFiltrado(entidadIn, fechaDesde, fechaHasta);
+                    gvBitacora.DataBind();
                 }
                 else
                 {
-                    entidadIn = null;
-                    GestorBitacora.ListarFiltrado(entidadIn, fechaDesde, fechaHasta, status);
+                    gvBitacora.DataSource = null;
+                    gvBitacora.DataSource = GestorBitacora.ListarFiltradoFechas(fechaDesde, fechaHasta);
+                    gvBitacora.DataBind();
                 }
             }
             else if (entidadIn != null)
             {
-                fechaDesde = null;
-                fechaHasta = null;
-
-                GestorBitacora.ListarFiltrado(entidadIn, fechaDesde, fechaHasta, status);
+                gvBitacora.DataSource = null;
+                gvBitacora.DataSource = GestorBitacora.ListarFiltradoEntidad(entidadIn);
+                gvBitacora.DataBind();
+                                
             }
-
+            
         }
     }
 }
