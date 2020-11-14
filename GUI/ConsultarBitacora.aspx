@@ -11,13 +11,13 @@
                 <div class="input-group" id="BuscarControl">
                     <table>
                         <tr>
-                            <%--<td>
+                            <td>
                                 <label>Tipo de Evento</label>
                                 <asp:TextBox ID="tipoEvento" runat="server" type="text" CssClass="form-control"></asp:TextBox>
-                            </td>--%>
+                            </td>
                             <td>
-                                <label>Entidad Involucrada</label>
-                                <asp:TextBox ID="entidad" runat="server" type="text" CssClass="form-control"></asp:TextBox>
+                                <label>Usuario</label>
+                                <asp:TextBox ID="usuario" runat="server" type="text" CssClass="form-control"></asp:TextBox>
                             </td>
                             <td>
                                 <label>Fecha desde</label>

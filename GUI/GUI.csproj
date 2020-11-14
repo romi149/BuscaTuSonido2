@@ -113,6 +113,7 @@
     <Content Include="ABMC-Usuarios.aspx" />
     <Content Include="About.aspx" />
     <Content Include="Backup.aspx" />
+    <Content Include="Carrito.aspx" />
     <Content Include="ComparacionProductos.aspx" />
     <Content Include="Configuracion.aspx" />
     <Content Include="ConfirmarRegistro.aspx" />
@@ -128,6 +129,7 @@
     <Content Include="css\style-color.css" />
     <Content Include="css\style.css" />
     <Content Include="DescripcionProducto.aspx" />
+    <Content Include="EditarMarca.aspx" />
     <Content Include="EditarMenu.aspx" />
     <Content Include="EditarProveedor.aspx" />
     <Content Include="EditarProducto.aspx" />
@@ -156,6 +158,8 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="FormularioDeCompra.aspx" />
+    <Content Include="GestionConsultasClientes.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -250,6 +254,7 @@
     <Content Include="RecuperoPass.aspx" />
     <Content Include="Registrarse.aspx" />
     <Content Include="Remitos.aspx" />
+    <Content Include="ResponderConsultas.aspx" />
     <Content Include="Restore.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -352,6 +357,13 @@
     <Compile Include="Backup.aspx.designer.cs">
       <DependentUpon>Backup.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Carrito.aspx.cs">
+      <DependentUpon>Carrito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Carrito.aspx.designer.cs">
+      <DependentUpon>Carrito.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ComparacionProductos.aspx.cs">
       <DependentUpon>ComparacionProductos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -386,6 +398,13 @@
     </Compile>
     <Compile Include="DescripcionProducto.aspx.designer.cs">
       <DependentUpon>DescripcionProducto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditarMarca.aspx.cs">
+      <DependentUpon>EditarMarca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditarMarca.aspx.designer.cs">
+      <DependentUpon>EditarMarca.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditarMenu.aspx.cs">
       <DependentUpon>EditarMenu.aspx</DependentUpon>
@@ -428,6 +447,20 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioDeCompra.aspx.cs">
+      <DependentUpon>FormularioDeCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormularioDeCompra.aspx.designer.cs">
+      <DependentUpon>FormularioDeCompra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionConsultasClientes.aspx.cs">
+      <DependentUpon>GestionConsultasClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionConsultasClientes.aspx.designer.cs">
+      <DependentUpon>GestionConsultasClientes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -495,6 +528,13 @@
     </Compile>
     <Compile Include="Remitos.aspx.designer.cs">
       <DependentUpon>Remitos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ResponderConsultas.aspx.cs">
+      <DependentUpon>ResponderConsultas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ResponderConsultas.aspx.designer.cs">
+      <DependentUpon>ResponderConsultas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restore.aspx.cs">
       <DependentUpon>Restore.aspx</DependentUpon>

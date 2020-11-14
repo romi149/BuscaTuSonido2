@@ -17,6 +17,11 @@ namespace BLL
 
         }
 
+        public static int ObtenerId(string nombreMarca)
+        {
+            return MapperMarca.ObtenerIdMarca(nombreMarca);
+        }
+
         public static DataSet ListarMarcas()
         {
             return MapperMarca.ListarMarcasDT();

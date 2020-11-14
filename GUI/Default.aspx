@@ -8,7 +8,7 @@
         <div class="row">
 
             <div class="col-lg-3">
-                <img id="logo" class="imglogo" src="/imagenes/Portada/BuscaTuSonidoLogo.png" alt="">
+                <img id="logo" class="img-responsive" src="/imagenes/Portada/BuscaTuSonidoLogo.png" alt="">
 
                 <asp:Panel runat="server" ID="contenedorMenu">
                 </asp:Panel>

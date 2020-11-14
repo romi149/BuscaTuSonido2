@@ -86,15 +86,112 @@ namespace MPP
         /// filtrando
         /// </summary>
         /// <returns></returns>
-        public static DataSet ListarBitacoraFiltrado(string entidad, string fechaDesde, string fechaHasta)
+        public static DataSet ListarBitacoraFiltradoTotal(string evento, string user, 
+                                                           string fechaDesde, string fechaHasta)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Entidad", DbType.String, ParameterDirection.Input, entidad));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Evento", DbType.String, ParameterDirection.Input, evento));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, user));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("fechaDesde", DbType.DateTime, ParameterDirection.Input, fechaDesde));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("fechaHasta", DbType.DateTime, ParameterDirection.Input, fechaHasta));
                 var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarBitacoraFiltroTotal", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
+
+        public static DataSet ListarBitacoraFiltroEventoFecha(string evento, string fechaDesde, string fechaHasta)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Evento", DbType.String, ParameterDirection.Input, evento));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("fechaDesde", DbType.DateTime, ParameterDirection.Input, fechaDesde));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("fechaHasta", DbType.DateTime, ParameterDirection.Input, fechaHasta));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarBitacoraFiltroEventoFecha", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
+
+        public static DataSet ListarBitacoraFiltroUsuarioFecha(string usuario, string fechaDesde, string fechaHasta)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, usuario));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("fechaDesde", DbType.DateTime, ParameterDirection.Input, fechaDesde));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("fechaHasta", DbType.DateTime, ParameterDirection.Input, fechaHasta));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarBitacoraFiltroUsuarioFecha", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
+
+        public static DataSet ListarBitacoraFiltroUsuarioEvento(string usuario, string evento)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, usuario));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Evento", DbType.String, ParameterDirection.Input, evento));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarBitacoraFiltroUsuarioEvento", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
+
+        public static DataSet ListarBitacoraFiltroEvento(string evento)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Evento", DbType.String, ParameterDirection.Input, evento));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarBitacoraFiltroEvento", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
+
+        public static DataSet ListarBitacoraFiltroUsuario(string user)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, user));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarBitacoraFiltroUsuario", ListaParametros);
 
                 return respuesta;
             }

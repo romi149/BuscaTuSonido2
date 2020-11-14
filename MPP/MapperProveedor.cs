@@ -33,6 +33,62 @@ namespace MPP
             }
         }
 
+        public static int ObtenerIdProveedor(string codProv)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("CodProv", DbType.String, ParameterDirection.Input, codProv));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ObtenerIdProveedor", ListaParametros);
+                if (respuesta != null)
+                {
+                    {
+                        var empList = respuesta.Tables[0].AsEnumerable().FirstOrDefault().Field<int>("IdProveedor");
+
+                        return empList;
+                    }
+                }
+                return 0;
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
+        }
+
+        public static List<Proveedor> ListarProveedor()
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarProveedores", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Proveedor
+                      {
+                          IdProeedor = dataRow.Field<int>("IdProveedor"),
+                          CodProveedor = dataRow.Field<string>("CodProveedor"),
+                          NombreEmpresa = dataRow.Field<string>("NombreEmpresa"),
+                          RazonSocial = dataRow.Field<string>("RazonSocial"),
+                          Domicilio = dataRow.Field<string>("Domicilio"),
+                          Email = dataRow.Field<string>("Email")
+
+                      }).ToList();
+
+                    return empList;
+                }
+
+
+                return null;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
+
         /// <summary>
         /// Inserta un Proveedor en Bd
         /// </summary>

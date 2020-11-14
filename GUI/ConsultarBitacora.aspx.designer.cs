@@ -15,13 +15,22 @@ namespace GUI
     {
 
         /// <summary>
-        /// Control entidad.
+        /// Control tipoEvento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox entidad;
+        protected global::System.Web.UI.WebControls.TextBox tipoEvento;
+
+        /// <summary>
+        /// Control usuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox usuario;
 
         /// <summary>
         /// Control desde.

@@ -33,13 +33,13 @@ namespace GUI
         protected global::System.Web.UI.WebControls.TextBox nombre;
 
         /// <summary>
-        /// Control codProv.
+        /// Control listCodProv.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox codProv;
+        protected global::System.Web.UI.WebControls.DropDownList listCodProv;
 
         /// <summary>
         /// Control categoria.
@@ -60,13 +60,13 @@ namespace GUI
         protected global::System.Web.UI.WebControls.TextBox tipoInstrumento;
 
         /// <summary>
-        /// Control idMarca.
+        /// Control listMarca.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idMarca;
+        protected global::System.Web.UI.WebControls.DropDownList listMarca;
 
         /// <summary>
         /// Control modelo.
@@ -85,15 +85,6 @@ namespace GUI
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox precio;
-
-        /// <summary>
-        /// Control idProv.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idProv;
 
         /// <summary>
         /// Control color.

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backend.Master" AutoEventWireup="true" CodeBehind="ABMC-Marcas.aspx.cs" Inherits="GUI.ABMC_Marcas" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backend.Master" AutoEventWireup="true" CodeBehind="ABMC-Marcas.aspx.cs" Inherits="GUI.ABMC_Marcas" EnableEventValidation="false" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
@@ -8,9 +8,6 @@
         <div class="row">
             <div class="BuscadorDiv">
                 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Agregar</button>
-                <%--<div class="input-group" id="BuscarControl">
-                </div>
-                <asp:Button runat="server" CssClass="btn btn-primary btn-md" Text="Buscar" OnClick="Buscar_Click" ></asp:Button>--%>
             </div>
         </div>
         <div id="demo" class="collapse">

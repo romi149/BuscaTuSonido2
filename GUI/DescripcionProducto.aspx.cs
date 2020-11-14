@@ -78,8 +78,18 @@ namespace GUI
         {
             string nombre = Request.QueryString["Nombre"].ToString();
             string modelo = Request.QueryString["Modelo"].ToString();
-            if (Session["usuarioCliente"] != null)
-                GestorProducto.InsertarPregunta(nombre, modelo, pregunta.Text, Session["usuarioCliente"].ToString());
+
+            var CLIENTE = $"{((BE.Usuario)Session["usuarioCliente"])?.User}";
+
+            if (!string.IsNullOrEmpty(CLIENTE))
+            {
+                GestorProducto.InsertarPregunta(nombre, modelo, pregunta.Text, CLIENTE);
+            }
+            else
+            {
+                Response.Write("<script>alert('Para realizar una pregunta debe iniciar sesión')</script>");
+            }
+
             Response.Redirect($"/DescripcionProducto.aspx?Nombre={nombre}&Modelo={modelo}");
 
         }

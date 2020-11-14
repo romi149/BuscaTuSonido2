@@ -37,7 +37,7 @@ namespace GUI
                 $"<img src='{url}' alt=''><div class='caption'><h3>{nombre}</h3>" +
                 $"<label >{modelo}</label><label>{precio}</label><label>{desc}</label>" +
                 $"<div>" +
-                $"<br></br><p><a href='#' class='btn btn-success' role='button'>Comprar</a>" +
+                $"<br></br><p><a href='/FormularioDeCompra' class='btn btn-success' role='button'>Comprar</a>" +
                 $"<a href='/Default' class='btn btn-default' role='button'>Volver</a></p></div></div></div>";
             this.Productos.Controls.Add(DivContenedor);
         }

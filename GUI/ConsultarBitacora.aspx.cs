@@ -28,10 +28,11 @@ namespace GUI
 
         protected void Buscar_Click(object sender, EventArgs e)
         {
-            var entidadIn = entidad.Text.Trim();
+            var Evento = tipoEvento.Text.Trim();
+            var user = usuario.Text.Trim();
             var fechaDesde = desde.Text.Trim();
             var fechaHasta = hasta.Text.Trim();
-            
+
 
             if ((string.IsNullOrEmpty(fechaDesde) && (!string.IsNullOrEmpty(fechaHasta)))
                 || ((!string.IsNullOrEmpty(fechaDesde)) && (string.IsNullOrEmpty(fechaHasta))))
@@ -42,27 +43,80 @@ namespace GUI
             }
             else if (!string.IsNullOrEmpty(fechaDesde) && (!string.IsNullOrEmpty(fechaHasta)))
             {
-                if (!string.IsNullOrEmpty(entidadIn))
+                if (!string.IsNullOrEmpty(Evento))
                 {
+                    if (!string.IsNullOrEmpty(user))
+                    {
+                        //filtro por todo
+                        gvBitacora.DataSource = null;
+                        gvBitacora.DataSource = GestorBitacora.ListarFiltradoTotal(Evento, user, fechaDesde, fechaHasta);
+                        gvBitacora.DataBind();
+                        LimpiarCampos();
+                    }
+                    else
+                    {
+                        //filtro por fecha y evento
+                        gvBitacora.DataSource = null;
+                        gvBitacora.DataSource = GestorBitacora.ListarFiltradoEventoFecha(Evento, fechaDesde, fechaHasta);
+                        gvBitacora.DataBind();
+                        LimpiarCampos();
+                    }
+
+                }
+                else if (!string.IsNullOrEmpty(user))
+                {
+                    //filtro por fechas y usuario
                     gvBitacora.DataSource = null;
-                    gvBitacora.DataSource = GestorBitacora.ListarFiltrado(entidadIn, fechaDesde, fechaHasta);
+                    gvBitacora.DataSource = GestorBitacora.ListarFiltradoUsuarioFecha(user, fechaDesde, fechaHasta);
                     gvBitacora.DataBind();
+                    LimpiarCampos();
                 }
                 else
                 {
+                    //filtro solo por fechas
                     gvBitacora.DataSource = null;
                     gvBitacora.DataSource = GestorBitacora.ListarFiltradoFechas(fechaDesde, fechaHasta);
                     gvBitacora.DataBind();
+                    LimpiarCampos();
                 }
             }
-            else if (entidadIn != null)
+            else if (!string.IsNullOrEmpty(Evento))
             {
-                gvBitacora.DataSource = null;
-                gvBitacora.DataSource = GestorBitacora.ListarFiltradoEntidad(entidadIn);
-                gvBitacora.DataBind();
-                                
+                if (!string.IsNullOrEmpty(user))
+                {
+                    //filtro por evento y usuario
+                    gvBitacora.DataSource = null;
+                    gvBitacora.DataSource = GestorBitacora.ListarFiltradoUsuarioEvento(user, Evento);
+                    gvBitacora.DataBind();
+                    LimpiarCampos();
+                }
+                else
+                {
+                    //filtro por evento
+                    gvBitacora.DataSource = null;
+                    gvBitacora.DataSource = GestorBitacora.ListarFiltradoEvento(Evento);
+                    gvBitacora.DataBind();
+                    LimpiarCampos();
+                }
+
             }
-            
+            else if (!string.IsNullOrEmpty(user))
+            {
+                //filtro solo por usuario
+                gvBitacora.DataSource = null;
+                gvBitacora.DataSource = GestorBitacora.ListarFiltradoUsuario(user);
+                gvBitacora.DataBind();
+                LimpiarCampos();
+            }
+        }
+
+
+        public void LimpiarCampos()
+        {
+            tipoEvento.Text = "";
+            usuario.Text = "";
+            desde.Text = "";
+            hasta.Text = "";
         }
     }
 }

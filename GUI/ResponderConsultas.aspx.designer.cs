@@ -11,61 +11,88 @@ namespace GUI
 {
 
 
-    public partial class SiteMaster
+    public partial class ResponderConsultas
     {
 
         /// <summary>
-        /// Control LogIn.
+        /// Control id.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor LogIn;
+        protected global::System.Web.UI.WebControls.TextBox id;
 
         /// <summary>
-        /// Control MiCuenta.
+        /// Control nombreProd.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor MiCuenta;
+        protected global::System.Web.UI.WebControls.TextBox nombreProd;
 
         /// <summary>
-        /// Control IdNombreUsuario.
+        /// Control modelo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor IdNombreUsuario;
+        protected global::System.Web.UI.WebControls.TextBox modelo;
 
         /// <summary>
-        /// Control Carrito.
+        /// Control usuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor Carrito;
+        protected global::System.Web.UI.WebControls.TextBox usuario;
 
         /// <summary>
-        /// Control LogOut.
+        /// Control fecha.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor LogOut;
+        protected global::System.Web.UI.WebControls.TextBox fecha;
 
         /// <summary>
-        /// Control MainContent.
+        /// Control pregunta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.TextBox pregunta;
+
+        /// <summary>
+        /// Control respuesta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox respuesta;
+
+        /// <summary>
+        /// Control Editar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Editar;
+
+        /// <summary>
+        /// Control cancelar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button cancelar;
     }
 }

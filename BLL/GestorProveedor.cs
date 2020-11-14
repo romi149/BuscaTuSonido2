@@ -14,7 +14,16 @@ namespace BLL
         public static DataSet Listar()
         {
             return MapperProveedor.ListarProveedores();
+        }
 
+        public static int ObtenerId(string codProv)
+        {
+            return MapperProveedor.ObtenerIdProveedor(codProv);
+        }
+
+        public static List<Proveedor> ListarProveedor()
+        {
+            return MapperProveedor.ListarProveedor();
         }
 
         public static bool Agregar(string codProveedor, string nombreEmpesa, string razonSocial, string dom,

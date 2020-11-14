@@ -55,15 +55,16 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/PaginaPrincipal">Inicio</a></li>
+                        <li><a runat="server" href="~/PaginaPrincipal"><span class="glyphicon glyphicon-home"></span></a></li>
                         <li><a runat="server" href="~/About">Acerca de</a></li>
                         <li><a runat="server" href="~/Default">Productos</a></li>
                         <li><a runat="server" href="~/News">Noticias y Eventos</a></li>
                         <li><a runat="server" href="~/FAQ">Preguntas Frecuentes</a></li>
                         <li><a runat="server" id="LogIn" href="~/Login">Ingresar</a></li>
-                        <li><a runat="server" id="LogOut" onserverclick="LogOut_ServerClick">Salir</a></li>
                         <li><a runat="server" id="MiCuenta" href="~/MiCuenta">Mi Cuenta</a></li>
                         <li><a runat="server" href="#" id="IdNombreUsuario"></a></li>
+                        <li><a runat="server" href="#" id="Carrito"><strong><span class="glyphicon glyphicon-shopping-cart" id="gb-product-counter"> 0</span></strong></a></li>
+                        <li><a runat="server" id="LogOut" onserverclick="LogOut_ServerClick">Salir</a></li>
                     </ul>
                 </div>
             </div>
@@ -94,6 +95,9 @@
         .goog-logo-link img{
             height : 20px !important;
             width : 40px !important;
+        }
+        .gb-product-counter{
+            
         }
     </style>
     <script src="vendor/jquery/jquery.min.js"></script>

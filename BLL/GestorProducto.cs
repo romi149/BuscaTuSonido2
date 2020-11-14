@@ -84,9 +84,34 @@ namespace BLL
             return MapperProducto.ListarPreguntas(nombre, modelo);
         }
 
+        public static DataSet ListarTotalPreguntas()
+        {
+            return MapperProducto.ListarTotalPreguntas();
+        }
+
         public static List<Producto> ListarProductosBuscados(string marca, string categoria)
         {
             return MapperProducto.ListarProductosBuscados(marca, categoria);
+        }
+
+        public static List<Producto> ListarProductosPorMarca(string marca)
+        {
+            return MapperProducto.ListarProductosPorMarca(marca);
+        }
+
+        public static List<Producto> ListarProductosCategoria(string categ)
+        {
+            return MapperProducto.ListarProductosCategoria(categ);
+        }
+
+        public static bool EliminarPregunta(int Id)
+        {
+            return MapperProducto.EliminarPregunta(Id);
+        }
+
+        public static bool AgregarRespuesta(int Id, string respuesta)
+        {
+            return MapperProducto.InsertarRespuesta(Id, respuesta);
         }
     }
 }

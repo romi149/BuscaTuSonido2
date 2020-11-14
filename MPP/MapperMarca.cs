@@ -47,6 +47,29 @@ namespace MPP
             }
         }
 
+        public static int ObtenerIdMarca(string nombreMarca)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombreMarca", DbType.String, ParameterDirection.Input, nombreMarca));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ObtenerIdMarca", ListaParametros);
+                if (respuesta != null)
+                {
+                    {
+                        var empList = respuesta.Tables[0].AsEnumerable().FirstOrDefault().Field<int>("IdMarca");
+
+                        return empList;
+                    }
+                }
+                return 0;
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
+        }
+
         /// <summary>
         /// Retorna todos las marcas de la Bd
         /// </summary>

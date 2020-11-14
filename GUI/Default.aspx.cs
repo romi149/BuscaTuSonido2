@@ -14,11 +14,15 @@ namespace GUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            CargarProductos();
+            if (!IsPostBack)
+            {
+                CargarProductos();
+                CargarComboMarca();
+                CargarComboCategoria();
+            }
+
             CargarMenuVertical();
-            CargarComboMarca();
-            CargarComboCategoria();
-            
+
         }
 
 
@@ -100,7 +104,7 @@ namespace GUI
         public void CargarComboMarca()
         {
             List<Marca> lista = GestorMarca.Listar();
-
+            lista.Insert(0, new Marca { Nombre = Constantes.SeleccionarMarca });
             listMarca.DataSource = lista;
             listMarca.DataTextField = "Nombre";
             listMarca.DataValueField = "IdMarca";
@@ -112,7 +116,7 @@ namespace GUI
         public void CargarComboCategoria()
         {
             List<Producto> lista = GestorProducto.ListarCategorias();
-
+            lista.Insert(0, new Producto { Categoria = Constantes.SeleccionarCategoria });
             listCategoria.DataSource = lista;
             listCategoria.DataTextField = "Categoria";
             listCategoria.DataValueField = "Categoria";
@@ -124,22 +128,23 @@ namespace GUI
             var marca = listMarca.SelectedItem.ToString();
             var categ = listCategoria.SelectedItem.ToString();
 
-            if (!string.IsNullOrEmpty(marca))
+            if (marca != Constantes.SeleccionarMarca)
             {
-                if (!string.IsNullOrEmpty(categ))
+                if (categ != Constantes.SeleccionarCategoria)
                 {
                     CargarProductosBuscados(marca, categ);
                 }
-                //else
-                //{
-                //    CargarProductosPorMarca(marca);
-                //}
+                else
+                {
+                    CargarProductosPorMarca(marca);
+                }
             }
-            //else if (!string.IsNullOrEmpty(categ))
-            //{
-            //    CargarProductosPorCategoria(categ);
-            //}
-
+            else if (categ != Constantes.SeleccionarCategoria)
+            {
+                CargarProductosPorCategoria(categ);
+            }
+            CargarComboMarca();
+            CargarComboCategoria();
         }
 
         protected void CargarProductosBuscados(string marca, string categoria)
@@ -167,6 +172,63 @@ namespace GUI
             this.contenedor.Controls.Add(DivContenedor);
         }
 
+        protected void CargarProductosPorMarca(string marca)
+        {
+            HtmlGenericControl DivContenedor = new HtmlGenericControl("div");
 
+            DivContenedor.InnerHtml = $"<div>";
+            int cont = 0;
+            foreach (var item in GestorProducto.ListarProductosPorMarca(marca))
+            {
+                if (cont == 0)
+                    DivContenedor.InnerHtml += "<div clas='row'>";
+                if (cont < 3)
+                {
+                    DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Modelo, item.Precio.ToString(), item.Descripcion, GestorProducto.GestionImagen(item.Nombre, "sin categoria"));
+                }
+                else
+                {
+                    DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Modelo, item.Precio.ToString(), item.Descripcion, GestorProducto.GestionImagen(item.Nombre, "sin categoria")) + "</div>";
+                    cont = 0;
+                }
+                cont++;
+            }
+            DivContenedor.InnerHtml += "</div>";
+            this.contenedor.Controls.Add(DivContenedor);
+        }
+
+        protected void CargarProductosPorCategoria(string categoria)
+        {
+            HtmlGenericControl DivContenedor = new HtmlGenericControl("div");
+
+            DivContenedor.InnerHtml = $"<div>";
+            int cont = 0;
+            foreach (var item in GestorProducto.ListarProductosCategoria(categoria))
+            {
+                if (cont == 0)
+                    DivContenedor.InnerHtml += "<div clas='row'>";
+                if (cont < 3)
+                {
+                    DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Modelo, item.Precio.ToString(), item.Descripcion, GestorProducto.GestionImagen(item.Nombre, "sin categoria"));
+                }
+                else
+                {
+                    DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Modelo, item.Precio.ToString(), item.Descripcion, GestorProducto.GestionImagen(item.Nombre, "sin categoria")) + "</div>";
+                    cont = 0;
+                }
+                cont++;
+            }
+            DivContenedor.InnerHtml += "</div>";
+            this.contenedor.Controls.Add(DivContenedor);
+        }
+
+
+    }
+
+    public class Constantes
+    {
+        public const string SeleccionarCategoria = "--- Seleccionar categoria---";
+        public const string SeleccionarMarca = "--- Seleccionar Marca---";
+        public const string SeleccionarProveedor = "--- Seleccionar Proveedor---";
     }
 }

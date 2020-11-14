@@ -16,9 +16,9 @@ namespace BLL
             return MapperBitacora.ListarBitacora();
         }
 
-        static public DataSet ListarFiltrado(string entidad, string fechaDesde, string fechaHasta)
+        static public DataSet ListarFiltradoTotal(string evento, string user, string fechaDesde, string fechaHasta)
         {
-            return MapperBitacora.ListarBitacoraFiltrado(entidad, fechaDesde, fechaHasta);
+            return MapperBitacora.ListarBitacoraFiltradoTotal(evento, user, fechaDesde, fechaHasta);
         }
 
         static public bool Agregar(DateTime fecha, string tipoEvento, string user, string entidadInv)
@@ -26,14 +26,34 @@ namespace BLL
             return MapperBitacora.InsertarEnBicatora(fecha,tipoEvento,user,entidadInv);
         }
 
-        static public DataSet ListarFiltradoEntidad(string entidad)
+        static public DataSet ListarFiltradoEventoFecha(string evento, string fechaDesde, string fechaHasta)
         {
-            return MapperBitacora.ListarFiltroEntidad(entidad);
+            return MapperBitacora.ListarBitacoraFiltroEventoFecha(evento, fechaDesde, fechaHasta);
         }
 
         static public DataSet ListarFiltradoFechas(string fechadesde, string fechahasta)
         {
             return MapperBitacora.ListarFiltroFechas(fechadesde,fechahasta);
+        }
+
+        static public DataSet ListarFiltradoUsuarioFecha(string user, string fechaDesde, string fechaHasta)
+        {
+            return MapperBitacora.ListarBitacoraFiltroUsuarioFecha(user, fechaDesde, fechaHasta);
+        }
+
+        static public DataSet ListarFiltradoUsuarioEvento(string user, string evento)
+        {
+            return MapperBitacora.ListarBitacoraFiltroUsuarioEvento(user, evento);
+        }
+
+        static public DataSet ListarFiltradoEvento(string evento)
+        {
+            return MapperBitacora.ListarBitacoraFiltroEvento(evento);
+        }
+
+        static public DataSet ListarFiltradoUsuario(string user)
+        {
+            return MapperBitacora.ListarBitacoraFiltroUsuario(user);
         }
     }
 }

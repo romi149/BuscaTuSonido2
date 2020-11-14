@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,9 +14,14 @@ namespace GUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var listaDatos = CargarDatos();
-            this.gvProductos.DataSource = listaDatos;
-            this.gvProductos.DataBind();
+            if (!IsPostBack)
+            {
+                var listaDatos = CargarDatos();
+                this.gvProductos.DataSource = listaDatos;
+                this.gvProductos.DataBind();
+                CargarComboMarca();
+                CargarComboCodProv();
+            }
         }
 
         public DataSet CargarDatos()
@@ -64,16 +70,22 @@ namespace GUI
 
         protected void sendAgregar_Click(object sender, EventArgs e)
         {
+            var marca = listMarca.SelectedItem.ToString();
+            var codProv = listCodProv.SelectedItem.ToString();
+
+            var IDMarca = GestorMarca.ObtenerId(marca);
+            var IDProv = GestorProveedor.ObtenerId(codProv);
+
             bool Insertado = GestorProducto.Agregar(
                                        upc.Text.Trim(),
                                        nombre.Text.Trim(),
                                        descripcion.Text.Trim(),
                                        categoria.Text.Trim(),
                                        tipoInstrumento.Text.Trim(),
-                                       int.Parse(idMarca.Text.Trim()),
+                                       IDMarca,
                                        modelo.Text.Trim(),
-                                       codProv.Text.Trim(),
-                                       int.Parse(idProv.Text.Trim()),
+                                       codProv,
+                                       IDProv,
                                        color.Text.Trim(),
                                        estado.Text.Trim(),
                                        precio.Text.Trim()
@@ -142,6 +154,28 @@ namespace GUI
 
             }
             
+        }
+
+        public void CargarComboMarca()
+        {
+            List<Marca> lista = GestorMarca.Listar();
+            lista.Insert(0, new Marca { Nombre = Constantes.SeleccionarMarca });
+            listMarca.DataSource = lista;
+            listMarca.DataTextField = "Nombre";
+            listMarca.DataValueField = "Nombre";
+            listMarca.DataBind();
+
+        }
+
+        public void CargarComboCodProv()
+        {
+            List<Proveedor> lista = GestorProveedor.ListarProveedor();
+            lista.Insert(0, new Proveedor { CodProveedor = Constantes.SeleccionarProveedor });
+            listCodProv.DataSource = lista;
+            listCodProv.DataTextField = "CodProveedor";
+            listCodProv.DataValueField = "CodProveedor";
+            listCodProv.DataBind();
+
         }
     }
 }

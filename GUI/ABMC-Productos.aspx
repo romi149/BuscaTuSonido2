@@ -7,13 +7,7 @@
         <div class="row">
             <div class="BuscadorDiv">
                 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Agregar</button>
-               <%-- <div class="input-group" id="BuscarControl">
-                    <span class="input-group-addon">Buscar</span>
-                    <asp:TextBox runat="server" type="text" CssClass="form-control"  />
-                </div>
-                <asp:Button runat="server" CssClass="btn btnBuscar" Text="Buscar" OnClick="Buscar_Click" ></asp:Button>--%>
             </div>
-
         </div>
         <div id="demo" class="collapse">
             <div class="container">
@@ -32,7 +26,8 @@
                             </div>
                             <div class="form-group">
                                 <label>Cod Proveedor</label>
-                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="codProv" />
+                                <asp:DropDownList runat="server" CssClass="form-control" ID="listCodProv" >
+                                </asp:DropDownList>
                             </div>
                             <div class="form-group">
                                 <label>Categoria</label>
@@ -45,8 +40,9 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Id Marca</label>
-                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="idMarca" />
+                                <label>Marca</label>
+                                <asp:DropDownList runat="server" CssClass="form-control" ID="listMarca" >
+                                </asp:DropDownList>
                             </div>
                             <div class="form-group">
                                 <label>Modelo</label>
@@ -57,19 +53,15 @@
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="precio" />
                             </div>
                             <div class="form-group">
-                                <label>Id Proveedor</label>
-                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="idProv" />
-                            </div>
-                            <div class="form-group">
                                 <label>Color</label>
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="color" />
                             </div>
-                        </div>
-                        <div class="col-md-4">
                             <div class="form-group">
                                 <label>Estado</label>
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="estado" />
                             </div>
+                        </div>
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label>Descripción</label>
                                 <asp:TextBox runat="server" CssClass="form-control" type="text" TextMode="MultiLine" ID="descripcion" />
@@ -103,10 +95,10 @@
                 <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" ItemStyle-CssClass="anchoCol" />
                 <asp:BoundField DataField="Categoria" HeaderText="Categoria" />
                 <asp:BoundField DataField="TipoInstrumento" HeaderText="Tipo de Instrumento" />
-                <asp:BoundField DataField="IdMarca" HeaderText="Id Marca" />
+                <%--<asp:BoundField DataField="IdMarca" HeaderText="Marca" />--%>
                 <asp:BoundField DataField="Modelo" HeaderText="Modelo" />
                 <asp:BoundField DataField="CodProveedor" HeaderText="Cod Proveedor" />
-                <asp:BoundField DataField="IdProveedor" HeaderText="Id Proveedor" />
+                <%--<asp:BoundField DataField="IdProveedor" HeaderText="Id Proveedor" />--%>
                 <asp:BoundField DataField="Color" HeaderText="Color" />
                 <asp:BoundField DataField="Estado" HeaderText="Estado" />
                 <asp:BoundField DataField="Precio" HeaderText="Precio" />

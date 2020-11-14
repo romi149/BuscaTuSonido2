@@ -12,7 +12,7 @@
                     <h2><asp:Panel runat="server" ID="TxtModelo"></asp:Panel></h2>
                     <h3><asp:Panel runat="server" ID="TxtPrecio"></asp:Panel></h3>
                     <p><asp:Panel runat="server" ID="TxtDescripcion"></asp:Panel></p>
-                    <a href="#" class="btn btn-success btn-lg">Comprar</a>
+                    <a href="/FormularioDeCompra.aspx" class="btn btn-success btn-lg">Comprar</a>
                 </div>
             </div>
         </div>
@@ -25,6 +25,7 @@
             <div id="PreguntasBox">
                 <asp:TextBox ID="pregunta" runat="server" type="text" TextMode="MultiLine" Width="" CssClass="form-control"></asp:TextBox>
                 <asp:Button runat="server" content="pregunta" ID="btnPregunta" CssClass="btn btn-primary" Text="Preguntar" OnClick="sendPreguntar_Click" />
+                <%--<asp:Label runat="server" Visible="false" ID="AvisoLog"  ForeColor="Red" Font-Bold="true"/>--%>
             </div>
         </div>
     </div>

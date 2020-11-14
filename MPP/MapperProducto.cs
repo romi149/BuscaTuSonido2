@@ -347,6 +347,47 @@ namespace MPP
             }
         }
 
+        public static bool InsertarRespuesta(int id, string respuestaACliente)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Id", DbType.Int32, ParameterDirection.Input, id));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("RespuestaACliente", DbType.String, ParameterDirection.Input, respuestaACliente));
+                var respuesta = Conexion.GetInstance.EjecutarStore("InsertarRespuesta", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Elimina una pregunta en Bd
+        /// </summary>
+        /// <param name="producto"></param>
+        /// <returns>Devuelve si se elimino o no</returns>
+        public static bool EliminarPregunta(int Id)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Id", DbType.Int32, ParameterDirection.Input, Id));
+                var respuesta = Conexion.GetInstance.EjecutarStore("EliminarPregunta", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return false;
+            }
+
+        }
+
         public static List<Preguntas> ListarPreguntas(string NombreProducto, string modelo)
         {
             try
@@ -382,6 +423,21 @@ namespace MPP
             }
         }
 
+        public static DataSet ListarTotalPreguntas()
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarPreguntas", ListaParametros);
+
+                return respuesta;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
 
         /// <summary>
         /// Retorna las categorias de productos para llenar el combo categoria 
@@ -434,7 +490,73 @@ namespace MPP
                           Nombre = dataRow.Field<string>("Nombre"),
                           Modelo = dataRow.Field<string>("Modelo"),
                           Precio = dataRow.Field<string>("Precio"),
-                          Descripcion = dataRow.Field<string>("Descripcion"),
+                          //Descripcion = dataRow.Field<string>("Descripcion"),
+                          urlImg = dataRow.Field<string>("urlImg")
+
+                      }).ToList();
+
+                    return empList;
+                }
+
+
+                return null;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
+
+        public static List<Producto> ListarProductosCategoria(string categoria)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Categoria", DbType.String, ParameterDirection.Input, categoria));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarProductoCategoria", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Producto
+                      {
+                          Nombre = dataRow.Field<string>("Nombre"),
+                          Modelo = dataRow.Field<string>("Modelo"),
+                          Precio = dataRow.Field<string>("Precio"),
+                          //Descripcion = dataRow.Field<string>("Descripcion"),
+                          urlImg = dataRow.Field<string>("urlImg")
+
+                      }).ToList();
+
+                    return empList;
+                }
+
+
+                return null;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
+
+        public static List<Producto> ListarProductosPorMarca(string nombre)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, nombre));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarProductosPorMarca", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Producto
+                      {
+                          Nombre = dataRow.Field<string>("Nombre"),
+                          Modelo = dataRow.Field<string>("Modelo"),
+                          Precio = dataRow.Field<string>("Precio"),
+                          //Descripcion = dataRow.Field<string>("Descripcion"),
                           urlImg = dataRow.Field<string>("urlImg")
 
                       }).ToList();
