@@ -19,6 +19,7 @@ namespace GUI
                 CargarProductos();
                 CargarComboMarca();
                 CargarComboCategoria();
+                CargarComboPrecio();
             }
 
             CargarMenuVertical();
@@ -122,17 +123,61 @@ namespace GUI
             listCategoria.DataValueField = "Categoria";
             listCategoria.DataBind();
         }
-        
+
+        public void CargarComboPrecio()
+        {
+            ListItem i;
+            i = new ListItem("-Seleccionar Rango de Precios-", "0");
+            listPrecio.Items.Add(i);
+            i = new ListItem("de 0 a 20.000", "1");
+            listPrecio.Items.Add(i);
+            i = new ListItem("de 20.001 a 80.000", "2");
+            listPrecio.Items.Add(i);
+            i = new ListItem("de 80.001 a 150.000", "3");
+            listPrecio.Items.Add(i);
+            i = new ListItem("de 150.001 a 280.000", "4");
+            listPrecio.Items.Add(i);
+        }
+
         public void Buscar_Click(object sender, EventArgs e)
         {
             var marca = listMarca.SelectedItem.ToString();
             var categ = listCategoria.SelectedItem.ToString();
+            var precio = listPrecio.SelectedItem.ToString();
+            
+            switch (precio)
+            {
+                case "de 0 a 20.000":
+                    precio = "uno";
+                    break;
+                case "de 20.001 a 80.000":
+                    precio = "dos";
+                    break;
+                case "de 80.001 a 150.000":
+                    precio = "tres";
+                    break;
+                case "de 150.001 a 280.000":
+                    precio = "cuatro";
+                    break;
+            }
 
             if (marca != Constantes.SeleccionarMarca)
             {
                 if (categ != Constantes.SeleccionarCategoria)
                 {
-                    CargarProductosBuscados(marca, categ);
+                    if(precio != "-Seleccionar Rango de Precios-")
+                    {
+                        CargarProductosBuscados(marca, categ, precio);
+                    }
+                    else
+                    {
+                        CargarProductosPorMarcaCat(marca, categ);
+                    }
+                    
+                }
+                else if(precio != "-Seleccionar Rango de Precios-")
+                {
+                    CargarProductosPorMarcaPrecio(marca, precio);
                 }
                 else
                 {
@@ -141,19 +186,33 @@ namespace GUI
             }
             else if (categ != Constantes.SeleccionarCategoria)
             {
-                CargarProductosPorCategoria(categ);
+                if (precio != "-Seleccionar Rango de Precios-")
+                {
+                    CargarProductosPorCatPrecio(categ, precio);
+                }
+                else
+                {
+                    CargarProductosPorCategoria(categ);
+                }
+                
             }
+            else if(precio != "-Seleccionar Rango de Precios-")
+            {
+                CargarProductosPorPrecio(precio);
+            }
+
             CargarComboMarca();
             CargarComboCategoria();
+        
         }
 
-        protected void CargarProductosBuscados(string marca, string categoria)
+        protected void CargarProductosBuscados(string marca, string categoria, string precio)
         {
             HtmlGenericControl DivContenedor = new HtmlGenericControl("div");
 
             DivContenedor.InnerHtml = $"<div>";
             int cont = 0;
-            foreach (var item in GestorProducto.ListarProductosBuscados(marca, categoria))
+            foreach (var item in GestorProducto.ListarProductosBuscados(marca, categoria, precio))
             {
                 if (cont == 0)
                     DivContenedor.InnerHtml += "<div clas='row'>";
@@ -222,6 +281,106 @@ namespace GUI
             this.contenedor.Controls.Add(DivContenedor);
         }
 
+        protected void CargarProductosPorMarcaCat(string marca, string categoria)
+        {
+            HtmlGenericControl DivContenedor = new HtmlGenericControl("div");
+
+            DivContenedor.InnerHtml = $"<div>";
+            int cont = 0;
+            foreach (var item in GestorProducto.ListarProductosPorMarcaCat(marca, categoria))
+            {
+                if (cont == 0)
+                    DivContenedor.InnerHtml += "<div clas='row'>";
+                if (cont < 3)
+                {
+                    DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Modelo, item.Precio.ToString(), item.Descripcion, GestorProducto.GestionImagen(item.Nombre, "sin categoria"));
+                }
+                else
+                {
+                    DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Modelo, item.Precio.ToString(), item.Descripcion, GestorProducto.GestionImagen(item.Nombre, "sin categoria")) + "</div>";
+                    cont = 0;
+                }
+                cont++;
+            }
+            DivContenedor.InnerHtml += "</div>";
+            this.contenedor.Controls.Add(DivContenedor);
+        }
+
+        protected void CargarProductosPorMarcaPrecio(string marca, string precio)
+        {
+            HtmlGenericControl DivContenedor = new HtmlGenericControl("div");
+
+            DivContenedor.InnerHtml = $"<div>";
+            int cont = 0;
+            foreach (var item in GestorProducto.ListarProductosPorMarcaPrecio(marca, precio))
+            {
+                if (cont == 0)
+                    DivContenedor.InnerHtml += "<div clas='row'>";
+                if (cont < 3)
+                {
+                    DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Modelo, item.Precio.ToString(), item.Descripcion, GestorProducto.GestionImagen(item.Nombre, "sin categoria"));
+                }
+                else
+                {
+                    DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Modelo, item.Precio.ToString(), item.Descripcion, GestorProducto.GestionImagen(item.Nombre, "sin categoria")) + "</div>";
+                    cont = 0;
+                }
+                cont++;
+            }
+            DivContenedor.InnerHtml += "</div>";
+            this.contenedor.Controls.Add(DivContenedor);
+        }
+
+        protected void CargarProductosPorCatPrecio(string categoria, string precio)
+        {
+            HtmlGenericControl DivContenedor = new HtmlGenericControl("div");
+
+            DivContenedor.InnerHtml = $"<div>";
+            int cont = 0;
+            foreach (var item in GestorProducto.ListarProductosPorCatPrecio(categoria, precio))
+            {
+                if (cont == 0)
+                    DivContenedor.InnerHtml += "<div clas='row'>";
+                if (cont < 3)
+                {
+                    DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Modelo, item.Precio.ToString(), item.Descripcion, GestorProducto.GestionImagen(item.Nombre, "sin categoria"));
+                }
+                else
+                {
+                    DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Modelo, item.Precio.ToString(), item.Descripcion, GestorProducto.GestionImagen(item.Nombre, "sin categoria")) + "</div>";
+                    cont = 0;
+                }
+                cont++;
+            }
+            DivContenedor.InnerHtml += "</div>";
+            this.contenedor.Controls.Add(DivContenedor);
+        }
+
+        protected void CargarProductosPorPrecio(string precio)
+        {
+            HtmlGenericControl DivContenedor = new HtmlGenericControl("div");
+
+            DivContenedor.InnerHtml = $"<div>";
+            int cont = 0;
+            foreach (var item in GestorProducto.ListarProductosPorPrecio(precio))
+            {
+                if (cont == 0)
+                    DivContenedor.InnerHtml += "<div clas='row'>";
+                if (cont < 3)
+                {
+                    DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Modelo, item.Precio.ToString(), item.Descripcion, GestorProducto.GestionImagen(item.Nombre, "sin categoria"));
+                }
+                else
+                {
+                    DivContenedor.InnerHtml += CrearCardProducto(item.Nombre, item.Modelo, item.Precio.ToString(), item.Descripcion, GestorProducto.GestionImagen(item.Nombre, "sin categoria")) + "</div>";
+                    cont = 0;
+                }
+                cont++;
+            }
+            DivContenedor.InnerHtml += "</div>";
+            this.contenedor.Controls.Add(DivContenedor);
+        }
+
 
     }
 
@@ -230,5 +389,7 @@ namespace GUI
         public const string SeleccionarCategoria = "--- Seleccionar categoria---";
         public const string SeleccionarMarca = "--- Seleccionar Marca---";
         public const string SeleccionarProveedor = "--- Seleccionar Proveedor---";
+        public const string SeleccionarTipo = "--- Seleccionar Tipo Instrumento---";
+        
     }
 }

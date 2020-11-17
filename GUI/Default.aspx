@@ -27,6 +27,11 @@
                 </div>
                 <br />
                 <div>
+                    <asp:DropDownList runat="server" ID="listPrecio" CssClass="form-control" >
+                    </asp:DropDownList>
+                </div>
+                <br />
+                <div>
                     <asp:Button runat="server" content="buscadormenu" ID="buscar" CssClass="btn btn-info btn-md" Text="Buscar" OnClick="Buscar_Click" />
                 </div>
             </div>

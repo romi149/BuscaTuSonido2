@@ -27,11 +27,11 @@ namespace BLL
         }
 
         public static bool Modificar(int IdProd, string upc, string nombre, string descrip, string categ, string TipoInst,
-                                     int IdMarca, string modelo, string codProveedor, int IdProveedor, string color,
+                                     string modelo, string codProveedor, string color,
                                      string estado, string precio)
         {
-            return MapperProducto.ActualizarProducto(IdProd, upc, nombre, descrip, categ, TipoInst, IdMarca, modelo, codProveedor,
-                                                    IdProveedor, color, estado, precio);
+            return MapperProducto.ActualizarProducto(IdProd, upc, nombre, descrip, categ, TipoInst, modelo, 
+                                                    codProveedor, color, estado, precio);
         }
 
         public static bool Eliminar(int IdProd)
@@ -52,6 +52,11 @@ namespace BLL
         public static List<Producto> ListarCategorias()
         {
             return MapperProducto.ListarCategorias();
+        }
+
+        public static List<Producto> ListarTipoInstrumentos()
+        {
+            return MapperProducto.ListarTipoInstrumentos();
         }
 
         public static List<Producto> ListarProdPorCategoria(string nombre)
@@ -89,9 +94,9 @@ namespace BLL
             return MapperProducto.ListarTotalPreguntas();
         }
 
-        public static List<Producto> ListarProductosBuscados(string marca, string categoria)
+        public static List<Producto> ListarProductosBuscados(string marca, string categoria, string precio)
         {
-            return MapperProducto.ListarProductosBuscados(marca, categoria);
+            return MapperProducto.ListarProductosBuscados(marca, categoria, precio);
         }
 
         public static List<Producto> ListarProductosPorMarca(string marca)
@@ -104,6 +109,26 @@ namespace BLL
             return MapperProducto.ListarProductosCategoria(categ);
         }
 
+        public static List<Producto> ListarProductosPorMarcaCat(string marca, string categ)
+        {
+            return MapperProducto.ListarProductosPorMarcaCategoria(marca, categ);
+        }
+
+        public static List<Producto> ListarProductosPorMarcaPrecio(string marca, string precio)
+        {
+            return MapperProducto.ListarProductosPorMarcaPrecio(marca, precio);
+        }
+
+        public static List<Producto> ListarProductosPorCatPrecio(string categoria, string precio)
+        {
+            return MapperProducto.ListarProductosPorCategoriaPrecio(categoria, precio);
+        }
+
+        public static List<Producto> ListarProductosPorPrecio(string precio)
+        {
+            return MapperProducto.ListarProductosPorPrecio(precio);
+        }
+
         public static bool EliminarPregunta(int Id)
         {
             return MapperProducto.EliminarPregunta(Id);
@@ -112,6 +137,16 @@ namespace BLL
         public static bool AgregarRespuesta(int Id, string respuesta)
         {
             return MapperProducto.InsertarRespuesta(Id, respuesta);
+        }
+
+        public static bool InsertarPreguntaPersonal(string pregunta, string usuariocliente)
+        {
+            return MapperProducto.InsertarPreguntaPersonalizada(pregunta, usuariocliente);
+        }
+
+        public static List<Preguntas> ListarPreguntasCliente(string usuario)
+        {
+            return MapperProducto.ListarPreguntasPorCliente(usuario);
         }
     }
 }

@@ -4,3 +4,6 @@ C:\Users\romina\source\repos\BuscaTuSonido\DAL\obj\Debug\DAL.csprojAssemblyRefer
 C:\Users\romina\source\repos\BuscaTuSonido\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 C:\Users\romina\source\repos\BuscaTuSonido\DAL\obj\Debug\DAL.dll
 C:\Users\romina\source\repos\BuscaTuSonido\DAL\obj\Debug\DAL.pdb
+C:\Users\romina\source\repos\BuscaTuSonido\DAL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\romina\source\repos\BuscaTuSonido\DAL\bin\Debug\Newtonsoft.Json.xml
+C:\Users\romina\source\repos\BuscaTuSonido\DAL\obj\Debug\DAL.csproj.CopyComplete

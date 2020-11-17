@@ -60,15 +60,6 @@ namespace GUI
         protected global::System.Web.UI.WebControls.TextBox tipoInstrumento;
 
         /// <summary>
-        /// Control idMarca.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idMarca;
-
-        /// <summary>
         /// Control modelo.
         /// </summary>
         /// <remarks>
@@ -85,15 +76,6 @@ namespace GUI
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox codProv;
-
-        /// <summary>
-        /// Control idProv.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idProv;
 
         /// <summary>
         /// Control color.

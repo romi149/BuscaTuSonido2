@@ -69,7 +69,9 @@
                               Ventas
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                              <a class="dropdown-item" href="#">Facturación</a>
+                              <a class="dropdown-item" href="/NotasPedidoAFacturar">Generar Facturas</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="#">Facturas Emitidas</a>
                               <div class="dropdown-divider"></div>
                               <a class="dropdown-item" href="#">Cobranzas</a>
                               <div class="dropdown-divider"></div>

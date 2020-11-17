@@ -15,7 +15,7 @@ namespace GUI
             {
                 this.IdNombreUsuario.Visible = false;
                 this.LogOut.Visible = false;
-                this.MiCuenta.Visible = false;
+                this.MisCompras.Visible = false;
                 this.LogIn.Visible = true;
             }
             else
@@ -24,7 +24,7 @@ namespace GUI
                 this.IdNombreUsuario.InnerText = $"{((BE.Usuario)Session["usuarioCliente"])?.Nombre} {((BE.Usuario)Session["usuarioCliente"])?.Apellido}";
                 this.IdNombreUsuario.Visible = true;
                 this.LogOut.Visible = true;
-                this.MiCuenta.Visible = true;
+                this.MisCompras.Visible = true;
                 this.LogIn.Visible = false;
             }
         }

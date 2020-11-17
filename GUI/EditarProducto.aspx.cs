@@ -21,10 +21,10 @@ namespace GUI
             string Descripcion = Request.QueryString["Descripcion"].ToString();
             string Categoria = Request.QueryString["Categoria"]?.ToString();
             string TipoInst = Request.QueryString["TipoInst"].ToString();
-            string IdMarca = Request.QueryString["IdMarca"].ToString();
+            //string IdMarca = Request.QueryString["IdMarca"].ToString();
             string Modelo = Request.QueryString["Modelo"].ToString();
             string CodProv = Request.QueryString["CodProv"].ToString();
-            string IdProv = Request.QueryString["IdProv"].ToString();
+            //string IdProv = Request.QueryString["IdProv"].ToString();
             string Color = Request.QueryString["Color"].ToString();
             string Estado = Request.QueryString["Estado"].ToString();
             string Precio = Request.QueryString["Precio"].ToString();
@@ -34,10 +34,10 @@ namespace GUI
             nombre.Text = Nombre;
             categoria.Text = Categoria;
             tipoInstrumento.Text = TipoInst;
-            idMarca.Text = IdMarca;
+            //idMarca.Text = IdMarca;
             modelo.Text = Modelo;
             codProv.Text = CodProv;
-            idProv.Text = IdProv;
+            //idProv.Text = IdProv;
             color.Text = Color;
             precio.Text = Precio;
             estado.Text = Estado;
@@ -53,10 +53,10 @@ namespace GUI
                                         descripcion.Text.Trim(),
                                         categoria.Text.Trim(),
                                         tipoInstrumento.Text.Trim(),
-                                        int.Parse(idMarca.Text.Trim()),
+                                        //int.Parse(idMarca.Text.Trim()),
                                         modelo.Text.Trim(),
                                         codProv.Text.Trim(),
-                                        int.Parse(idProv.Text.Trim()),
+                                        //int.Parse(idProv.Text.Trim()),
                                         color.Text.Trim(),
                                         estado.Text.Trim(),
                                         precio.Text.Trim());

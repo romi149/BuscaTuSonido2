@@ -11,9 +11,10 @@ namespace BE
         public int CodCliente { get; set; }
         public string Upc { get; set; }
         public string Descripcion { get; set; }
-        public double PrecioTotal { get; set; }
+        public string PrecioTotal { get; set; }
         public string Estado { get; set; }
         public string TipoOperacion { get; set; }
-        public double PrecioAlq { get; set; }
+        public string PeriodoAlq { get; set; }
+        public int Cantidad { get; set; }
     }
 }

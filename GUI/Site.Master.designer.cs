@@ -24,13 +24,13 @@ namespace GUI
         protected global::System.Web.UI.HtmlControls.HtmlAnchor LogIn;
 
         /// <summary>
-        /// Control MiCuenta.
+        /// Control MisCompras.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor MiCuenta;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor MisCompras;
 
         /// <summary>
         /// Control IdNombreUsuario.

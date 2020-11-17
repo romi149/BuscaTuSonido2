@@ -211,5 +211,22 @@ namespace MPP
 
 
         }
+
+        public static DataSet ListarComprasCliente(string usuario)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, usuario));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarComprasCliente", ListaParametros);
+
+                return respuesta;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
     }
 }

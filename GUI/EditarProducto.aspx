@@ -30,10 +30,10 @@
                                  <label>Tipo Instrumento</label>
                                  <asp:TextBox runat="server" type="text" cssclass="form-control" id="tipoInstrumento"/>
                             </div>
-                            <div class="form-group">
+                            <%--<div class="form-group">
                                  <label>Id Marca</label>
                                  <asp:TextBox runat="server" type="text" cssclass="form-control" id="idMarca"/>
-                            </div>
+                            </div>--%>
                             <div class="form-group">
                                  <label>Modelo</label>
                                  <asp:TextBox runat="server" type="text" cssclass="form-control" id="modelo"/>
@@ -42,10 +42,10 @@
                                  <label>Cod Proveedor</label>
                                  <asp:TextBox runat="server" type="text" cssclass="form-control" id="codProv"/>
                             </div>
-                            <div class="form-group">
+                          <%--  <div class="form-group">
                                  <label>Id Proveedor</label>
                                  <asp:TextBox runat="server" type="text" cssclass="form-control" id="idProv"/>
-                            </div>
+                            </div>--%>
                             <div class="form-group">
                                  <label>Color</label>
                                  <asp:TextBox runat="server" type="text" cssclass="form-control" id="color"/>

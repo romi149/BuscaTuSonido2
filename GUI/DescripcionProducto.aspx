@@ -13,6 +13,7 @@
                     <h3><asp:Panel runat="server" ID="TxtPrecio"></asp:Panel></h3>
                     <p><asp:Panel runat="server" ID="TxtDescripcion"></asp:Panel></p>
                     <a href="/FormularioDeCompra.aspx" class="btn btn-success btn-lg">Comprar</a>
+                    <button id="btnCarrito" class="btn btn-warning btn-lg"><i class="glyphicon glyphicon-shopping-cart"></i>Agregar al Carrito</button>
                 </div>
             </div>
         </div>

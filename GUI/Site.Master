@@ -61,8 +61,8 @@
                         <li><a runat="server" href="~/News">Noticias y Eventos</a></li>
                         <li><a runat="server" href="~/FAQ">Preguntas Frecuentes</a></li>
                         <li><a runat="server" id="LogIn" href="~/Login">Ingresar</a></li>
-                        <li><a runat="server" id="MiCuenta" href="~/MiCuenta">Mi Cuenta</a></li>
-                        <li><a runat="server" href="#" id="IdNombreUsuario"></a></li>
+                        <li><a runat="server" id="MisCompras" href="~/MisCompras">Mis Compras</a></li>
+                        <li><a runat="server" href="/MiCuenta" id="IdNombreUsuario"></a></li>
                         <li><a runat="server" href="#" id="Carrito"><strong><span class="glyphicon glyphicon-shopping-cart" id="gb-product-counter"> 0</span></strong></a></li>
                         <li><a runat="server" id="LogOut" onserverclick="LogOut_ServerClick">Salir</a></li>
                     </ul>
@@ -103,5 +103,42 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     
+    <script>
+        window.onload = init
+        function init() {
+            document.getElementById('Carrito')?.addEventListener('click', redireccionarAlCarrito)
+            document.getElementById('btnCarrito')?.addEventListener('click', agregarAlCarrito)
+            if (localStorage.getItem('Carrito') != null) {
+                let Productos = ContarItems(localStorage.getItem('Carrito'))
+                document.getElementById('gb-product-counter').innerText = Productos.length
+            }
+        }
+        function agregarAlCarrito(e) {
+            e.preventDefault()
+            console.log('ENTRANDO...')
+            let arrays;
+            let nombreProducto = document.getElementById('NombreProducto').innerText;
+            console.log('ENTRANDO...', nombreProducto)
+            if (localStorage.getItem('Carrito') != null) {
+                arrays = localStorage.getItem('Carrito');
+                arrays += `*${nombreProducto}`
+            } else {
+                arrays = `${nombreProducto}`
+            }
+            localStorage.setItem('Carrito', arrays)
+            let Productos = ContarItems(arrays)
+            document.getElementById('gb-product-counter').innerText = Productos.length
+        }
+        function ContarItems(cadena) {
+            let Productos = cadena.split('*')
+            return Productos
+        }
+
+        function redireccionarAlCarrito(e) {
+            e.preventDefault()
+            location.href = `Carrito.aspx`
+        }
+    </script>
+
 </body>
 </html>

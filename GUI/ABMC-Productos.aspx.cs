@@ -21,6 +21,9 @@ namespace GUI
                 this.gvProductos.DataBind();
                 CargarComboMarca();
                 CargarComboCodProv();
+                CargarComboCategoria();
+                CargarComboTipoInstrumento();
+                CargarComboEstados();
             }
         }
 
@@ -53,18 +56,17 @@ namespace GUI
             string Descripcion = row.Cells[3].Text.Trim();
             string Categoria = row.Cells[4].Text.Trim();
             string TipoInst = row.Cells[5].Text.Trim();
-            string IdMarca = row.Cells[6].Text.Trim();
-            string Modelo = row.Cells[7].Text.Trim();
-            string CodProv = row.Cells[8].Text.Trim();
-            string IdProv = row.Cells[9].Text.Trim();
-            string Color = row.Cells[10].Text.Trim();
-            string Estado = row.Cells[11].Text.Trim();
-            string Precio = row.Cells[12].Text.Trim();
+            //string IdMarca = row.Cells[6].Text.Trim();
+            string Modelo = row.Cells[6].Text.Trim();
+            string CodProv = row.Cells[7].Text.Trim();
+            //string IdProv = row.Cells[9].Text.Trim();
+            string Color = row.Cells[8].Text.Trim();
+            string Estado = row.Cells[9].Text.Trim();
+            string Precio = row.Cells[10].Text.Trim();
 
             Response.Redirect($"/EditarProducto.aspx?Id={Id}&Upc={Upc}&Nombre={Nombre}&Descripcion={Descripcion}" +
-                $"&Categoria={Categoria}&TipoInstrumento={TipoInst}&IdMarca={IdMarca}&Modelo={Modelo}&" +
-                $"CodProveedor={CodProv}&IdProveedor={IdProv}&Color={Color}&Estado={Estado}&Precio={Precio}");
-
+                $"&Categoria={Categoria}&TipoInstrumento={TipoInst}&Modelo={Modelo}&" +
+                $"CodProveedor={CodProv}&Color={Color}&Estado={Estado}&Precio={Precio}");
 
         }
 
@@ -72,6 +74,9 @@ namespace GUI
         {
             var marca = listMarca.SelectedItem.ToString();
             var codProv = listCodProv.SelectedItem.ToString();
+            var Cat = listCategoria.SelectedItem.ToString();
+            var Tipo = listTipoInstrumento.SelectedItem.ToString();
+            var Estado = listEstado.SelectedItem.ToString();
 
             var IDMarca = GestorMarca.ObtenerId(marca);
             var IDProv = GestorProveedor.ObtenerId(codProv);
@@ -80,14 +85,14 @@ namespace GUI
                                        upc.Text.Trim(),
                                        nombre.Text.Trim(),
                                        descripcion.Text.Trim(),
-                                       categoria.Text.Trim(),
-                                       tipoInstrumento.Text.Trim(),
+                                       Cat,
+                                       Tipo,
                                        IDMarca,
                                        modelo.Text.Trim(),
                                        codProv,
                                        IDProv,
                                        color.Text.Trim(),
-                                       estado.Text.Trim(),
+                                       Estado,
                                        precio.Text.Trim()
                                         );
 
@@ -116,7 +121,7 @@ namespace GUI
         protected void UploadButton_Click(object sender, EventArgs e)
         {
             var nombreProd = nombre.Text.Trim();
-            var Tipo = tipoInstrumento.Text.Trim();
+            var Tipo = listTipoInstrumento.SelectedItem.ToString();
             string ruta;
 
             if (string.IsNullOrEmpty(nombreProd))
@@ -176,6 +181,41 @@ namespace GUI
             listCodProv.DataValueField = "CodProveedor";
             listCodProv.DataBind();
 
+        }
+
+        public void CargarComboCategoria()
+        {
+            List<Producto> lista = GestorProducto.ListarCategorias();
+            lista.Insert(0, new Producto { Categoria = Constantes.SeleccionarCategoria });
+            listCategoria.DataSource = lista;
+            listCategoria.DataTextField = "Categoria";
+            listCategoria.DataValueField = "Categoria";
+            listCategoria.DataBind();
+
+        }
+
+        public void CargarComboTipoInstrumento()
+        {
+            List<Producto> lista = GestorProducto.ListarTipoInstrumentos();
+            lista.Insert(0, new Producto { TipoInstrumento = Constantes.SeleccionarTipo });
+            listTipoInstrumento.DataSource = lista;
+            listTipoInstrumento.DataTextField = "TipoInstrumento";
+            listTipoInstrumento.DataValueField = "TipoInstrumento";
+            listTipoInstrumento.DataBind();
+
+        }
+
+        public void CargarComboEstados()
+        {
+            ListItem i;
+            i = new ListItem("--- Seleccionar Estado---", "1");
+            listEstado.Items.Add(i);
+            i = new ListItem("Normal", "2");
+            listEstado.Items.Add(i);
+            i = new ListItem("Destacado", "3");
+            listEstado.Items.Add(i);
+            i = new ListItem("Alquiler", "4");
+            listEstado.Items.Add(i);
         }
     }
 }

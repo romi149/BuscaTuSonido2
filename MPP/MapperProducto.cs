@@ -148,8 +148,8 @@ namespace MPP
         /// </summary>
         /// <param name="producto">Tipo Producto</param>
         /// <returns>Devuelve si se actualiza o no</returns>
-        public static bool ActualizarProducto(int IdProd, string upc, string nombre, string descrip, string categ, string TipoInst,
-                                     int IdMarca, string modelo, string codProveedor, int IdProveedor, string color,
+        public static bool ActualizarProducto(int IdProd, string upc, string nombre, string descrip, string categ, 
+                                     string TipoInst, string modelo, string codProveedor, string color,
                                      string estado, string precio)
         {
             try
@@ -161,10 +161,10 @@ namespace MPP
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, descrip));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Categoria", DbType.String, ParameterDirection.Input, categ));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("TipoInstrumento", DbType.String, ParameterDirection.Input, TipoInst));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdMarca", DbType.Int16, ParameterDirection.Input, IdMarca));
+                //ListaParametros.Add(StoreProcedureHelper.SetParameter("IdMarca", DbType.Int16, ParameterDirection.Input, IdMarca));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Modelo", DbType.String, ParameterDirection.Input, modelo));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("CodProveedor", DbType.String, ParameterDirection.Input, codProveedor));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdProveedor", DbType.Int32, ParameterDirection.Input, IdProveedor));
+                //ListaParametros.Add(StoreProcedureHelper.SetParameter("IdProveedor", DbType.Int32, ParameterDirection.Input, IdProveedor));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Color", DbType.String, ParameterDirection.Input, color));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Estado", DbType.String, ParameterDirection.Input, estado));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Precio", DbType.String, ParameterDirection.Input, precio));
@@ -241,6 +241,7 @@ namespace MPP
 
         public static string ObtenerRutaImagen(string nombreImg, string categoria)
         {
+            var urlND = "/imagenes/NoDisponible.jpg";
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
@@ -253,14 +254,12 @@ namespace MPP
 
                     return empList;
                 }
-                //PONER IMAGEN POR DEFECTO
-                return null;
+                
+                return urlND;
             }
             catch (Exception e)
             {
-                //PONER IMAGEN POR DEFECTO
-                return null;
-
+                return urlND;
             }
 
         }
@@ -471,16 +470,49 @@ namespace MPP
         }
 
         /// <summary>
+        /// Retorna los tipos de instrumentos de productos para llenar 
+        /// el combo tipo de instrumento en el ABMC 
+        /// </summary>
+        /// <returns></returns>
+        public static List<Producto> ListarTipoInstrumentos()
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarTipoInstrumentos", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Producto
+                      {
+                          TipoInstrumento = dataRow.Field<string>("TipoInstrumento")
+
+                      }).ToList();
+
+                    return empList;
+                }
+
+                return null;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
+
+        /// <summary>
         /// Retorna los productos que filtrados por marca y categoria
         /// </summary>
         /// <returns></returns>
-        public static List<Producto> ListarProductosBuscados(string marca, string categoria)
+        public static List<Producto> ListarProductosBuscados(string marca, string categoria, string precio)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, marca));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Categoria", DbType.String, ParameterDirection.Input, categoria));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Precio", DbType.String, ParameterDirection.Input, precio));
                 var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarProductosBuscados", ListaParametros);
                 if (respuesta != null)
                 {
@@ -559,6 +591,193 @@ namespace MPP
                           //Descripcion = dataRow.Field<string>("Descripcion"),
                           urlImg = dataRow.Field<string>("urlImg")
 
+                      }).ToList();
+
+                    return empList;
+                }
+
+
+                return null;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
+
+        public static List<Producto> ListarProductosPorMarcaCategoria(string marca, string categoria)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Marca", DbType.String, ParameterDirection.Input, marca));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Categoria", DbType.String, ParameterDirection.Input, categoria));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarProductosPorMarcaCategoria", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Producto
+                      {
+                          Nombre = dataRow.Field<string>("Nombre"),
+                          Modelo = dataRow.Field<string>("Modelo"),
+                          Precio = dataRow.Field<string>("Precio"),
+                          //Descripcion = dataRow.Field<string>("Descripcion"),
+                          urlImg = dataRow.Field<string>("urlImg")
+
+                      }).ToList();
+
+                    return empList;
+                }
+
+
+                return null;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
+
+        public static List<Producto> ListarProductosPorMarcaPrecio(string marca, string precio)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Marca", DbType.String, ParameterDirection.Input, marca));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Precio", DbType.String, ParameterDirection.Input, precio));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarProductosPorMarcaPrecio", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Producto
+                      {
+                          Nombre = dataRow.Field<string>("Nombre"),
+                          Modelo = dataRow.Field<string>("Modelo"),
+                          Precio = dataRow.Field<string>("Precio"),
+                          //Descripcion = dataRow.Field<string>("Descripcion"),
+                          urlImg = dataRow.Field<string>("urlImg")
+
+                      }).ToList();
+
+                    return empList;
+                }
+
+
+                return null;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
+
+        public static List<Producto> ListarProductosPorCategoriaPrecio(string categoria, string precio)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Categoria", DbType.String, ParameterDirection.Input, categoria));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Precio", DbType.String, ParameterDirection.Input, precio));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarProductosPorCategoriaPrecio", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Producto
+                      {
+                          Nombre = dataRow.Field<string>("Nombre"),
+                          Modelo = dataRow.Field<string>("Modelo"),
+                          Precio = dataRow.Field<string>("Precio"),
+                          //Descripcion = dataRow.Field<string>("Descripcion"),
+                          urlImg = dataRow.Field<string>("urlImg")
+
+                      }).ToList();
+
+                    return empList;
+                }
+
+
+                return null;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
+
+        public static List<Producto> ListarProductosPorPrecio(string precio)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Precio", DbType.String, ParameterDirection.Input, precio));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarProductosPorPrecio", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Producto
+                      {
+                          Nombre = dataRow.Field<string>("Nombre"),
+                          Modelo = dataRow.Field<string>("Modelo"),
+                          Precio = dataRow.Field<string>("Precio"),
+                          //Descripcion = dataRow.Field<string>("Descripcion"),
+                          urlImg = dataRow.Field<string>("urlImg")
+
+                      }).ToList();
+
+                    return empList;
+                }
+
+
+                return null;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
+
+        public static bool InsertarPreguntaPersonalizada(string pregunta, string usuario)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Pregunta ", DbType.String, ParameterDirection.Input, pregunta));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario  ", DbType.String, ParameterDirection.Input, usuario));
+                var respuesta = Conexion.GetInstance.EjecutarStore("InsertarPreguntaPersonalizada", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public static List<Preguntas> ListarPreguntasPorCliente(string usuario)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, usuario));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarPreguntasPorCliente", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Preguntas
+                      {
+                          Id = dataRow.Field<int>("id"),
+                          Modelo = dataRow.Field<string>("Modelo"),
+                          NombreProducto = dataRow.Field<string>("NombreProducto"),
+                          Pregunta = dataRow.Field<string>("Pregunta"),
+                          Fecha = dataRow.Field<DateTime>("Fecha"),
+                          Respuesta = dataRow.Field<string>("Respuesta"),
+                          Usuario = dataRow.Field<string>("Usuario")
                       }).ToList();
 
                     return empList;

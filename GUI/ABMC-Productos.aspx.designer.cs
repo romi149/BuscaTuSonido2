@@ -42,22 +42,22 @@ namespace GUI
         protected global::System.Web.UI.WebControls.DropDownList listCodProv;
 
         /// <summary>
-        /// Control categoria.
+        /// Control listCategoria.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox categoria;
+        protected global::System.Web.UI.WebControls.DropDownList listCategoria;
 
         /// <summary>
-        /// Control tipoInstrumento.
+        /// Control listTipoInstrumento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tipoInstrumento;
+        protected global::System.Web.UI.WebControls.DropDownList listTipoInstrumento;
 
         /// <summary>
         /// Control listMarca.
@@ -96,13 +96,13 @@ namespace GUI
         protected global::System.Web.UI.WebControls.TextBox color;
 
         /// <summary>
-        /// Control estado.
+        /// Control listEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox estado;
+        protected global::System.Web.UI.WebControls.DropDownList listEstado;
 
         /// <summary>
         /// Control descripcion.

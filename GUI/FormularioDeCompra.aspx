@@ -1,12 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FormularioDeCompra.aspx.cs" Inherits="GUI.FormularioDeCompra" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="creditCardForm">
+<div class="creditCardForm">
     <div class="heading">
         <h1>Confirmar Compra</h1>
     </div>
     <div class="payment">
-    
+            <div class="form-group id="card-precio">
+                <label for="precio">Importe Total</label>
+                <asp:TextBox ID="PrecioCompra" runat="server" ReadOnly="true"></asp:TextBox>
+            </div>
             <div class="form-group owner">
                 <label for="owner">Nombre y Apellido</label>
                 <input type="text" class="form-control" id="owner">
@@ -84,7 +87,7 @@
                 float: left;
                 font-size: 18px;
                 padding: 10px 25px;
-                margin-top: 20px;
+                margin-top: 5px;
                 position: relative;
             }
 
@@ -109,7 +112,7 @@
             }
 
             .creditCardForm #card-number-field {
-                width: 100%;
+                width: 63%;
             }
 
             .creditCardForm #expiration-date {

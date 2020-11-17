@@ -2,6 +2,7 @@
 using MPP;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,6 +42,11 @@ namespace BLL
         public static bool ModificarPassCliente(int IdUser, string pass, int codigoCliente)
         {
             return MapperCliente.ActualizarPassCliente(IdUser, pass, codigoCliente);
+        }
+
+        public static DataSet ListarCompras(string usuario)
+        {
+            return MapperCliente.ListarComprasCliente(usuario);
         }
     }
 }

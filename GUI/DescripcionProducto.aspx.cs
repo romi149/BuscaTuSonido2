@@ -1,4 +1,6 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +14,7 @@ namespace GUI
 {
     public partial class DescripcionProducto : System.Web.UI.Page
     {
+        public Producto ProductoActual { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -23,16 +26,22 @@ namespace GUI
                 HtmlGenericControl textoTitulo1 = new HtmlGenericControl("h2");
                 HtmlGenericControl textoTitulo2 = new HtmlGenericControl("h3");
                 HtmlGenericControl textoTitulo3 = new HtmlGenericControl("p");
+                HtmlGenericControl textoTitulo4 = new HtmlGenericControl("label");
+                textoTitulo4.Attributes.Add("id", "NombreProducto");
+                textoTitulo4.Attributes.Add("hidden", "true");
                 textoTitulo.InnerHtml = $"{producto.Nombre}";
                 textoTitulo1.InnerHtml = $"{producto.Modelo}";
                 textoTitulo2.InnerHtml = $"$ {producto.Precio}";
                 textoTitulo3.InnerHtml = $"{producto.Descripcion}";
+                textoTitulo4.InnerHtml = $"{JsonConvert.SerializeObject(producto)}";
                 TxtNombre.Controls.Add(textoTitulo);
                 TxtModelo.Controls.Add(textoTitulo1);
                 TxtPrecio.Controls.Add(textoTitulo2);
                 TxtDescripcion.Controls.Add(textoTitulo3);
+                TxtDescripcion.Controls.Add(textoTitulo4);
                 this.ImagenProducto.ImageUrl = GestorProducto.GestionImagen(nombre, "sin categoria");
                 CargarDatosPreguntas();
+                this.ProductoActual = producto;
             }
             catch (Exception)
             {

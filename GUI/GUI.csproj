@@ -134,6 +134,7 @@
     <Content Include="EditarProveedor.aspx" />
     <Content Include="EditarProducto.aspx" />
     <Content Include="EditarUsuario.aspx" />
+    <Content Include="FacturasEmitidas.aspx" />
     <Content Include="FAQ.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -206,6 +207,7 @@
     <Content Include="Imagenes\Catalogo\Percusion\Zildjian Avedis.PNG" />
     <Content Include="Imagenes\Catalogo\Percusion\Zildjian Avedis Medium.PNG" />
     <Content Include="Imagenes\Catalogo\Viento\Saxofon Alto.png" />
+    <Content Include="Imagenes\NoDisponible.jpg" />
     <Content Include="Imagenes\Portada\BuscaTuSonidoLogo.png" />
     <Content Include="Imagenes\Portada\elec1.jpg" />
     <Content Include="Imagenes\Portada\elect2.jpg" />
@@ -249,7 +251,9 @@
     <Content Include="CatalogoProductos.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MiCuenta.aspx" />
+    <Content Include="MisCompras.aspx" />
     <Content Include="News.aspx" />
+    <Content Include="NotasPedidoAFacturar.aspx" />
     <Content Include="PaginaPrincipal.aspx" />
     <Content Include="RecuperoPass.aspx" />
     <Content Include="Registrarse.aspx" />
@@ -434,6 +438,13 @@
     <Compile Include="EditarUsuario.aspx.designer.cs">
       <DependentUpon>EditarUsuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FacturasEmitidas.aspx.cs">
+      <DependentUpon>FacturasEmitidas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FacturasEmitidas.aspx.designer.cs">
+      <DependentUpon>FacturasEmitidas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FAQ.aspx.cs">
       <DependentUpon>FAQ.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -493,12 +504,26 @@
     <Compile Include="MiCuenta.aspx.designer.cs">
       <DependentUpon>MiCuenta.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MisCompras.aspx.cs">
+      <DependentUpon>MisCompras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MisCompras.aspx.designer.cs">
+      <DependentUpon>MisCompras.aspx</DependentUpon>
+    </Compile>
     <Compile Include="News.aspx.cs">
       <DependentUpon>News.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="News.aspx.designer.cs">
       <DependentUpon>News.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NotasPedidoAFacturar.aspx.cs">
+      <DependentUpon>NotasPedidoAFacturar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NotasPedidoAFacturar.aspx.designer.cs">
+      <DependentUpon>NotasPedidoAFacturar.aspx</DependentUpon>
     </Compile>
     <Compile Include="PaginaPrincipal.aspx.cs">
       <DependentUpon>PaginaPrincipal.aspx</DependentUpon>

@@ -31,14 +31,16 @@
                             </div>
                             <div class="form-group">
                                 <label>Categoria</label>
-                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="categoria" />
-                            </div>
-                            <div class="form-group">
-                                <label>Tipo Instrumento</label>
-                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="tipoInstrumento" />
+                                <asp:DropDownList runat="server" CssClass="form-control" ID="listCategoria" >
+                                </asp:DropDownList>
                             </div>
                         </div>
                         <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Tipo Instrumento</label>
+                                <asp:DropDownList runat="server" CssClass="form-control" ID="listTipoInstrumento" >
+                                </asp:DropDownList>
+                            </div>
                             <div class="form-group">
                                 <label>Marca</label>
                                 <asp:DropDownList runat="server" CssClass="form-control" ID="listMarca" >
@@ -52,16 +54,17 @@
                                 <label>Precio</label>
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="precio" />
                             </div>
+                        </div>
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label>Color</label>
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="color" />
                             </div>
                             <div class="form-group">
                                 <label>Estado</label>
-                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="estado" />
+                                <asp:DropDownList runat="server" CssClass="form-control" ID="listEstado" >
+                                </asp:DropDownList>
                             </div>
-                        </div>
-                        <div class="col-md-4">
                             <div class="form-group">
                                 <label>Descripción</label>
                                 <asp:TextBox runat="server" CssClass="form-control" type="text" TextMode="MultiLine" ID="descripcion" />
