@@ -17,6 +17,12 @@ namespace BLL
 
         }
 
+        public static DataSet ListarRemitosPorCliente(int nroFactura, string usuario)
+        {
+            return MapperRemito.ListarRemitosPorCliente(nroFactura, usuario);
+
+        }
+
         //public static List<NotaPedido> ObtenerNpFacturadas()
         //{
         //    return MapperRemito.ListarNpFacturadas();

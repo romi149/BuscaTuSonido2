@@ -47,14 +47,10 @@ namespace GUI
                     DivContenedor.Controls.Add(DivContenedorInterno1);
                     DivContenedor.Controls.Add(DivContenedorInterno2);
                     this.peopleComment.Controls.Add(DivContenedor);
-
                 }
-
-
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -65,6 +61,17 @@ namespace GUI
             GestorProducto.InsertarPreguntaPersonal(pregunta.Text, CLIENTE);
 
             pregunta.Text = "";
+
+        }
+
+        protected void btnTracking_Click(object sender, EventArgs e)
+        {
+            var CLIENTE = $"{((BE.Usuario)Session["usuarioCliente"])?.User}";
+
+            GridViewRow row = (sender as Button).NamingContainer as GridViewRow;
+            int NroFactura = int.Parse(row.Cells[0].Text.Trim());
+            
+            Response.Redirect($"/SeguimientoCompras.aspx?NroFactura={NroFactura}&Usuario={CLIENTE}");
 
         }
     }

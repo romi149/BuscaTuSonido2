@@ -44,6 +44,25 @@ namespace MPP
 
         }
 
+        public static DataSet ListarRemitosPorCliente(int nroFactura, string usuario)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroFactura", DbType.Int32, ParameterDirection.Input, nroFactura));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, usuario));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarRemitosPorCliente", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
+
         /// <summary>
         /// Inserta un Remito en Bd
         /// </summary>

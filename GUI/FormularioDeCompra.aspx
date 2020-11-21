@@ -5,22 +5,23 @@
     <div class="heading">
         <h1>Confirmar Compra</h1>
     </div>
+
     <div class="payment">
-            <div class="form-group id="card-precio">
+            <div class="form-group" id="card-precio">
                 <label for="precio">Importe Total</label>
                 <asp:TextBox ID="PrecioCompra" runat="server" ReadOnly="true"></asp:TextBox>
             </div>
             <div class="form-group owner">
                 <label for="owner">Nombre y Apellido</label>
-                <input type="text" class="form-control" id="owner">
+                <input type="text" class="form-control" required=true id="owner">
             </div>
             <div class="form-group CVV">
                 <label for="cvv">CVV</label>
-                <input type="text" class="form-control" id="cvv">
+                <input type="text" class="form-control"  required=true id="cvv">
             </div>
             <div class="form-group" id="card-number-field">
                 <label for="cardNumber">Numero de Tarjeta</label>
-                <input type="text" class="form-control" id="cardNumber">
+                <input type="text" class="form-control" required=true id="cardNumber">
             </div>
             <div class="form-group" id="expiration-date">
                 <label>Fecha de Vencimiento</label>
@@ -54,8 +55,10 @@
             </div>
             <div class="form-group" id="pay-now">
                 <button type="submit" class="btn btn-default" id="confirm-purchase">Confirmar</button>
+                <label  hidden="true"  id="AlertaCompra" role="alert">
+                     
+                </label>
             </div>
-       
     </div>
 </div>
     <style>
@@ -162,61 +165,8 @@
     </style>
 
     <script>
-        var owner = $('#owner'),
-            cardNumber = $('#cardNumber'),
-            cardNumberField = $('#card-number-field'),
-            CVV = $("#cvv"),
-            mastercard = $("#mastercard"),
-            confirmButton = $('#confirm-purchase'),
-            visa = $("#visa"),
-            amex = $("#amex");
-
-        cardNumber.payform('formatCardNumber');
-        CVV.payform('formatCardCVC');
-
-        cardNumber.keyup(function () {
-            amex.removeClass('transparent');
-            visa.removeClass('transparent');
-            mastercard.removeClass('transparent');
-
-            if ($.payform.validateCardNumber(cardNumber.val()) == false) {
-                cardNumberField.removeClass('has-success');
-                cardNumberField.addClass('has-error');
-            } else {
-                cardNumberField.removeClass('has-error');
-                cardNumberField.addClass('has-success');
-            }
-
-            if ($.payform.parseCardType(cardNumber.val()) == 'visa') {
-                mastercard.addClass('transparent');
-                amex.addClass('transparent');
-            } else if ($.payform.parseCardType(cardNumber.val()) == 'amex') {
-                mastercard.addClass('transparent');
-                visa.addClass('transparent');
-            } else if ($.payform.parseCardType(cardNumber.val()) == 'mastercard') {
-                amex.addClass('transparent');
-                visa.addClass('transparent');
-            }
-        });
-
-        confirmButton.click(function (e) {
-            e.preventDefault();
-
-            var isCardValid = $.payform.validateCardNumber(cardNumber.val());
-            var isCvvValid = $.payform.validateCardCVC(CVV.val());
-
-            if (owner.val().length < 5) {
-                alert("Wrong owner name");
-            } else if (!isCardValid) {
-                alert("Wrong card number");
-            } else if (!isCvvValid) {
-                alert("Wrong CVV");
-            } else {
-                // Everything is correct. Add your form submission code here.
-                alert("Everything is correct");
-            }
-        });
 
     </script>
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.js" integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
 
 </asp:Content>

@@ -288,6 +288,7 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="SeguimientoCompras.aspx" />
     <Content Include="Site.Master" />
     <Content Include="TermyCond.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -567,6 +568,13 @@
     </Compile>
     <Compile Include="Restore.aspx.designer.cs">
       <DependentUpon>Restore.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeguimientoCompras.aspx.cs">
+      <DependentUpon>SeguimientoCompras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeguimientoCompras.aspx.designer.cs">
+      <DependentUpon>SeguimientoCompras.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

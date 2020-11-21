@@ -168,6 +168,24 @@ namespace MPP
             }
 
         }
+
+        public static bool InsertarProductosXNP(int numNP, string nombreProd)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroNP", DbType.Int32, ParameterDirection.Input, numNP));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombreProducto", DbType.String, ParameterDirection.Input, nombreProd));
+                var respuesta = Conexion.GetInstance.EjecutarStore("InsertarProductosEnNP", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
     }
 }
 

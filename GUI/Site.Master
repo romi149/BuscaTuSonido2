@@ -105,9 +105,13 @@
     
     <script>
         window.onload = init
+
         function init() {
+
             document.getElementById('Carrito')?.addEventListener('click', redireccionarAlCarrito)
             document.getElementById('btnCarrito')?.addEventListener('click', agregarAlCarrito)
+            document.getElementById('confirm-purchase')?.removeEventListener('click', comprar)
+            document.getElementById('cardNumber')?.addEventListener('focusout', validarTarjeta)
             if (localStorage.getItem('Carrito') != null) {
                 let Productos = ContarItems(localStorage.getItem('Carrito'))
                 document.getElementById('gb-product-counter').innerText = Productos.length
@@ -138,6 +142,66 @@
             e.preventDefault()
             location.href = `Carrito.aspx`
         }
+
+        function comprar(e) {
+            e.preventDefault()
+
+            // Everything is correct. Add your form submission code here.
+            fetch(' https://buycard.herokuapp.com/validateCard', { method: 'POST' })
+                .then(response => response.text())
+                .then(response => {
+                    document.getElementById('AlertaCompra').hidden = false
+                    document.getElementById('AlertaCompra').innerHTML = JSON.parse(response).data.mensaje
+                    if (JSON.parse(response).succes == true) {
+                        document.getElementById('AlertaCompra').className = 'alert alert-success'
+                        //location.href="FormularioDeCompra.aspx"
+                    } else {
+                        document.getElementById('AlertaCompra').className = 'alert alert-danger'
+                    }
+
+                })
+
+        }
+
+        function validarTarjeta() {
+            document.getElementById('cardNumber').style.backgroundColor = "white"
+            document.getElementById('cvv').style.backgroundColor = "white"
+            let numeroTarjeta = document.getElementById('cardNumber').value
+            //Verificar si es mastercard
+            if (numeroTarjeta.match(/^5[1-5]\d{2}-?\d{4}-?\d{4}-?\d{4}$/)) {
+                let cvv = document.getElementById('cvv').value
+                if (cvv == null || cvv.length != 3) {
+                    document.getElementById('cvv').style.borderColor = "red"
+                }
+                document.getElementById('confirm-purchase')?.addEventListener('click', comprar)
+                return;
+            }
+
+            //verificar Visa
+            if (numeroTarjeta.match(/^4\d{3}-?\d{4}-?\d{4}-?\d{4}$/)) {
+                let cvv = document.getElementById('cvv').value
+                if (cvv == null || cvv.length != 3) {
+                    document.getElementById('cvv').style.borderColor = "red"
+                }
+                document.getElementById('confirm-purchase')?.addEventListener('click', comprar)
+                return;
+            }
+
+            //verificar Amex
+            if (numeroTarjeta.match(/^3[47][0-9-]{16}$/)) {
+                let cvv = document.getElementById('cvv').value
+                if (cvv == null || cvv.length != 4) {
+                    document.getElementById('cvv').style.borderColor = "red"
+                }
+                document.getElementById('confirm-purchase')?.addEventListener('click', comprar)
+                return;
+            }
+
+
+            document.getElementById('cardNumber').style.borderColor = "red"
+
+        }
+
     </script>
 
 </body>

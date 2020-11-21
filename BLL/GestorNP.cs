@@ -28,9 +28,14 @@ namespace BLL
 
         }
 
-        public static bool Agregar(string usuario, string total)
+        public static bool AgregarNP(string usuario, string total)
         {
             return MapperNP.InsertarNotaPedido(usuario, total);
+        }
+
+        public static bool AgregarProdNP(int numNP, string nombreProd)
+        {
+            return MapperNP.InsertarProductosXNP(numNP, nombreProd);
         }
 
         public static bool ModificarEstado(int Nro, string estado)
