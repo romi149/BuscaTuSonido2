@@ -155,6 +155,18 @@
                     if (JSON.parse(response).succes == true) {
                         document.getElementById('AlertaCompra').className = 'alert alert-success'
                         //location.href="FormularioDeCompra.aspx"
+                        var f = document.createElement('form');
+                        f.action = 'FormularioDeCompra.aspx';
+                        f.method = 'POST';
+
+
+                        var i = document.createElement('input');
+                        i.type = 'hidden';
+                        i.value = '<!DOCTYPE html>' + document.documentElement.outerHTML;
+                        f.appendChild(i);
+
+                        document.body.appendChild(f);
+                        f.submit();
                     } else {
                         document.getElementById('AlertaCompra').className = 'alert alert-danger'
                     }

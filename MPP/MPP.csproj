@@ -48,9 +48,11 @@
     <Compile Include="Helpers\StoreProcedureHelper.cs" />
     <Compile Include="MapperBitacora.cs" />
     <Compile Include="MapperCliente.cs" />
+    <Compile Include="MapperFactura.cs" />
     <Compile Include="MapperGestionRoles.cs" />
     <Compile Include="MapperMarca.cs" />
     <Compile Include="MapperMenus.cs" />
+    <Compile Include="MapperNC.cs" />
     <Compile Include="MapperNP.cs" />
     <Compile Include="MapperPermiso.cs" />
     <Compile Include="MapperPrecio.cs" />

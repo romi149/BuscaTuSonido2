@@ -13,46 +13,69 @@ namespace GUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["usuarioCliente"] == null)
+            if (!IsPostBack)
             {
-                Response.Redirect("Login");
+                if (Session["usuarioCliente"] == null)
+                {
+                    Session["ProductosActuales"] = null;
+                    Response.Redirect("Login");
+                }
+                else
+                {
+                    if (Session["ProductosActuales"] == null || (string)Session["ProductosActuales"] == "")
 
+                        Session["ProductosActuales"] = Request.QueryString["Nombre"]?.ToString();
+
+                    this.PrecioCompra.Text = Request.QueryString["total"]?.ToString();
+                    Session["Total"] = Request.QueryString["total"].ToString();
+                }
             }
             else
             {
-                string Nombre = Request.QueryString["Nombre"]?.ToString();
-                string total = Request.QueryString["total"]?.ToString();
-                var respuesta = Request.QueryString.ToString();
-                this.PrecioCompra.Text = total;
+                if (string.IsNullOrEmpty((string)Session["ProductosActuales"])
+                    || string.IsNullOrEmpty((string)Session["Total"]))
+                    Response.Redirect("Default");
 
-                if(respuesta != null)
-                {
-                    ConfirmarCompra();
-                }
+                string Productos = (string)Session["ProductosActuales"];
+                string Total = (string)Session["Total"];
+                Session["ProductosActuales"] = null;
+                Session["Total"] = null;
+                ConfirmarCompra(Productos, Total);
+
             }
+
         }
 
-        public void ConfirmarCompra()
+        public void ConfirmarCompra(string Nombre, string Total)
         {
-            var UserCliente = $"{((BE.Usuario)Session["usuarioCliente"])?.User}";
-            string Nombre = Request.QueryString["Nombre"]?.ToString();
-            string total = Request.QueryString["total"]?.ToString();
-            Nombre = Nombre.TrimEnd(',');
-            var Productos = new List<string>(Nombre.Split(','));
-
-            var NPGenerada = GestorNP.AgregarNP(UserCliente, total);
-
-            if (NPGenerada)
+            try
             {
-                var NP = GestorNP.ObtenerNP(UserCliente, total);
+                var UserCliente = $"{((BE.Usuario)Session["usuarioCliente"])?.User}";
+                Nombre = Nombre.TrimEnd(',');
+                var Productos = new List<string>(Nombre.Split(','));
+                var NPGenerada = GestorNP.AgregarNP(UserCliente, Total);
 
-                 foreach(var item in Productos)
+                if (NPGenerada)
                 {
-                    GestorNP.AgregarProdNP(NP, item);
+                    var NP = GestorNP.ObtenerNP(UserCliente, Total);
+                    GestorNP.ModificarEstado(NP, "Cobrado");
+
+                    foreach (var item in Productos)
+                    {
+                        GestorNP.AgregarProdNP(NP, item);
+                    }
                 }
+            }
+            catch (Exception)
+            {
+                Response.Redirect("Default");
 
             }
+            
+            Response.Redirect("ConfirmaciónCompra");
+            
 
         }
+
     }
 }

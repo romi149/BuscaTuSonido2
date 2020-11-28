@@ -22,9 +22,9 @@ namespace BLL
             return MapperNP.ObtenerIdNP(usuario, total);
         }
 
-        public static DataSet ListarNotasPedidoDS()
+        public static DataSet ListarNotasPedidoSinFacturar()
         {
-            return MapperNP.ListarNotasPedidoDS();
+            return MapperNP.ListarNotasPedidoSinFacturar();
 
         }
 

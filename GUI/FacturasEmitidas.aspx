@@ -1,10 +1,59 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backend.Master" AutoEventWireup="true" CodeBehind="FacturasEmitidas.aspx.cs" Inherits="GUI.FacturasEmitidas" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backend.Master" AutoEventWireup="true" CodeBehind="FacturasEmitidas.aspx.cs" Inherits="GUI.FacturasEmitidas" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
+<script>
+    function abrir(url) {
+        open(url, '', 'top=100,left=300,width=450,height=500');
+    }
+</script>
+
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+
     <div class="FacturasEmitidas">
         <h3>Facturas Emitidas</h3>
-        
+        <br />
         <asp:GridView ID="gvFacturas" runat="server" AutoGenerateColumns="false" class="table table-striped"
             ClientIDMode="Static">
             <Columns>
@@ -15,11 +64,17 @@
                 <asp:BoundField DataField="PrecioTotal" HeaderText="Importe Total" />
                 <asp:BoundField DataField="CodCliente" HeaderText="Cod Cliente" />
                 <asp:BoundField DataField="NroPedido" HeaderText="NroPedido" />
+                <asp:BoundField DataField="Detalle" HeaderText="Detalle" />
+                <asp:BoundField DataField="Estado" HeaderText="Estado" />
                 <asp:TemplateField HeaderText="Accion">
                     <ItemTemplate>
                         <div class="BtnGrid">
                             <asp:Button ID="btnAnular" Text="Anular" runat="server" CssClass="btn btn-danger"
-                                OnClick="btnAnular_Click" OnClientClick="return confirm('¿Esta seguro que desea anular la factura?')" />
+                                OnClick="anular_Click" OnClientClick="javascript:abrir('AnularFC.aspx')" />
+                            <%--<a runat="server" class="btn btn-danger" href="javascript:abrir('Login.aspx')">Anular</a>--%>
+                            <%--<buttom ID="myBtn" Class="btn btn-danger">Anular</buttom>--%>
+                             <%--<asp:Button ID="btnFacturar" Text="Anular" runat="server" CssClass="btn btn-primary"
+                                OnClick="btnAnular_Click" OnClientClick="return confirm('¿Esta seguro que desea generar la factura?')" />--%>
                         </div>
                     </ItemTemplate>
                 </asp:TemplateField>
@@ -27,11 +82,78 @@
         </asp:GridView>
     </div>
 
- <style>
+<!-- The Modal -->
+  <%--  <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div>
+                <h4>Ingresar motivo de Anulación</h4>
+                <br />
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Motivo</label>
+                        <asp:TextBox runat="server" type="text" TextMode="MultiLine" CssClass="form-control" ID="detalle" />
+                    </div>
+                    <div class="form-group">
+                        <label>Detalle Nota de Crédito</label>
+                        <asp:TextBox runat="server" type="text" TextMode="MultiLine" CssClass="form-control" ID="detalleNC" />
+                    </div>
+                    <br />
+                    <br />
+                    <asp:Button runat="server" content="facturas" ID="Button1" CssClass="btn btn-primary btn-md" Text="Confirmar" OnClick="confirmar_Click" />
+                    <asp:Button runat="server" content="facturas" ID="btnCancelar" CssClass="btn btn-warning btn-md" Text="Cancelar" OnClick="cancelar_Click" />
+                </div>
+            </div>
+        </div>
+    </div>--%>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+    <style>
+        .modal-content{
+            width:30%;
+            margin:auto;
+            /*background-color:hsla(218, 74%, 60%, 0.171);*/
+            align-items:center;
+            border-radius:15px;
+       
+        }
+        h4 {
+            text-align: center;
+            font-weight: bold;
+        }
+
         .FacturasEmitidas {
             width: 80vw;
             margin: auto;
-            margin-top: 15vh !important;
+            margin-top: 5vh !important;
         }
 
         .BtnGrid {

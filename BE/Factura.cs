@@ -13,6 +13,9 @@ namespace BE
         public string PrecioTotal { get; set; }
         public string Empresa { get; set; }
         public int CodCliente { get; set; }
+        public string Detalle { get; set; }
+        public string Estado { get; set; }
+
 
     }
 }

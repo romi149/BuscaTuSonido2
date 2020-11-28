@@ -48,9 +48,11 @@
     <Compile Include="EnvioEmails.cs" />
     <Compile Include="GestorBitacora.cs" />
     <Compile Include="GestorCliente.cs" />
+    <Compile Include="GestorFactura.cs" />
     <Compile Include="GestorGestionRoles.cs" />
     <Compile Include="GestorMarca.cs" />
     <Compile Include="GestorMenu.cs" />
+    <Compile Include="GestorNC.cs" />
     <Compile Include="GestorNP.cs" />
     <Compile Include="GestorPermiso.cs" />
     <Compile Include="GestorPrecio.cs" />

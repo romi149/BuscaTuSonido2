@@ -4,7 +4,7 @@
 
     <div class="NPSinFacturar">
         <h3>Notas de Pedido Pendientes de Facturación</h3>
-        
+        <br />
         <asp:GridView ID="gvNotasPedido" runat="server" AutoGenerateColumns="false" class="table table-striped"
             ClientIDMode="Static">
             <Columns>
@@ -33,7 +33,7 @@
         .NPSinFacturar {
             width: 80vw;
             margin: auto;
-            margin-top: 15vh !important;
+            margin-top: 5vh !important;
         }
 
         .BtnGrid {

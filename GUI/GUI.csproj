@@ -112,10 +112,12 @@
     <Content Include="ABMC-Roles.aspx" />
     <Content Include="ABMC-Usuarios.aspx" />
     <Content Include="About.aspx" />
+    <Content Include="AnularFC.aspx" />
     <Content Include="Backup.aspx" />
     <Content Include="Carrito.aspx" />
     <Content Include="ComparacionProductos.aspx" />
     <Content Include="Configuracion.aspx" />
+    <Content Include="ConfirmacionCompra.aspx" />
     <Content Include="ConfirmarRegistro.aspx" />
     <Content Include="ConsultarBitacora.aspx" />
     <Content Include="css\animate.min.css" />
@@ -339,6 +341,13 @@
     <Compile Include="ABMC-Usuarios.aspx.designer.cs">
       <DependentUpon>ABMC-Usuarios.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AnularFC.aspx.cs">
+      <DependentUpon>AnularFC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AnularFC.aspx.designer.cs">
+      <DependentUpon>AnularFC.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -382,6 +391,13 @@
     </Compile>
     <Compile Include="Configuracion.aspx.designer.cs">
       <DependentUpon>Configuracion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmacionCompra.aspx.cs">
+      <DependentUpon>ConfirmacionCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfirmacionCompra.aspx.designer.cs">
+      <DependentUpon>ConfirmacionCompra.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConfirmarRegistro.aspx.cs">
       <DependentUpon>ConfirmarRegistro.aspx</DependentUpon>

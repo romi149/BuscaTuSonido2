@@ -81,12 +81,12 @@ namespace MPP
         /// Retorna todos las Notas de pedido de la Bd
         /// </summary>
         /// <returns></returns>
-        public static DataSet ListarNotasPedidoDS()
+        public static DataSet ListarNotasPedidoSinFacturar()
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarNotaPedido", ListaParametros);
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarNPSinFacturar", ListaParametros);
 
                 return respuesta;
             }

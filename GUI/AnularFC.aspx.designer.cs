@@ -11,7 +11,7 @@ namespace GUI
 {
 
 
-    public partial class FormularioDeCompra
+    public partial class AnularFC
     {
 
         /// <summary>
@@ -24,39 +24,39 @@ namespace GUI
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control PrecioCompra.
+        /// Control detalle.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PrecioCompra;
+        protected global::System.Web.UI.WebControls.TextBox detalle;
 
         /// <summary>
-        /// Control owner.
+        /// Control detalleNC.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox owner;
+        protected global::System.Web.UI.WebControls.TextBox detalleNC;
 
         /// <summary>
-        /// Control cvv.
+        /// Control Button1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cvv;
+        protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
-        /// Control cardNumber.
+        /// Control btnCancelar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cardNumber;
+        protected global::System.Web.UI.WebControls.Button btnCancelar;
     }
 }
