@@ -113,7 +113,8 @@
         </div>
      </div>
         <br />
-        <div>
+        <br />
+        <div class="button">
             <asp:Button runat="server" ID="btnOpinar" CssClass="btn btn-info" Text="Enviar Opinión" Width="90%" />
         </div>
     
@@ -133,8 +134,10 @@
         
     }
 
-    #btnOpinar{
+    .button{
         text-align:center;
+        width:100%;
+
     }
     
 
