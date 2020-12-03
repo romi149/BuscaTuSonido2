@@ -93,7 +93,7 @@ namespace MPP
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nro", DbType.Int32, ParameterDirection.Input, Nro));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroFactura", DbType.Int32, ParameterDirection.Input, Nro));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Estado", DbType.String, ParameterDirection.Input, estado));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Detalle", DbType.String, ParameterDirection.Input, detalle));
                 var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarEstadoFactura", ListaParametros);

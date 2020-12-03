@@ -36,6 +36,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,6 +58,7 @@
     <Compile Include="Idioma.cs" />
     <Compile Include="Marca.cs" />
     <Compile Include="Newsletter.cs" />
+    <Compile Include="NotaCredito.cs" />
     <Compile Include="NotaPedido.cs" />
     <Compile Include="Oferta.cs" />
     <Compile Include="OrdenCompra.cs" />

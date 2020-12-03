@@ -22,10 +22,20 @@
                 <h1>Confirmar Compra</h1>
             </div>
 
-            <div class="payment">
+             <div class="payment">
                 <div class="form-group" id="card-precio">
                     <label for="precio">Importe Total</label>
                     <asp:TextBox ID="PrecioCompra" runat="server"  ReadOnly="true"></asp:TextBox>
+                </div>
+                 <div class="form-group"">
+                    <label for="NC">Nota de Credito</label>
+                     <asp:DropDownList runat="server" CssClass="form-control" ID="listNotaCred">
+                     </asp:DropDownList>
+                     <%--<asp:TextBox ID="notaCredito" runat="server"  ReadOnly="true" Visible="false" ></asp:TextBox>--%>
+                </div>
+                 <div class="form-group">
+                    <label for="precioPagar" >Importe a Pagar con Descuento</label>
+                    <asp:TextBox ID="precioAPagar" runat="server"  ReadOnly="true" Visible="true" ></asp:TextBox>
                 </div>
                 <div class="form-group owner">
                     <label for="owner">Nombre y Apellido</label>
@@ -77,6 +87,7 @@
                 </div>
                 <div class="form-group" id="pay-now">
                     <button type="submit" class="btn btn-success" id="confirm-purchase">Confirmar</button>
+                    <a href="Default.aspx" class="btn btn-danger" >Cancelar</a>
                 </div>
             </div>
         </div>
@@ -184,67 +195,65 @@
             }
         </style>
 
-        <script>
-            window.onload = init
+         <script>
+             window.onload = init
 
-            function init() {
+             function init() {
+                 document.getElementById('cardNumber')?.addEventListener('focusout', validarTarjeta)
+                 document.getElementById('cardNumber')?.addEventListener('cvv', validarcvv)
+             }
 
+             function validarcvv() {
+                 if (document.getElementById('cardNumber').value != null ||
+                     document.getElementById('cardNumber').value != '') {
+                     validarTarjeta()
+                 }
+             }
 
-                document.getElementById('cardNumber')?.addEventListener('focusout', validarTarjeta)
-                document.getElementById('cardNumber')?.addEventListener('cvv', validarcvv)
-            }
+             function validarTarjeta() {
+                 let lblAlertCard = document.getElementById('AlertaCard')
+                 let lblAlertCVV = document.getElementById('AlertaCvv')
+                 lblAlertCard.hidden = true
+                 lblAlertCVV.hidden = true
+                 document.getElementById('cardNumber').style.borderColor = "gray"
+                 document.getElementById('cvv').style.borderColor = "gray"
+                 let numeroTarjeta = document.getElementById('cardNumber').value
 
+                 //Verificar si es mastercard
+                 if (numeroTarjeta.match(/^5[1-5]\d{2}-?\d{4}-?\d{4}-?\d{4}$/)) {
+                     let cvv = document.getElementById('cvv').value
+                     if (cvv == null || cvv.length != 3) {
+                         document.getElementById('cvv').style.borderColor = "red"
+                         lblAlertCVV.hidden = false
+                     }
+                     return;
+                 }
 
-            function validarcvv() {
-                if (document.getElementById('cardNumber').value != null ||
-                    document.getElementById('cardNumber').value != '') {
-                    validarTarjeta()
-                }
-            }
+                 //verificar Visa
+                 if (numeroTarjeta.match(/^4\d{3}-?\d{4}-?\d{4}-?\d{4}$/)) {
+                     let cvv = document.getElementById('cvv').value
+                     if (cvv == null || cvv.length != 3) {
+                         document.getElementById('cvv').style.borderColor = "red"
+                         lblAlertCVV.hidden = false
+                     }
+                     return;
+                 }
 
-            function validarTarjeta() {
-                let lblAlertCard = document.getElementById('AlertaCard')
-                let lblAlertCVV = document.getElementById('AlertaCvv')
-                lblAlertCard.hidden = true
-                lblAlertCVV.hidden = true
-                document.getElementById('cardNumber').style.borderColor = "gray"
-                document.getElementById('cvv').style.borderColor = "gray"
-                let numeroTarjeta = document.getElementById('cardNumber').value
-                //Verificar si es mastercard
-                if (numeroTarjeta.match(/^5[1-5]\d{2}-?\d{4}-?\d{4}-?\d{4}$/)) {
-                    let cvv = document.getElementById('cvv').value
-                    if (cvv == null || cvv.length != 3) {
-                        document.getElementById('cvv').style.borderColor = "red"
-                        lblAlertCVV.hidden = false
-                    }
-                    return;
-                }
+                 //verificar Amex
+                 if (numeroTarjeta.match(/^3[47][0-9-]{16}$/)) {
+                     let cvv = document.getElementById('cvv').value
+                     if (cvv == null || cvv.length != 4) {
+                         document.getElementById('cvv').style.borderColor = "red"
+                         lblAlertCVV.hidden = false
+                     }
+                     return;
+                 }
 
-                //verificar Visa
-                if (numeroTarjeta.match(/^4\d{3}-?\d{4}-?\d{4}-?\d{4}$/)) {
-                    let cvv = document.getElementById('cvv').value
-                    if (cvv == null || cvv.length != 3) {
-                        document.getElementById('cvv').style.borderColor = "red"
-                        lblAlertCVV.hidden = false
-                    }
-                    return;
-                }
+                 document.getElementById('cardNumber').style.borderColor = "red"
+                 lblAlertCard.hidden = false
 
-                //verificar Amex
-                if (numeroTarjeta.match(/^3[47][0-9-]{16}$/)) {
-                    let cvv = document.getElementById('cvv').value
-                    if (cvv == null || cvv.length != 4) {
-                        document.getElementById('cvv').style.borderColor = "red"
-                        lblAlertCVV.hidden = false
-                    }
-                    return;
-                }
-
-                document.getElementById('cardNumber').style.borderColor = "red"
-                lblAlertCard.hidden = false
-
-            }
-        </script>
+             }
+         </script>
     </form>
 </body>
 

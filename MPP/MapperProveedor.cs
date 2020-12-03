@@ -33,12 +33,12 @@ namespace MPP
             }
         }
 
-        public static int ObtenerIdProveedor(string codProv)
+        public static int ObtenerIdProveedor(string Nombre)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("CodProv", DbType.String, ParameterDirection.Input, codProv));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombreEmpresa", DbType.String, ParameterDirection.Input, Nombre));
                 var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ObtenerIdProveedor", ListaParametros);
                 if (respuesta != null)
                 {
@@ -53,6 +53,29 @@ namespace MPP
             catch (Exception e)
             {
                 return 0;
+            }
+        }
+
+        public static string ObtenerCodProveedor(string Nombre)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombreEmpresa", DbType.String, ParameterDirection.Input, Nombre));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ObtenerCodProveedor", ListaParametros);
+                if (respuesta != null)
+                {
+                    {
+                        var empList = respuesta.Tables[0].AsEnumerable().FirstOrDefault().Field<string>("CodProveedor");
+
+                        return empList;
+                    }
+                }
+                return null;
+            }
+            catch (Exception e)
+            {
+                return null;
             }
         }
 

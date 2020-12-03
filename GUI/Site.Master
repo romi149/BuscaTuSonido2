@@ -100,8 +100,6 @@
             
         }
     </style>
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     
     <script>
         window.onload = init
@@ -116,7 +114,33 @@
                 let Productos = ContarItems(localStorage.getItem('Carrito'))
                 document.getElementById('gb-product-counter').innerText = Productos.length
             }
+
+            Calcular()
         }
+
+        let Calcular = () => {
+            try {
+
+                console.table('ValorEntrada', document.getElementById('MainContent_puntajeTotal').innerText.replace(/__COMMA__/g, '.'));
+                let valorPuntaje = document.getElementById('MainContent_puntajeTotal').innerText
+                valorPuntaje = parseFloat(valorPuntaje.replace(',', '.'));
+
+                document.getElementById('MainContent_puntajeTotal')
+                    .innerText = `${Math.round((valorPuntaje / 5) * 100)}%`;
+
+
+                Puntuacion.children[1].children[0]
+                    .style.width = `${Math.round((valorPuntaje / 5) * 100)}%`;
+
+                Puntuacion.children[1].children[0]
+                    .innerText = `${Math.round((valorPuntaje / 5) * 100)}%`
+
+            } catch (e) {
+                console.table(e);
+            }
+
+        }
+
         function agregarAlCarrito(e) {
             e.preventDefault()
             console.log('ENTRANDO...')
@@ -159,7 +183,6 @@
                         f.action = 'FormularioDeCompra.aspx';
                         f.method = 'POST';
 
-
                         var i = document.createElement('input');
                         i.type = 'hidden';
                         i.value = '<!DOCTYPE html>' + document.documentElement.outerHTML;
@@ -172,7 +195,6 @@
                     }
 
                 })
-
         }
 
         function validarTarjeta() {
@@ -209,11 +231,14 @@
                 return;
             }
 
-
             document.getElementById('cardNumber').style.borderColor = "red"
 
         }
 
+
+        function ClearCar() {
+            localStorage.clear()
+        }
     </script>
 
 </body>

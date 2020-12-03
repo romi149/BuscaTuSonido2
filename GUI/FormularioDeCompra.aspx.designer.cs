@@ -33,6 +33,24 @@ namespace GUI
         protected global::System.Web.UI.WebControls.TextBox PrecioCompra;
 
         /// <summary>
+        /// Control listNotaCred.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList listNotaCred;
+
+        /// <summary>
+        /// Control precioAPagar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox precioAPagar;
+
+        /// <summary>
         /// Control owner.
         /// </summary>
         /// <remarks>

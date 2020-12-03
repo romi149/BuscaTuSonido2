@@ -48,5 +48,10 @@ namespace BLL
         {
             return MapperCliente.ListarComprasCliente(usuario);
         }
+
+        public static Cliente ObtenerEmailCliente(string user)
+        {
+            return MapperCliente.ObtenerEmailCliente(user);
+        }
     }
 }

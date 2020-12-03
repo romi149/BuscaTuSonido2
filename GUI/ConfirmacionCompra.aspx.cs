@@ -11,7 +11,7 @@ namespace GUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Response.Write("<script> localStorage.clear()</script>");
         }
     }
 }

@@ -148,5 +148,15 @@ namespace BLL
         {
             return MapperProducto.ListarPreguntasPorCliente(usuario);
         }
+
+        public static DataSet ObtenerOpionesProducto(string nombre)
+        {
+            return MapperProducto.ListarOpinionesProductos(nombre);
+        }
+
+        public static List<OpinionUsuario> ListarValoraciones(string nombre)
+        {
+            return MapperProducto.ListarValoracionesProducto(nombre);
+        }
     }
 }

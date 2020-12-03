@@ -12,7 +12,9 @@
                     <h2><asp:Panel runat="server" ID="TxtModelo"></asp:Panel></h2>
                     <h3><asp:Panel runat="server" ID="TxtPrecio"></asp:Panel></h3>
                     <p><asp:Panel runat="server" ID="TxtDescripcion"></asp:Panel></p>
-                    <a href="/FormularioDeCompra.aspx" class="btn btn-success btn-lg">Comprar</a>
+                    <%--a href="/FormularioDeCompra.aspx" class="btn btn-success btn-lg">Comprar</a>--%>
+                    <asp:Button runat="server" CssClass="btn btn-success btn-lg" Text="Comprar" ID="comprar"
+                       OnClick="sendComprar_Click" />
                     <button id="btnCarrito" class="btn btn-warning btn-lg"><i class="glyphicon glyphicon-shopping-cart"></i>Agregar al Carrito</button>
                 </div>
             </div>
@@ -34,12 +36,12 @@
             
     </asp:Panel>
     <hr />
-    <div class="row">
+   <div class="row">
         <h3>Opiniones sobre el producto</h3>
         <div class="col-md-4 ">
             <div id="Puntuacion" class="text-center">
-                <h1>4,1%
-                </h1>
+                <asp:Label runat="server" id="puntajeTotal">
+                </asp:Label>
                 <div class="progress">
                     <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="45"
                         aria-valuemin="0" aria-valuemax="100" style="width: 45%">
@@ -49,45 +51,17 @@
 
             </div>
         </div>
-        <div class="col-md-8">
-            <div class="col-md-4">
-                <div class="progress">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100"
-                        aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-                        100%
-                    </div>
-                </div>
-
-                <div class="progress">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80"
-                        aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                        80% 
-                    </div>
-                </div>
-
-                <div class="progress">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="35"
-                        aria-valuemin="0" aria-valuemax="100" style="width: 35%">
-                        35% 
-                    </div>
-                </div>
-
-                <div class="progress">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="25"
-                        aria-valuemin="0" aria-valuemax="100" style="width: 25%">
-                        25% 
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-    <div>
-        <div>
-            <div class="panel panel-default">
-                <div class="panel-heading">4.1-Nombre Usuario</div>
-                <div class="panel-body">Opinion</div>
-            </div>
-        </div>
+       <div>
+        <asp:GridView ID="gvOpinionProducto" runat="server" 
+                      AutoGenerateColumns="false"
+                      CssClass="table table-striped"
+             ClientIDMode="Static">
+            <Columns>
+                <asp:BoundField DataField="Usuario"  />
+                <asp:BoundField DataField="Comentario" />
+            </Columns>
+        </asp:GridView>
     </div>
 
     <style>

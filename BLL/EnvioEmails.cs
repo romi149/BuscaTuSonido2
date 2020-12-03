@@ -92,6 +92,33 @@ namespace BLL
             }
         }
 
+        public static void EnviarMailConfirmacionCompra(string destinatario, string mensaje)
+        {
+            try
+            {
+
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress("buscatusonido.org@gmail.com");
+                mail.To.Add(destinatario);
+                mail.Subject = "Confirmación de Compra";
+                mail.Body = $"< !DOCTYPE html > < html lang = 'en' > < head > < meta charset = 'UTF-8' > < meta name = 'viewport' content = 'width=device-width, initial-scale=1.0' > < title > Document </ title > </ head > < body > < div width = '400px' style = 'width: 80%; display: flex; justify-content: center; margin: 18% auto; background-color: navy;color: white; ' > < table style = 'width: 50%' > < thead > < tr > < td colspan = '3' > Su compra fue realizada correctamente, en breve estaremos enviando su pedido</ td > </ tr > </ thead > < TBody > < tr > < td colspan = '3' > </ td > </ tr > </ TBody > </ table > </ div > </ body > </ html > ";
+                mail.IsBodyHtml = true;
+                SmtpServer.Port = 587;
+                SmtpServer.Host = "smtp.gmail.com";
+                SmtpServer.EnableSsl = true;
+                SmtpServer.UseDefaultCredentials = false;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("buscatusonido.org@gmail.com", "Adrian1234");
+
+                SmtpServer.Send(mail);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
         public static string md5(string Value)
         {
             MD5CryptoServiceProvider provDeEncriptacion = new MD5CryptoServiceProvider();

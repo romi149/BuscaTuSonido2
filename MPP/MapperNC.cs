@@ -1,4 +1,5 @@
-﻿using DAL;
+﻿using BE;
+using DAL;
 using MPP.Helpers;
 using System;
 using System.Collections.Generic;
@@ -37,14 +38,34 @@ namespace MPP
         /// </summary>
         /// <param name=""></param>
         /// <returns>Devuelve si se inserto o no</returns>
-        public static bool InsertarNotaDeCredito(int nroFactura, string detalle)
+        public static bool InsertarNotaDeCredito(int nroFactura, string detalle, string importe, string estado)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("NroFactura", DbType.Int32, ParameterDirection.Input, nroFactura));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Detalle", DbType.String, ParameterDirection.Input, detalle));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Importe", DbType.String, ParameterDirection.Input, importe));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Estado", DbType.String, ParameterDirection.Input, estado));
                 var respuesta = Conexion.GetInstance.EjecutarStore("InsertarNotaCredito", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public static bool ActualizarEstadoNC(string estado, int nro)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Estado", DbType.String, ParameterDirection.Input, estado));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroNC", DbType.Int32, ParameterDirection.Input, nro));
+                var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarEstadoNC", ListaParametros);
 
                 return respuesta;
             }
@@ -79,8 +100,48 @@ namespace MPP
             }
         }
 
+        public static List<NotaCredito> ObtenerImporteNotaDeCredito(string usuario)
+        {
+            List<SqlParameter> ListaParametros = new List<SqlParameter>();
+            ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, usuario));
+            var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ObtenerImporteNotaCredito", ListaParametros);
 
-        
+            if (respuesta != null)
+            {
+                var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new NotaCredito
+                      {
+                          Importe = dataRow.Field<string>("Importe")
+                          
+                      }).ToList();
+
+                return empList;
+            }
+
+            return null;
+        }
+
+        public static List<NotaCredito> ObtenerNotaDeCredito(string usuario)
+        {
+            List<SqlParameter> ListaParametros = new List<SqlParameter>();
+            ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, usuario));
+            var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ObtenerNotaCredito", ListaParametros);
+
+            if (respuesta != null)
+            {
+                var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new NotaCredito
+                      {
+                          NroNotaC = dataRow.Field<Int32>("NroNotaC")
+
+                      }).ToList();
+
+                return empList;
+            }
+
+            return null;
+        }
+
     }
 }
 

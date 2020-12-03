@@ -16,9 +16,14 @@ namespace BLL
             return MapperProveedor.ListarProveedores();
         }
 
-        public static int ObtenerId(string codProv)
+        public static int ObtenerId(string NombreEmpresa)
         {
-            return MapperProveedor.ObtenerIdProveedor(codProv);
+            return MapperProveedor.ObtenerIdProveedor(NombreEmpresa);
+        }
+
+        public static string ObtenerCod(string NombreEmpresa)
+        {
+            return MapperProveedor.ObtenerCodProveedor(NombreEmpresa);
         }
 
         public static List<Proveedor> ListarProveedor()

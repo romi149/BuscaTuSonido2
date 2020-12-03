@@ -1,44 +1,142 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ConfirmacionCompra.aspx.cs" Inherits="GUI.ConfirmacionCompra" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <%--<meta http-equiv="X-UA-Compatible">--%>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap plantilla simple</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <div style="height: 70vh; display: flex; align-items: center;">
+        <div class="container">
+            <img class="img-responsive" src="Imagenes/Graciasxtucompra2.jpg" style="margin: auto; height:90%; width: 70%;">
+        </div>
+    </div>
+    <br />
+    <div class="body-content">
+        <h2>Queremos conocer tu opinión</h2>
+        <br />
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <h4>¿Qué tan fácil te pareció el proceso de compra?</h4>
+                    <div>
+                        <asp:CheckBox runat="server" ID="chkMucho" />
+                        <label id="1">Muy fácil</label>
+                    </div>
+                    <div>
+                        <asp:CheckBox runat="server" ID="ChkPoco" />
+                        <label id="2">Algo fácil</label>
+                    </div>
+                    <div>
+                        <asp:CheckBox runat="server" ID="chk" />
+                        <label id="3">Fácil</label>
+                    </div>
+                    <div>
+                        <asp:CheckBox runat="server" ID="CheckBox1" />
+                        <label id="4">Nada fácil</label>
+                    </div>
+                    <div>
+                        <asp:CheckBox runat="server" ID="CheckBox2" />
+                        <label id="5">Difícil</label>
+                    </div>
+                </div>
+                <br />
+                <div>
+                    <h4>¿Te resultó fácil encontrar el producto que buscabas?</h4>
+                    <div>
+                        <asp:CheckBox runat="server" ID="CheckBox3" />
+                        <label id="1">Muy fácil</label>
+                    </div>
+                    <div>
+                        <asp:CheckBox runat="server" ID="CheckBox4" />
+                        <label id="2">Algo fácil</label>
+                    </div>
+                    <div>
+                        <asp:CheckBox runat="server" ID="CheckBox5" />
+                        <label id="3">Fácil</label>
+                    </div>
+                    <div>
+                        <asp:CheckBox runat="server" ID="CheckBox6" />
+                        <label id="4">Nada fácil</label>
+                    </div>
+                    <div>
+                        <asp:CheckBox runat="server" ID="CheckBox7" />
+                        <label id="5">Difícil</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div>
+                    <h4>¿Qué tan satisfecho estás con la disponibilidad de los productos?</h4>
+                    <div>
+                        <asp:CheckBox runat="server" ID="CheckBox13" />
+                        <label id="1">Muy satisfecho</label>
+                    </div>
+                    <div>
+                        <asp:CheckBox runat="server" ID="CheckBox14" />
+                        <label id="2">Algo satisfecho</label>
+                    </div>
+                    <div>
+                        <asp:CheckBox runat="server" ID="CheckBox15" />
+                        <label id="3">Satisfecho</label>
+                    </div>
+                    <div>
+                        <asp:CheckBox runat="server" ID="CheckBox16" />
+                        <label id="4">Neutro</label>
+                    </div>
+                    <div>
+                        <asp:CheckBox runat="server" ID="CheckBox17" />
+                        <label id="5">Nada satisfecho</label>
+                    </div>
+                </div>
+                <br />
+                <div>
+                    <h4>¿Qué tan probable es que nos recomiendes?</h4>
+                    <div>
+                        <asp:CheckBox runat="server" ID="CheckBox8" />
+                        <label id="1">Muy probable</label>
+                    </div>
+                    <div>
+                        <asp:CheckBox runat="server" ID="CheckBox9" />
+                        <label id="2">Algo probable</label>
+                    </div>
+                    <div>
+                        <asp:CheckBox runat="server" ID="CheckBox10" />
+                        <label id="3">Probable</label>
+                    </div>
+                    <div>
+                        <asp:CheckBox runat="server" ID="CheckBox11" />
+                        <label id="4">Nada probable</label>
+                    </div>
+                    <div>
+                        <asp:CheckBox runat="server" ID="CheckBox12" />
+                        <label id="5">No lo recomendaría</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+        <br />
+        <div>
+            <asp:Button runat="server" ID="btnOpinar" CssClass="btn btn-info" Text="Enviar Opinión" Width="90%" />
+        </div>
     
-  </head>
-  <body>
-	<!-- CONTENIDO -->	
-    <script src="js/bootstrap.min.js"></script>
-<%--      
-      <div class="row">
-          <div>
-              <h1>Gracias por su compra</h1>
-           
-          </div>
-          
-          <%--<div class="col-lg-6">
-             
-              <img src="/imagenes/Portada/pexels.png" />
-             
-          </div>--%>
-      </div>
-      <br />
-      <br />
-      <br />
 
-  </body>
-</html>
-   <style>
-        img {
-            width: 40vw; height: 30vw;
-        }
-       
+<style>
+    .body-content{
+        text-align:left;
+    }
 
-    </style>
+    h4{
+        color:darkblue;
+        text-align:left;
+    }
+    h2{
+        color:darkturquoise;
+        text-align:center;
+        
+    }
 
+    #btnOpinar{
+        text-align:center;
+    }
+    
+
+</style>    
 </asp:Content>

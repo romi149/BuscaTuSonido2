@@ -60,6 +60,15 @@ namespace GUI
         protected global::System.Web.UI.WebControls.Panel TxtDescripcion;
 
         /// <summary>
+        /// Control comprar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button comprar;
+
+        /// <summary>
         /// Control pregunta.
         /// </summary>
         /// <remarks>
@@ -85,5 +94,23 @@ namespace GUI
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel peopleComment;
+
+        /// <summary>
+        /// Control puntajeTotal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label puntajeTotal;
+
+        /// <summary>
+        /// Control gvOpinionProducto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvOpinionProducto;
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backend.Master" AutoEventWireup="true" CodeBehind="NotasPedidoAFacturar.aspx.cs" Inherits="GUI.NotasPedidoAFacturar" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backend.Master" AutoEventWireup="true" CodeBehind="NotasPedidoAFacturar.aspx.cs" Inherits="GUI.NotasPedidoAFacturar" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 

@@ -73,13 +73,14 @@ namespace GUI
         protected void sendAgregar_Click(object sender, EventArgs e)
         {
             var marca = listMarca.SelectedItem.ToString();
-            var codProv = listCodProv.SelectedItem.ToString();
+            var nombreEmpresa = listCodProv.SelectedItem.ToString();
             var Cat = listCategoria.SelectedItem.ToString();
             var Tipo = listTipoInstrumento.SelectedItem.ToString();
             var Estado = listEstado.SelectedItem.ToString();
 
             var IDMarca = GestorMarca.ObtenerId(marca);
-            var IDProv = GestorProveedor.ObtenerId(codProv);
+            var codProv = GestorProveedor.ObtenerCod(nombreEmpresa);
+            var IDProv = GestorProveedor.ObtenerId(nombreEmpresa);
 
             bool Insertado = GestorProducto.Agregar(
                                        upc.Text.Trim(),
@@ -98,7 +99,7 @@ namespace GUI
 
             if (Insertado)
             {
-                GestorBitacora.Agregar(DateTime.Now, "Se inserto un registro", "RespCompras", "Producto");
+                GestorBitacora.Agregar(DateTime.Now, "Se inserto un nuevo producto", "RespCompras", "Producto");
                 Response.Write("<script>alert('El producto se ha agregado correctamente')</script>");
                 //Response.Redirect("/ABMC-Usuarios");
             }
@@ -175,10 +176,10 @@ namespace GUI
         public void CargarComboCodProv()
         {
             List<Proveedor> lista = GestorProveedor.ListarProveedor();
-            lista.Insert(0, new Proveedor { CodProveedor = Constantes.SeleccionarProveedor });
+            lista.Insert(0, new Proveedor { NombreEmpresa = Constantes.SeleccionarProveedor });
             listCodProv.DataSource = lista;
-            listCodProv.DataTextField = "CodProveedor";
-            listCodProv.DataValueField = "CodProveedor";
+            listCodProv.DataTextField = "NombreEmpresa";
+            listCodProv.DataValueField = "NombreEmpresa";
             listCodProv.DataBind();
 
         }

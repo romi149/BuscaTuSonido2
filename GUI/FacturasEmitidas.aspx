@@ -71,10 +71,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
                         <div class="BtnGrid">
                             <asp:Button ID="btnAnular" Text="Anular" runat="server" CssClass="btn btn-danger"
                                 OnClick="anular_Click" OnClientClick="javascript:abrir('AnularFC.aspx')" />
-                            <%--<a runat="server" class="btn btn-danger" href="javascript:abrir('Login.aspx')">Anular</a>--%>
-                            <%--<buttom ID="myBtn" Class="btn btn-danger">Anular</buttom>--%>
-                             <%--<asp:Button ID="btnFacturar" Text="Anular" runat="server" CssClass="btn btn-primary"
-                                OnClick="btnAnular_Click" OnClientClick="return confirm('¿Esta seguro que desea generar la factura?')" />--%>
                         </div>
                     </ItemTemplate>
                 </asp:TemplateField>
@@ -82,32 +78,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
         </asp:GridView>
     </div>
 
-<!-- The Modal -->
-  <%--  <div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div>
-                <h4>Ingresar motivo de Anulación</h4>
-                <br />
-                <div class="card-body">
-                    <div class="form-group">
-                        <label>Motivo</label>
-                        <asp:TextBox runat="server" type="text" TextMode="MultiLine" CssClass="form-control" ID="detalle" />
-                    </div>
-                    <div class="form-group">
-                        <label>Detalle Nota de Crédito</label>
-                        <asp:TextBox runat="server" type="text" TextMode="MultiLine" CssClass="form-control" ID="detalleNC" />
-                    </div>
-                    <br />
-                    <br />
-                    <asp:Button runat="server" content="facturas" ID="Button1" CssClass="btn btn-primary btn-md" Text="Confirmar" OnClick="confirmar_Click" />
-                    <asp:Button runat="server" content="facturas" ID="btnCancelar" CssClass="btn btn-warning btn-md" Text="Cancelar" OnClick="cancelar_Click" />
-                </div>
-            </div>
-        </div>
-    </div>--%>
 
 <script>
     // Get the modal

@@ -25,7 +25,7 @@
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="nombre" />
                             </div>
                             <div class="form-group">
-                                <label>Cod Proveedor</label>
+                                <label>Proveedor</label>
                                 <asp:DropDownList runat="server" CssClass="form-control" ID="listCodProv" >
                                 </asp:DropDownList>
                             </div>

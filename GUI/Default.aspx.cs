@@ -390,6 +390,7 @@ namespace GUI
         public const string SeleccionarMarca = "--- Seleccionar Marca---";
         public const string SeleccionarProveedor = "--- Seleccionar Proveedor---";
         public const string SeleccionarTipo = "--- Seleccionar Tipo Instrumento---";
-        
+        public const string SeleccionarNC = "--- Aplicar Nota de Credito---";
+
     }
 }

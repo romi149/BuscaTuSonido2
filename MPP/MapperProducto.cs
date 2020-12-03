@@ -792,5 +792,50 @@ namespace MPP
                 return null;
             }
         }
+
+        public static List<OpinionUsuario> ListarValoracionesProducto(string nombreP)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombreP", DbType.String, ParameterDirection.Input, nombreP));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ObtenerValoracionProductos", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new OpinionUsuario
+                      {
+                          Valoracion = dataRow.Field<Int32>("Valoracion")
+                          
+                      }).ToList();
+
+                    return empList;
+                }
+
+                return null;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        
+        public static DataSet ListarOpinionesProductos(string nombreP)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombreP", DbType.String, ParameterDirection.Input, nombreP));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ObtenerValoracionProductos", ListaParametros);
+
+                return respuesta;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
     }
 }

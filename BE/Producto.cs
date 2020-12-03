@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Web;
 
 namespace BE
 {
@@ -30,5 +31,46 @@ namespace BE
         public string Respuesta { get; set; }
         public string Usuario { get; set; }
         public DateTime Fecha { get; set; }
+    }
+
+    public class GlobalEnv
+    {
+        private GlobalEnv()
+        {
+            InicializarNavegacion = true;
+        }
+        private static GlobalEnv instancia;
+        public static GlobalEnv GetInstance
+        {
+            get
+            {
+                if (instancia == null)
+                {
+                    instancia = new GlobalEnv();
+                }
+                return instancia;
+            }
+        }
+
+        private bool _InicializarNavegacion;
+
+        public bool InicializarNavegacion
+        {
+            get { return _InicializarNavegacion; }
+            set { _InicializarNavegacion = value; }
+        }
+
+        public void BorrarCarrito(HttpResponse Response)
+        {
+            Response.Write("<script> localStorage.clear()</script>");
+        }
+                
+    }
+
+    public class OpinionUsuario
+    {
+        public string User { get; set; }
+        public string Comentario { get; set; }
+        public int Valoracion { get; set; }
     }
 }

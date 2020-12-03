@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BE;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,9 @@ namespace GUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (GlobalEnv.GetInstance.InicializarNavegacion)
+                GlobalEnv.GetInstance.BorrarCarrito(Response);
+
             if (Session["usuarioCliente"] == null)
             {
                 this.IdNombreUsuario.Visible = false;
@@ -27,6 +31,7 @@ namespace GUI
                 this.MisCompras.Visible = true;
                 this.LogIn.Visible = false;
             }
+            GlobalEnv.GetInstance.InicializarNavegacion = false;
         }
 
         protected void LogOut_ServerClick(object sender, EventArgs e)

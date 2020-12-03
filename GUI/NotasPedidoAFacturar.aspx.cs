@@ -22,21 +22,24 @@ namespace GUI
         {
             //Generar factura (crear registro en tabla Factura) 
             GridViewRow row = (sender as Button).NamingContainer as GridViewRow;
-            string Descripcion = row.Cells[0].Text.Trim();
-            int Cantidad = int.Parse(row.Cells[1].Text.Trim());
-            string PrecioTotal = row.Cells[2].Text.Trim();
-            int CodCliente = int.Parse(row.Cells[3].Text.Trim());
-            int NroPedido = int.Parse(row.Cells[4].Text.Trim());
+            int NroPedido = int.Parse(row.Cells[0].Text.Trim().ToString());
+            int CodCliente = int.Parse(row.Cells[2].Text.Trim().ToString());
+            string Descripcion = row.Cells[3].Text.Trim();
+            string PrecioTotal = row.Cells[4].Text.Trim();
+            //int Cantidad = int.Parse(row.Cells[8].Text.Trim().ToString());
 
-            bool Facturado = GestorFactura.Agregar(Descripcion, Cantidad, PrecioTotal, CodCliente, NroPedido);
+
+
+            bool Facturado = GestorFactura.Agregar(Descripcion, 1, PrecioTotal, 
+                                                    CodCliente, NroPedido);
 
             if (Facturado)
             {
                 GestorNP.ModificarEstado(NroPedido, "Facturado");
-
                 Response.Write("<script>alert('La factura se ha generado correctamente')</script>");
             }
-            
+            CargarDatos();
+
         }
 
         public DataSet CargarDatos()

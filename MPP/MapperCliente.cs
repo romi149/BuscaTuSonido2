@@ -228,5 +228,33 @@ namespace MPP
                 return null;
             }
         }
+
+        public static Cliente ObtenerEmailCliente(string user)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, user));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ObtenerEmailCliente", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Cliente
+                      {
+                          Email = dataRow.Field<string>("Email")
+
+                      }).ToList();
+                    return empList.FirstOrDefault();
+                }
+
+
+                return null;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
     }
 }

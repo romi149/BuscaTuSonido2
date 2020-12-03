@@ -25,18 +25,16 @@ namespace GUI
             string DetalleFC = detalle.Text.Trim();
             string DetalleNC = detalleNC.Text.Trim();
             var NumFactura = Session["NroFactura"].ToString();
+            var importe = Session["PrecioTotal"].ToString();
 
             GestorFactura.ModificarFactura(int.Parse(NumFactura),"Anulado",DetalleFC);
 
-            bool Generado = GestorNC.AgregarNC(int.Parse(NumFactura), DetalleNC);
+            bool Generado = GestorNC.AgregarNC(int.Parse(NumFactura), DetalleNC, importe, "");
 
             if (Generado)
             {
                 Response.Write("<script>alert('Los cambios se guardaron correctamente')</script>");
             }
-            
-
-            //Generar NC(crear registro en tabla NotaCredito) y modificar el estado de la factura a Anulado
 
         }
     }

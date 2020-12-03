@@ -3,12 +3,15 @@ using BLL;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.ModelBinding;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using static BE.GlobalEnv;
 
 namespace GUI
 {
@@ -42,13 +45,17 @@ namespace GUI
                 this.ImagenProducto.ImageUrl = GestorProducto.GestionImagen(nombre, "sin categoria");
                 CargarDatosPreguntas();
                 this.ProductoActual = producto;
+                this.gvOpinionProducto.DataSource = CargarOpiniones(nombre);
+                this.gvOpinionProducto.DataBind();
+                var Total = Calcular();
+                this.puntajeTotal.Text = $"{Total}";
             }
-            catch (Exception)
+            catch (Exception error)
             {
 
-                throw;
+                throw error;
             }
-            //Poner validacion de pagina externa
+            
         }
 
         private void CargarDatosPreguntas()
@@ -75,7 +82,6 @@ namespace GUI
 
                 }
 
-
             }
             catch (Exception)
             {
@@ -100,6 +106,33 @@ namespace GUI
             }
 
             Response.Redirect($"/DescripcionProducto.aspx?Nombre={nombre}&Modelo={modelo}");
+
+        }
+
+        public DataSet CargarOpiniones(string nombreP)
+        {
+            return GestorProducto.ObtenerOpionesProducto(nombreP);
+        }
+
+
+        public decimal Calcular()
+        {
+            string nombre = Request.QueryString["Nombre"]?.ToString();
+            var lista = GestorProducto.ListarValoraciones(nombre);
+            decimal total = 0;
+            foreach (var item in lista)
+            {
+                total = total + item.Valoracion;
+            }
+
+            return total / Convert.ToDecimal(lista.Count);
+        }
+
+        protected void sendComprar_Click(object sender, EventArgs e)
+        {
+            string Total = Request.QueryString["Precio"]?.ToString();
+           
+            Response.Redirect($"/FormularioDeCompra.aspx?Precio={Total}");
 
         }
     }
