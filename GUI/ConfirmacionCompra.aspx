@@ -16,48 +16,48 @@
                 <div>
                     <h4>¿Qué tan fácil te pareció el proceso de compra?</h4>
                     <div>
-                        <asp:CheckBox runat="server" ID="chkMucho" />
-                        <label id="1">Muy fácil</label>
+                        <asp:RadioButton runat="server" ID="CheckPreg1Punt1" GroupName="Pregunta1" />
+                        <label id="lbl1">Muy fácil</label>
                     </div>
                     <div>
-                        <asp:CheckBox runat="server" ID="ChkPoco" />
-                        <label id="2">Algo fácil</label>
+                        <asp:RadioButton runat="server" ID="CheckPreg1Punt2" GroupName="Pregunta1" />
+                        <label id="lbl2">Fácil</label>
                     </div>
                     <div>
-                        <asp:CheckBox runat="server" ID="chk" />
-                        <label id="3">Fácil</label>
+                        <asp:RadioButton runat="server" ID="CheckPreg1Punt3" GroupName="Pregunta1" />
+                        <label id="lbl3">Algo fácil</label>
                     </div>
                     <div>
-                        <asp:CheckBox runat="server" ID="CheckBox1" />
-                        <label id="4">Nada fácil</label>
+                        <asp:RadioButton runat="server" ID="CheckPreg1Punt4" GroupName="Pregunta1" />
+                        <label id="lbl4">Nada fácil</label>
                     </div>
                     <div>
-                        <asp:CheckBox runat="server" ID="CheckBox2" />
-                        <label id="5">Difícil</label>
+                        <asp:RadioButton runat="server" ID="CheckPreg1Punt5" GroupName="Pregunta1" />
+                        <label id="lbl5">Difícil</label>
                     </div>
                 </div>
                 <br />
                 <div>
                     <h4>¿Te resultó fácil encontrar el producto que buscabas?</h4>
                     <div>
-                        <asp:CheckBox runat="server" ID="CheckBox3" />
-                        <label id="1">Muy fácil</label>
+                        <asp:RadioButton runat="server" ID="CheckPreg2Punt1" GroupName="Pregunta2" />
+                        <label id="lbl6">Muy fácil</label>
                     </div>
                     <div>
-                        <asp:CheckBox runat="server" ID="CheckBox4" />
-                        <label id="2">Algo fácil</label>
+                        <asp:RadioButton runat="server" ID="CheckPreg2Punt2" GroupName="Pregunta2" />
+                        <label id="lbl7">Fácil</label>
                     </div>
                     <div>
-                        <asp:CheckBox runat="server" ID="CheckBox5" />
-                        <label id="3">Fácil</label>
+                        <asp:RadioButton runat="server" ID="CheckPreg2Punt3" GroupName="Pregunta2" />
+                        <label id="lbl8">Algo fácil</label>
                     </div>
                     <div>
-                        <asp:CheckBox runat="server" ID="CheckBox6" />
-                        <label id="4">Nada fácil</label>
+                        <asp:RadioButton runat="server" ID="CheckPreg2Punt4" GroupName="Pregunta2" />
+                        <label id="lbl9">Nada fácil</label>
                     </div>
                     <div>
-                        <asp:CheckBox runat="server" ID="CheckBox7" />
-                        <label id="5">Difícil</label>
+                        <asp:RadioButton runat="server" ID="CheckPreg2Punt5" GroupName="Pregunta2" />
+                        <label id="lbl10">Difícil</label>
                     </div>
                 </div>
             </div>
@@ -65,48 +65,48 @@
                 <div>
                     <h4>¿Qué tan satisfecho estás con la disponibilidad de los productos?</h4>
                     <div>
-                        <asp:CheckBox runat="server" ID="CheckBox13" />
-                        <label id="1">Muy satisfecho</label>
+                        <asp:RadioButton runat="server" ID="CheckPreg3Punt1" GroupName="Pregunta3" />
+                        <label id="lbl11">Muy satisfecho</label>
                     </div>
                     <div>
-                        <asp:CheckBox runat="server" ID="CheckBox14" />
-                        <label id="2">Algo satisfecho</label>
+                        <asp:RadioButton runat="server" ID="CheckPreg3Punt2" GroupName="Pregunta3" />
+                        <label id="lbl12">Satisfecho</label>
                     </div>
                     <div>
-                        <asp:CheckBox runat="server" ID="CheckBox15" />
-                        <label id="3">Satisfecho</label>
+                        <asp:RadioButton runat="server" ID="CheckPreg3Punt3" GroupName="Pregunta3" />
+                        <label id="lbl13">Algo satisfecho</label>
                     </div>
                     <div>
-                        <asp:CheckBox runat="server" ID="CheckBox16" />
-                        <label id="4">Neutro</label>
+                        <asp:RadioButton runat="server" ID="CheckPreg3Punt4" GroupName="Pregunta3" />
+                        <label id="lbl14">Neutro</label>
                     </div>
                     <div>
-                        <asp:CheckBox runat="server" ID="CheckBox17" />
-                        <label id="5">Nada satisfecho</label>
+                        <asp:RadioButton runat="server" ID="CheckPreg3Punt5" GroupName="Pregunta3" />
+                        <label id="lbl15">Nada satisfecho</label>
                     </div>
                 </div>
                 <br />
                 <div>
                     <h4>¿Qué tan probable es que nos recomiendes?</h4>
                     <div>
-                        <asp:CheckBox runat="server" ID="CheckBox8" />
-                        <label id="1">Muy probable</label>
+                        <asp:RadioButton runat="server" ID="CheckPreg4Punt1" GroupName="Pregunta4" />
+                        <label id="lbl16">Muy probable</label>
                     </div>
                     <div>
-                        <asp:CheckBox runat="server" ID="CheckBox9" />
-                        <label id="2">Algo probable</label>
+                        <asp:RadioButton runat="server" ID="CheckPreg4Punt2" GroupName="Pregunta4" />
+                        <label id="lbl17">Probable</label>
                     </div>
                     <div>
-                        <asp:CheckBox runat="server" ID="CheckBox10" />
-                        <label id="3">Probable</label>
+                        <asp:RadioButton runat="server" ID="CheckPreg4Punt3" GroupName="Pregunta4" />
+                        <label id="lbl18">Algo probable</label>
                     </div>
                     <div>
-                        <asp:CheckBox runat="server" ID="CheckBox11" />
-                        <label id="4">Nada probable</label>
+                        <asp:RadioButton runat="server" ID="CheckPreg4Punt4" GroupName="Pregunta4" />
+                        <label id="lbl19">Nada probable</label>
                     </div>
                     <div>
-                        <asp:CheckBox runat="server" ID="CheckBox12" />
-                        <label id="5">No lo recomendaría</label>
+                        <asp:RadioButton runat="server" ID="CheckPreg4Punt5" GroupName="Pregunta4" />
+                        <label id="lbl20">No lo recomendaría</label>
                     </div>
                 </div>
             </div>
@@ -115,7 +115,7 @@
         <br />
         <br />
         <div class="button">
-            <asp:Button runat="server" ID="btnOpinar" CssClass="btn btn-info" Text="Enviar Opinión" Width="90%" />
+            <asp:Button runat="server" ID="btnOpinar" CssClass="btn btn-info" Text="Enviar Opinión" Width="90%" OnClick="btnOpinar_Click" />
         </div>
     
 

@@ -54,6 +54,7 @@
     <Compile Include="MapperMenus.cs" />
     <Compile Include="MapperNC.cs" />
     <Compile Include="MapperNP.cs" />
+    <Compile Include="MapperOpinion.cs" />
     <Compile Include="MapperPermiso.cs" />
     <Compile Include="MapperPrecio.cs" />
     <Compile Include="MapperProducto.cs" />

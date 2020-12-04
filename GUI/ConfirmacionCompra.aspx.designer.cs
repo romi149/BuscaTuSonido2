@@ -15,184 +15,184 @@ namespace GUI
     {
 
         /// <summary>
-        /// Control chkMucho.
+        /// Control CheckPreg1Punt1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkMucho;
+        protected global::System.Web.UI.WebControls.RadioButton CheckPreg1Punt1;
 
         /// <summary>
-        /// Control ChkPoco.
+        /// Control CheckPreg1Punt2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ChkPoco;
+        protected global::System.Web.UI.WebControls.RadioButton CheckPreg1Punt2;
 
         /// <summary>
-        /// Control chk.
+        /// Control CheckPreg1Punt3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chk;
+        protected global::System.Web.UI.WebControls.RadioButton CheckPreg1Punt3;
 
         /// <summary>
-        /// Control CheckBox1.
+        /// Control CheckPreg1Punt4.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
+        protected global::System.Web.UI.WebControls.RadioButton CheckPreg1Punt4;
 
         /// <summary>
-        /// Control CheckBox2.
+        /// Control CheckPreg1Punt5.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox2;
+        protected global::System.Web.UI.WebControls.RadioButton CheckPreg1Punt5;
 
         /// <summary>
-        /// Control CheckBox3.
+        /// Control CheckPreg2Punt1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox3;
+        protected global::System.Web.UI.WebControls.RadioButton CheckPreg2Punt1;
 
         /// <summary>
-        /// Control CheckBox4.
+        /// Control CheckPreg2Punt2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox4;
+        protected global::System.Web.UI.WebControls.RadioButton CheckPreg2Punt2;
 
         /// <summary>
-        /// Control CheckBox5.
+        /// Control CheckPreg2Punt3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox5;
+        protected global::System.Web.UI.WebControls.RadioButton CheckPreg2Punt3;
 
         /// <summary>
-        /// Control CheckBox6.
+        /// Control CheckPreg2Punt4.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox6;
+        protected global::System.Web.UI.WebControls.RadioButton CheckPreg2Punt4;
 
         /// <summary>
-        /// Control CheckBox7.
+        /// Control CheckPreg2Punt5.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox7;
+        protected global::System.Web.UI.WebControls.RadioButton CheckPreg2Punt5;
 
         /// <summary>
-        /// Control CheckBox13.
+        /// Control CheckPreg3Punt1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox13;
+        protected global::System.Web.UI.WebControls.RadioButton CheckPreg3Punt1;
 
         /// <summary>
-        /// Control CheckBox14.
+        /// Control CheckPreg3Punt2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox14;
+        protected global::System.Web.UI.WebControls.RadioButton CheckPreg3Punt2;
 
         /// <summary>
-        /// Control CheckBox15.
+        /// Control CheckPreg3Punt3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox15;
+        protected global::System.Web.UI.WebControls.RadioButton CheckPreg3Punt3;
 
         /// <summary>
-        /// Control CheckBox16.
+        /// Control CheckPreg3Punt4.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox16;
+        protected global::System.Web.UI.WebControls.RadioButton CheckPreg3Punt4;
 
         /// <summary>
-        /// Control CheckBox17.
+        /// Control CheckPreg3Punt5.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox17;
+        protected global::System.Web.UI.WebControls.RadioButton CheckPreg3Punt5;
 
         /// <summary>
-        /// Control CheckBox8.
+        /// Control CheckPreg4Punt1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox8;
+        protected global::System.Web.UI.WebControls.RadioButton CheckPreg4Punt1;
 
         /// <summary>
-        /// Control CheckBox9.
+        /// Control CheckPreg4Punt2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox9;
+        protected global::System.Web.UI.WebControls.RadioButton CheckPreg4Punt2;
 
         /// <summary>
-        /// Control CheckBox10.
+        /// Control CheckPreg4Punt3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox10;
+        protected global::System.Web.UI.WebControls.RadioButton CheckPreg4Punt3;
 
         /// <summary>
-        /// Control CheckBox11.
+        /// Control CheckPreg4Punt4.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox11;
+        protected global::System.Web.UI.WebControls.RadioButton CheckPreg4Punt4;
 
         /// <summary>
-        /// Control CheckBox12.
+        /// Control CheckPreg4Punt5.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox12;
+        protected global::System.Web.UI.WebControls.RadioButton CheckPreg4Punt5;
 
         /// <summary>
         /// Control btnOpinar.

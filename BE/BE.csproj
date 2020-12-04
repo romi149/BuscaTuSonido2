@@ -61,6 +61,7 @@
     <Compile Include="NotaCredito.cs" />
     <Compile Include="NotaPedido.cs" />
     <Compile Include="Oferta.cs" />
+    <Compile Include="Opinion.cs" />
     <Compile Include="OrdenCompra.cs" />
     <Compile Include="OrdenPago.cs" />
     <Compile Include="Permiso.cs" />
