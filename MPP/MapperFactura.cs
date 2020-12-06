@@ -108,5 +108,24 @@ namespace MPP
 
 
         }
+
+        public static int ObtenerNroFactura(int NroPedido)
+        {
+            List<SqlParameter> ListaParametros = new List<SqlParameter>();
+            ListaParametros.Add(StoreProcedureHelper.SetParameter("NroPedido", DbType.Int32, ParameterDirection.Input, NroPedido));
+            var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ObtenerNroFactura", ListaParametros);
+            if (respuesta != null)
+            {
+                var empList = respuesta.Tables[0].AsEnumerable()
+                  .Select(dataRow => new Factura
+                  {
+                      NroFactura = dataRow.Field<Int32>("NroFactura")
+
+                  }).ToList();
+
+                return empList.FirstOrDefault().NroFactura;
+            }
+            return 0;
+        }
     }
 }

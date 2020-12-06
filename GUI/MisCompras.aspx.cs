@@ -70,9 +70,21 @@ namespace GUI
 
             GridViewRow row = (sender as Button).NamingContainer as GridViewRow;
             int NroFactura = int.Parse(row.Cells[0].Text.Trim());
+            var EstadoRemito = "";
+            int NroRemito = GestorRemito.VerificarRemito(NroFactura);
+
+            if (NroRemito != 0)
+            {
+                EstadoRemito = GestorRemito.ObtenerEstado(NroFactura);
+            }
+            else
+            {
+                EstadoRemito = "NoExiste";
+            }
             
-            Response.Redirect($"/SeguimientoCompras.aspx?NroFactura={NroFactura}&Usuario={CLIENTE}");
+            Response.Redirect($"/SeguimientoCompras.aspx?NroFactura={NroFactura}&Usuario={CLIENTE}&EstadoRemito={EstadoRemito}");
 
         }
+       
     }
 }

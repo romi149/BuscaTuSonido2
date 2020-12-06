@@ -77,6 +77,29 @@ namespace MPP
             }
         }
 
+        public static int ObtenerNPSegunFactura(int nroFactura)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroFactura", DbType.Int32, ParameterDirection.Input, nroFactura));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ObtenerNPSegunFactura", ListaParametros);
+                if (respuesta != null)
+                {
+                    {
+                        var empList = respuesta.Tables[0].AsEnumerable().FirstOrDefault().Field<int>("NroPedido");
+
+                        return empList;
+                    }
+                }
+                return 0;
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
+        }
+
         /// <summary>
         /// Retorna todos las Notas de pedido de la Bd
         /// </summary>
@@ -87,6 +110,22 @@ namespace MPP
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
                 var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarNPSinFacturar", ListaParametros);
+
+                return respuesta;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
+
+        public static DataSet ListarNotasPedidoFacturadas()
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarNPFacturadas", ListaParametros);
 
                 return respuesta;
             }
@@ -184,6 +223,35 @@ namespace MPP
             catch (Exception e)
             {
                 return false;
+            }
+        }
+
+        public static List<Producto> ListarProductosxNP(int nroNP)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroNP", DbType.Int32, ParameterDirection.Input, nroNP));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarProductosxNP", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Producto
+                      {
+                          Nombre = dataRow.Field<string>("Nombre")
+                          
+                      }).ToList();
+
+                    return empList;
+                }
+
+
+                return null;
+            }
+            catch (Exception e)
+            {
+
+                return null;
             }
         }
     }

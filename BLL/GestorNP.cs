@@ -22,9 +22,20 @@ namespace BLL
             return MapperNP.ObtenerIdNP(usuario, total);
         }
 
+        public static int ObtenerNPxFC(int nroFactura)
+        {
+            return MapperNP.ObtenerNPSegunFactura(nroFactura);
+        }
+
         public static DataSet ListarNotasPedidoSinFacturar()
         {
             return MapperNP.ListarNotasPedidoSinFacturar();
+
+        }
+
+        public static DataSet ListarNotasPedidoFacturadas()
+        {
+            return MapperNP.ListarNotasPedidoFacturadas();
 
         }
 
@@ -46,6 +57,12 @@ namespace BLL
         public static bool Eliminar(int Nro)
         {
             return MapperNP.EliminarNotaPedido(Nro);
+        }
+
+        public static List<Producto> ListarProdxNP(int nroNP)
+        {
+            return MapperNP.ListarProductosxNP(nroNP);
+
         }
     }
 }

@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
+    <title><%: Page.Title %> - Busca Tu Sonido</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -55,16 +55,18 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/PaginaPrincipal"><span class="glyphicon glyphicon-home"></span></a></li>
                         <li><a runat="server" href="~/About">Acerca de</a></li>
                         <li><a runat="server" href="~/Default">Productos</a></li>
-                        <li><a runat="server" href="~/News">Noticias y Eventos</a></li>
-                        <li><a runat="server" href="~/FAQ">Preguntas Frecuentes</a></li>
+                        <li><a runat="server" href="~/News">Noticias</a></li>
+                        <li><a runat="server" href="~/FAQ">FAQs</a></li>
                         <li><a runat="server" id="LogIn" href="~/Login">Ingresar</a></li>
                         <li><a runat="server" id="MisCompras" href="~/MisCompras">Mis Compras</a></li>
                         <li><a runat="server" href="/MiCuenta" id="IdNombreUsuario"></a></li>
                         <li><a runat="server" href="#" id="Carrito"><strong><span class="glyphicon glyphicon-shopping-cart" id="gb-product-counter"> 0</span></strong></a></li>
                         <li><a runat="server" id="LogOut" onserverclick="LogOut_ServerClick">Salir</a></li>
+                        <%--<li><a runat="server" href="#"><span class="glyphicon glyphicon-search"></span></a></li>--%>
+                        <li><input type="text" id="search" class="form-control" name="search"></li>
+                        <li><button type="submit" id="button" class="btn btn-primary btn-md">Buscar</button></li>
                     </ul>
                 </div>
             </div>

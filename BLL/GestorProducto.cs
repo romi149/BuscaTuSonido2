@@ -158,5 +158,11 @@ namespace BLL
         {
             return MapperProducto.ListarValoracionesProducto(nombre);
         }
+
+        public static bool AgregarValoracion(int puntaje, string comentario, int idUser, string nombreProd,
+                                             string user)
+        {
+            return MapperProducto.InsertarValoracionProducto(puntaje,comentario,idUser,nombreProd,user);
+        }
     }
 }

@@ -256,5 +256,33 @@ namespace MPP
                 return null;
             }
         }
+
+        public static Cliente ObtenerCodCliente(string user)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, user));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ObtenerCodCliente", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Cliente
+                      {
+                          CodCliente = dataRow.Field<Int32>("CodCliente")
+
+                      }).ToList();
+                    return empList.FirstOrDefault();
+                }
+
+
+                return null;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
     }
 }

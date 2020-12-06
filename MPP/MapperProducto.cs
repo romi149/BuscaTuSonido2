@@ -837,5 +837,27 @@ namespace MPP
                 return null;
             }
         }
+
+        public static bool InsertarValoracionProducto(int puntaje, string comentario, int idUser, 
+                                                     string nombreProd, string user)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Valoracion", DbType.Int32, ParameterDirection.Input, puntaje));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Comentario", DbType.String, ParameterDirection.Input, comentario));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdUser", DbType.Int32, ParameterDirection.Input, idUser));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombreProducto", DbType.String, ParameterDirection.Input, nombreProd));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, user));
+                var respuesta = Conexion.GetInstance.EjecutarStore("InsertarValoracionProducto", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
     }
 }

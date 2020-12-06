@@ -10,10 +10,11 @@
                 <div class="centrarFormulario">
                      <h2>Generar Backup</h2>
                 <div class="row">
-                    <div class="col-md-6" >
+                    <div class="col-md-12" >
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Usuario</label>
+                                <h4>Seleccione la ruta donde se guardará el backup</h4>
+                                <br />
                                 <asp:FileUpload ID="FileUpload" runat="server" ToolTip="Browse for files"></asp:FileUpload>
                                 
                                 <br />
@@ -24,10 +25,7 @@
                     </div>
                 </div>
                 <div>
-                   <%--<asp:Button runat="server" content="registrarse" ID="registrarse" CssClass="btn btn-primary btn-lg" Text="Registrarse" OnClick="sendregistrarse_Click" />--%>
-                </div>
-                <div>
-                  <%-- <asp:Button runat="server" content="registrarse" ID="cancelar" CssClass="btn btn-warning btn-lg" Text="Cancelar" OnClick="sendcancelar_Click" />--%>
+                   <asp:Button runat="server" content="backup" ID="generar" CssClass="btn btn-primary btn-md" Text="Generar" OnClick="generar_Click" />
                 </div>
               </div>
             </div>

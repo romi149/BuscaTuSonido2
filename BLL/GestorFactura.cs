@@ -31,5 +31,10 @@ namespace BLL
         {
             return MapperFactura.ListarFacturasEmitidas();
         }
+
+        public static int ObtenerFactura(int nroPedido)
+        {
+            return MapperFactura.ObtenerNroFactura(nroPedido);
+        }
     }
 }

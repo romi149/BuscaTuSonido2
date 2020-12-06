@@ -1,10 +1,16 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SeguimientoCompras.aspx.cs" Inherits="GUI.SeguimientoCompras" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SeguimientoCompras.aspx.cs" Inherits="GUI.SeguimientoCompras" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="Remitos">
         <h3>Seguimiento de Producto</h3>
         <br />
         
+        <asp:Button runat="server" content="remitos" ID="btnVolver" CssClass="btn btn-warning btn-md" Text="Volver" 
+               OnClick="btnVolver_Click" />
+        <asp:Button ID="btnOpinion" Text="Valorar producto" runat="server" CssClass="btn btn-primary"
+                                OnClick="btnOpinion_Click" Visible="false" />
+        <br />
+        <br />
         <asp:GridView ID="gvRemitos" runat="server" AutoGenerateColumns="false" class="table table-striped"
             ClientIDMode="Static">
             <Columns>

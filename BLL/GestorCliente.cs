@@ -53,5 +53,10 @@ namespace BLL
         {
             return MapperCliente.ObtenerEmailCliente(user);
         }
+
+        public static Cliente ObtenerCodCliente(string user)
+        {
+            return MapperCliente.ObtenerCodCliente(user);
+        }
     }
 }

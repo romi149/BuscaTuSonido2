@@ -11,25 +11,16 @@ namespace GUI
 {
 
 
-    public partial class Backup
+    public partial class Envios
     {
 
         /// <summary>
-        /// Control FileUpload.
+        /// Control gvRemitos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload;
-
-        /// <summary>
-        /// Control generar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button generar;
+        protected global::System.Web.UI.WebControls.GridView gvRemitos;
     }
 }

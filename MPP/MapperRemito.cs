@@ -44,6 +44,23 @@ namespace MPP
 
         }
 
+        public static DataSet ListarEnviosPendientes()
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarEnviosPendientes", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
+
         public static DataSet ListarRemitosPorCliente(int nroFactura, string usuario)
         {
             try
@@ -68,18 +85,14 @@ namespace MPP
         /// </summary>
         /// <param name="remito">Tipo Remito</param>
         /// <returns>Devuelve si se inserto o no</returns>
-        public static bool InsertarRemito(DateTime fecha, int nroNp, int nroFactura, string descrip, string notas,
-                                          string estado)
+        public static bool InsertarRemito(int nroNp, int nroFactura, string estado)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Fecha", DbType.DateTime, ParameterDirection.Input, fecha));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("NroPedido", DbType.Int16, ParameterDirection.Input, nroNp));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("NroFactura", DbType.Int32, ParameterDirection.Input, nroFactura));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.Int32, ParameterDirection.Input, descrip));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Notas", DbType.Int32, ParameterDirection.Input, notas));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Estado", DbType.Int32, ParameterDirection.Input, estado));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Estado", DbType.String, ParameterDirection.Input, estado));
                 var respuesta = Conexion.GetInstance.EjecutarStore("InsertarRemito", ListaParametros);
 
                 return respuesta;
@@ -114,6 +127,68 @@ namespace MPP
             }
         }
 
-        
+        public static bool ModificarRemito(int nroRemito, string descripcion, string notas, string estado)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroRemito", DbType.Int16, ParameterDirection.Input, nroRemito));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, descripcion));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Notas", DbType.String, ParameterDirection.Input, notas));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Estado", DbType.String, ParameterDirection.Input, estado));
+                var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarRemito", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public static string ObtenerEstadoRemito(int nroFactura)
+        {
+            List<SqlParameter> ListaParametros = new List<SqlParameter>();
+            ListaParametros.Add(StoreProcedureHelper.SetParameter("NroFactura", DbType.Int32, ParameterDirection.Input, nroFactura));
+            var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ObtenerEstadoRemito", ListaParametros);
+            if (respuesta != null)
+            {
+                var empList = respuesta.Tables[0].AsEnumerable()
+                  .Select(dataRow => new Remito
+                  {
+                      Estado = dataRow.Field<string>("Estado")
+                      
+                  }).ToList();
+
+                return empList.FirstOrDefault().Estado;
+            }
+            return null;
+        }
+
+        public static int VerificarRemito(int nroFactura)
+        {
+            List<SqlParameter> ListaParametros = new List<SqlParameter>();
+            ListaParametros.Add(StoreProcedureHelper.SetParameter("NroFactura", DbType.Int32, ParameterDirection.Input, nroFactura));
+            var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("VerificarRemito", ListaParametros);
+            if (respuesta != null)
+            {
+                var empList = respuesta.Tables[0].AsEnumerable()
+                  .Select(dataRow => new Remito
+                  {
+                      NroRemito = dataRow.Field<Int32>("NroRemito")
+
+                  }).ToList();
+
+                if(empList.FirstOrDefault() == null)
+                {
+                    return 0;
+                }
+
+                return empList.FirstOrDefault().NroRemito;
+            }
+            return 0;
+        }
+
     }
 }

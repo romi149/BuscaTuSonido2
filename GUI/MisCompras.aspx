@@ -36,9 +36,8 @@
                 <asp:TemplateField HeaderText="Accion">
                     <ItemTemplate>
                         <div class="BtnGrid">
-                            <asp:Button ID="btnTracking" Text="Seguir Envío" runat="server" OnClick="btnTracking_Click" CssClass="btn btn-primary" />
-                            <%--<asp:Button ID="btnDelete" Text="Eliminar" runat="server" CssClass="btn btn-danger"
-                                OnClick="btnDelete_Click" OnClientClick="return confirm('¿Esta seguro que desea eliminar el registro?')" />--%>
+                            <asp:Button ID="btnTracking" Text="Seguir Envío" runat="server" OnClick="btnTracking_Click" 
+                                CssClass="btn btn-primary" />
                         </div>
                     </ItemTemplate>
                 </asp:TemplateField>

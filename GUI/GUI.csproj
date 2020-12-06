@@ -135,7 +135,9 @@
     <Content Include="EditarMenu.aspx" />
     <Content Include="EditarProveedor.aspx" />
     <Content Include="EditarProducto.aspx" />
+    <Content Include="EditarRemito.aspx" />
     <Content Include="EditarUsuario.aspx" />
+    <Content Include="Envios.aspx" />
     <Content Include="FacturasEmitidas.aspx" />
     <Content Include="FAQ.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -257,6 +259,7 @@
     <Content Include="MisCompras.aspx" />
     <Content Include="News.aspx" />
     <Content Include="NotasPedidoAFacturar.aspx" />
+    <Content Include="NotasPedidoFacturadas.aspx" />
     <Content Include="PaginaPrincipal.aspx" />
     <Content Include="RecuperoPass.aspx" />
     <Content Include="Registrarse.aspx" />
@@ -294,6 +297,7 @@
     <Content Include="SeguimientoCompras.aspx" />
     <Content Include="Site.Master" />
     <Content Include="TermyCond.aspx" />
+    <Content Include="ValoracionProducto.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -449,12 +453,26 @@
     <Compile Include="EditarProducto.aspx.designer.cs">
       <DependentUpon>EditarProducto.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EditarRemito.aspx.cs">
+      <DependentUpon>EditarRemito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditarRemito.aspx.designer.cs">
+      <DependentUpon>EditarRemito.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EditarUsuario.aspx.cs">
       <DependentUpon>EditarUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="EditarUsuario.aspx.designer.cs">
       <DependentUpon>EditarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Envios.aspx.cs">
+      <DependentUpon>Envios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Envios.aspx.designer.cs">
+      <DependentUpon>Envios.aspx</DependentUpon>
     </Compile>
     <Compile Include="FacturasEmitidas.aspx.cs">
       <DependentUpon>FacturasEmitidas.aspx</DependentUpon>
@@ -543,6 +561,13 @@
     <Compile Include="NotasPedidoAFacturar.aspx.designer.cs">
       <DependentUpon>NotasPedidoAFacturar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="NotasPedidoFacturadas.aspx.cs">
+      <DependentUpon>NotasPedidoFacturadas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NotasPedidoFacturadas.aspx.designer.cs">
+      <DependentUpon>NotasPedidoFacturadas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PaginaPrincipal.aspx.cs">
       <DependentUpon>PaginaPrincipal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -613,6 +638,13 @@
     </Compile>
     <Compile Include="TermyCond.aspx.designer.cs">
       <DependentUpon>TermyCond.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ValoracionProducto.aspx.cs">
+      <DependentUpon>ValoracionProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ValoracionProducto.aspx.designer.cs">
+      <DependentUpon>ValoracionProducto.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
