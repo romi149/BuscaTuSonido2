@@ -307,7 +307,7 @@ namespace MPP
                       }).ToList();
                     DateTime fechaF = empList.FirstOrDefault().Fecha;
                     DateTime FechAc = DateTime.Now;
-                    double minutosTrascurridos = (FechAc - fechaF).TotalMinutes;
+                    double minutosTrascurridos = (fechaF - FechAc).TotalMinutes;
 
                     if (empList.FirstOrDefault() != null && empList.FirstOrDefault().Hash == hashRecibido && minutosTrascurridos <= 30)
                     {

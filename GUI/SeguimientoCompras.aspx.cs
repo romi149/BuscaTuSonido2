@@ -19,21 +19,30 @@ namespace GUI
             var listaDatos = CargarDatos();
             this.gvRemitos.DataSource = listaDatos;
             this.gvRemitos.DataBind();
+            
+        }
 
-            string EstadoRemito = Request.QueryString["EstadoRemito"].ToString();
+        protected override void OnInit(EventArgs e)
+        {
+            gvRemitos.RowDataBound += new GridViewRowEventHandler(gvRemitos_RowDataBound);
+            base.OnInit(e);
+        }
+        void gvRemitos_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType != DataControlRowType.DataRow) return;
 
-            if(EstadoRemito == "Entregado")
+            if (e.Row.Cells[6].Text == "Entregado")
             {
+                Button btnOpinion = (Button)e.Row.FindControl("btnOpinion");
                 btnOpinion.Visible = true;
             }
+
         }
 
         public DataSet CargarDatos()
         {
             int NroFactura = int.Parse(Request.QueryString["NroFactura"].ToString());
             string Usuario = Request.QueryString["Usuario"].ToString();
-
-            
 
             return GestorRemito.ListarRemitosPorCliente(NroFactura, Usuario);
         }
@@ -56,6 +65,7 @@ namespace GUI
             Response.Redirect($"/ValoracionProducto.aspx?NroNP={NroNP}");
 
         }
+       
 
     }
 }

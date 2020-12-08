@@ -65,7 +65,7 @@ namespace GUI
 
         protected void sendcancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/SeguimientoCompras.aspx");
+            Response.Redirect("/MisCompras.aspx");
         }
     }
 }

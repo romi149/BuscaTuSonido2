@@ -78,5 +78,6 @@ namespace BLL
             return MapperUsuario.ConfirmacionCambioPass(user, hashRecibido, pass);
 
         }
+        
     }
 }

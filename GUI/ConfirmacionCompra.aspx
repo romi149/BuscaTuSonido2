@@ -117,7 +117,6 @@
         <div class="button">
             <asp:Button runat="server" ID="btnOpinar" CssClass="btn btn-info" Text="Enviar Opinión" Width="90%" OnClick="btnOpinar_Click" />
         </div>
-    
 
 <style>
     .body-content{

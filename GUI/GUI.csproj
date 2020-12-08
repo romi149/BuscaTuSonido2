@@ -296,6 +296,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="SeguimientoCompras.aspx" />
     <Content Include="Site.Master" />
+    <Content Include="TemplateEmail.aspx" />
     <Content Include="TermyCond.aspx" />
     <Content Include="ValoracionProducto.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -632,6 +633,13 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="TemplateEmail.aspx.cs">
+      <DependentUpon>TemplateEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TemplateEmail.aspx.designer.cs">
+      <DependentUpon>TemplateEmail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TermyCond.aspx.cs">
       <DependentUpon>TermyCond.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -656,6 +664,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="backup\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

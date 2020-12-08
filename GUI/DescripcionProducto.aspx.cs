@@ -132,7 +132,7 @@ namespace GUI
         {
             string Total = Request.QueryString["Precio"]?.ToString();
            
-            Response.Redirect($"/FormularioDeCompra.aspx?Precio={Total}");
+            Response.Redirect($"/FormularioCompra.aspx?Precio={Total}");
 
         }
     }

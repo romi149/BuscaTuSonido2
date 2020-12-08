@@ -14,11 +14,17 @@ namespace GUI
 
         }
 
-        protected void UploadButton_Click(object sender, EventArgs e)
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
-            
-            //FileUpload.SaveAs(Server.MapPath(".") + "/Imagenes/Catalogo/Cuerdas");
-            
+            //btnFileUpload.SaveAs(Server.MapPath(".") + "/backup");
+
+        }
+
+        protected void restore_Click(object sender, EventArgs e)
+        {
+
+            //btnFileUpload.SaveAs(Server.MapPath(".") + "/backup");
+
 
         }
     }

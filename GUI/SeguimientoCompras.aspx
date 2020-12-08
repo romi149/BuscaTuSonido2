@@ -7,12 +7,12 @@
         
         <asp:Button runat="server" content="remitos" ID="btnVolver" CssClass="btn btn-warning btn-md" Text="Volver" 
                OnClick="btnVolver_Click" />
-        <asp:Button ID="btnOpinion" Text="Valorar producto" runat="server" CssClass="btn btn-primary"
-                                OnClick="btnOpinion_Click" Visible="false" />
+        <%--<asp:Button ID="btnOpinion" Text="Valorar producto" runat="server" CssClass="btn btn-primary"
+                                OnClick="btnOpinion_Click" Visible="false" />--%>
         <br />
         <br />
-        <asp:GridView ID="gvRemitos" runat="server" AutoGenerateColumns="false" class="table table-striped"
-            ClientIDMode="Static">
+        <asp:GridView ID="gvRemitos" runat="server" AutoGenerateColumns="false" class="table table-striped" 
+                ClientIDMode="Static">
             <Columns>
                 <asp:BoundField DataField="NroRemito" HeaderText="Nro. Remito" />
                 <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
@@ -21,6 +21,16 @@
                 <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
                 <asp:BoundField DataField="Notas" HeaderText="Notas" />
                 <asp:BoundField DataField="Estado" HeaderText="Estado" />
+                 <asp:TemplateField HeaderText="Accion">
+                    <ItemTemplate>
+                        <div class="BtnGrid">
+                            <asp:Button ID="btnOpinion" Text="Valorar producto" runat="server" 
+                                OnClick="btnOpinion_Click" 
+                                CssClass="btn btn-primary" 
+                                Visible="false" />
+                        </div>
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
         </asp:GridView>
     </div>

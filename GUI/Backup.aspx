@@ -15,8 +15,9 @@
                             <div class="form-group">
                                 <h4>Seleccione la ruta donde se guardará el backup</h4>
                                 <br />
-                                <asp:FileUpload ID="FileUpload" runat="server" ToolTip="Browse for files"></asp:FileUpload>
-                                
+                                <%--<asp:FileUpload ID="FileUpload" runat="server" ToolTip="Browse for files"></asp:FileUpload>--%>
+                                <input type="file" id="fileLoader" name="files" title="Load File" />
+                                <input type="button" id="btnOpenFileDialog" value ="Buscar" onclick="openfileDialog();" />
                                 <br />
                                 <%--<asp:Button ID="UploadButton" Text="Subir Imagen" CssClass="btn btn-primary btn-md" 
                                     OnClick="UploadButton_Click" runat="server"></asp:Button>--%>
@@ -31,6 +32,13 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function openfileDialog() {
+            $("#fileLoader").click();
+        }
+    </script>
+
     <style>
         .ContenedorBackup{
             width:80%;

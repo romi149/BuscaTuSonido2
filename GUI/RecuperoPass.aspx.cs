@@ -25,11 +25,13 @@ namespace GUI
                 var password = EnvioEmails.md5(pass1);
                 var usuario = Request.QueryString["clave"];
                 var hash = Request.QueryString["hash"];
+                var email = GestorCliente.ObtenerEmailCliente(usuario);
 
                 bool Modificado = GestorUsuario.ConfirmacionCambioPassword(usuario, hash, password);
 
                 if(Modificado)
                 {
+                    EnvioEmails.EnviarMailConfirmacionCambioPass(email.Email,"");
                     Response.Write("<script>alert('Los cambios se guardaron correctamente')</script>");
                 }
                 
