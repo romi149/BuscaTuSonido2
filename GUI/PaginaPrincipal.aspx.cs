@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Services;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -11,6 +13,8 @@ namespace GUI
 {
     public partial class PaginaPrincipal : System.Web.UI.Page
     {
+		private const string mensaje = "{menssage:Usted ha enviado} ";
+		
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -188,6 +192,63 @@ namespace GUI
 
         }
 
+		
+		[WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public static EncuestaDelDia CargarEncuestaDeDia()
+        {
+            //cargar Encuesta del dia
+            var Encuestas = GestorOpinion.ListarEncuestas();
+            var respuesta1 = Encuestas[0].Opcion1;
+            var respuesta2 = Encuestas[0].Opcion2;
 
+            EncuestaDelDia encuesta = new EncuestaDelDia
+            {
+                titulo = Encuestas[0].NombrePregunta,
+                
+                Respuesta = new List<Respuestas>
+                {
+                    new Respuestas{imagen="Violin.jpg",Texto="Violines"},
+                    new Respuestas{imagen="Guitarra1.png",Texto="Guitarras"},
+                }
+            };
+
+
+            return encuesta;
+        }
+
+
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+
+        public static ValoresPorcentuales Votar(string Voto)
+        {
+            //realizar un store que devuelva ambos valores
+            return new ValoresPorcentuales { Valor1 = 80, Valor2 = 20 };
+        }
+
+    }
+	
+	
+	
+	public class EncuestaDelDia
+    {
+        public string titulo { get; set; }
+        public List<Respuestas> Respuesta { get; set; }
+    }
+
+
+
+    public class Respuestas
+    {
+        public string Texto { get; set; }
+        public string imagen { get; set; }
+    }
+
+    public class ValoresPorcentuales
+    {
+        public int  Valor1{ get; set; }
+        public int  Valor2{ get; set; }
     }
 }

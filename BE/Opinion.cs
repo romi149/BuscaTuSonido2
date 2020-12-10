@@ -15,6 +15,8 @@ namespace BE
         public string Tipo { get; set; }
         public string FechaInicio { get; set; }
         public string FechaFin { get; set; }
+        public string Opcion1 { get; set; }
+        public string Opcion2 { get; set; }
 
     }
 }

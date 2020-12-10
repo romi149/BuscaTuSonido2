@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Advertisements>
+	<Ad>
+		<ImageUrl>http://www.uai.edu.ar/images/uai-logo.gif</ImageUrl>
+		<NavigateUrl>http://uai.edu.ar/</NavigateUrl>
+		<AlternateText>No se encontró la imagen</AlternateText>
+		<Keyword>Computers</Keyword>
+	</Ad>
+	<Ad>
+		<ImageUrl>http://www.uaisoft.uai.edu.ar/imagen/Cabeza1.JPG</ImageUrl>
+		<NavigateUrl>http://uai.edu.ar/C/</NavigateUrl>
+		<AlternateText>No se encontró la imagen</AlternateText>
+		<Keyword>Computers</Keyword>
+		<Impressions>80</Impressions>
+	</Ad>
+	<Ad>
+		<ImageUrl>http://www.vaneduc.edu.ar/assets/img/uai.png</ImageUrl>
+		<NavigateUrl>http://www.uai.edu.ar/</NavigateUrl>
+		<AlternateText>No se encontró la imagen</AlternateText>
+		<Keyword>Computers</Keyword>
+		<Impressions>80</Impressions>
+	</Ad>
+</Advertisements>

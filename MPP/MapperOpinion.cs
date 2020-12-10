@@ -1,4 +1,5 @@
-﻿using DAL;
+﻿using BE;
+using DAL;
 using MPP.Helpers;
 using System;
 using System.Collections.Generic;
@@ -31,5 +32,40 @@ namespace MPP
                 return false;
             }
         }
+
+        public static List<Opinion> ListarEncuestasSemana()
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarEncuestasDelaSemana", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Opinion
+                      {
+                          Id = dataRow.Field<Int32>("Id"),
+                          NombrePregunta = dataRow.Field<string>("NombrePregunta"),
+                          Tipo = dataRow.Field<string>("Tipo"),
+                          FechaInicio = dataRow.Field<string>("FechaInicio"),
+                          FechaFin = dataRow.Field<string>("FechaFin"),
+                          Opcion1 = dataRow.Field<string>("Opinion1"),
+                          Opcion2 = dataRow.Field<string>("Opinion2")
+
+                      }).ToList();
+
+                    return empList;
+                }
+
+
+                return null;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
+
     }
 }

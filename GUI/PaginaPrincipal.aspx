@@ -104,6 +104,17 @@
 
         </div>
     </section>
+	
+	 <section>
+            <div class="container" id="EncuestaSemana">
+            </div>
+     </section>
+    
+    <section>
+        <div>
+            <asp:AdRotator AdvertisementFile="~/Ads.xml" BorderColor="Black" BorderWith="1" runat="server" />
+        </div>
+    </section>
 
     <footer>
         <hr />

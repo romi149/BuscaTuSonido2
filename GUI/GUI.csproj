@@ -112,6 +112,8 @@
     <Content Include="ABMC-Roles.aspx" />
     <Content Include="ABMC-Usuarios.aspx" />
     <Content Include="About.aspx" />
+    <Content Include="AdrotatorPage.aspx" />
+    <Content Include="Ads.xml" />
     <Content Include="AnularFC.aspx" />
     <Content Include="Backup.aspx" />
     <Content Include="Carrito.aspx" />
@@ -346,6 +348,13 @@
     </Compile>
     <Compile Include="ABMC-Usuarios.aspx.designer.cs">
       <DependentUpon>ABMC-Usuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdrotatorPage.aspx.cs">
+      <DependentUpon>AdrotatorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdrotatorPage.aspx.designer.cs">
+      <DependentUpon>AdrotatorPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="AnularFC.aspx.cs">
       <DependentUpon>AnularFC.aspx</DependentUpon>

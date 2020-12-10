@@ -1,4 +1,5 @@
-﻿using MPP;
+﻿using BE;
+using MPP;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,5 +19,11 @@ namespace BLL
         //{
         //    return MapperUsuario.ActualizarUsuario();
         //}
+
+        public static List<Opinion> ListarEncuestas()
+        {
+            return MapperOpinion.ListarEncuestasSemana();
+
+        }
     }
 }

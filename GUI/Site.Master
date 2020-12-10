@@ -4,7 +4,7 @@
 
 <html lang="es">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - Busca Tu Sonido</title>
@@ -13,7 +13,7 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="Content/Site.css" rel="stylesheet" type="text/css" />
     
@@ -77,6 +77,8 @@
             </asp:ContentPlaceHolder>        
         </div>
         </main>
+   </form>
+   
    
          <hr />
         <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -89,7 +91,7 @@
                  </script>
         </div>
 
-    </form>
+    
     <style>
         main{
             padding:1%;
@@ -116,8 +118,96 @@
                 let Productos = ContarItems(localStorage.getItem('Carrito'))
                 document.getElementById('gb-product-counter').innerText = Productos.length
             }
+               cargarPreguntasSeguridad()
+               Calcular()
+        }
 
-            Calcular()
+        let Votar = (e) => {
+            PeticionesAlServer('PaginaPrincipal.aspx/Votar', 'POST', {
+                'Content-Type': 'application/json; charset=utf-8'
+            }, { Voto: e }, ConstruirProgressVar)
+        }
+
+        let PeticionesAlServer = async (url, method, headers, data, callback) => {
+
+            await fetch(url, { method: method, headers: headers, body: JSON.stringify(data) })
+                .then(res => res)
+                .catch(error => callback(error, null))
+                .then(async (response) => {
+                    let respuesta = await response?.json();
+                    callback(null, respuesta);
+                })
+        }
+
+        let pintarEnPantalla = (err, respuesta) => {
+
+            if (!err) {
+                console.log(respuesta)
+            } else {
+                console.log(err)
+            }
+
+        }
+
+
+        let ConstruirProgressVar = (err, respuesta) => {
+
+            if (err != null) {
+
+            } else {
+                console.log(respuesta)
+
+                let Container = document.getElementById('EncuestaSemana')
+
+                Container.innerHTML = `
+                    <div class="progress" >
+                        <div class="progress-bar" role="progressbar" style="width: ${respuesta.d.Valor1}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${respuesta.d.Valor1}%</div>
+                    </div >
+                   <div class="progress" >
+                        <div class="progress-bar" role="progressbar" style="width: ${respuesta.d.Valor2}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${respuesta.d.Valor2}%</div>
+                    </div >`
+            }
+
+
+        }
+
+
+        let construirEncuesta = (err, respuesta) => {
+
+            if (err != null) {
+                console.log('Ocurrio un Error', err)
+            } else {
+
+                let Container = document.getElementById('EncuestaSemana')
+                console.log('RESPUESTA SERVER', respuesta)
+                if (Container == null) return;
+                Container.innerHTML = `     <h2 class="titulo" style="margin-bottom:0"> Encuesta de la semana</h2 >
+                                                <h3 style="text-align:center">${respuesta.d.titulo}</h3>
+                                                <div class="galeria-port">
+                                                     <div class="imagen-port">
+                                                         <img src="./img/${respuesta.d.Respuesta[0].imagen}" alt="">
+                                                            <div class="hover-galeria">
+                                                                 <img src="./img/apuntar.svg" alt="">
+                                                                 <p class="btn btn-primary " onclick="Votar('${respuesta.d.Respuesta[0].Texto}')">Votar por ${respuesta.d.Respuesta[0].Texto}</p>
+                                                            </div>
+                                                     </div>
+                                                     <div class="imagen-port">
+                                                         <img src="./img/${respuesta.d.Respuesta[1].imagen}" alt="">
+                                                            <div class="hover-galeria">
+                                                                 <img src="./img/apuntar.svg" alt="">
+                                                                 <p class="btn btn-primary " onclick="Votar('${respuesta.d.Respuesta[1].Texto}')">Votar por ${respuesta.d.Respuesta[1].Texto}</p>
+                                                            </div>
+                                                     </div>
+                                                 </div>`;
+            }
+
+        }
+
+
+        let cargarPreguntasSeguridad = () => {
+            PeticionesAlServer('PaginaPrincipal.aspx/CargarEncuestaDeDia', 'POST', {
+                'Content-Type': 'application/json; charset=utf-8'
+            }, {}, construirEncuesta)
         }
 
         let Calcular = () => {
