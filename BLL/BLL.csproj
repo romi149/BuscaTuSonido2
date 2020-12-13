@@ -59,6 +59,7 @@
     <Compile Include="GestorPrecio.cs" />
     <Compile Include="GestorProducto.cs" />
     <Compile Include="GestorProveedor.cs" />
+    <Compile Include="GestorPublicidad.cs" />
     <Compile Include="GestorRemito.cs" />
     <Compile Include="GestorRol.cs" />
     <Compile Include="GestorSuscripcion.cs" />

@@ -41,8 +41,6 @@ namespace GUI
                 }
             }
 
-
-
             if (CheckOfertas.Checked)
             {
                 if (CheckEventos.Checked)
@@ -173,25 +171,6 @@ namespace GUI
             }
 
         }
-
-        public void CheckOfertas_Clicked(object sender, EventArgs e)
-        {
-            
-
-        }
-
-        protected void CheckEventos_Clicked(object sender, EventArgs e)
-        {
-
-
-        }
-
-        protected void CheckNoticias_Clicked(object sender, EventArgs e)
-        {
-
-
-        }
-
 		
 		[WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
@@ -201,15 +180,17 @@ namespace GUI
             var Encuestas = GestorOpinion.ListarEncuestas();
             var respuesta1 = Encuestas[0].Opcion1;
             var respuesta2 = Encuestas[0].Opcion2;
-
+            var imagen1 = Encuestas[0].UrlOpcion1;
+            var imagen2 = Encuestas[0].UrlOpcion2;
+            
             EncuestaDelDia encuesta = new EncuestaDelDia
             {
                 titulo = Encuestas[0].NombrePregunta,
                 
                 Respuesta = new List<Respuestas>
                 {
-                    new Respuestas{imagen="Violin.jpg",Texto="Violines"},
-                    new Respuestas{imagen="Guitarra1.png",Texto="Guitarras"},
+                    new Respuestas{imagen=imagen1,Texto=respuesta1},
+                    new Respuestas{imagen=imagen2,Texto=respuesta2},
                 }
             };
 
@@ -224,15 +205,68 @@ namespace GUI
 
         public static ValoresPorcentuales Votar(string Voto)
         {
+            var Encuestas = GestorOpinion.ListarEncuestas();
+            var IdEncuesta = Encuestas[0].Id;
+            var Punt1 = GestorOpinion.ObtenerPuntaje1(IdEncuesta);
+            var Punt2 = GestorOpinion.ObtenerPuntaje2(IdEncuesta);
+
             //realizar un store que devuelva ambos valores
-            return new ValoresPorcentuales { Valor1 = 80, Valor2 = 20 };
+            return new ValoresPorcentuales { Valor1 = Punt1, Valor2 = Punt2 };
         }
 
+        public void CheckOfertas_Clicked(object sender, EventArgs e)
+        {
+
+        }
+        protected void CheckEventos_Clicked(object sender, EventArgs e)
+        {
+
+        }
+        protected void CheckNoticias_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        //protected void pub_Load(object sender, EventArgs e)
+        //{
+        //    var listaPublicidad = GestorPublicidad.ListarActuales();
+        //    var imagPub1 = listaPublicidad[0].ImageUrl;
+        //    var navPub1 = listaPublicidad[0].NavigateUrl;
+        //    var imagPub2 = listaPublicidad[1].ImageUrl;
+        //    var navPub2 = listaPublicidad[1].NavigateUrl;
+        //    var imagPub3 = listaPublicidad[2].ImageUrl;
+        //    var navPub3 = listaPublicidad[2].NavigateUrl;
+
+        //    //var publicidad = "
+        //    //    <?xml version=\"1.0\" encoding="\utf-8\" ?>
+        //    //    <Advertisements>
+	       //    //     <Ad>
+		      //    //      <ImageUrl>http://www.uai.edu.ar/images/uai-logo.gif</ImageUrl>
+		      //    //      <NavigateUrl>http://uai.edu.ar/</NavigateUrl>
+		      //    //      <AlternateText>No se encontró la imagen</AlternateText>
+		      //    //      <Keyword>Computers</Keyword>
+	       //    //     </Ad>
+	       //    //     <Ad>
+		      //    //      <ImageUrl>http://www.uaisoft.uai.edu.ar/imagen/Cabeza1.JPG</ImageUrl>
+		      //    //      <NavigateUrl>http://uai.edu.ar/C/</NavigateUrl>
+		      //    //      <AlternateText>No se encontró la imagen</AlternateText>
+		      //    //      <Keyword>Computers</Keyword>
+		      //    //      <Impressions>80</Impressions>
+	       //    //     </Ad>
+	       //    //     <Ad>
+		      //    //      <ImageUrl>http://www.vaneduc.edu.ar/assets/img/uai.png</ImageUrl>
+		      //    //      <NavigateUrl>http://www.uai.edu.ar/</NavigateUrl>
+		      //    //      <AlternateText>No se encontró la imagen</AlternateText>
+		      //    //      <Keyword>Computers</Keyword>
+		      //    //      <Impressions>80</Impressions>
+	       //    //     </Ad>
+        //    //        </Advertisements>";
+        //}
     }
-	
-	
-	
-	public class EncuestaDelDia
+
+
+
+    public class EncuestaDelDia
     {
         public string titulo { get; set; }
         public List<Respuestas> Respuesta { get; set; }

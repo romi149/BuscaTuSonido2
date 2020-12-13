@@ -1,3 +1,5 @@
+C:\Users\romina\source\repos\BuscaTuSonido\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
+C:\Users\romina\source\repos\BuscaTuSonido\GUI\obj\Debug\GUI.csprojAssemblyReference.cache
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\GUI.dll.config
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\GUI.dll
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\GUI.pdb
@@ -63,12 +65,14 @@ C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\Microsoft.ScriptManager.WebFo
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\MPP.dll
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\Newtonsoft.Json.dll
+C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\Select.HtmlToPdf.dll
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\System.Web.Optimization.dll
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\WebGrease.dll
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\DAL.dll
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\BE.pdb
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\BLL.pdb
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\MPP.pdb
+C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\Select.HtmlToPdf.xml
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\System.Web.Optimization.xml
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\Newtonsoft.Json.xml
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\Antlr3.Runtime.pdb
@@ -77,8 +81,7 @@ C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\Microsoft.CodeDom.Providers.D
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\DAL.pdb
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\es\System.Web.Optimization.resources.dll
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\es\Microsoft.AspNet.FriendlyUrls.resources.dll
-C:\Users\romina\source\repos\BuscaTuSonido\GUI\obj\Debug\GUI.csprojAssemblyReference.cache
-C:\Users\romina\source\repos\BuscaTuSonido\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
+C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\Select.Html.dep
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\obj\Debug\GUI.csproj.CopyComplete
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\obj\Debug\GUI.dll
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\obj\Debug\GUI.pdb

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Advertisements>
+	<!-- <Ad>
+		<ImageUrl>http://www.theroxybar.com.ar/img/logo.png</ImageUrl>
+    <NavigateUrl>http://www.theroxybar.com.ar</NavigateUrl>
+		<AlternateText>No se encontró la imagen</AlternateText>
+		<Keyword>Musica</Keyword>
+	</Ad>
+	<Ad>
+		<ImageUrl>https://teatroflores.com/img/logo.png</ImageUrl>
+    <NavigateUrl>http://teatroflores.com</NavigateUrl>
+		<AlternateText>No se encontró la imagen</AlternateText>
+		<Keyword>Musica</Keyword>
+		<Impressions>80</Impressions>
+	</Ad> -->
+	<Ad>
+		<ImageUrl>http://www.latrastienda.com/wp-content/uploads/2020/06/logo_LTC5.png</ImageUrl>
+    <NavigateUrl>http://latrastienda.com/</NavigateUrl>
+		<AlternateText>No se encontró la imagen</AlternateText>
+		<Keyword>Musica</Keyword>
+		<Impressions>80</Impressions>
+	</Ad>
+</Advertisements>

@@ -59,6 +59,7 @@
     <Compile Include="MapperPrecio.cs" />
     <Compile Include="MapperProducto.cs" />
     <Compile Include="MapperProveedor.cs" />
+    <Compile Include="MapperPublicidad.cs" />
     <Compile Include="MapperRemito.cs" />
     <Compile Include="MapperRol.cs" />
     <Compile Include="MapperSuscripcion.cs" />
@@ -77,6 +78,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\MPP.dll" />
+    <Content Include="bin\Debug\MPP.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

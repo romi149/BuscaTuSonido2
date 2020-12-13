@@ -2,6 +2,7 @@
 using MPP;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,11 @@ namespace BLL
         {
             return MapperPermiso.ListarPermisos();
 
+        }
+
+        public static DataSet Listar()
+        {
+            return MapperPermiso.ListarPermisosDS();
         }
 
         public static bool Agregar(string nombre, string descrip, string tipoPermiso)

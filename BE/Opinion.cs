@@ -17,6 +17,8 @@ namespace BE
         public string FechaFin { get; set; }
         public string Opcion1 { get; set; }
         public string Opcion2 { get; set; }
+        public string UrlOpcion1 { get; set; }
+        public string UrlOpcion2 { get; set; }
 
     }
 }

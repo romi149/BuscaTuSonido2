@@ -118,5 +118,21 @@ namespace MPP
                 return false;
             }
         }
+
+        public static DataSet ListarPermisosDS()
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarPermisos", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
     }
 }

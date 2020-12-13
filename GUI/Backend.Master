@@ -57,7 +57,9 @@
                               Configuración
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="#">Roles</a>
+                              <a class="dropdown-item" href="/ABMC-Rol">Roles</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="/ABMC-Permiso">Permisos</a>
                               <div class="dropdown-divider"></div>
                               <a class="dropdown-item" href="/ABMC-Usuarios">Usuarios</a>
                               <div class="dropdown-divider"></div>
@@ -113,13 +115,13 @@
                               Marketing
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <%--<a class="dropdown-item" href="#">Catálogo de Venta</a>
+                              <a class="dropdown-item" href="/ABMC-Encuestas">Encuestas</a>
                               <div class="dropdown-divider"></div>
                               <a class="dropdown-item" href="#">Catálogo de Alquiler</a>
-                              <div class="dropdown-divider"></div>--%>
-                              <a class="dropdown-item" href="#">Ofertas</a>
                               <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="#">Newsletter</a>
+                              <a class="dropdown-item" href="/ABMC-Publicidad">Publicidad</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="/ABMC-Newsletter">Newsletter</a>
                             </div>
                           </li>
                         <li class="nav-item dropdown">

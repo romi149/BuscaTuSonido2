@@ -109,10 +109,13 @@
             <div class="container" id="EncuestaSemana">
             </div>
      </section>
-    
+    <br />
     <section>
         <div>
-            <asp:AdRotator AdvertisementFile="~/Ads.xml" BorderColor="Black" BorderWith="1" runat="server" />
+            <asp:AdRotator ID="pub" AdvertisementFile="~/Ads.xml" 
+                            BorderColor="Black" 
+                            BorderWith="1" 
+                            runat="server" />
         </div>
     </section>
 
@@ -192,6 +195,7 @@
         .body-content-footer {
             color: #a6a6a6;
         }
+        
 
     </style>
   

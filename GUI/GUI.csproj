@@ -45,6 +45,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Select.HtmlToPdf, Version=20.2.0.0, Culture=neutral, PublicKeyToken=e0ae9f6e27a97018, processorArchitecture=MSIL">
+      <HintPath>..\packages\Select.HtmlToPdf.20.2.0\lib\net40\Select.HtmlToPdf.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -105,15 +108,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ABMC-Encuestas.aspx" />
     <Content Include="ABMC-Marcas.aspx" />
     <Content Include="ABMC-Menus.aspx" />
+    <Content Include="ABMC-Permiso.aspx" />
     <Content Include="ABMC-Productos.aspx" />
     <Content Include="ABMC-Proveedores.aspx" />
+    <Content Include="ABMC-Publicidad.aspx" />
+    <Content Include="ABMC-Rol.aspx" />
     <Content Include="ABMC-Roles.aspx" />
     <Content Include="ABMC-Usuarios.aspx" />
     <Content Include="About.aspx" />
     <Content Include="AdrotatorPage.aspx" />
     <Content Include="Ads.xml" />
+    <Content Include="Ads2.xml" />
+    <Content Include="Ads3.xml" />
     <Content Include="AnularFC.aspx" />
     <Content Include="Backup.aspx" />
     <Content Include="Carrito.aspx" />
@@ -133,11 +142,13 @@
     <Content Include="css\style-color.css" />
     <Content Include="css\style.css" />
     <Content Include="DescripcionProducto.aspx" />
+    <Content Include="EditarEncuesta.aspx" />
     <Content Include="EditarMarca.aspx" />
     <Content Include="EditarMenu.aspx" />
     <Content Include="EditarProveedor.aspx" />
     <Content Include="EditarProducto.aspx" />
     <Content Include="EditarRemito.aspx" />
+    <Content Include="EditarRol.aspx" />
     <Content Include="EditarUsuario.aspx" />
     <Content Include="Envios.aspx" />
     <Content Include="FacturasEmitidas.aspx" />
@@ -238,6 +249,7 @@
     <Content Include="img\console.jpg" />
     <Content Include="img\doremi.svg" />
     <Content Include="img\elec1.jpg" />
+    <Content Include="img\Flecha.jpg" />
     <Content Include="img\guitar.jpg" />
     <Content Include="img\Guitarra1.png" />
     <Content Include="img\Guitarra2.png" />
@@ -253,6 +265,7 @@
     <Content Include="img\runnin.svg" />
     <Content Include="img\saxo.jpg" />
     <Content Include="img\Violin.jpg" />
+    <Content Include="img\Warlock.jpg" />
     <Content Include="img\wonderfullwomen.jpg" />
     <Content Include="InicioBackend.aspx" />
     <Content Include="CatalogoProductos.aspx" />
@@ -307,6 +320,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABMC-Encuestas.aspx.cs">
+      <DependentUpon>ABMC-Encuestas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMC-Encuestas.aspx.designer.cs">
+      <DependentUpon>ABMC-Encuestas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ABMC-Marcas.aspx.cs">
       <DependentUpon>ABMC-Marcas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -321,6 +341,13 @@
     <Compile Include="ABMC-Menus.aspx.designer.cs">
       <DependentUpon>ABMC-Menus.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ABMC-Permiso.aspx.cs">
+      <DependentUpon>ABMC-Permiso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMC-Permiso.aspx.designer.cs">
+      <DependentUpon>ABMC-Permiso.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ABMC-Productos.aspx.cs">
       <DependentUpon>ABMC-Productos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -334,6 +361,20 @@
     </Compile>
     <Compile Include="ABMC-Proveedores.aspx.designer.cs">
       <DependentUpon>ABMC-Proveedores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ABMC-Publicidad.aspx.cs">
+      <DependentUpon>ABMC-Publicidad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMC-Publicidad.aspx.designer.cs">
+      <DependentUpon>ABMC-Publicidad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ABMC-Rol.aspx.cs">
+      <DependentUpon>ABMC-Rol.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMC-Rol.aspx.designer.cs">
+      <DependentUpon>ABMC-Rol.aspx</DependentUpon>
     </Compile>
     <Compile Include="ABMC-Roles.aspx.cs">
       <DependentUpon>ABMC-Roles.aspx</DependentUpon>
@@ -435,6 +476,13 @@
     <Compile Include="DescripcionProducto.aspx.designer.cs">
       <DependentUpon>DescripcionProducto.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EditarEncuesta.aspx.cs">
+      <DependentUpon>EditarEncuesta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditarEncuesta.aspx.designer.cs">
+      <DependentUpon>EditarEncuesta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EditarMarca.aspx.cs">
       <DependentUpon>EditarMarca.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -469,6 +517,13 @@
     </Compile>
     <Compile Include="EditarRemito.aspx.designer.cs">
       <DependentUpon>EditarRemito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditarRol.aspx.cs">
+      <DependentUpon>EditarRol.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditarRol.aspx.designer.cs">
+      <DependentUpon>EditarRol.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditarUsuario.aspx.cs">
       <DependentUpon>EditarUsuario.aspx</DependentUpon>
