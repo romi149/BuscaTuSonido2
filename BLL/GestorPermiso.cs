@@ -36,5 +36,21 @@ namespace BLL
         {
             return MapperPermiso.EliminarPermiso(IdPermiso);
         }
+
+        public static bool AgregarPermisoRol(int idPermiso, int idRol)
+        {
+            return MapperPermiso.InsertarPermisoRol(idPermiso, idRol);
+        }
+
+        public static bool EliminarPermisoRol(int idPermisoRol)
+        {
+            return MapperPermiso.EliminarPermisoRol(idPermisoRol);
+        }
+
+        public static DataSet ListarPermisoRol()
+        {
+            return MapperPermiso.ListarPermisosRolDS();
+        }
+
     }
 }

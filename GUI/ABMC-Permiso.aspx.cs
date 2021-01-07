@@ -61,9 +61,9 @@ namespace GUI
             var TipoPermiso = tipoPermiso.Text.Trim();
 
             bool Insertado = GestorRol.Agregar(
-                                       nombre.Text.Trim(),
-                                       descripcion.Text.Trim(),
-                                       tipoPermiso.Text.Trim());
+                                       Nombre,
+                                       Descripcion,
+                                       TipoPermiso);
 
             if (Insertado)
             {

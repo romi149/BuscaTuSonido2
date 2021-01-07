@@ -13,7 +13,7 @@
         </div>
         <div id="demo" class="collapse">
             <div class="container">
-                <div class="row " style="height: 100vh">
+                <div class="row " style="height: 30vh">
                     <h3>Nuevo Permiso</h3>
                     <div class="row">
                         <div class="col-md-4">
@@ -38,10 +38,12 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <asp:Button runat="server" content="nuevaPub" ID="Agregar" CssClass="btn btn-primary btn-md" Text="Agregar" OnClick="sendAgregar_Click" />
+                        <asp:Button runat="server" content="nuevoPermiso" ID="Agregar" 
+                            CssClass="btn btn-primary btn-md" Text="Agregar" OnClick="sendAgregar_Click" />
                     </div>
                     <div class="col-md-4">
-                        <asp:Button runat="server" content="nuevaPub" ID="cancelar" CssClass="btn btn-warning btn-md" Text="Cancelar" OnClick="sendcancelar_Click" />
+                        <asp:Button runat="server" content="nuevoPermiso" ID="cancelar" 
+                            CssClass="btn btn-warning btn-md" Text="Cancelar" OnClick="sendcancelar_Click" />
                     </div>
                 </div>
             </div>

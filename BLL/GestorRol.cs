@@ -13,8 +13,12 @@ namespace BLL
     {
         public static DataSet Listar()
         {
-            return MapperRol.ListarRoles();
+            return MapperRol.ListarRolesDS();
+        }
 
+        public static List<Rol> ObtenerListadoRoles()
+        {
+            return MapperRol.ListarRoles();
         }
 
         public static bool Agregar(string nombre, string descrip, string tipoRol)

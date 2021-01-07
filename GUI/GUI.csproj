@@ -112,6 +112,7 @@
     <Content Include="ABMC-Marcas.aspx" />
     <Content Include="ABMC-Menus.aspx" />
     <Content Include="ABMC-Permiso.aspx" />
+    <Content Include="ABMC-PermisoRol.aspx" />
     <Content Include="ABMC-Productos.aspx" />
     <Content Include="ABMC-Proveedores.aspx" />
     <Content Include="ABMC-Publicidad.aspx" />
@@ -145,6 +146,7 @@
     <Content Include="EditarEncuesta.aspx" />
     <Content Include="EditarMarca.aspx" />
     <Content Include="EditarMenu.aspx" />
+    <Content Include="EditarPermiso.aspx" />
     <Content Include="EditarProveedor.aspx" />
     <Content Include="EditarProducto.aspx" />
     <Content Include="EditarRemito.aspx" />
@@ -348,6 +350,13 @@
     <Compile Include="ABMC-Permiso.aspx.designer.cs">
       <DependentUpon>ABMC-Permiso.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ABMC-PermisoRol.aspx.cs">
+      <DependentUpon>ABMC-PermisoRol.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMC-PermisoRol.aspx.designer.cs">
+      <DependentUpon>ABMC-PermisoRol.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ABMC-Productos.aspx.cs">
       <DependentUpon>ABMC-Productos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -496,6 +505,13 @@
     </Compile>
     <Compile Include="EditarMenu.aspx.designer.cs">
       <DependentUpon>EditarMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditarPermiso.aspx.cs">
+      <DependentUpon>EditarPermiso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditarPermiso.aspx.designer.cs">
+      <DependentUpon>EditarPermiso.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditarProveedor.aspx.cs">
       <DependentUpon>EditarProveedor.aspx</DependentUpon>

@@ -178,8 +178,8 @@ namespace GUI
         {
             //cargar Encuesta del dia
             var Encuestas = GestorOpinion.ListarEncuestas();
-            var respuesta1 = Encuestas[0].Opcion1;
-            var respuesta2 = Encuestas[0].Opcion2;
+            string respuesta1 = Encuestas[0].Opcion1;
+            string respuesta2 = Encuestas[0].Opcion2;
             var imagen1 = Encuestas[0].UrlOpcion1;
             var imagen2 = Encuestas[0].UrlOpcion2;
             

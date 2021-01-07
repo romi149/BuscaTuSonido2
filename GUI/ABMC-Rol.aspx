@@ -32,7 +32,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Tipo de Rol</label>
-                                <asp:TextBox runat="server" type="date" CssClass="form-control" ID="tipoRol" />
+                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="tipoRol" />
                             </div>
                        </div>
                     </div>

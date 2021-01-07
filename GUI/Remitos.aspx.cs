@@ -24,9 +24,5 @@ namespace GUI
             return GestorRemito.Listar();
         }
 
-        protected void Buscar_Click(object sender, EventArgs e)
-        {
-            
-        }
     }
 }

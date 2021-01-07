@@ -391,6 +391,8 @@ namespace GUI
         public const string SeleccionarProveedor = "--- Seleccionar Proveedor---";
         public const string SeleccionarTipo = "--- Seleccionar Tipo Instrumento---";
         public const string SeleccionarNC = "--- Aplicar Nota de Credito---";
+        public const string SeleccionarRol = "--- Seleccionar Rol---";
+        public const string SeleccionarPermiso = "--- Seleccionar Permiso---";
 
     }
 }

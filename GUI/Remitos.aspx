@@ -5,41 +5,6 @@
     <div class="Remitos">
         <h3>Listado de Remitos</h3>
         <br />
-        <div class="row">
-            <div class="BuscadorDiv">
-                <div class="input-group" id="BuscarControl">
-                    <table>
-                        <tr>
-                            <td>
-                                <label>Nro. Pedido</label>
-                            </td>
-                            <td>
-                                <asp:TextBox ID="nroPedido" runat="server" type="text" CssClass="form-control"></asp:TextBox>
-                            </td>
-                            <td>
-                                <label>Nro. Factura</label>
-                            </td>
-                            <td>
-                                <asp:TextBox ID="nroFactura" runat="server" type="text" CssClass="form-control"></asp:TextBox>
-                            </td>
-                            <td>
-                                <label>Fecha</label>
-                            </td>
-                            <td>
-                                <asp:TextBox ID="fecha" runat="server" type="date" CssClass="form-control"></asp:TextBox>
-                            </td>
-                            <td>
-                                <label>Estado</label>
-                            </td>
-                            <td>
-                                <asp:TextBox ID="estado" runat="server" type="text" CssClass="form-control"></asp:TextBox>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <asp:Button runat="server" CssClass="btn btn-primary" Text="Buscar" OnClick="Buscar_Click" ></asp:Button>
-            </div>
-        </div>
         <br />
         
         <asp:GridView ID="gvRemitos" runat="server" AutoGenerateColumns="false" class="table table-striped"
@@ -57,13 +22,7 @@
     </div>
 
  <style>
-      /*  .abmProductos {
-            width: 80vw;
-            margin: auto;
-            margin-top: 15vh !important;
-        }*/
-
-        .BtnGrid {
+      .BtnGrid {
             display: flex;
             justify-content: space-between;
         }

@@ -17,7 +17,7 @@ namespace MPP
         /// Retorna todos los roles de la Bd
         /// </summary>
         /// <returns></returns>
-        public static DataSet ListarRoles()
+        public static DataSet ListarRolesDS()
         {
             try
             {
@@ -27,6 +27,35 @@ namespace MPP
                 return respuesta;
             }
 
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public static List<Rol> ListarRoles()
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarRoles", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Rol
+                      {
+                          IdRol = dataRow.Field<Int32>("IdRol"),
+                          NombreRol = dataRow.Field<string>("Nombre"),
+                          Descripcion = dataRow.Field<string>("Descripcion"),
+                          TipoRol = dataRow.Field<string>("TipoRol")
+
+                      }).ToList();
+
+                    return empList;
+                }
+
+                return null;
+            }
             catch (Exception e)
             {
                 return null;

@@ -28,9 +28,10 @@ namespace MPP
                     var empList = respuesta.Tables[0].AsEnumerable()
                       .Select(dataRow => new Permiso
                       {
-                          NombrePermiso = dataRow.Field<string>("nombre"),
-                          Descripcion = dataRow.Field<string>("descrip"),
-                          TipoPermiso = dataRow.Field<string>("tipoPermiso")
+                          IdPermiso = dataRow.Field<Int32>("IdPermiso"),
+                          NombrePermiso = dataRow.Field<string>("Nombre"),
+                          Descripcion = dataRow.Field<string>("Descripcion"),
+                          TipoPermiso = dataRow.Field<string>("TipoPermiso")
 
                       }).ToList();
 
@@ -132,6 +133,57 @@ namespace MPP
             catch (Exception e)
             {
                 return null;
+            }
+        }
+
+        public static bool InsertarPermisoRol(int idPermiso, int idRol)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdPermiso", DbType.Int32, ParameterDirection.Input, idPermiso));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdRol", DbType.Int32, ParameterDirection.Input, idRol));
+                var respuesta = Conexion.GetInstance.EjecutarStore("InsertarPermisoRol", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public static DataSet ListarPermisosRolDS()
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarPermisosPorRol", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public static bool EliminarPermisoRol(int idPermisoRol)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdPermisoRol", DbType.Int32, ParameterDirection.Input, idPermisoRol));
+                var respuesta = Conexion.GetInstance.EjecutarStore("EliminarPermisoRol", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return false;
             }
         }
     }

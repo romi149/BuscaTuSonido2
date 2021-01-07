@@ -13,7 +13,7 @@
         </div>
         <div id="demo" class="collapse">
             <div class="container">
-                <div class="row " style="height: 100vh">
+                <div class="row " style="height: 30vh">
                     <h3>Asignar Permiso a Rol</h3>
                     <div class="row">
                         <div class="col-md-4">
@@ -45,6 +45,7 @@
         <asp:GridView ID="gvPermisoRol" runat="server" AutoGenerateColumns="false" class="table table-striped"
             ClientIDMode="Static">
             <Columns>
+                <asp:BoundField DataField="IdPermisoRol" HeaderText="Id" />
                 <asp:BoundField DataField="IdPermiso" HeaderText="Id Permiso" />
                 <asp:BoundField DataField="NombrePermiso" HeaderText="Nombre Permiso" />
                 <asp:BoundField DataField="IdRol" HeaderText="Id Rol" />
@@ -52,8 +53,7 @@
                 <asp:TemplateField HeaderText="Accion">
                     <ItemTemplate>
                         <div class="BtnGrid">
-                            <asp:Button ID="btnEdit" Text="Editar" runat="server" OnClick="btnEdit_Click" CssClass="btn btn-primary" />
-                            <asp:Button ID="btnDelete" Text="Eliminar" runat="server" CssClass="btn btn-danger"
+                            <asp:Button ID="btnDelete" Text="Desasignar" runat="server" CssClass="btn btn-danger"
                                 OnClick="btnDelete_Click" OnClientClick="return confirm('¿Esta seguro que desea eliminar el registro?')" />
                         </div>
                     </ItemTemplate>
