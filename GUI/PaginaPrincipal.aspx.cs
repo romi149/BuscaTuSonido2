@@ -207,6 +207,20 @@ namespace GUI
         {
             var Encuestas = GestorOpinion.ListarEncuestas();
             var IdEncuesta = Encuestas[0].Id;
+            var pregunta1 = Encuestas[0].Opcion1;
+            string opcion;
+            
+            if(Voto == pregunta1)
+            {
+                opcion = "Valor1";
+                GestorOpinion.AgregarVoto(IdEncuesta,opcion);
+            }
+            else
+            {
+                opcion = "Valor2";
+                GestorOpinion.AgregarVoto(IdEncuesta, opcion);
+            }
+
             var Punt1 = GestorOpinion.ObtenerPuntaje1(IdEncuesta);
             var Punt2 = GestorOpinion.ObtenerPuntaje2(IdEncuesta);
 

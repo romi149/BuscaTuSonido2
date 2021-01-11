@@ -63,7 +63,7 @@ namespace BLL
             return MapperOpinion.ObtenerPuntajeEncuesta2(IdEncuesta);
         }
 
-        public static bool Agregar(int IdEncuesta, string opcion)
+        public static bool AgregarVoto(int IdEncuesta, string opcion)
         {
             return MapperOpinion.InsertarPuntaje(IdEncuesta, opcion);
         }
