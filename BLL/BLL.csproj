@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="EnvioEmails.cs" />
     <Compile Include="GestorBitacora.cs" />
+    <Compile Include="GestorBusqueda.cs" />
     <Compile Include="GestorCliente.cs" />
     <Compile Include="GestorFactura.cs" />
     <Compile Include="GestorGestionRoles.cs" />

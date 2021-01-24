@@ -4,7 +4,7 @@
 
 <html lang="es">
 <head runat="server">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - Busca Tu Sonido</title>
@@ -16,8 +16,8 @@
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="Content/Site.css" rel="stylesheet" type="text/css" />
-    
-    
+
+
 </head>
 <body>
     <form runat="server">
@@ -50,8 +50,8 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" runat="server" href="~/PaginaPrincipal">Busca Tu Sonido</a>
-                        <%--<img src="/Imagenes/Portada/BuscaTuSonidoLogo.png" width="30" height="30" alt="">--%>
-                   <%-- </a>--%>
+                    <%--<img src="/Imagenes/Portada/BuscaTuSonidoLogo.png" width="30" height="30" alt="">--%>
+                    <%-- </a>--%>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -62,49 +62,67 @@
                         <li><a runat="server" id="LogIn" href="~/Login">Ingresar</a></li>
                         <li><a runat="server" id="MisCompras" href="~/MisCompras">Mis Compras</a></li>
                         <li><a runat="server" href="/MiCuenta" id="IdNombreUsuario"></a></li>
-                        <li><a runat="server" href="#" id="Carrito"><strong><span class="glyphicon glyphicon-shopping-cart" id="gb-product-counter"> 0</span></strong></a></li>
+                        <li><a runat="server" href="#" id="Carrito"><strong><span class="glyphicon glyphicon-shopping-cart" id="gb-product-counter">0</span></strong></a></li>
                         <li><a runat="server" id="LogOut" onserverclick="LogOut_ServerClick">Salir</a></li>
                         <%--<li><a runat="server" href="#"><span class="glyphicon glyphicon-search"></span></a></li>--%>
-                        <li><input type="text" id="search" class="form-control" name="search"></li>
-                        <li><button type="submit" id="button" class="btn btn-primary btn-md">Buscar</button></li>
+                        <li><%--<a>
+                            <input type="text" id="search" class="form-control" name="search"></a>--%>
+                            <asp:TextBox ID="search" runat="server" type="text" CssClass="form-control"></asp:TextBox>
+                        </li>
+                        <%--<li><a id="button" class="btn btn-primary btn-md">Buscar</a></li>--%>
+                        <li><asp:Button runat="server" ID="btnSearch" Text="Buscar" 
+                            CssClass="btn btn-prymary btn-md"  OnClick="search_Click" /></li>
                     </ul>
                 </div>
             </div>
         </div>
         <main>
-           <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>        
-        </div>
+            <div class="container body-content">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
         </main>
-   </form>
-   
-   
-         <hr />
-        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-        <div id="footer">
-                <div id="google_translate_element" ></div>
-                 <script type="text/javascript">
-                     function googleTranslateElementInit() {
-                         new google.translate.TranslateElement({ pageLanguage: 'es' }, 'google_translate_element');
-                     }
-                 </script>
-        </div>
+    </form>
 
-    
+
+    <hr />
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <div id="footer">
+        <div id="google_translate_element"></div>
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({ pageLanguage: 'es' }, 'google_translate_element');
+            }
+        </script>
+    </div>
+
+
     <style>
-        main{
-            padding:1%;
+        main {
+            padding: 1%;
         }
-        .goog-logo-link img{
-            height : 20px !important;
-            width : 40px !important;
+
+        .goog-logo-link img {
+            height: 20px !important;
+            width: 40px !important;
         }
-        .gb-product-counter{
-            
+
+        .gb-product-counter {
         }
+
+        #btnSearch{
+            background-color:#5bc0de;
+            border-color:#5bc0de;
+            color:white;
+            margin-top:12px;
+        }
+
+        #search{
+            margin-top:12px;
+        }
+
     </style>
-    
+
     <script>
         window.onload = init
 
@@ -118,8 +136,8 @@
                 let Productos = ContarItems(localStorage.getItem('Carrito'))
                 document.getElementById('gb-product-counter').innerText = Productos.length
             }
-               cargarPreguntasSeguridad()
-               Calcular()
+            cargarPreguntasSeguridad()
+            Calcular()
         }
 
         let Votar = (e) => {
@@ -160,10 +178,16 @@
                 let Container = document.getElementById('EncuestaSemana')
 
                 Container.innerHTML = `
-                    <div class="progress" >
+                    <div style="margin-top: 5%;">
+                        <label>Votos para ${respuesta.d.NombreValor1}</label>
+                    </div>
+                    <div class="progress" style="width: 80%;" >
                         <div class="progress-bar" role="progressbar" style="width: ${respuesta.d.Valor1}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${respuesta.d.Valor1}%</div>
                     </div >
-                   <div class="progress" >
+                    <div style="margin-top: 5%;">
+                        <label>Votos para ${respuesta.d.NombreValor2}</label>
+                    </div>
+                   <div class="progress" style=" width: 80%;" >
                         <div class="progress-bar" role="progressbar" style="width: ${respuesta.d.Valor2}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">${respuesta.d.Valor2}%</div>
                     </div >`
             }

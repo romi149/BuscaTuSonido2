@@ -176,26 +176,35 @@ namespace GUI
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public static EncuestaDelDia CargarEncuestaDeDia()
         {
-            //cargar Encuesta del dia
-            var Encuestas = GestorOpinion.ListarEncuestas();
-            string respuesta1 = Encuestas[0].Opcion1;
-            string respuesta2 = Encuestas[0].Opcion2;
-            var imagen1 = Encuestas[0].UrlOpcion1;
-            var imagen2 = Encuestas[0].UrlOpcion2;
-            
-            EncuestaDelDia encuesta = new EncuestaDelDia
+            try
             {
-                titulo = Encuestas[0].NombrePregunta,
-                
-                Respuesta = new List<Respuestas>
+                //cargar Encuesta del dia
+                var Encuestas = GestorOpinion.ListarEncuestas();
+                string respuesta1 = Encuestas[0].Opcion1;
+                string respuesta2 = Encuestas[0].Opcion2;
+                var imagen1 = Encuestas[0].UrlOpcion1;
+                var imagen2 = Encuestas[0].UrlOpcion2;
+
+                EncuestaDelDia encuesta = new EncuestaDelDia
+                {
+                    titulo = Encuestas[0].NombrePregunta,
+
+                    Respuesta = new List<Respuestas>
                 {
                     new Respuestas{imagen=imagen1,Texto=respuesta1},
                     new Respuestas{imagen=imagen2,Texto=respuesta2},
                 }
-            };
+                };
+                return encuesta;
+            }
+            catch (Exception e)
+            {
+                return new EncuestaDelDia { titulo = "", Respuesta = new List<Respuestas>() };
+
+            }
 
 
-            return encuesta;
+           
         }
 
 
@@ -209,11 +218,11 @@ namespace GUI
             var IdEncuesta = Encuestas[0].Id;
             var pregunta1 = Encuestas[0].Opcion1;
             string opcion;
-            
-            if(Voto == pregunta1)
+
+            if (Voto == pregunta1)
             {
                 opcion = "Valor1";
-                GestorOpinion.AgregarVoto(IdEncuesta,opcion);
+                GestorOpinion.AgregarVoto(IdEncuesta, opcion);
             }
             else
             {
@@ -221,11 +230,17 @@ namespace GUI
                 GestorOpinion.AgregarVoto(IdEncuesta, opcion);
             }
 
-            var Punt1 = GestorOpinion.ObtenerPuntaje1(IdEncuesta);
-            var Punt2 = GestorOpinion.ObtenerPuntaje2(IdEncuesta);
-
+            var Punt1 =double.Parse( GestorOpinion.ObtenerPuntaje1(IdEncuesta).ToString());
+            var Punt2 = double.Parse(GestorOpinion.ObtenerPuntaje2(IdEncuesta).ToString());
+            var totalVotos = Punt1 + Punt2;
+            var Porcentaje1 = (Punt1 / totalVotos) * 100;
+            var Porcentaje2 = (Punt2 / totalVotos) * 100;
+            int Total1 = int.Parse(Porcentaje1.ToString());
+            int Total2 = int.Parse(Porcentaje2.ToString());
             //realizar un store que devuelva ambos valores
-            return new ValoresPorcentuales { Valor1 = Punt1, Valor2 = Punt2 };
+            return new ValoresPorcentuales { NombreValor1=Encuestas.FirstOrDefault().Opcion1,
+                NombreValor2 = Encuestas.FirstOrDefault().Opcion2,
+                Valor1 = Total1, Valor2 = Total2 };
         }
 
         public void CheckOfertas_Clicked(object sender, EventArgs e)
@@ -296,6 +311,8 @@ namespace GUI
 
     public class ValoresPorcentuales
     {
+        public string NombreValor1 { get; set; }
+        public string NombreValor2 { get; set; }
         public int  Valor1{ get; set; }
         public int  Valor2{ get; set; }
     }

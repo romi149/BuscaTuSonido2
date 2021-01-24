@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Backup.cs" />
     <Compile Include="Bitacora.cs" />
+    <Compile Include="Busqueda.cs" />
     <Compile Include="Catalogo.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Cliente.cs" />

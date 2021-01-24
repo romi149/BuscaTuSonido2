@@ -46,21 +46,18 @@
     </div>
 
  <style>
-        .MisCompras {
+         .MisCompras {
             width: 80vw;
             margin: auto;
             margin-top: 3vh !important;
         }
-
         .BtnGrid {
             display: flex;
             justify-content: space-between;
         }
-
         .tamanoHeader {
             width: 200px;
         }
-
         .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
             padding: 8px;
             line-height: 1.42857143;
@@ -71,14 +68,31 @@
         label {
             vertical-align: middle;
         }
-
          #PreguntasBox {
             display: flex;
         }
-
         #pregunta {
             width: 30vw !important;
             max-width: 30vw !important;
+        }
+        .respuestaCliente{
+            padding:8px;
+            background:#F1948A;
+            border-radius:15px;
+            text-align:end;
+            margin-left:350px;
+           
+        }
+        .preguntaCliente{
+            color:black;
+            /*font-weight:bold;*/
+            padding:8px;
+            background:hsl(218, 74%, 60%, 0.171);
+            border-radius:15px;   
+         
+        }
+         p {
+             margin-bottom:30px;
         }
 
     </style>

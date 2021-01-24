@@ -1,4 +1,5 @@
 ﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,23 @@ namespace GUI
             Session["usuarioCliente"] = null;
             Response.Redirect("PaginaPrincipal");
 
+        }
+
+        protected void search_Click(object sender, EventArgs e)
+        {
+            var dato = search.Text.Trim();
+            var listaDatos = GestorBusqueda.ListarPaginasFront(dato);
+
+            if (listaDatos.Count != 0)
+            {
+                var url = listaDatos[0].UrlPagina;
+                Response.Redirect(url);
+            }
+            else
+            {
+                Response.Redirect("PaginaPrincipal.aspx");
+            }
+            
         }
     }
 }

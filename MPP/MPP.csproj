@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Helpers\StoreProcedureHelper.cs" />
     <Compile Include="MapperBitacora.cs" />
+    <Compile Include="MapperBusqueda.cs" />
     <Compile Include="MapperCliente.cs" />
     <Compile Include="MapperFactura.cs" />
     <Compile Include="MapperGestionRoles.cs" />

@@ -32,22 +32,22 @@ namespace GUI
             try
             {
                 var UserCliente = $"{((BE.Usuario)Session["usuarioCliente"])?.User}";
-                
+
+                HtmlGenericControl DivContenedor = new HtmlGenericControl("div");
+                HtmlGenericControl DivInterno = new HtmlGenericControl("div");
+                HtmlGenericControl DivBody = new HtmlGenericControl("div");
+                DivContenedor.Attributes.Add("class", "panel panel-default container");
+                DivInterno.Attributes.Add("class", "panel-heading");
+                DivBody.Attributes.Add("class", "panel-body");
+                DivInterno.InnerText = "Chat con el vendedor";
                 var Preguntas = GestorProducto.ListarPreguntasCliente(UserCliente);
                 foreach (var item in Preguntas)
-                {
-                    HtmlGenericControl DivContenedor = new HtmlGenericControl("div");
-                    HtmlGenericControl DivContenedorInterno1 = new HtmlGenericControl("div");
-                    HtmlGenericControl DivContenedorInterno2 = new HtmlGenericControl("div");
-                    DivContenedor.Attributes.Add("class", "panel panel-default");
-                    DivContenedorInterno1.Attributes.Add("class", "panel-heading");
-                    DivContenedorInterno2.Attributes.Add("class", "panel-body");
-                    DivContenedorInterno1.InnerText = item.Pregunta;
-                    DivContenedorInterno2.InnerText = item.Respuesta;
-                    DivContenedor.Controls.Add(DivContenedorInterno1);
-                    DivContenedor.Controls.Add(DivContenedorInterno2);
-                    this.peopleComment.Controls.Add(DivContenedor);
-                }
+                    DivBody.InnerHtml += $"<p ><span class='preguntaCliente'>{item.Pregunta}</span></p>" +
+                                        $"<p ><span class='respuestaCliente'>{item.Respuesta}</span></p>";
+
+                DivContenedor.Controls.Add(DivInterno);
+                DivContenedor.Controls.Add(DivBody);
+                this.peopleComment.Controls.Add(DivContenedor);
             }
             catch (Exception)
             {

@@ -30,7 +30,7 @@ namespace GUI
                 GestorBitacora.Agregar(DateTime.Now, "Se elimino un registro", "Admin", "GestionPreguntas");
             Response.Write("<script>alert('Se ha eliminado el registro')</script>");
 
-            Response.Redirect("/ABMC-Marca.aspx");
+            Response.Redirect("/GestionConsultasClientes.aspx");
         }
 
         protected void btnEdit_Click(object sender, EventArgs e)

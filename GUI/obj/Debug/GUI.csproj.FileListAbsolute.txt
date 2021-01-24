@@ -1,5 +1,3 @@
-C:\Users\romina\source\repos\BuscaTuSonido\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
-C:\Users\romina\source\repos\BuscaTuSonido\GUI\obj\Debug\GUI.csprojAssemblyReference.cache
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\GUI.dll.config
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\GUI.dll
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\GUI.pdb
@@ -82,6 +80,8 @@ C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\DAL.pdb
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\es\System.Web.Optimization.resources.dll
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\es\Microsoft.AspNet.FriendlyUrls.resources.dll
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\Select.Html.dep
+C:\Users\romina\source\repos\BuscaTuSonido\GUI\obj\Debug\GUI.csprojAssemblyReference.cache
+C:\Users\romina\source\repos\BuscaTuSonido\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\obj\Debug\GUI.csproj.CopyComplete
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\obj\Debug\GUI.dll
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\obj\Debug\GUI.pdb

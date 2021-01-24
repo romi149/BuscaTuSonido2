@@ -139,6 +139,11 @@
                             </div>
                           </li>
                         <li><a runat="server" onserverclick="Unnamed_ServerClick" >Salir</a></li>
+                        <li>
+                            <asp:TextBox ID="search" runat="server" type="text" CssClass="form-control"></asp:TextBox>
+                        </li>
+                        <li><asp:Button runat="server" ID="btnSearch" Text="Buscar" 
+                            CssClass="btn btn-prymary btn-md"  OnClick="search_Click" /></li>
                     </ul>
                 </div>
             </div>
@@ -172,6 +177,17 @@
         .goog-logo-link img{
             height : 20px !important;
             width : 40px !important;
+        }
+
+        #btnSearch{
+            background-color:#5bc0de;
+            border-color:#5bc0de;
+            color:white;
+            margin-top:12px;
+        }
+
+        #search{
+            margin-top:12px;
         }
     </style>
 

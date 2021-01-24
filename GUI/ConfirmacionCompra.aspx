@@ -4,7 +4,7 @@
 
     <div style="height: 70vh; display: flex; align-items: center;">
         <div class="container">
-            <img class="img-responsive" src="Imagenes/Graciasxtucompra2.jpg" style="margin: auto; height:90%; width: 70%;">
+            <img class="img-responsive" src="img/Graciasxtucompra.png" style="margin: auto; height:90%; width: 70%;">
         </div>
     </div>
     <br />

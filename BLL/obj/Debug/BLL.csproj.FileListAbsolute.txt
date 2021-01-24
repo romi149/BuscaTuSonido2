@@ -1,5 +1,3 @@
-C:\Users\romina\source\repos\BuscaTuSonido\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
-C:\Users\romina\source\repos\BuscaTuSonido\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
 C:\Users\romina\source\repos\BuscaTuSonido\BLL\bin\Debug\BLL.dll
 C:\Users\romina\source\repos\BuscaTuSonido\BLL\bin\Debug\BLL.pdb
 C:\Users\romina\source\repos\BuscaTuSonido\BLL\bin\Debug\BE.dll
@@ -10,6 +8,8 @@ C:\Users\romina\source\repos\BuscaTuSonido\BLL\bin\Debug\BE.pdb
 C:\Users\romina\source\repos\BuscaTuSonido\BLL\bin\Debug\MPP.pdb
 C:\Users\romina\source\repos\BuscaTuSonido\BLL\bin\Debug\Newtonsoft.Json.xml
 C:\Users\romina\source\repos\BuscaTuSonido\BLL\bin\Debug\DAL.pdb
+C:\Users\romina\source\repos\BuscaTuSonido\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+C:\Users\romina\source\repos\BuscaTuSonido\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
 C:\Users\romina\source\repos\BuscaTuSonido\BLL\obj\Debug\BLL.csproj.CopyComplete
 C:\Users\romina\source\repos\BuscaTuSonido\BLL\obj\Debug\BLL.dll
 C:\Users\romina\source\repos\BuscaTuSonido\BLL\obj\Debug\BLL.pdb

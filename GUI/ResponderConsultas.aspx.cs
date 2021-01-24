@@ -18,10 +18,10 @@ namespace GUI
             string Id = Request.QueryString["Id"].ToString();
             string NombreProducto = Request.QueryString["NombreProducto"].ToString();
             string Modelo = Request.QueryString["Modelo"].ToString();
-            string Usuario = Request.QueryString["Usuario"].ToString();
-            string Fecha = Request.QueryString["Fecha"].ToString();
             string Pregunta = Request.QueryString["Pregunta"].ToString();
             string Respuesta = Request.QueryString["Respuesta"].ToString();
+            string Usuario = Request.QueryString["Usuario"].ToString();
+            string Fecha = Request.QueryString["Fecha"].ToString();
 
             id.Text = Id;
             nombreProd.Text = NombreProducto;
@@ -29,7 +29,7 @@ namespace GUI
             usuario.Text = Usuario;
             fecha.Text = Fecha;
             pregunta.Text = Pregunta;
-            respuesta.Text = Respuesta;
+            //respuesta.Text = Respuesta;
         }
 
         protected void sendEditar_Click(object sender, EventArgs e)
