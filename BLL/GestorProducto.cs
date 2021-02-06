@@ -164,5 +164,69 @@ namespace BLL
         {
             return MapperProducto.InsertarValoracionProducto(puntaje,comentario,idUser,nombreProd,user);
         }
+
+        public static DataSet ListarReporteTiempoRtaProductos()
+        {
+            return MapperProducto.ListarReporteTiempoRtaProductos();
+        }
+
+        public static DataSet ListarTiempoRtaProdFiltroTotal(string producto, string user,
+                                                             string fechadesde, string fechahasta)
+        {
+            return MapperProducto.ListarTiempoRtaProdFiltroTotal(producto,user,fechadesde,fechahasta);
+        }
+
+        public static DataSet ListarTiempoRtaProdFiltroFechaProd(string producto,
+                                                             string fechadesde, string fechahasta)
+        {
+            return MapperProducto.ListarTiempoRtaProdFiltroFechaProd(producto, fechadesde, fechahasta);
+        }
+
+        public static DataSet ListarTiempoRtaProdFiltroFechaUser(string user,
+                                                             string fechadesde, string fechahasta)
+        {
+            return MapperProducto.ListarTiempoRtaProdFiltroFechaUser(user, fechadesde, fechahasta);
+        }
+
+        public static DataSet ListarTiempoRtaProdFiltroFechas(string fechadesde, string fechahasta)
+        {
+            return MapperProducto.ListarTiempoRtaProdFiltroFechas(fechadesde, fechahasta);
+        }
+
+        public static DataSet ListarTiempoRtaProdFiltroProdUser(string producto, string user)
+        {
+            return MapperProducto.ListarTiempoRtaProdFiltroProdUser(producto, user);
+        }
+
+        public static DataSet ListarTiempoRtaProdFiltroProd(string producto)
+        {
+            return MapperProducto.ListarTiempoRtaProdFiltroProd(producto);
+        }
+
+        public static DataSet ListarTiempoRtaProdFiltroUser(string user)
+        {
+            return MapperProducto.ListarTiempoRtaProdFiltroUser(user);
+        }
+
+        public static DataSet ListarReporteTiempoRtaClientes()
+        {
+            return MapperProducto.ListarReporteTiempoRtaClientes();
+        }
+
+        public static DataSet ListarTiempoRtaClienteFiltroTotal(string user,
+                                                             string fechadesde, string fechahasta)
+        {
+            return MapperProducto.ListarTiempoRtaClienteFiltroTotal(user, fechadesde, fechahasta);
+        }
+
+        public static DataSet ListarTiempoRtaClienteFiltroFechas(string fechadesde, string fechahasta)
+        {
+            return MapperProducto.ListarTiempoRtaClienteFiltroFechas(fechadesde, fechahasta);
+        }
+
+        public static DataSet ListarTiempoRtaClientesFiltroUser(string user)
+        {
+            return MapperProducto.ListarTiempoRtaClientesFiltroUser(user);
+        }
     }
 }

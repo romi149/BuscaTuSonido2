@@ -312,6 +312,8 @@
     <Content Include="Site.Master" />
     <Content Include="TemplateEmail.aspx" />
     <Content Include="TermyCond.aspx" />
+    <Content Include="TiempoRtaConsultaClientes.aspx" />
+    <Content Include="TiempoRtaConsultaProd.aspx" />
     <Content Include="ValoracionProducto.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -730,6 +732,20 @@
     </Compile>
     <Compile Include="TermyCond.aspx.designer.cs">
       <DependentUpon>TermyCond.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TiempoRtaConsultaClientes.aspx.cs">
+      <DependentUpon>TiempoRtaConsultaClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TiempoRtaConsultaClientes.aspx.designer.cs">
+      <DependentUpon>TiempoRtaConsultaClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TiempoRtaConsultaProd.aspx.cs">
+      <DependentUpon>TiempoRtaConsultaProd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TiempoRtaConsultaProd.aspx.designer.cs">
+      <DependentUpon>TiempoRtaConsultaProd.aspx</DependentUpon>
     </Compile>
     <Compile Include="ValoracionProducto.aspx.cs">
       <DependentUpon>ValoracionProducto.aspx</DependentUpon>
