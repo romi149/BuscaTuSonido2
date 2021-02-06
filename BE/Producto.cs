@@ -30,7 +30,8 @@ namespace BE
         public string Pregunta { get; set; }
         public string Respuesta { get; set; }
         public string Usuario { get; set; }
-        public DateTime Fecha { get; set; }
+        public DateTime FechaPregunta { get; set; }
+        public DateTime FechaRespuesta { get; set; }
     }
 
     public class GlobalEnv

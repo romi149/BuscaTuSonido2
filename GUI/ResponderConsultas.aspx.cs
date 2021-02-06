@@ -21,13 +21,13 @@ namespace GUI
             string Pregunta = Request.QueryString["Pregunta"].ToString();
             string Respuesta = Request.QueryString["Respuesta"].ToString();
             string Usuario = Request.QueryString["Usuario"].ToString();
-            string Fecha = Request.QueryString["Fecha"].ToString();
+            string FechaPregunta = Request.QueryString["FechaPregunta"].ToString();
 
             id.Text = Id;
             nombreProd.Text = NombreProducto;
             modelo.Text = Modelo;
             usuario.Text = Usuario;
-            fecha.Text = Fecha;
+            fechaPregunta.Text = FechaPregunta;
             pregunta.Text = Pregunta;
             //respuesta.Text = Respuesta;
         }

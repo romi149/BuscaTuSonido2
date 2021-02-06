@@ -277,6 +277,7 @@
     <Content Include="RecuperoPass.aspx" />
     <Content Include="Registrarse.aspx" />
     <Content Include="Remitos.aspx" />
+    <Content Include="ReporteVentas.aspx" />
     <Content Include="ResponderConsultas.aspx" />
     <Content Include="Restore.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -673,6 +674,13 @@
     </Compile>
     <Compile Include="Remitos.aspx.designer.cs">
       <DependentUpon>Remitos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReporteVentas.aspx.cs">
+      <DependentUpon>ReporteVentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReporteVentas.aspx.designer.cs">
+      <DependentUpon>ReporteVentas.aspx</DependentUpon>
     </Compile>
     <Compile Include="ResponderConsultas.aspx.cs">
       <DependentUpon>ResponderConsultas.aspx</DependentUpon>

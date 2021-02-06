@@ -42,10 +42,12 @@ namespace GUI
             string Pregunta = row.Cells[3].Text.Trim();
             string Respuesta = row.Cells[4].Text.Trim();
             string Usuario = row.Cells[5].Text.Trim();
-            string Fecha = row.Cells[6].Text.Trim();
+            string FechaPregunta = row.Cells[6].Text.Trim();
+            string FechaRespuesta = row.Cells[7].Text.Trim();
 
             Response.Redirect($"/ResponderConsultas.aspx?Id={Id}&NombreProducto={NombreProducto}&Modelo={Modelo}" +
-                $"&Pregunta={Pregunta}&Respuesta={Respuesta}&Usuario={Usuario}&Fecha={Fecha}");
+                $"&Pregunta={Pregunta}&Respuesta={Respuesta}&Usuario={Usuario}" +
+                $"&FechaPregunta={FechaPregunta}&FechaRespuesta={FechaRespuesta}");
         }
 
         public DataSet CargarDatos()

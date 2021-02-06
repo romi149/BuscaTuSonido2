@@ -404,8 +404,9 @@ namespace MPP
                           Modelo = dataRow.Field<string>("Modelo"),
                           NombreProducto = dataRow.Field<string>("NombreProducto"),
                           Pregunta = dataRow.Field<string>("Pregunta"),
-                          Fecha = dataRow.Field<DateTime>("Fecha"),
+                          FechaPregunta = dataRow.Field<DateTime>("FechaPregunta"),
                           Respuesta = dataRow.Field<string>("Respuesta"),
+                          FechaRespuesta = dataRow.Field<DateTime>("FechaRespuesta"),
                           Usuario = dataRow.Field<string>("Usuario")
                       }).ToList();
 
@@ -775,8 +776,9 @@ namespace MPP
                           Modelo = dataRow.Field<string>("Modelo"),
                           NombreProducto = dataRow.Field<string>("NombreProducto"),
                           Pregunta = dataRow.Field<string>("Pregunta"),
-                          Fecha = dataRow.Field<DateTime>("Fecha"),
+                          FechaPregunta = dataRow.Field<DateTime>("FechaPregunta"),
                           Respuesta = dataRow.Field<string>("Respuesta"),
+                          FechaRespuesta = dataRow.Field<DateTime>("FechaRespuesta"),
                           Usuario = dataRow.Field<string>("Usuario")
                       }).ToList();
 

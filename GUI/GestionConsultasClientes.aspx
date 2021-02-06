@@ -16,7 +16,8 @@
                 <asp:BoundField DataField="Pregunta" HeaderText="Pregunta" />
                 <asp:BoundField DataField="Respuesta" HeaderText="Respuesta" />
                 <asp:BoundField DataField="Usuario" HeaderText="Usuario" />
-                <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
+                <asp:BoundField DataField="FechaPregunta" HeaderText="Fecha Pregunta" />
+                <asp:BoundField DataField="FechaRespuesta" HeaderText="Fecha Respuesta" />
                 <asp:TemplateField HeaderText="Action">
                     <ItemTemplate>
                         <div class="BtnGrid">

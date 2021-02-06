@@ -29,8 +29,8 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Fecha</label>
-                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="fecha" ReadOnly="true" />
+                                <label>Fecha Pregunta</label>
+                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="fechaPregunta" ReadOnly="true" />
                             </div>
                             <div class="form-group">
                                 <label>Pregunta</label>

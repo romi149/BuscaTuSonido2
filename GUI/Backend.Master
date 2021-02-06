@@ -51,7 +51,7 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/InicioBackend">Inicio</a></li>
+                        <%--<li><a runat="server" href="~/InicioBackend">Inicio</a></li>--%>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               Configuración
@@ -128,6 +128,18 @@
                           </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown5" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Reportes
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="/ReporteVentas">Ventas</a>
+                              <div class="dropdown-divider"></div>
+                              <%--<a class="dropdown-item" href="/Restore">Generar Restore</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="/ConsultarBitacora">Consultar Bitácora</a>--%>
+                            </div>
+                          </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown6" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               Seguridad
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">

@@ -127,5 +127,193 @@ namespace MPP
             }
             return 0;
         }
+
+        //public static List<ReporteVentas> ListarFacturasReporte()
+        //{
+        //    try
+        //    {
+        //        List<SqlParameter> ListaParametros = new List<SqlParameter>();
+        //        var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarVentasReporte", ListaParametros);
+        //        if (respuesta != null)
+        //        {
+        //            var empList = respuesta.Tables[0].AsEnumerable()
+        //             .Select(dataRow => new ReporteVentas
+        //             {
+        //                 NroFactura = dataRow.Field<int>("NroFactura"),
+        //                 Fecha = dataRow.Field<string>("Fecha"),
+        //                 Nombre = dataRow.Field<string>("Nombre"),
+        //                 Apellido = dataRow.Field<string>("Apellido"),
+        //                 Usuario = dataRow.Field<string>("Usuario"),
+        //                 Descripcion = dataRow.Field<string>("Descripcion"),
+        //                 PrecioTotal = dataRow.Field<string>("PrecioTotal")
+
+        //             }).ToList();
+
+        //            return empList;
+        //        }
+
+
+        //        return null;
+        //    }
+        //    catch (Exception e)
+        //    {
+
+        //        return null;
+        //    }
+        //}
+
+        public static DataSet ListarFacturasReporte()
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarVentasReporte", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
+
+        public static DataSet ListarFacturasFiltroTotal(int NroFactura, string user,
+                                                        string fechaDesde, string fechaHasta)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroFactura", DbType.Int32, ParameterDirection.Input, NroFactura));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, user));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaDesde", DbType.DateTime, ParameterDirection.Input, fechaDesde));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaHasta", DbType.DateTime, ParameterDirection.Input, fechaHasta));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarVentasFiltroTotal", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
+
+        public static DataSet ListarFacturasFechaNroFactura(int NroFactura, string fechaDesde, string fechaHasta)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroFactura", DbType.Int32, ParameterDirection.Input, NroFactura));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaDesde", DbType.DateTime, ParameterDirection.Input, fechaDesde));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaHasta", DbType.DateTime, ParameterDirection.Input, fechaHasta));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarVentasFechaNroFactura", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
+
+        public static DataSet ListarFacturasFechaUser(string user, string fechaDesde, 
+                                                       string fechaHasta)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, user));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaDesde", DbType.DateTime, ParameterDirection.Input, fechaDesde));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaHasta", DbType.DateTime, ParameterDirection.Input, fechaHasta));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarVentasFechaUsuario", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
+
+        public static DataSet ListarFacturasFechas(string fechaDesde, string fechaHasta)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaDesde", DbType.DateTime, ParameterDirection.Input, fechaDesde));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaHasta", DbType.DateTime, ParameterDirection.Input, fechaHasta));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarVentasFechas", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
+
+        public static DataSet ListarFacturasNroFactUser(int nroFactura, string user)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroFactura", DbType.Int32, ParameterDirection.Input, nroFactura));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, user));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarVentasNroFacturaUser", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
+
+        public static DataSet ListarFacturasNroFactura(int nroFactura)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroFactura", DbType.Int32, ParameterDirection.Input, nroFactura));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarVentasNroFactura", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
+
+        public static DataSet ListarFacturasUser(string user)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, user));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarVentasUser", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
     }
 }
