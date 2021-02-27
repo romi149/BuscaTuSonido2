@@ -47,6 +47,12 @@
     <Reference Include="DocumentFormat.OpenXml, Version=2.12.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
       <HintPath>..\packages\DocumentFormat.OpenXml.2.12.1\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
+    <Reference Include="DynamicPDF.NETFramework40, Version=11.6.0.43127, Culture=neutral, PublicKeyToken=09b5ce0d5c0a9d8b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ceTe.DynamicPDF.CoreSuite.NET.11.6.0\lib\net40\DynamicPDF.NETFramework40.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=4.1.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
+      <HintPath>..\packages\freeitextsharp.dll.1.0.0\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Select.HtmlToPdf, Version=20.2.0.0, Culture=neutral, PublicKeyToken=e0ae9f6e27a97018, processorArchitecture=MSIL">
       <HintPath>..\packages\Select.HtmlToPdf.20.2.0\lib\net40\Select.HtmlToPdf.dll</HintPath>
@@ -183,6 +189,7 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="FormularioDeCompra.aspx" />
+    <Content Include="FormularioDeCompraDirecta.aspx" />
     <Content Include="GestionConsultasClientes.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -212,6 +219,7 @@
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Grafico-Ventas.aspx" />
     <Content Include="Imagenes\01.jpg" />
     <Content Include="Imagenes\02.jpg" />
     <Content Include="Imagenes\03.jpg" />
@@ -488,7 +496,6 @@
     <Compile Include="DescripcionProducto.aspx.designer.cs">
       <DependentUpon>DescripcionProducto.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Document.cs" />
     <Compile Include="EditarEncuesta.aspx.cs">
       <DependentUpon>EditarEncuesta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -587,6 +594,13 @@
     <Compile Include="FormularioDeCompra.aspx.designer.cs">
       <DependentUpon>FormularioDeCompra.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FormularioDeCompraDirecta.aspx.cs">
+      <DependentUpon>FormularioDeCompraDirecta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormularioDeCompraDirecta.aspx.designer.cs">
+      <DependentUpon>FormularioDeCompraDirecta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GestionConsultasClientes.aspx.cs">
       <DependentUpon>GestionConsultasClientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -597,7 +611,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="HTMLWorker.cs" />
+    <Compile Include="Grafico-Ventas.aspx.cs">
+      <DependentUpon>Grafico-Ventas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Grafico-Ventas.aspx.designer.cs">
+      <DependentUpon>Grafico-Ventas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InicioBackend.aspx.cs">
       <DependentUpon>InicioBackend.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

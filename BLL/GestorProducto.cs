@@ -228,5 +228,10 @@ namespace BLL
         {
             return MapperProducto.ListarTiempoRtaClientesFiltroUser(user);
         }
+
+        public static string ObtenerPrecioProducto(string prod)
+        {
+            return MapperProducto.ObtenerPrecioProducto(prod);
+        }
     }
 }

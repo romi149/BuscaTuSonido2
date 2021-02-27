@@ -87,3 +87,6 @@ C:\Users\romina\source\repos\BuscaTuSonido\GUI\obj\Debug\GUI.dll
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\obj\Debug\GUI.pdb
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\DocumentFormat.OpenXml.dll
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\DocumentFormat.OpenXml.xml
+C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\DynamicPDF.NETFramework40.dll
+C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\itextsharp.dll
+C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\DynamicPDF.NETFramework40.xml

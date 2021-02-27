@@ -29,7 +29,12 @@
                         </tr>
                     </table>
                 </div>
-                <asp:Button runat="server" CssClass="btn btn-primary" Text="Buscar" OnClick="Buscar_Click" ></asp:Button>
+                <asp:Button runat="server" CssClass="btn btn-primary btn-sm" Height="35" Text="Buscar" OnClick="Buscar_Click" ></asp:Button>
+
+                <asp:Button runat="server" ID="btnXls" CssClass="btn btn-success btn-sm" Height="35" Text="XLS" OnClick="ExportXls_Click" ></asp:Button>
+
+                <asp:Button runat="server" ID="btnPdf" CssClass="btn btn-danger btn-sm" Height="35" Text="PDF" OnClick="ExportPdf_Click" ></asp:Button>
+
             </div>
         </div>
         <br />
@@ -42,7 +47,8 @@
                 <asp:BoundField DataField="Usuario" HeaderText="Usuario" />
                 <asp:BoundField DataField="Pregunta" HeaderText="Pregunta" />
                 <asp:BoundField DataField="FechaPregunta" HeaderText="Fecha Pregunta" />
-                <asp:BoundField DataField="FechaRespuesta" HeaderText="Respuesta" />
+                <asp:BoundField DataField="Respuesta" HeaderText="Respuesta" />
+                <asp:BoundField DataField="FechaRespuesta" HeaderText="Fecha Respuesta" />
                 <asp:BoundField DataField="TiempoRespuesta" HeaderText="Tiempo de Respuesta" />
             </Columns>
         </asp:GridView>

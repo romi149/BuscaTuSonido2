@@ -11,70 +11,70 @@ namespace GUI
 {
 
 
-    public partial class TiempoRtaConsultaProd
+    public partial class FormularioDeCompraDirecta
     {
 
         /// <summary>
-        /// Control producto.
+        /// Control form1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox producto;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control usuario.
+        /// Control PrecioCompra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox usuario;
+        protected global::System.Web.UI.WebControls.TextBox PrecioCompra;
 
         /// <summary>
-        /// Control desde.
+        /// Control listNotaCred.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox desde;
+        protected global::System.Web.UI.WebControls.DropDownList listNotaCred;
 
         /// <summary>
-        /// Control hasta.
+        /// Control precioAPagar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox hasta;
+        protected global::System.Web.UI.WebControls.TextBox precioAPagar;
 
         /// <summary>
-        /// Control btnXls.
+        /// Control owner.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnXls;
+        protected global::System.Web.UI.WebControls.TextBox owner;
 
         /// <summary>
-        /// Control btnPdf.
+        /// Control cvv.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPdf;
+        protected global::System.Web.UI.WebControls.TextBox cvv;
 
         /// <summary>
-        /// Control gvTiempoRtaConsultaProd.
+        /// Control cardNumber.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvTiempoRtaConsultaProd;
+        protected global::System.Web.UI.WebControls.TextBox cardNumber;
     }
 }

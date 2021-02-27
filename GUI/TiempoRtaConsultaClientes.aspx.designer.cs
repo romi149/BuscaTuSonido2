@@ -42,6 +42,24 @@ namespace GUI
         protected global::System.Web.UI.WebControls.TextBox hasta;
 
         /// <summary>
+        /// Control btnXls.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnXls;
+
+        /// <summary>
+        /// Control btnPdf.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPdf;
+
+        /// <summary>
         /// Control gvTiempoRtaConsultaClientes.
         /// </summary>
         /// <remarks>

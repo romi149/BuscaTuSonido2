@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FormularioDeCompra.aspx.cs" Inherits="GUI.FormularioDeCompra" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FormularioDeCompraDirecta.aspx.cs" Inherits="GUI.FormularioDeCompraDirecta" %>
 
 <!DOCTYPE html>
 
@@ -258,3 +258,4 @@
 </body>
 
 </html>
+

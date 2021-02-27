@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace GUI
 {
-    public partial class FormularioDeCompra : System.Web.UI.Page
+    public partial class FormularioDeCompraDirecta : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -17,28 +17,23 @@ namespace GUI
             {
                 if (Session["usuarioCliente"] == null)
                 {
-                    Session["ProductosActuales"] = null;
                     Response.Redirect("Login");
                 }
                 else
                 {
-                    if (Session["ProductosActuales"] == null || (string)Session["ProductosActuales"] == "")
-                    {
-                        Session["ProductosActuales"] = Request.QueryString["Nombre"]?.ToString();
-                    }
-    
-                    this.PrecioCompra.Text = Request.QueryString["total"]?.ToString();
-                    Session["Total"] = Request.QueryString["total"].ToString();
-                    string Total = (string)Session["Total"];
+                    string producto = Request.QueryString["Nombre"]?.ToString();
+                    string precio = GestorProducto.ObtenerPrecioProducto(producto);
+                    this.PrecioCompra.Text = precio;
+                    
                     var UserCliente = $"{((BE.Usuario)Session["usuarioCliente"])?.User}";
 
                     var ImporteNC = GestorNC.ObtenerImporteNC(UserCliente);
-                    double total = double.Parse(Total);
-                   
+                    double Total = double.Parse(precio);
+
                     if (ImporteNC != null && ImporteNC.Count != 0)
                     {
                         double nc = double.Parse(ImporteNC[0].Importe);
-                        double aPagar = total - nc;
+                        double aPagar = Total - nc;
                         CargarComboNotaCredito(UserCliente);
                         precioAPagar.Text = aPagar.ToString();
                     }
@@ -46,14 +41,9 @@ namespace GUI
             }
             else
             {
-                if (string.IsNullOrEmpty((string)Session["ProductosActuales"])
-                    || string.IsNullOrEmpty((string)Session["Total"]))
-                {
-                    Response.Redirect("Default");
-                }
-                    
-                string Productos = (string)Session["ProductosActuales"];
-                string Total = (string)Session["Total"];
+                string producto = Request.QueryString["Nombre"]?.ToString();
+                string Total = GestorProducto.ObtenerPrecioProducto(producto);
+                
                 var UserCliente = $"{((BE.Usuario)Session["usuarioCliente"])?.User}";
 
                 var ImporteNC = GestorNC.ObtenerImporteNC(UserCliente);
@@ -80,9 +70,10 @@ namespace GUI
                     precioAPagar.Text = Total;
                 }
 
-                Session["ProductosActuales"] = null;
-                Session["Total"] = null;
-                ConfirmarCompra(Productos, precioAPagar.Text);
+                //Session["Precio"] = null;
+                //string NombreProd = (string)Session["Nombre"];
+                string NombreProd = Request.QueryString["Nombre"];
+                ConfirmarCompra(NombreProd, precioAPagar.Text);
 
             }
 
@@ -94,27 +85,17 @@ namespace GUI
             try
             {
                 //var UserCliente = $"{((BE.Usuario)Session["usuarioCliente"])?.User}";
-                Nombre = Nombre.TrimEnd(',');
-                var Productos = new List<string>(Nombre.Split(','));
                 var NPGenerada = GestorNP.AgregarNP(UserCliente, Total);
                 var nroNC = GestorNC.ObtenerNC(UserCliente);
-
                 if (NPGenerada)
                 {
                     var NP = GestorNP.ObtenerNP(UserCliente, Total);
                     GestorNP.ModificarEstado(NP, "Cobrado");
-                    string nombreProd = "";
+
+                    GestorNP.AgregarProdNP(NP, Nombre);
+                    GestorNP.AgregarDetalle(NP, Nombre);
                     
-                    foreach (var item in Productos)
-                    {
-                        GestorNP.AgregarProdNP(NP, item);
-
-                        nombreProd = nombreProd + item.Split(',');
-                    }
-
-                    GestorNP.AgregarDetalle(NP, nombreProd);
-
-                    if(nroNC.Count != 0)
+                    if (nroNC.Count != 0)
                     {
                         GestorNC.ModificarEstadoNC("Aplicado", nroNC[0].NroNotaC);
                     }
@@ -126,9 +107,9 @@ namespace GUI
 
             }
             var email = GestorCliente.ObtenerEmailCliente(UserCliente);
-            EnvioEmails.EnviarMailConfirmacionCompra(email.Email,"");
+            EnvioEmails.EnviarMailConfirmacionCompra(email.Email, "");
             Response.Redirect("ConfirmacionCompra");
-            
+
         }
 
         public void CargarComboNotaCredito(string usuario)
@@ -141,11 +122,6 @@ namespace GUI
             listNotaCred.DataBind();
 
         }
-
-        protected void listNotaCred_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-            
-        }
     }
+    
 }

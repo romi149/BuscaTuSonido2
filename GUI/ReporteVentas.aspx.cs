@@ -10,13 +10,17 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.text.html;
+using iTextSharp.text.html.simpleparser;
+using Document = iTextSharp.text.Document;
+using PageSize = iTextSharp.text.PageSize;
 
 namespace GUI
 {
     public partial class ReporteVentas : System.Web.UI.Page
     {
-        public object PdfWriter { get; private set; }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             var listaDatos = CargarDatos();
@@ -150,7 +154,7 @@ namespace GUI
             Response.Clear();
             Response.Buffer = true;
             Response.ContentType = "application/vnd.ms-excel";
-            Response.AddHeader("Content-Disposition", "attachment;filename=data.xls");
+            Response.AddHeader("Content-Disposition", "attachment;filename=Ventas.xls");
             Response.Charset = "UTF-8";
             Response.ContentEncoding = Encoding.Default;
             Response.Write(sb.ToString());
@@ -159,39 +163,32 @@ namespace GUI
 
         private void ExportGridToPdf()
         {
-            using (StringWriter sw = new StringWriter())
-            {
-                using (HtmlTextWriter hw = new HtmlTextWriter(sw))
-                {
-                    StringBuilder sb = new StringBuilder();
-                    //StringWriter sw = new StringWriter(sb);
-                    HtmlTextWriter htw = new HtmlTextWriter(sw);
-                    Page page = new Page();
-                    HtmlForm form = new HtmlForm();
+            Response.ContentType = "application/pdf";
+            Response.AddHeader("content-disposition", "attachment;filename=Ventas.pdf");
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter hw = new HtmlTextWriter(sw);
+            HtmlForm hf = new HtmlForm();
+            gvVentas.Parent.Controls.Add(hf);
+            hf.Attributes["runat"] = "server";
+            hf.Controls.Add(gvVentas);
+            hf.RenderControl(hw);
+            StringReader sr = new StringReader(sw.ToString());
+            Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 100f, 0f);
+            HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
+            PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+            pdfDoc.Open();
+            htmlparser.Parse(sr);
 
-                    gvVentas.EnableViewState = false;
+            pdfDoc.Close();
+            Response.Write(pdfDoc);
+            Response.End();
 
-                    page.EnableEventValidation = false;
-                    page.DesignerInitialize();
-                    page.Controls.Add(form);
-                    form.Controls.Add(gvVentas);
-                    page.RenderControl(htw);
+        }
 
-                    StringReader sr = new StringReader(sw.ToString());
-                    Document pdfDoc = new Document(a4:Page, 10f, 10f, 10f, 0f);
-                    HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
-                    //PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
-                    pdfDoc.Open();
-                    htmlparser.Parse(sr);
-                    pdfDoc.Close();
-
-                    Response.ContentType = "application/pdf";
-                    Response.AddHeader("content-disposition", "attachment;filename=GridViewExport.pdf");
-                    Response.Cache.SetCacheability(HttpCacheability.NoCache);
-                    Response.Write(pdfDoc);
-                    Response.End();
-                }
-            }
+        protected void Grafico_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("InicioBackend.aspx");
         }
     }
 }

@@ -1081,5 +1081,28 @@ namespace MPP
                 return null;
             }
         }
+
+        public static string ObtenerPrecioProducto(string prod)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Producto", DbType.String, ParameterDirection.Input, prod));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ObtenerPrecioProducto", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable().FirstOrDefault().Field<string>("Precio");
+
+                    return empList;
+                }
+
+                return null;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+
+        }
     }
 }

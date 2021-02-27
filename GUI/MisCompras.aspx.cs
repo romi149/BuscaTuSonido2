@@ -49,7 +49,7 @@ namespace GUI
                 DivContenedor.Controls.Add(DivBody);
                 this.peopleComment.Controls.Add(DivContenedor);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 throw;
             }

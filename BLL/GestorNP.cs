@@ -64,5 +64,10 @@ namespace BLL
             return MapperNP.ListarProductosxNP(nroNP);
 
         }
+
+        public static bool AgregarDetalle(int np, string prod)
+        {
+            return MapperNP.InsertarDetalle(np, prod);
+        }
     }
 }

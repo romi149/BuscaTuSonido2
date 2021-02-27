@@ -30,11 +30,13 @@
                         </tr>
                     </table>
                 </div>
-                <asp:Button runat="server" CssClass="btn btn-primary" Text="Buscar" OnClick="Buscar_Click" ></asp:Button>
+                <asp:Button runat="server" CssClass="btn btn-primary btn-sm" Height="35" Text="Buscar" OnClick="Buscar_Click" ></asp:Button>
 
-                <asp:Button runat="server" ID="btnXls" CssClass="btn btn-primary btn-md" Text="XLS" OnClick="ExportXls_Click" ></asp:Button>
+                <asp:Button runat="server" CssClass="btn btn-warning btn-sm" Height="35" Text="Gráfico" OnClick="Grafico_Click" ></asp:Button>
 
-                <asp:Button runat="server" ID="btnPdf" CssClass="btn btn-primary btn-md" Text="PDF" OnClick="ExportPdf_Click" ></asp:Button>
+                <asp:Button runat="server" ID="btnXls" CssClass="btn btn-success btn-sm" Height="35" Text="XLS" OnClick="ExportXls_Click" ></asp:Button>
+
+                <asp:Button runat="server" ID="btnPdf" CssClass="btn btn-danger btn-sm" Height="35" Text="PDF" OnClick="ExportPdf_Click" ></asp:Button>
             </div>
         </div>
         <br />
@@ -92,11 +94,7 @@
         .BtnBuscar{
             background-color:#0476C1;
         }
-
-        #btnXls{
-            background-color:darkgreen;
-            color:darkgreen;
-        }
+   
     </style>
 </asp:Content>
 

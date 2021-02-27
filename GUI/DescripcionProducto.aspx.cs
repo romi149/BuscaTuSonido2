@@ -130,9 +130,11 @@ namespace GUI
 
         protected void sendComprar_Click(object sender, EventArgs e)
         {
-            string Total = Request.QueryString["Precio"]?.ToString();
-           
-            Response.Redirect($"/FormularioCompra.aspx?Precio={Total}");
+            string Precio = Request.QueryString["Precio"]?.ToString();
+            string nombre = Request.QueryString["Nombre"]?.ToString();
+            string modelo = Request.QueryString["Modelo"]?.ToString();
+
+            Response.Redirect($"/FormularioDeCompraDirecta.aspx?Precio={Precio}&Nombre={nombre}");
 
         }
     }

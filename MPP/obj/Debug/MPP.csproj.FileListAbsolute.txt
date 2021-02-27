@@ -11,3 +11,6 @@ C:\Users\romina\source\repos\BuscaTuSonido\MPP\obj\Debug\MPP.csproj.CoreCompileI
 C:\Users\romina\source\repos\BuscaTuSonido\MPP\obj\Debug\MPP.csproj.CopyComplete
 C:\Users\romina\source\repos\BuscaTuSonido\MPP\obj\Debug\MPP.dll
 C:\Users\romina\source\repos\BuscaTuSonido\MPP\obj\Debug\MPP.pdb
+C:\Users\romina\source\repos\BuscaTuSonido\MPP\bin\Debug\DynamicPDF.NETFramework40.dll
+C:\Users\romina\source\repos\BuscaTuSonido\MPP\bin\Debug\itextsharp.dll
+C:\Users\romina\source\repos\BuscaTuSonido\MPP\bin\Debug\DynamicPDF.NETFramework40.xml

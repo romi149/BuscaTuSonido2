@@ -254,6 +254,24 @@ namespace MPP
                 return null;
             }
         }
+
+        public static bool InsertarDetalle(int np, string prod)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NP", DbType.Int32, ParameterDirection.Input, np));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Productos", DbType.String, ParameterDirection.Input, prod));
+                var respuesta = Conexion.GetInstance.EjecutarStore("InsertarDetalleEnNP", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
     }
 }
 
