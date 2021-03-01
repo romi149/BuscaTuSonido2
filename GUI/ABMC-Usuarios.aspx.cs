@@ -15,6 +15,15 @@ namespace GUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var User = $"{((BE.Usuario)Session["usuarioBackend"])?.User}";
+            var IdRol = GestorUsuario.ObtenerRolUsuario(User);
+            var permiso = GestorUsuario.VerificarAcceso(IdRol, "ReporteVentas.aspx");
+
+            if (permiso.Count == 0)
+            {
+                Response.Redirect("AccesoDenegado.aspx");
+            }
+
             var listaDatos = CargarDatos();
             this.gvUsuarios.DataSource = listaDatos;
             this.gvUsuarios.DataBind();

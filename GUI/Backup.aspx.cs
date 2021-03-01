@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,14 @@ namespace GUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var User = $"{((BE.Usuario)Session["usuarioBackend"])?.User}";
+            var IdRol = GestorUsuario.ObtenerRolUsuario(User);
+            var permiso = GestorUsuario.VerificarAcceso(IdRol, "ReporteVentas.aspx");
 
+            if (permiso.Count == 0)
+            {
+                Response.Redirect("AccesoDenegado.aspx");
+            }
         }
 
         protected void generar_Click(object sender, EventArgs e)

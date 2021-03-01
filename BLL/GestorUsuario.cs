@@ -45,6 +45,11 @@ namespace BLL
             return MapperUsuario.ListarUsuarios();
         }
 
+        public static List<Usuario> ListarUsuarios()
+        {
+            return MapperUsuario.ListaDeUsuarios();
+        }
+
         public static DataSet ListarUsuariosConFiltro(string username, string dni, string status)
         {
             return MapperUsuario.ListarUsuariosFiltrados(username, dni, status);
@@ -78,6 +83,31 @@ namespace BLL
             return MapperUsuario.ConfirmacionCambioPass(user, hashRecibido, pass);
 
         }
-        
+
+        public static DataSet ListarUsuarioRol()
+        {
+            return MapperUsuario.ListarUsuariosRol();
+        }
+
+        public static bool EliminarUsuarioRol(int IdUser, int IdRol)
+        {
+            return MapperUsuario.EliminarUsuarioRol(IdUser, IdRol);
+        }
+
+        public static bool AgregarUsuarioRol(int IdUsuario, int IdRol)
+        {
+            return MapperUsuario.InsertarUsuarioRol(IdUsuario, IdRol);
+        }
+
+        public static int ObtenerRolUsuario(string Usuario)
+        {
+            return MapperUsuario.ObtenerRolUsuario(Usuario);
+        }
+
+        public static List<Permiso> VerificarAcceso(int IdRol, string pagina)
+        {
+            return MapperUsuario.VerificarAccesoUser(IdRol, pagina);
+        }
+
     }
 }

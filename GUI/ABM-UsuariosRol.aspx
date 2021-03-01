@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backend.Master" AutoEventWireup="true" CodeBehind="ABMC-Permiso.aspx.cs" Inherits="GUI.ABMC_Permiso" EnableEventValidation="false" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backend.Master" AutoEventWireup="true" CodeBehind="ABM-UsuariosRol.aspx.cs" Inherits="GUI.ABM_UsuariosRol" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="ABMRol">
-        <h3>Listado de Permisos</h3>
+    <div class="ABMUsuarioRol">
+        <h3>Listado de Usuarios con sus Roles</h3>
         <div class="row">
             <div class="BuscadorDiv">
                 <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Agregar</button>
@@ -14,54 +14,47 @@
         <div id="demo" class="collapse">
             <div class="container">
                 <div class="row " style="height: 30vh">
-                    <h3>Nuevo Permiso</h3>
+                    <h3>Asignar Rol a Usuario</h3>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Nombre</label>
-                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="nombre" />
+                                <label>Nombre Rol</label>
+                                <asp:DropDownList runat="server" CssClass="form-control" ID="nombreRol" />
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Descripcion</label>
-                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="descripcion" />
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Tipo de Permiso</label>
-                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="tipoPermiso" />
+                                <label>Usuario</label>
+                                <asp:DropDownList runat="server" CssClass="form-control" ID="usuario" />
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <asp:Button runat="server" content="nuevoPermiso" ID="Agregar" 
-                            CssClass="btn btn-primary btn-md" Text="Agregar" OnClick="sendAgregar_Click" />
+                        <asp:Button runat="server" content="nuevaPub" ID="Asignar" CssClass="btn btn-primary btn-md" Text="Agregar" OnClick="sendAgregar_Click" />
                     </div>
                     <div class="col-md-4">
-                        <asp:Button runat="server" content="nuevoPermiso" ID="cancelar" 
-                            CssClass="btn btn-warning btn-md" Text="Cancelar" OnClick="sendcancelar_Click" />
+                        <asp:Button runat="server" content="nuevaPub" ID="cancelar" CssClass="btn btn-warning btn-md" Text="Cancelar" OnClick="sendcancelar_Click" />
                     </div>
                 </div>
             </div>
         </div>
 
         <br />
-        <asp:GridView ID="gvPermiso" runat="server" AutoGenerateColumns="false" class="table table-striped"
+        <asp:GridView ID="gvUsuarioRol" runat="server" AutoGenerateColumns="false" class="table table-striped"
             ClientIDMode="Static">
             <Columns>
-                <asp:BoundField DataField="IdPermiso" HeaderText="Id Permiso" />
+                <asp:BoundField DataField="IdUsuario" HeaderText="Id Usuario" />
+                <asp:BoundField DataField="Usuario" HeaderText="Usuario" />
                 <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
-                <asp:BoundField DataField="TipoPermiso" HeaderText="Tipo de Permiso" />
+                <asp:BoundField DataField="Apellido" HeaderText="Apellido" />
+                <asp:BoundField DataField="IdRol" HeaderText="Id Rol" />
+                <asp:BoundField DataField="NombreRol" HeaderText="Nombre Rol" />
                 <asp:TemplateField HeaderText="Accion">
                     <ItemTemplate>
                         <div class="BtnGrid">
-                            <asp:Button ID="btnEdit" Text="Editar" runat="server" OnClick="btnEdit_Click" CssClass="btn btn-primary" />
-                            <asp:Button ID="btnDelete" Text="Eliminar" runat="server" CssClass="btn btn-danger"
+                            <asp:Button ID="btnDelete" Text="Desasignar" runat="server" CssClass="btn btn-danger"
                                 OnClick="btnDelete_Click" OnClientClick="return confirm('¿Esta seguro que desea eliminar el registro?')" />
                         </div>
                     </ItemTemplate>
@@ -71,7 +64,7 @@
     </div>
 
  <style>
-        .abmRol {
+        .abmUsuarioRol {
             width: 80vw;
             margin: auto;
             margin-top: 15vh !important;

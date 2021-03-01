@@ -393,6 +393,7 @@ namespace GUI
         public const string SeleccionarNC = "--- Aplicar Nota de Credito---";
         public const string SeleccionarRol = "--- Seleccionar Rol---";
         public const string SeleccionarPermiso = "--- Seleccionar Permiso---";
+        public const string SeleccionarUsuario = "--- Seleccionar Usuario---";
 
     }
 }

@@ -61,8 +61,19 @@ namespace GUI
             string NroFactura = row.Cells[3].Text.Trim();
             
             var NroNP = GestorNP.ObtenerNPxFC(int.Parse(NroFactura));
+            var NombreProducto = GestorNP.ObtenerProducto(NroNP);
+            var valorado = GestorNP.VerificarValoracion(CLIENTE, NombreProducto);
+
+            if(valorado.Count != 0)
+            {
+                Response.Write("<script>alert('Ya ha valorado el producto, si desea realizar otro comentario hagalo a través de nuestro chat.')</script>");
+                
+            }
+            else
+            {
+                Response.Redirect($"/ValoracionProducto.aspx?NroNP={NroNP}");
+            }
             
-            Response.Redirect($"/ValoracionProducto.aspx?NroNP={NroNP}");
 
         }
        

@@ -19,9 +19,9 @@ namespace GUI
             string NombreProducto = Request.QueryString["NombreProducto"].ToString();
             string Modelo = Request.QueryString["Modelo"].ToString();
             string Pregunta = Request.QueryString["Pregunta"].ToString();
-            string Respuesta = Request.QueryString["Respuesta"].ToString();
-            string Usuario = Request.QueryString["Usuario"].ToString();
-            string FechaPregunta = Request.QueryString["FechaPregunta"].ToString();
+            string Respuesta = Request.QueryString["Respuesta"]?.ToString();
+            string Usuario = Request.QueryString["Usuario"]?.ToString();
+            string FechaPregunta = Request.QueryString["FechaPregunta"]?.ToString();
 
             id.Text = Id;
             nombreProd.Text = NombreProducto;

@@ -118,6 +118,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ABM-UsuariosRol.aspx" />
     <Content Include="ABMC-Encuestas.aspx" />
     <Content Include="ABMC-Marcas.aspx" />
     <Content Include="ABMC-Menus.aspx" />
@@ -130,6 +131,7 @@
     <Content Include="ABMC-Roles.aspx" />
     <Content Include="ABMC-Usuarios.aspx" />
     <Content Include="About.aspx" />
+    <Content Include="AccesoDenegado.aspx" />
     <Content Include="AdrotatorPage.aspx" />
     <Content Include="Ads.xml" />
     <Content Include="Ads2.xml" />
@@ -333,6 +335,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABM-UsuariosRol.aspx.cs">
+      <DependentUpon>ABM-UsuariosRol.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABM-UsuariosRol.aspx.designer.cs">
+      <DependentUpon>ABM-UsuariosRol.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ABMC-Encuestas.aspx.cs">
       <DependentUpon>ABMC-Encuestas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -409,6 +418,13 @@
     </Compile>
     <Compile Include="ABMC-Usuarios.aspx.designer.cs">
       <DependentUpon>ABMC-Usuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AccesoDenegado.aspx.cs">
+      <DependentUpon>AccesoDenegado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccesoDenegado.aspx.designer.cs">
+      <DependentUpon>AccesoDenegado.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdrotatorPage.aspx.cs">
       <DependentUpon>AdrotatorPage.aspx</DependentUpon>

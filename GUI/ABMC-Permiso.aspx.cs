@@ -13,6 +13,15 @@ namespace GUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var User = $"{((BE.Usuario)Session["usuarioBackend"])?.User}";
+            var IdRol = GestorUsuario.ObtenerRolUsuario(User);
+            var permiso = GestorUsuario.VerificarAcceso(IdRol, "ReporteVentas.aspx");
+
+            if (permiso.Count == 0)
+            {
+                Response.Redirect("AccesoDenegado.aspx");
+            }
+
             if (!IsPostBack)
             {
                 var listaDatos = CargarDatos();
@@ -60,7 +69,7 @@ namespace GUI
             var Descripcion = descripcion.Text.Trim();
             var TipoPermiso = tipoPermiso.Text.Trim();
 
-            bool Insertado = GestorRol.Agregar(
+            bool Insertado = GestorPermiso.Agregar(
                                        Nombre,
                                        Descripcion,
                                        TipoPermiso);

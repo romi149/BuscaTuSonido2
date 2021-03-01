@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace GUI
 {
-    public partial class ABMC_PermisoRol : System.Web.UI.Page
+    public partial class ABM_UsuariosRol : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,65 +26,69 @@ namespace GUI
             if (!IsPostBack)
             {
                 var listaDatos = CargarDatos();
-                this.gvPermisoRol.DataSource = listaDatos;
-                this.gvPermisoRol.DataBind();
+                this.gvUsuarioRol.DataSource = listaDatos;
+                this.gvUsuarioRol.DataBind();
                 CargarComboRol();
-                CargarComboPermiso();
+                CargarComboUsuario();
 
             }
         }
+
         public DataSet CargarDatos()
         {
-            return GestorPermiso.ListarPermisoRol();
+            return GestorUsuario.ListarUsuarioRol();
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
             GridViewRow row = (sender as Button).NamingContainer as GridViewRow;
-            string Id = row.Cells[0].Text.Trim();
+            string IdUsuario = row.Cells[0].Text.Trim();
+            string Usuario = row.Cells[2].Text.Trim();
+            string IdRol = row.Cells[4].Text.Trim();
+            string Rol = row.Cells[6].Text.Trim();
 
-            bool eliminado = GestorPermiso.EliminarPermisoRol(int.Parse(Id));
+            bool eliminado = GestorUsuario.EliminarUsuarioRol(int.Parse(IdUsuario), int.Parse(IdRol));
 
             if (eliminado)
             {
-                GestorBitacora.Agregar(DateTime.Now, "Se desasigno un  permiso a un rol", "Admin", "PermisoRol");
+                GestorBitacora.Agregar(DateTime.Now, "Se desasigno el  rol " + Rol + " al usuario" + Usuario, "Admin", "UsuarioRol");
             }
 
-            Response.Redirect("/ABMC-PermisoRol.aspx");
+            Response.Redirect("/ABM-UsuariosRol.aspx");
 
         }
-            
+
         protected void sendAgregar_Click(object sender, EventArgs e)
         {
-            var IdPermiso = nombrePermiso.SelectedItem.Value;
-            var NombrePermiso = nombrePermiso.SelectedItem.ToString();
+            var IdUsuario = usuario.SelectedItem.Value;
+            var NombreUsuario = usuario.SelectedItem.ToString();
             var IdRol = nombreRol.SelectedValue.ToString();
             var NombreRol = nombreRol.SelectedItem.ToString();
-                
-            bool Insertado = GestorPermiso.AgregarPermisoRol(
-                                           int.Parse(IdPermiso),
+
+            bool Insertado = GestorUsuario.AgregarUsuarioRol(
+                                           int.Parse(IdUsuario),
                                            int.Parse(IdRol));
 
             if (Insertado)
             {
-               GestorBitacora.Agregar(DateTime.Now, "Se asignó un nuevo permiso al rol seleccionado", "Admin", "PermisoRol");
-               //Response.Write("<script>alert('El registro se ha agregado correctamente')</script>");
+                GestorBitacora.Agregar(DateTime.Now, "Se asignó el rol " +NombreRol+ " al usuario" +NombreUsuario, "Admin", "UsuarioRol");
+                //Response.Write("<script>alert('El registro se ha agregado correctamente')</script>");
             }
-            Response.Redirect("/ABMC-PermisoRol.aspx");
+            Response.Redirect("/ABM-UsuariosRol.aspx");
         }
         protected void sendcancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/ABMC-PermisoRol");
+            Response.Redirect("~/ABM-UsuariosRol");
         }
 
-        public void CargarComboPermiso()
+        public void CargarComboUsuario()
         {
-             List<Permiso> lista = GestorPermiso.ObtenerPermisos();
-             lista.Insert(0, new Permiso { NombrePermiso = Constantes.SeleccionarPermiso });
-             nombrePermiso.DataSource = lista;
-             nombrePermiso.DataTextField = "NombrePermiso";
-             nombrePermiso.DataValueField = "IdPermiso";
-             nombrePermiso.DataBind();
+            List<Usuario> lista = GestorUsuario.ListarUsuarios();
+            lista.Insert(0, new Usuario { User = Constantes.SeleccionarUsuario });
+            usuario.DataSource = lista;
+            usuario.DataTextField = "User";
+            usuario.DataValueField = "IdUsuario";
+            usuario.DataBind();
 
         }
 

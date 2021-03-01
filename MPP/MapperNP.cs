@@ -272,6 +272,58 @@ namespace MPP
                 return false;
             }
         }
+
+        public static string ObtenerProducto(int nroNP)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroNP", DbType.Int32, ParameterDirection.Input, nroNP));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ObtenerProductoNP", ListaParametros);
+                if (respuesta != null)
+                {
+                    {
+                        var empList = respuesta.Tables[0].AsEnumerable().FirstOrDefault().Field<string>("Nombre");
+                        
+                        return empList;
+                    }
+                }
+                return null;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public static List<Producto> ObtenerValoraciones(string cliente, string producto)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, cliente));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Producto", DbType.String, ParameterDirection.Input, producto));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("VerificarValoracionProducto", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                          .Select(dataRow => new Producto
+                          {
+                              Nombre = dataRow.Field<string>("NombreProducto")
+
+                          }).ToList();
+
+                    return empList;
+                }
+
+                return null;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
     }
 }
 

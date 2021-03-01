@@ -103,16 +103,19 @@ namespace GUI
                 {
                     var NP = GestorNP.ObtenerNP(UserCliente, Total);
                     GestorNP.ModificarEstado(NP, "Cobrado");
-                    string nombreProd = "";
+                    //string nombreProd = "";
+                    string cadena = "";
                     
                     foreach (var item in Productos)
                     {
                         GestorNP.AgregarProdNP(NP, item);
 
-                        nombreProd = nombreProd + item.Split(',');
+                        //nombreProd = nombreProd + item.Split(',');
+                        cadena = string.Join(",", Productos.ToArray());
                     }
 
-                    GestorNP.AgregarDetalle(NP, nombreProd);
+                   
+                    GestorNP.AgregarDetalle(NP, cadena);
 
                     if(nroNC.Count != 0)
                     {

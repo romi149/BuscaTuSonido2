@@ -69,5 +69,16 @@ namespace BLL
         {
             return MapperNP.InsertarDetalle(np, prod);
         }
+
+        public static string ObtenerProducto(int nroNP)
+        {
+            return MapperNP.ObtenerProducto(nroNP);
+        }
+
+        public static List<Producto> VerificarValoracion(string cliente, string producto)
+        {
+            return MapperNP.ObtenerValoraciones(cliente, producto);
+
+        }
     }
 }

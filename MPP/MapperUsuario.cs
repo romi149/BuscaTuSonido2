@@ -349,6 +349,137 @@ namespace MPP
 
         }
 
+        public static List<Usuario> ListaDeUsuarios()
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarUsuarios", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Usuario
+                      {
+                          IdUsuario = dataRow.Field<Int32>("IdUsuario"),
+                          User = dataRow.Field<string>("Usuario"),
+                          Nombre = dataRow.Field<string>("Nombre"),
+                          Apellido = dataRow.Field<string>("Apellido")
+                          
+                       }).ToList();
+
+                    return empList;
+                }
+
+                return null;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public static DataSet ListarUsuariosRol()
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarUsuariosRol", ListaParametros);
+
+                return respuesta;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
+
+        public static bool EliminarUsuarioRol(int IdUser, int IdRol)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdUsuario", DbType.Int32, ParameterDirection.Input, IdUser));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdRol", DbType.Int32, ParameterDirection.Input, IdRol));
+                var respuesta = Conexion.GetInstance.EjecutarStore("EliminarUsuarioRol", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return false;
+            }
+
+        }
+
+        public static bool InsertarUsuarioRol(int IdUsuario, int IdRol)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdUsuario", DbType.Int16, ParameterDirection.Input, IdUsuario));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdRol", DbType.Int32, ParameterDirection.Input, IdRol));
+                var respuesta = Conexion.GetInstance.EjecutarStore("InsertarUsuarioRol", ListaParametros);
+
+                return respuesta;
+            }
+
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public static int ObtenerRolUsuario(string User)
+        {
+            List<SqlParameter> ListaParametros = new List<SqlParameter>();
+            ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, User));
+            var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ObtenerRolUsuario", ListaParametros);
+            if (respuesta != null)
+            {
+                var empList = respuesta.Tables[0].AsEnumerable()
+                  .Select(dataRow => new Rol
+                  {
+                      IdRol = dataRow.Field<Int32>("IdRol")
+
+                  }).ToList();
+
+                return empList.FirstOrDefault().IdRol;
+            }
+            return 0;
+        }
+
+        public static List<Permiso> VerificarAccesoUser(int IdRol, string pagina)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdRol", DbType.Int32, ParameterDirection.Input, IdRol));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Pagina", DbType.String, ParameterDirection.Input, pagina));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("VerificarPermisoUser", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                      .Select(dataRow => new Permiso
+                      {
+                          IdPermiso = dataRow.Field<Int32>("IdPermiso"),
+                          NombrePermiso = dataRow.Field<string>("Nombre")
+                          
+                      }).ToList();
+
+                    return empList;
+                }
+
+                return null;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+
     }
 
 

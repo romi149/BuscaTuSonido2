@@ -65,6 +65,8 @@
                               <div class="dropdown-divider"></div>
                               <a class="dropdown-item" href="/ABMC-Usuarios">Usuarios</a>
                               <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="/ABM-UsuariosRol">Usuarios por Rol</a>
+                              <div class="dropdown-divider"></div>
                               <a class="dropdown-item" href="/ABMC-Menus">Menus</a>
                             </div>
                           </li>
