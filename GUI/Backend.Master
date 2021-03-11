@@ -145,7 +145,7 @@
                               Seguridad
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="/Backup">Generar Backup</a>
+                              <a class="dropdown-item" href="/Backup.aspx">Generar Backup</a>
                               <div class="dropdown-divider"></div>
                               <a class="dropdown-item" href="/Restore">Generar Restore</a>
                               <div class="dropdown-divider"></div>

@@ -238,5 +238,21 @@ namespace MPP
                 return false;
             }
         }
+
+        public static DataSet ObtenerResultPregunta1()
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ObtenerResultadosPregunta1", ListaParametros);
+
+                return respuesta;
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
     }
 }

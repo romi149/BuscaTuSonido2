@@ -13,6 +13,15 @@ namespace GUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var User = $"{((BE.Usuario)Session["usuarioBackend"])?.User}";
+            var IdRol = GestorUsuario.ObtenerRolUsuario(User);
+            var permiso = GestorUsuario.VerificarAcceso(IdRol, "ABMC-Rol.aspx");
+
+            if (permiso.Count == 0)
+            {
+                Response.Redirect("AccesoDenegado.aspx");
+            }
+
             if (!IsPostBack)
             {
                 var listaDatos = CargarDatos();

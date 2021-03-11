@@ -19,4 +19,21 @@ namespace BE
 
     }
 
+    public class ReporteFactura
+    {
+        public int TotalEne { get; set; }
+        public int TotalFeb { get; set; }
+        public int TotalMar { get; set; }
+        public int TotalAbr { get; set; }
+        public int TotalMay { get; set; }
+        public int TotalJun { get; set; }
+        public int TotalJul { get; set; }
+        public int TotalAgo { get; set; }
+        public int TotalSep { get; set; }
+        public int TotalOct { get; set; }
+        public int TotalNov { get; set; }
+        public int TotalDic { get; set; }
+
+    }
+
 }

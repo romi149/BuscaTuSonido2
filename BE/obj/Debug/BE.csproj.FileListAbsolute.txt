@@ -1,12 +1,12 @@
 C:\Users\romina\source\repos\BuscaTuSonido\BE\bin\Debug\BE.dll
 C:\Users\romina\source\repos\BuscaTuSonido\BE\bin\Debug\BE.pdb
+C:\Users\romina\source\repos\BuscaTuSonido\BE\bin\Debug\DynamicPDF.NETFramework40.dll
+C:\Users\romina\source\repos\BuscaTuSonido\BE\bin\Debug\itextsharp.dll
 C:\Users\romina\source\repos\BuscaTuSonido\BE\bin\Debug\Newtonsoft.Json.dll
+C:\Users\romina\source\repos\BuscaTuSonido\BE\bin\Debug\DynamicPDF.NETFramework40.xml
 C:\Users\romina\source\repos\BuscaTuSonido\BE\bin\Debug\Newtonsoft.Json.xml
-C:\Users\romina\source\repos\BuscaTuSonido\BE\obj\Debug\BE.csprojAssemblyReference.cache
 C:\Users\romina\source\repos\BuscaTuSonido\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
 C:\Users\romina\source\repos\BuscaTuSonido\BE\obj\Debug\BE.csproj.CopyComplete
 C:\Users\romina\source\repos\BuscaTuSonido\BE\obj\Debug\BE.dll
 C:\Users\romina\source\repos\BuscaTuSonido\BE\obj\Debug\BE.pdb
-C:\Users\romina\source\repos\BuscaTuSonido\BE\bin\Debug\DynamicPDF.NETFramework40.dll
-C:\Users\romina\source\repos\BuscaTuSonido\BE\bin\Debug\itextsharp.dll
-C:\Users\romina\source\repos\BuscaTuSonido\BE\bin\Debug\DynamicPDF.NETFramework40.xml
+C:\Users\romina\source\repos\BuscaTuSonido\BE\obj\Debug\BE.csprojAssemblyReference.cache

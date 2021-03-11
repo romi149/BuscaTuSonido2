@@ -57,6 +57,9 @@ C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\AspNet.ScriptManager.bootstra
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\AspNet.ScriptManager.jQuery.dll
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\BE.dll
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\BLL.dll
+C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\DocumentFormat.OpenXml.dll
+C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\DynamicPDF.NETFramework40.dll
+C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\itextsharp.dll
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\Microsoft.AspNet.FriendlyUrls.dll
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
@@ -72,6 +75,8 @@ C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\DAL.dll
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\BE.pdb
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\BLL.pdb
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\MPP.pdb
+C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\DocumentFormat.OpenXml.xml
+C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\DynamicPDF.NETFramework40.xml
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\Select.HtmlToPdf.xml
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\System.Web.Optimization.xml
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\Newtonsoft.Json.xml
@@ -85,8 +90,3 @@ C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\Select.Html.dep
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\obj\Debug\GUI.csproj.CopyComplete
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\obj\Debug\GUI.dll
 C:\Users\romina\source\repos\BuscaTuSonido\GUI\obj\Debug\GUI.pdb
-C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\DocumentFormat.OpenXml.dll
-C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\DocumentFormat.OpenXml.xml
-C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\DynamicPDF.NETFramework40.dll
-C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\itextsharp.dll
-C:\Users\romina\source\repos\BuscaTuSonido\GUI\bin\DynamicPDF.NETFramework40.xml

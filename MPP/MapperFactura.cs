@@ -128,39 +128,43 @@ namespace MPP
             return 0;
         }
 
-        //public static List<ReporteVentas> ListarFacturasReporte()
-        //{
-        //    try
-        //    {
-        //        List<SqlParameter> ListaParametros = new List<SqlParameter>();
-        //        var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ListarVentasReporte", ListaParametros);
-        //        if (respuesta != null)
-        //        {
-        //            var empList = respuesta.Tables[0].AsEnumerable()
-        //             .Select(dataRow => new ReporteVentas
-        //             {
-        //                 NroFactura = dataRow.Field<int>("NroFactura"),
-        //                 Fecha = dataRow.Field<string>("Fecha"),
-        //                 Nombre = dataRow.Field<string>("Nombre"),
-        //                 Apellido = dataRow.Field<string>("Apellido"),
-        //                 Usuario = dataRow.Field<string>("Usuario"),
-        //                 Descripcion = dataRow.Field<string>("Descripcion"),
-        //                 PrecioTotal = dataRow.Field<string>("PrecioTotal")
+        public static List<ReporteFactura> ListarVentasGrafico(string anio)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("anioRecibido", DbType.String, ParameterDirection.Input, anio));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("GraficoVentasPorAnioMes", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                     .Select(dataRow => new ReporteFactura
+                     {
+                         TotalEne = dataRow.Field<Int32>("TotalEne"),
+                         TotalFeb = dataRow.Field<Int32>("TotalFeb"),
+                         TotalMar = dataRow.Field<Int32>("TotalMar"),
+                         TotalAbr = dataRow.Field<Int32>("TotalAbr"),
+                         TotalMay = dataRow.Field<Int32>("TotalMay"),
+                         TotalJun = dataRow.Field<Int32>("TotalJun"),
+                         TotalJul = dataRow.Field<Int32>("TotalJul"),
+                         TotalAgo = dataRow.Field<Int32>("TotalAgo"),
+                         TotalSep = dataRow.Field<Int32>("TotalSep"),
+                         TotalOct = dataRow.Field<Int32>("TotalOct"),
+                         TotalNov = dataRow.Field<Int32>("TotalNov"),
+                         TotalDic = dataRow.Field<Int32>("TotalDic")
 
-        //             }).ToList();
+                     }).ToList();
 
-        //            return empList;
-        //        }
+                    return empList;
+                }
 
-
-        //        return null;
-        //    }
-        //    catch (Exception e)
-        //    {
-
-        //        return null;
-        //    }
-        //}
+                return null;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
 
         public static DataSet ListarFacturasReporte()
         {

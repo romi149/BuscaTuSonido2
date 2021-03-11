@@ -78,5 +78,9 @@ namespace BLL
         {
             return MapperFactura.ListarFacturasUser(user);
         }
+        public static List<ReporteFactura> ListarVentasGrafico(string anio)
+        {
+            return MapperFactura.ListarVentasGrafico(anio);
+        }
     }
 }

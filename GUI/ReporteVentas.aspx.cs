@@ -197,7 +197,7 @@ namespace GUI
 
         protected void Grafico_Click(object sender, EventArgs e)
         {
-            Response.Redirect("InicioBackend.aspx");
+            Response.Redirect("Grafico-Ventas.aspx");
         }
     }
 }
