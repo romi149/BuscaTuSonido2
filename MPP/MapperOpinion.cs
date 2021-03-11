@@ -239,18 +239,122 @@ namespace MPP
             }
         }
 
-        public static DataSet ObtenerResultPregunta1()
+        public static List<OpinionReporte> ObtenerResultPregunta1()
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
                 var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ObtenerResultadosPregunta1", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                     .Select(dataRow => new OpinionReporte
+                     {
+                         Valor1 = dataRow.Field<Int32>("Valor1"),
+                         Valor2 = dataRow.Field<Int32>("Valor2"),
+                         Valor3 = dataRow.Field<Int32>("Valor3"),
+                         Valor4 = dataRow.Field<Int32>("Valor4"),
+                         Valor5 = dataRow.Field<Int32>("Valor5")
 
-                return respuesta;
+                     }).ToList();
+
+                    return empList;
+                }
+
+                return null;
             }
             catch (Exception e)
             {
+                return null;
+            }
+        }
 
+        public static List<OpinionReporte> ObtenerResultPregunta2()
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ObtenerResultadosPregunta2", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                     .Select(dataRow => new OpinionReporte
+                     {
+                         Valor1 = dataRow.Field<Int32>("Valor1"),
+                         Valor2 = dataRow.Field<Int32>("Valor2"),
+                         Valor3 = dataRow.Field<Int32>("Valor3"),
+                         Valor4 = dataRow.Field<Int32>("Valor4"),
+                         Valor5 = dataRow.Field<Int32>("Valor5")
+
+                     }).ToList();
+
+                    return empList;
+                }
+
+                return null;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public static List<OpinionReporte> ObtenerResultPregunta3()
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ObtenerResultadosPregunta3", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                     .Select(dataRow => new OpinionReporte
+                     {
+                         Valor1 = dataRow.Field<Int32>("Valor1"),
+                         Valor2 = dataRow.Field<Int32>("Valor2"),
+                         Valor3 = dataRow.Field<Int32>("Valor3"),
+                         Valor4 = dataRow.Field<Int32>("Valor4"),
+                         Valor5 = dataRow.Field<Int32>("Valor5")
+
+                     }).ToList();
+
+                    return empList;
+                }
+
+                return null;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public static List<OpinionReporte> ObtenerResultPregunta4()
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ObtenerResultadosPregunta4", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                     .Select(dataRow => new OpinionReporte
+                     {
+                         Valor1 = dataRow.Field<Int32>("Valor1"),
+                         Valor2 = dataRow.Field<Int32>("Valor2"),
+                         Valor3 = dataRow.Field<Int32>("Valor3"),
+                         Valor4 = dataRow.Field<Int32>("Valor4"),
+                         Valor5 = dataRow.Field<Int32>("Valor5")
+
+                     }).ToList();
+
+                    return empList;
+                }
+
+                return null;
+            }
+            catch (Exception e)
+            {
                 return null;
             }
         }

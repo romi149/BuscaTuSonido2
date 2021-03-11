@@ -223,6 +223,10 @@
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Grafico-FOpinionPreg1.aspx" />
+    <Content Include="Grafico-FOpinionPreg2.aspx" />
+    <Content Include="Grafico-FOpinionPreg3.aspx" />
+    <Content Include="Grafico-FOpinionPreg4.aspx" />
     <Content Include="Grafico-Ventas.aspx" />
     <Content Include="Imagenes\01.jpg" />
     <Content Include="Imagenes\02.jpg" />
@@ -628,6 +632,34 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Grafico-FOpinionPreg1.aspx.cs">
+      <DependentUpon>Grafico-FOpinionPreg1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Grafico-FOpinionPreg1.aspx.designer.cs">
+      <DependentUpon>Grafico-FOpinionPreg1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Grafico-FOpinionPreg2.aspx.cs">
+      <DependentUpon>Grafico-FOpinionPreg2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Grafico-FOpinionPreg2.aspx.designer.cs">
+      <DependentUpon>Grafico-FOpinionPreg2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Grafico-FOpinionPreg3.aspx.cs">
+      <DependentUpon>Grafico-FOpinionPreg3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Grafico-FOpinionPreg3.aspx.designer.cs">
+      <DependentUpon>Grafico-FOpinionPreg3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Grafico-FOpinionPreg4.aspx.cs">
+      <DependentUpon>Grafico-FOpinionPreg4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Grafico-FOpinionPreg4.aspx.designer.cs">
+      <DependentUpon>Grafico-FOpinionPreg4.aspx</DependentUpon>
     </Compile>
     <Compile Include="Grafico-Ventas.aspx.cs">
       <DependentUpon>Grafico-Ventas.aspx</DependentUpon>

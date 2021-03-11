@@ -68,9 +68,29 @@ namespace BLL
             return MapperOpinion.InsertarPuntaje(IdEncuesta, opcion);
         }
 
-        public static DataSet ObtenerResultadosPregunta1()
+        //public static DataSet ObtenerResultadosPregunta1()
+        //{
+        //    return MapperOpinion.ObtenerResultPregunta1();
+        //}
+
+        public static List<OpinionReporte> ObtenerResultadosPregunta1()
         {
             return MapperOpinion.ObtenerResultPregunta1();
+        }
+
+        public static List<OpinionReporte> ObtenerResultadosPregunta2()
+        {
+            return MapperOpinion.ObtenerResultPregunta2();
+        }
+
+        public static List<OpinionReporte> ObtenerResultadosPregunta3()
+        {
+            return MapperOpinion.ObtenerResultPregunta3();
+        }
+
+        public static List<OpinionReporte> ObtenerResultadosPregunta4()
+        {
+            return MapperOpinion.ObtenerResultPregunta4();
         }
     }
 }

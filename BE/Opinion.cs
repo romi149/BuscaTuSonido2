@@ -21,4 +21,13 @@ namespace BE
         public string UrlOpcion2 { get; set; }
 
     }
+
+    public class OpinionReporte
+    {
+        public int Valor1 { get; set; }
+        public int Valor2 { get; set; }
+        public int Valor3 { get; set; }
+        public int Valor4 { get; set; }
+        public int Valor5 { get; set; }
+    }
 }
