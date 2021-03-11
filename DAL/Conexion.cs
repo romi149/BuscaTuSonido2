@@ -127,5 +127,34 @@ namespace DAL
 
 
         }
+
+        public void RealizarRestore(String ruta)
+        {
+            var nombreBaseDeDatos = conexion.Database.ToString();
+            if (conexion.State != ConnectionState.Open)
+            {
+                conexion.Open();
+            }
+            try
+            {
+                string sqlStmt2 = string.Format("ALTER DATABASE [" + nombreBaseDeDatos + "] SET SINGLE_USER WITH ROLLBACK IMMEDIATE");
+                SqlCommand bu2 = new SqlCommand(sqlStmt2, conexion);
+                bu2.ExecuteNonQuery();
+
+                string sqlStmt3 = "USE MASTER RESTORE DATABASE [" + nombreBaseDeDatos + "] FROM DISK='" + ruta + "'WITH REPLACE;";
+                SqlCommand bu3 = new SqlCommand(sqlStmt3, conexion);
+                bu3.ExecuteNonQuery();
+
+                string sqlStmt4 = string.Format("ALTER DATABASE [" + nombreBaseDeDatos + "] SET MULTI_USER");
+                SqlCommand bu4 = new SqlCommand(sqlStmt4, conexion);
+                bu4.ExecuteNonQuery();
+
+                conexion.Close();
+
+            }
+            catch (Exception ex)
+            {
+            }
+        }
     }
 }

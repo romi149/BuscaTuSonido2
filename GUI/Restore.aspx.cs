@@ -30,7 +30,9 @@ namespace GUI
 
         protected void restore_Click(object sender, EventArgs e)
         {
+            var ruta = @"C:\\Backup";
 
+            bool realizado = GestorBackup.RealizarRestore(ruta);
             //btnFileUpload.SaveAs(Server.MapPath(".") + "/backup");
 
 

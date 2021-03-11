@@ -12,11 +12,11 @@
                     <div class="col-md-12" >
                         <div class="card-body">
                             <div class="form-group">
-                                <h4>Seleccione la ruta donde se encuentra la base de datos a restaurar</h4>
+                                <h4>Seleccione la base de datos a restaurar</h4>
                                 <br />
-                               <%-- <asp:FileUpload ID="btnFileUpload" runat="server"></asp:FileUpload>--%>
-                                <input type="file" id="fileLoader" name="files" title="Load File" />
-                                <input type="button" id="btnOpenFileDialog" value ="Buscar" onclick="openfileDialog();" />
+                                <asp:FileUpload ID="btnFileUpload" runat="server"></asp:FileUpload>
+                                <%--<input type="file" id="fileLoader" name="files" title="Load File" />--%>
+                                <%--<input type="button" id="btnOpenFileDialog" value ="Buscar" onclick="openfileDialog();" />--%>
                                 <br />
                                 <%--<asp:Button ID="btnGuardar" Text="Guardar archivo" CssClass="btn btn-primary btn-md" 
                                     OnClick="btnGuardar_Click" runat="server"></asp:Button>--%>
