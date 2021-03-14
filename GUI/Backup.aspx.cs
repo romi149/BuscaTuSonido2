@@ -26,8 +26,18 @@ namespace GUI
         {
             //FileUpload.SaveAs(Server.MapPath(".") + "/Imagenes/Catalogo/Cuerdas");
 
+            var destino = "C:\\Program Files\\Microsoft SQL Server\\MSSQL15.SQL2019\\MSSQL\\Backup\\";
 
+            var generado = GestorBackup.RealizarBackup(destino);
 
+            if(generado)
+            {
+                Response.Write("<script>alert('El backup se realizo correctamente')</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('No se pudo realizar el backup')</script>");
+            }
 
         }
     }

@@ -143,25 +143,25 @@ namespace GUI
                 switch(Tipo)
                 {
                     case "Cuerdas":
-                        ruta = @"/Imagenes/Catalogo/Cuerdas";
-                        FileUpload.SaveAs(Server.MapPath(".") + "/Imagenes/Catalogo/Cuerdas");
+                        ruta = @"/Imagenes/Catalogo/Cuerdas/";
+                        FileUpload.SaveAs(Server.MapPath(".") + "/Imagenes/Catalogo/Cuerdas/");
                         GestorProducto.AgregarImg(nombreProd, "Sin categoria", ruta);
                         break;
 
                     case "Electronico":
-                        ruta = @"/Imagenes/Catalogo/Electronicos";
+                        ruta = @"/Imagenes/Catalogo/Electronicos/";
                         FileUpload.SaveAs(ruta);
                         GestorProducto.AgregarImg(nombreProd, "Sin categoria", ruta);
                         break;
 
                     case "Viento":
-                        ruta = @"/Imagenes/Catalogo/Viento";
+                        ruta = @"/Imagenes/Catalogo/Viento/";
                         FileUpload.SaveAs(ruta);
                         GestorProducto.AgregarImg(nombreProd, "Sin categoria", ruta);
                         break;
 
                     case "Percusion":
-                        ruta = @"/Imagenes/Catalogo/Percusion";
+                        ruta = @"/Imagenes/Catalogo/Percusion/";
                         FileUpload.SaveAs(ruta);
                         GestorProducto.AgregarImg(nombreProd, "Sin categoria", ruta);
                         break;

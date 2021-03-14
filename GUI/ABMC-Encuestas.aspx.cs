@@ -64,9 +64,7 @@ namespace GUI
         {
             GridViewRow row = (sender as Button).NamingContainer as GridViewRow;
             string Id = row.Cells[0].Text.Trim();
-            //string NroPregunta = row.Cells[1].Text.Trim();
             string NombrePregunta = row.Cells[1].Text.Trim();
-            //string Tipo = row.Cells[3].Text.Trim();
             string FechaInicio = row.Cells[2].Text.Trim();
             string FechaFin = row.Cells[3].Text.Trim();
             string Opcion1 = row.Cells[4].Text.Trim();
@@ -98,7 +96,7 @@ namespace GUI
 
             if(existe != null)
             {
-                Response.Write("<script>alert('Ya existe una encuesta para esa fecha, debe ingresar una fecha de inicio superior')</script>");
+                Response.Write("<script>alert('Ya existe una fecha de inicio para la fecha ingresada, debe ingresar una fecha de inicio superior')</script>");
             }
             else
             {

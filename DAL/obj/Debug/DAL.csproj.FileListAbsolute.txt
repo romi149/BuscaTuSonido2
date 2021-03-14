@@ -9,3 +9,4 @@ C:\Users\romina\source\repos\BuscaTuSonido\DAL\obj\Debug\DAL.csproj.CoreCompileI
 C:\Users\romina\source\repos\BuscaTuSonido\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\romina\source\repos\BuscaTuSonido\DAL\obj\Debug\DAL.dll
 C:\Users\romina\source\repos\BuscaTuSonido\DAL\obj\Debug\DAL.pdb
+C:\Users\romina\source\repos\BuscaTuSonido\DAL\obj\Debug\DAL.csprojAssemblyReference.cache

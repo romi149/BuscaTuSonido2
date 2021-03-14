@@ -128,32 +128,49 @@ namespace DAL
 
         }
 
-        public void RealizarRestore(String ruta)
+        public bool RealizarRestore(String ruta)
         {
-            var nombreBaseDeDatos = conexion.Database.ToString();
-            if (conexion.State != ConnectionState.Open)
-            {
-                conexion.Open();
-            }
             try
             {
-                string sqlStmt2 = string.Format("ALTER DATABASE [" + nombreBaseDeDatos + "] SET SINGLE_USER WITH ROLLBACK IMMEDIATE");
+                var nombreBaseDeDatos = conexion.Database.ToString();
+                if (conexion.State != ConnectionState.Open)
+                    conexion.Open();
+
+                string sqlStmt2 = string.Format("USE MASTER RESTORE DATABASE[BTS] FROM  DISK = N'C:\\Program Files\\Microsoft SQL Server\\MSSQL15.SQL2019\\MSSQL\\Backup\\BTS.bak' WITH  FILE = 5, NOUNLOAD, REPLACE, STATS = 5");
+                SqlCommand bu2 = new SqlCommand(sqlStmt2, conexion);
+                bu2.ExecuteNonQuery();
+                
+                conexion.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                conexion.Close();
+                throw new Exception($"No se pudo Realizar Restore se la base de datos en la ruta:" +
+                    $"\n Ruta:{ruta} \n MensajeDeError:{e.Message}");
+            }
+        }
+
+        public bool RealizarBackup()
+        {
+            try
+            {
+                var nombreBaseDeDatos = conexion.Database.ToString();
+                if (conexion.State != ConnectionState.Open)
+                    conexion.Open();
+
+                string sqlStmt2 = string.Format("BACKUP DATABASE [BTS] TO  DISK = N'C:\\Program Files\\Microsoft SQL Server\\MSSQL15.SQL2019\\MSSQL\\Backup\\BTS.bak' WITH NOFORMAT, NOINIT," +
+                    "NAME = N'BTS-Full Database Backup', SKIP, NOREWIND, NOUNLOAD, STATS = 10");
                 SqlCommand bu2 = new SqlCommand(sqlStmt2, conexion);
                 bu2.ExecuteNonQuery();
 
-                string sqlStmt3 = "USE MASTER RESTORE DATABASE [" + nombreBaseDeDatos + "] FROM DISK='" + ruta + "'WITH REPLACE;";
-                SqlCommand bu3 = new SqlCommand(sqlStmt3, conexion);
-                bu3.ExecuteNonQuery();
-
-                string sqlStmt4 = string.Format("ALTER DATABASE [" + nombreBaseDeDatos + "] SET MULTI_USER");
-                SqlCommand bu4 = new SqlCommand(sqlStmt4, conexion);
-                bu4.ExecuteNonQuery();
-
                 conexion.Close();
-
+                return true;
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
+                conexion.Close();
+                throw new Exception($"No se pudo Realizar el backup \n MensajeDeError:{e.Message}");
             }
         }
     }

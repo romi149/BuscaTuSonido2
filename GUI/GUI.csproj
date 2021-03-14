@@ -248,6 +248,7 @@
     <Content Include="Imagenes\Catalogo\Viento\Saxofon Alto.png" />
     <Content Include="Imagenes\NoDisponible.jpg" />
     <Content Include="Imagenes\Portada\BuscaTuSonidoLogo.png" />
+    <Content Include="Imagenes\Portada\criolla.jpg" />
     <Content Include="Imagenes\Portada\elec1.jpg" />
     <Content Include="Imagenes\Portada\elect2.jpg" />
     <Content Include="Imagenes\Portada\Guitarra1.png" />
@@ -258,6 +259,7 @@
     <Content Include="Imagenes\Portada\Guitarra6.png" />
     <Content Include="Imagenes\Portada\Guitarra7.png" />
     <Content Include="Imagenes\Portada\Guitarra8.png" />
+    <Content Include="Imagenes\Portada\personalizada.jpg" />
     <Content Include="Imagenes\Portada\pexels.png" />
     <Content Include="img\1.jpg" />
     <Content Include="img\american-express.png" />

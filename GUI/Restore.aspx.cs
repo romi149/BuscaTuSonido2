@@ -30,11 +30,39 @@ namespace GUI
 
         protected void restore_Click(object sender, EventArgs e)
         {
-            var ruta = @"C:\\Backup";
+            try
+            {
+                string SaveLocation = string.Empty;
+                string nombreArchivo = string.Empty;
+                string destino = @"C:\Program Files\Microsoft SQL Server\MSSQL15.SQL2019\MSSQL\Backup";//poner la ruta donde quieres que quede el archivo
+                //Subimos Backup al Server
+                if (btnFileUpload.HasFile)
+                {
+                    nombreArchivo = System.IO.Path.GetFileName(btnFileUpload.PostedFile.FileName);
+                    SaveLocation = destino + @"\" + btnFileUpload.FileName;
+                    //guardamos el archivo
+                    btnFileUpload.PostedFile.SaveAs(SaveLocation);
+                    bool realizado = GestorBackup.RealizarRestore(destino + @"\" + btnFileUpload.FileName);
 
-            bool realizado = GestorBackup.RealizarRestore(ruta);
-            //btnFileUpload.SaveAs(Server.MapPath(".") + "/backup");
-
+                    if (realizado)
+                    {
+                        Response.Write("<script>alert('El restore se realizo correctamente')</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('No se pudo realizar el restore')</script>");
+                    }
+                }
+                else
+                {
+                    Response.Write("<script>alert('Debe cargar un archivo!')</script>");
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                Response.Write(ex.Message);
+            }
 
         }
     }

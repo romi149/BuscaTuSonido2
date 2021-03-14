@@ -13,31 +13,24 @@
                     <div class="col-md-12" >
                         <div class="card-body">
                             <div class="form-group">
-                                <h4>Seleccione la ruta donde se guardará el backup</h4>
+                                <%--<h4>Seleccione la ruta donde se guardará el backup</h4>--%>
+                                <h4>Por seguridad el backup de la base de datos que genere se guardará en la carpeta de Backups </h4>
                                 <br />
-                                <%--<asp:FileUpload ID="FileUpload" runat="server" ToolTip="Browse for files"></asp:FileUpload>--%>
-                                <input type="file" id="fileLoader" name="files" title="Load File" />
-                                <input type="button" id="btnOpenFileDialog" value ="Buscar" onclick="openfileDialog();" />
-                                <br />
-                                <%--<asp:Button ID="UploadButton" Text="Subir Imagen" CssClass="btn btn-primary btn-md" 
-                                    OnClick="UploadButton_Click" runat="server"></asp:Button>--%>
+                                   
+
                             </div>
                         </div>
                     </div>
                 </div>
                 <div>
-                   <asp:Button runat="server" content="backup" ID="generar" CssClass="btn btn-primary btn-md" Text="Generar" OnClick="generar_Click" />
+                   <asp:Button runat="server" content="backup" ID="generar" CssClass="btn btn-primary btn-md" Text="Generar Backup" OnClick="generar_Click" />
                 </div>
               </div>
             </div>
         </div>
     </div>
 
-    <script>
-        function openfileDialog() {
-            $("#fileLoader").click();
-        }
-    </script>
+    
 
     <style>
         .ContenedorBackup{

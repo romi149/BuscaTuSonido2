@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EnvioEmails.cs" />
+    <Compile Include="GestorBackup.cs" />
     <Compile Include="GestorBitacora.cs" />
     <Compile Include="GestorBusqueda.cs" />
     <Compile Include="GestorCliente.cs" />

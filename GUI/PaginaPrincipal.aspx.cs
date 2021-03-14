@@ -233,8 +233,8 @@ namespace GUI
             var Punt1 =double.Parse( GestorOpinion.ObtenerPuntaje1(IdEncuesta).ToString());
             var Punt2 = double.Parse(GestorOpinion.ObtenerPuntaje2(IdEncuesta).ToString());
             var totalVotos = Punt1 + Punt2;
-            var Porcentaje1 = (Punt1 / totalVotos) * 100;
-            var Porcentaje2 = (Punt2 / totalVotos) * 100;
+            var Porcentaje1 = Math.Round((Punt1 / totalVotos) * 100);
+            var Porcentaje2 = Math.Round((Punt2 / totalVotos) * 100);
             int Total1 = int.Parse(Porcentaje1.ToString());
             int Total2 = int.Parse(Porcentaje2.ToString());
             //realizar un store que devuelva ambos valores

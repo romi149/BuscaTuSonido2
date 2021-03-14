@@ -79,9 +79,7 @@
             ClientIDMode="Static">
             <Columns>
                 <asp:BoundField DataField="Id" HeaderText="Id" />
-                <%--<asp:BoundField DataField="NroPregunta" HeaderText="N° Pregunta" />--%>
                 <asp:BoundField DataField="NombrePregunta" HeaderText="Pregunta" />
-                <%--<asp:BoundField DataField="Tipo" HeaderText="Tipo" />--%>
                 <asp:BoundField DataField="FechaInicio" HeaderText="Fecha Inicio" />
                 <asp:BoundField DataField="FechaFin" HeaderText="Fecha Fin" />
                 <asp:BoundField DataField="Opcion1" HeaderText="Respuesta 1" />
