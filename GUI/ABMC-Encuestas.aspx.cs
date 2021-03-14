@@ -72,8 +72,7 @@ namespace GUI
             string NombreImg1 = row.Cells[6].Text.Trim();
             string NombreImg2 = row.Cells[7].Text.Trim();
 
-            Response.Redirect($"/EditarEncuesta.aspx?Id={Id}&" +
-                $"NombrePregunta={NombrePregunta}&FechaInicio={FechaInicio}&" +
+            Response.Redirect($"/EditarEncuesta.aspx?Id={Id}&NombrePregunta={NombrePregunta}&FechaInicio={FechaInicio}&" +
                 $"FechaFin={FechaFin}&Opcion1={Opcion1}&Opcion2={Opcion2}&" +
                 $"NombreImg1={NombreImg1}&NombreImg2={NombreImg2}");
 
@@ -94,12 +93,12 @@ namespace GUI
             var existe = GestorOpinion.VerificarFechaEncuesta(FechaInicio);
             bool Insertado = false;
 
-            if(existe != null)
-            {
-                Response.Write("<script>alert('Ya existe una fecha de inicio para la fecha ingresada, debe ingresar una fecha de inicio superior')</script>");
-            }
-            else
-            {
+            //if(existe != null)
+            //{
+            //    Response.Write("<script>alert('Ya existe una fecha de inicio para la fecha ingresada, debe ingresar una fecha de inicio superior')</script>");
+            //}
+            //else
+            //{
                 Insertado = GestorOpinion.AgregarEncuesta(
                                        NroPregunta,
                                        NombrePregunta,
@@ -110,7 +109,7 @@ namespace GUI
                                        Opcion2,
                                        NombreImg1,
                                        NombreImg2);
-            }
+            //}
 
             if (Insertado)
             {

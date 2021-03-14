@@ -61,6 +61,7 @@
     <Compile Include="GestorMarca.cs" />
     <Compile Include="GestorMenu.cs" />
     <Compile Include="GestorNC.cs" />
+    <Compile Include="GestorNewsletter.cs" />
     <Compile Include="GestorNP.cs" />
     <Compile Include="GestorOpinion.cs" />
     <Compile Include="GestorPermiso.cs" />

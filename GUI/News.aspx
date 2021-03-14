@@ -25,14 +25,9 @@
   </head>
 <body>
     <div class="events">
-        <div class="container">
-            <div class="default-heading-shadow">
-                <h2>Próximos Eventos</h2>
-            </div>
-            <%--<asp:Panel runat="server" ID="contenedor-news">
+            <asp:Panel runat="server" ID="contenedorNews">
 
-            </asp:Panel>--%>
-        </div>
+            </asp:Panel>
     </div>
 
     <!-- Bootstrap core JavaScript -->

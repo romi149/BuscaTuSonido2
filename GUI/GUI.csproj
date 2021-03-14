@@ -124,6 +124,7 @@
     <Content Include="ABMC-Encuestas.aspx" />
     <Content Include="ABMC-Marcas.aspx" />
     <Content Include="ABMC-Menus.aspx" />
+    <Content Include="ABMC-Noticias.aspx" />
     <Content Include="ABMC-Permiso.aspx" />
     <Content Include="ABMC-PermisoRol.aspx" />
     <Content Include="ABMC-Productos.aspx" />
@@ -134,10 +135,7 @@
     <Content Include="ABMC-Usuarios.aspx" />
     <Content Include="About.aspx" />
     <Content Include="AccesoDenegado.aspx" />
-    <Content Include="AdrotatorPage.aspx" />
     <Content Include="Ads.xml" />
-    <Content Include="Ads2.xml" />
-    <Content Include="Ads3.xml" />
     <Content Include="AnularFC.aspx" />
     <Content Include="Backup.aspx" />
     <Content Include="Carrito.aspx" />
@@ -371,6 +369,13 @@
     <Compile Include="ABMC-Menus.aspx.designer.cs">
       <DependentUpon>ABMC-Menus.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ABMC-Noticias.aspx.cs">
+      <DependentUpon>ABMC-Noticias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMC-Noticias.aspx.designer.cs">
+      <DependentUpon>ABMC-Noticias.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ABMC-Permiso.aspx.cs">
       <DependentUpon>ABMC-Permiso.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -433,13 +438,6 @@
     </Compile>
     <Compile Include="AccesoDenegado.aspx.designer.cs">
       <DependentUpon>AccesoDenegado.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AdrotatorPage.aspx.cs">
-      <DependentUpon>AdrotatorPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdrotatorPage.aspx.designer.cs">
-      <DependentUpon>AdrotatorPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="AnularFC.aspx.cs">
       <DependentUpon>AnularFC.aspx</DependentUpon>
