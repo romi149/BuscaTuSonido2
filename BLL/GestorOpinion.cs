@@ -92,5 +92,20 @@ namespace BLL
         {
             return MapperOpinion.ObtenerResultPregunta4();
         }
+
+        public static string ObtenerPregunta(int Id)
+        {
+            return MapperOpinion.ObtenerPregunta(Id);
+        }
+
+        public static List<Opinion> ObtenerFechaInicio(int Id)
+        {
+            return MapperOpinion.ObtenerFechaInicio(Id);
+        }
+
+        public static List<Opinion> ObtenerFechaFin(int Id)
+        {
+            return MapperOpinion.ObtenerFechaFin(Id);
+        }
     }
 }

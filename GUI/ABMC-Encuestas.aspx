@@ -1,7 +1,55 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backend.Master" AutoEventWireup="true" CodeBehind="ABMC-Encuestas.aspx.cs" Inherits="GUI.ABMC_Encuestas" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 
+<script runat="server">
+
+    protected void UploadButton_Click(object sender, EventArgs e)
+    {
+        // Specify the path on the server to
+        // save the uploaded file to.
+        String savePath = @"C:\Users\romina\source\repos\BuscaTuSonido\GUI\img\";
+
+        if (FileUpload.HasFile)
+        {
+            // Get the name of the file to upload.
+            String fileName = FileUpload.FileName;
+
+            savePath += fileName;
+
+            FileUpload.SaveAs(savePath);
+
+            //UploadStatusLabel.Text = "Las imágenes fueron guardadas";
+        }
+        else
+        {
+            // Notify the user that a file was not uploaded.
+            UploadStatusLabel.Text = "You did not specify a file to upload.";
+        }
+
+        if (FileUpload1.HasFile)
+        {
+            // Get the name of the file to upload.
+            String fileName1 = FileUpload1.FileName;
+
+            savePath += fileName1;
+
+            FileUpload1.SaveAs(savePath);
+
+            UploadStatusLabel.Text = "Las imágenes fueron guardadas";
+        }
+        else
+        {
+            // Notify the user that a file was not uploaded.
+            UploadStatusLabel.Text = "You did not specify a file to upload.";
+        }
+    }
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head></head>
+<body>
     <div class="ABMEncuesta">
         <h3>Listado de Encuestas</h3>
         <div class="row">
@@ -15,18 +63,10 @@
                     <h3>Nueva Encuesta</h3>
                     <div class="row">
                         <div class="col-md-4">
-                           <%-- <div class="form-group">
-                                <label>N° de Pregunta</label>
-                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="nroPregunta" />
-                            </div>--%>
                             <div class="form-group">
                                 <label>Pregunta</label>
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="nombrePregunta" />
                             </div>
-                            <%--<div class="form-group">
-                                <label>Tipo</label>
-                                <asp:DropDownList runat="server" CssClass="form-control" ID="tipo" />
-                            </div>--%>
                             <div class="form-group">
                                 <label>Fecha Incio</label>
                                 <asp:TextBox runat="server" type="date" CssClass="form-control" ID="fechaInicio" />
@@ -52,23 +92,29 @@
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="img1" />
                                 <asp:FileUpload ID="FileUpload" runat="server"></asp:FileUpload>
                             </div>
+                            <div>
+                              <%--<asp:Button ID="UploadButton1" Text="Subir Imagen" CssClass="btn btn-primary btn-md" OnClick="UploadButton_Click" runat="server"></asp:Button>--%>
+                            </div>
+                            <br />
                             <div class="form-group">
                                 <label>Nombre Imagen 2</label>
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="img2" />
                                 <asp:FileUpload ID="FileUpload1" runat="server"></asp:FileUpload>
                             </div>
+                            <asp:Label ID="UploadStatusLabel"
+                                runat="server">
+                            </asp:Label>
                             <div>
-                                <asp:Button ID="btnSubirimg" Text="Subir Imagenes" CssClass="btn btn-primary btn-md" 
-                                    OnClick="subirImg_Click" runat="server"></asp:Button>
+                              <asp:Button ID="UploadButton" Text="Subir Imagen" CssClass="btn btn-primary btn-md" OnClick="UploadButton_Click" runat="server"></asp:Button>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4">
-                            <asp:Button runat="server" content="nuevaMarca" ID="Agregar" CssClass="btn btn-primary btn-md" Text="Agregar" OnClick="sendAgregar_Click" />
+                            <asp:Button runat="server" content="nuevaEncuesta" ID="Agregar" CssClass="btn btn-primary btn-md" Text="Agregar" OnClick="sendAgregar_Click" />
                         </div>
                         <div class="col-md-4">
-                            <asp:Button runat="server" content="nuevaMarca" ID="cancelar" CssClass="btn btn-warning btn-md" Text="Cancelar" OnClick="sendcancelar_Click" />
+                            <asp:Button runat="server" content="nuevaEncuesta" ID="cancelar" CssClass="btn btn-warning btn-md" Text="Cancelar" OnClick="sendcancelar_Click" />
                         </div>
                     </div>
                 </div>
@@ -98,7 +144,8 @@
             </Columns>
         </asp:GridView>
     </div>
-
+</body>
+</html>
     <style>
         .abmEncuesta {
             width: 80vw;

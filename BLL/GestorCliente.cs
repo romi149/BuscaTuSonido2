@@ -21,10 +21,9 @@ namespace BLL
             return MapperCliente.ValidarCliente(user);
         }
 
-        public static bool Agregar(string nombre, string apellido, string email, string tel,
-                                   string domEntrega, string domFact, string pass, string dni, string user)
+        public static bool Agregar(Cliente cli)
         {
-            return MapperCliente.InsertarCliente(nombre,apellido,email,tel,domEntrega,domFact,pass,dni,user);
+            return MapperCliente.InsertarCliente(cli);
         }
 
         public static List<Cliente> ObtenerDatosCliente(string dni, string nombre)
@@ -33,15 +32,14 @@ namespace BLL
 
         }
 
-        public static bool Actualizar(int codCliente, string nombre, string apellido, string email, string tel,
-                                  string domEntrega, string domFact, string dni, string user)
+        public static bool Actualizar(Cliente cli)
         {
-            return MapperCliente.ActualizarDatosCliente(codCliente, nombre, apellido, email, tel, domEntrega, domFact, dni, user);
+            return MapperCliente.ActualizarDatosCliente(cli);
         }
 
-        public static bool ModificarPassCliente(int IdUser, string pass, int codigoCliente)
+        public static bool ModificarPassCliente(Usuario user, Cliente cli)
         {
-            return MapperCliente.ActualizarPassCliente(IdUser, pass, codigoCliente);
+            return MapperCliente.ActualizarPassCliente(user, cli);
         }
 
         public static DataSet ListarCompras(string usuario)

@@ -38,15 +38,15 @@ namespace MPP
         /// </summary>
         /// <param name=""></param>
         /// <returns>Devuelve si se inserto o no</returns>
-        public static bool InsertarNotaDeCredito(int nroFactura, string detalle, string importe, string estado)
+        public static bool InsertarNotaDeCredito(NotaCredito nc)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroFactura", DbType.Int32, ParameterDirection.Input, nroFactura));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Detalle", DbType.String, ParameterDirection.Input, detalle));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Importe", DbType.String, ParameterDirection.Input, importe));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Estado", DbType.String, ParameterDirection.Input, estado));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroFactura", DbType.Int32, ParameterDirection.Input, nc.NroFactura));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Detalle", DbType.String, ParameterDirection.Input, nc.Detalle));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Importe", DbType.String, ParameterDirection.Input, nc.Importe));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Estado", DbType.String, ParameterDirection.Input, nc.Estado));
                 var respuesta = Conexion.GetInstance.EjecutarStore("InsertarNotaCredito", ListaParametros);
 
                 return respuesta;
@@ -58,13 +58,13 @@ namespace MPP
             }
         }
 
-        public static bool ActualizarEstadoNC(string estado, int nro)
+        public static bool ActualizarEstadoNC(NotaCredito nc)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Estado", DbType.String, ParameterDirection.Input, estado));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroNC", DbType.Int32, ParameterDirection.Input, nro));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Estado", DbType.String, ParameterDirection.Input, nc.Estado));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroNC", DbType.Int32, ParameterDirection.Input, nc.NroNotaC));
                 var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarEstadoNC", ListaParametros);
 
                 return respuesta;

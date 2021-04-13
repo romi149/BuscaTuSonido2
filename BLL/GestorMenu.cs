@@ -22,14 +22,14 @@ namespace BLL
 
         }
 
-        public static bool Agregar(string nombre, string desc, string ubic)
+        public static bool Agregar(BE.Menu menu)
         {
-            return MapperMenus.InsertarMenu(nombre, desc, ubic);
+            return MapperMenus.InsertarMenu(menu);
         }
 
-        public static bool Modificar(int Id, string nombre, string desc, string ubi)
+        public static bool Modificar(BE.Menu menu)
         {
-            return MapperMenus.ActualizarMenu(Id, nombre, desc, ubi);
+            return MapperMenus.ActualizarMenu(menu);
         }
 
         public static bool Eliminar(int Id)

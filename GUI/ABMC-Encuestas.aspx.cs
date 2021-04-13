@@ -33,18 +33,6 @@ namespace GUI
             return GestorOpinion.ListarTodasEncuestas();
         }
 
-        public void CargarComboTipo()
-        {
-            //ListItem i;
-            //i = new ListItem("--- Seleccionar Tipo---", "1");
-            //tipo.Items.Add(i);
-            //i = new ListItem("Encuesta", "2");
-            //tipo.Items.Add(i);
-            //i = new ListItem("Ficha Opinion", "3");
-            //tipo.Items.Add(i);
-            
-        }
-
         protected void btnDelete_Click(object sender, EventArgs e)
         {
             GridViewRow row = (sender as Button).NamingContainer as GridViewRow;
@@ -72,7 +60,7 @@ namespace GUI
             string NombreImg1 = row.Cells[6].Text.Trim();
             string NombreImg2 = row.Cells[7].Text.Trim();
 
-            Response.Redirect($"/EditarEncuesta.aspx?Id={Id}&NombrePregunta={NombrePregunta}&FechaInicio={FechaInicio}&" +
+            Server.Transfer($"/EditarEncuesta.aspx?Id={Id}&NombrePregunta={NombrePregunta}&FechaInicio={FechaInicio}&" +
                 $"FechaFin={FechaFin}&Opcion1={Opcion1}&Opcion2={Opcion2}&" +
                 $"NombreImg1={NombreImg1}&NombreImg2={NombreImg2}");
 
@@ -99,6 +87,12 @@ namespace GUI
             //}
             //else
             //{
+            if(string.IsNullOrEmpty(NombreImg1) || string.IsNullOrEmpty(NombreImg2))
+            {
+                Response.Write("<script>alert('Debe ingresar los nombres de las imagenes')</script>");
+            }
+            else
+            {
                 Insertado = GestorOpinion.AgregarEncuesta(
                                        NroPregunta,
                                        NombrePregunta,
@@ -109,6 +103,8 @@ namespace GUI
                                        Opcion2,
                                        NombreImg1,
                                        NombreImg2);
+            }
+                
             //}
 
             if (Insertado)
@@ -127,12 +123,12 @@ namespace GUI
 
     
 
-        protected void subirImg_Click(object sender, EventArgs e)
-        {
-            FileUpload.SaveAs(Server.MapPath(".") + "/Imagenes/Portada");
-            FileUpload.SaveAs(Server.MapPath(".") + "/Imagenes/Portada");
+        //protected void subirImg_Click(object sender, EventArgs e)
+        //{
+        //    FileUpload.SaveAs(Server.MapPath(".") + "/Imagenes/Portada");
+        //    FileUpload.SaveAs(Server.MapPath(".") + "/Imagenes/Portada");
 
-        }
+        //}
 
     }
 }

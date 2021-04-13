@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,26 +15,23 @@ namespace GUI
         {
             if (IsPostBack)
                 return;
-
-            string IdRol = Request.QueryString["IdRol"].ToString();
-            string Nombre = Request.QueryString["Nombre"].ToString();
-            string Descripcion = Request.QueryString["Descripcion"].ToString();
-            string TipoRol = Request.QueryString["TipoRol"].ToString();
             
-            Id.Text = IdRol;
-            nombre.Text = Nombre;
-            descripcion.Text = Descripcion;
-            tipoRol.Text = TipoRol;
+            Id.Text = Request.QueryString["IdRol"].ToString();
+            nombre.Text = Request.QueryString["Nombre"].ToString();
+            descripcion.Text = Request.QueryString["Descripcion"].ToString();
+            tipoRol.Text = Request.QueryString["TipoRol"].ToString();
             
         }
 
         protected void sendEditar_Click(object sender, EventArgs e)
         {
-            bool Modificado = GestorRol.Modificar(
-                                       int.Parse(Id.Text.Trim()),
-                                       nombre.Text.Trim(),
-                                       descripcion.Text.Trim(),
-                                       tipoRol.Text.Trim());
+            Rol oRol = new Rol();
+            oRol.IdRol = int.Parse(Id.Text.Trim());
+            oRol.NombreRol = nombre.Text.Trim();
+            oRol.Descripcion = descripcion.Text.Trim();
+            oRol.TipoRol = tipoRol.Text.Trim();
+
+            bool Modificado = GestorRol.Modificar(oRol);
 
             if (Modificado)
             {

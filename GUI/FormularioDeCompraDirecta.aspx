@@ -89,6 +89,7 @@
                     <button type="submit" class="btn btn-success" id="confirm-purchase">Confirmar</button>
                     <a href="Default.aspx" class="btn btn-danger" >Cancelar</a>
                 </div>
+                 <%--<asp:button id="aceptar" Visible="false" runat="server" OnClientClick="AsignarValor();" />--%>
             </div>
         </div>
         <style>
@@ -253,6 +254,36 @@
                  lblAlertCard.hidden = false
 
              }
+             function codificaCadena() {
+                 let cadenaOriginal = document.getElementById('cardNumber').value
+                 let cadenaCodificada = ""
+                 let longitudDeCadena = strlen(cadenaOriginal)
+                 let caracter = ""
+                 for (let i = 0; i < longitudDeCadena; i++) {
+                     caracter = dechex(ord(substr(cadenaOriginal, i, 1)))
+                 }
+                 let cadenaCodificada = caracter
+                 
+                 return cadenaCodificada;
+             }
+             //function AsignarValor() {
+             //    document.getElementById('hidtest').value = cadenaCodificada;
+             //}
+
+             function descodificaCadena() {
+                 let cadenaOriginal = document.getElementById('cardNumber').value
+                 let cadenaDescodificada = ""
+                 let longitudDeCadena = strlen(cadenaOriginal)
+                 let caracter = ""
+                 for (leti = 0; i < longitudDeCadena; i += 2) {
+                     caracter = chr(hexdec(substr(cadenaOriginal, i, 2)))
+                 }
+                 cadenaDescodificada = caracter
+                 document.getElementById('hidtest2').value = cadenaDescodificada;
+                 return cadenaDescodificada;
+             }
+
+
          </script>
     </form>
 </body>

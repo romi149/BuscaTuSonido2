@@ -96,13 +96,22 @@ namespace GUI
         protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
 
         /// <summary>
-        /// Control btnSubirimg.
+        /// Control UploadStatusLabel.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubirimg;
+        protected global::System.Web.UI.WebControls.Label UploadStatusLabel;
+
+        /// <summary>
+        /// Control UploadButton.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button UploadButton;
 
         /// <summary>
         /// Control Agregar.

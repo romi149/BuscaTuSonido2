@@ -143,25 +143,33 @@ namespace GUI
                 switch(Tipo)
                 {
                     case "Cuerdas":
-                        ruta = @"/Imagenes/Catalogo/Cuerdas/";
-                        FileUpload.SaveAs(Server.MapPath(".") + "/Imagenes/Catalogo/Cuerdas/");
+                        ruta = @"C:/Users/romina/source/repos/BuscaTuSonido/GUI/Imagenes/Catalogo/Cuerdas/";
+                        ruta += FileUpload.FileName;
+
+                        FileUpload.SaveAs(ruta);
                         GestorProducto.AgregarImg(nombreProd, "Sin categoria", ruta);
                         break;
 
                     case "Electronico":
-                        ruta = @"/Imagenes/Catalogo/Electronicos/";
+                        ruta = @"C:/Users/romina/source/repos/BuscaTuSonido/GUI/Imagenes/Catalogo/Electronicos/";
+                        ruta += FileUpload.FileName;
+
                         FileUpload.SaveAs(ruta);
                         GestorProducto.AgregarImg(nombreProd, "Sin categoria", ruta);
                         break;
 
                     case "Viento":
-                        ruta = @"/Imagenes/Catalogo/Viento/";
+                        ruta = @"C:/Users/romina/source/repos/BuscaTuSonido/GUI/Imagenes/Catalogo/Viento/";
+                        ruta += FileUpload.FileName;
+
                         FileUpload.SaveAs(ruta);
                         GestorProducto.AgregarImg(nombreProd, "Sin categoria", ruta);
                         break;
 
                     case "Percusion":
-                        ruta = @"/Imagenes/Catalogo/Percusion/";
+                        ruta = @"C:/Users/romina/source/repos/BuscaTuSonido/GUI/Imagenes/Catalogo/Percusion/";
+                        ruta += FileUpload.FileName;
+
                         FileUpload.SaveAs(ruta);
                         GestorProducto.AgregarImg(nombreProd, "Sin categoria", ruta);
                         break;

@@ -30,48 +30,48 @@ namespace DAL
                 return instancia;
             }
         }
-        public DataTable Leer(string comando)
-        {
-            DataTable tabla = new DataTable();
-            try
-            {
-                conexion.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conexion;
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = comando;
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //public DataTable Leer(string comando)
+        //{
+        //    DataTable tabla = new DataTable();
+        //    try
+        //    {
+        //        conexion.Open();
+        //        SqlCommand cmd = new SqlCommand();
+        //        cmd.Connection = conexion;
+        //        cmd.CommandType = CommandType.Text;
+        //        cmd.CommandText = comando;
+        //        SqlDataAdapter da = new SqlDataAdapter(cmd);
 
-                da.Fill(tabla);
-                conexion.Close();
-                return tabla;
-            }
-            catch (SqlException ex)
-            {
-                conexion.Close();
-                throw ex;
-            }
+        //        da.Fill(tabla);
+        //        conexion.Close();
+        //        return tabla;
+        //    }
+        //    catch (SqlException ex)
+        //    {
+        //        conexion.Close();
+        //        throw ex;
+        //    }
 
-        }
-        public int Escribir(string comando)
-        {
-            try
-            {
-                conexion.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conexion;
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = comando;
-                int filas;
-                filas = cmd.ExecuteNonQuery();
-                conexion.Close();
-                return filas;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
+        //}
+        //public int Escribir(string comando)
+        //{
+        //    try
+        //    {
+        //        conexion.Open();
+        //        SqlCommand cmd = new SqlCommand();
+        //        cmd.Connection = conexion;
+        //        cmd.CommandType = CommandType.Text;
+        //        cmd.CommandText = comando;
+        //        int filas;
+        //        filas = cmd.ExecuteNonQuery();
+        //        conexion.Close();
+        //        return filas;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        throw e;
+        //    }
+        //}
         public bool EjecutarStore(string nombreStore, List<SqlParameter> Parametros = null)
         {
             bool resultado = false;

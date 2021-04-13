@@ -1,47 +1,33 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="News.aspx.cs" Inherits="GUI.News" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <%--<meta http-equiv="X-UA-Compatible">--%>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap plantilla simple</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-        <!-- Styles -->
-		<!-- Bootstrap CSS -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">	
-		<!-- Animate CSS -->
-		<link href="css/animate.min.css" rel="stylesheet">
-		<!-- Basic stylesheet -->
-		<link rel="stylesheet" href="css/owl.carousel.css">
-		<!-- Font awesome CSS -->
-		<link href="css/font-awesome.min.css" rel="stylesheet">		
-		<!-- Custom CSS -->
-        <link href="css/one-page-wonder.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="./css/estilo.css">
-  </head>
-<body>
-    <div class="events">
-            <asp:Panel runat="server" ID="contenedorNews">
-
-            </asp:Panel>
+<div class="container">
+        <div class="containerProducto">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <h1><asp:Panel runat="server" ID="TxtTitulo1"></asp:Panel></h1>
+                    <h2><asp:Panel runat="server" ID="TxtTitulo2"></asp:Panel></h2>
+                    <p><asp:Panel runat="server" ID="TxtTexto1"></asp:Panel></p>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                     <asp:Image CssClass="imgNoticia" runat="server" ID="ImagenNoticia" />
+                    <asp:Panel runat="server" ID="contenedorImagen">
+                    </asp:Panel>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    
     <style>
-            body{
-                background-image= url(img/banner/b1.jpg);
-            }
-            .events-item{
-                background-image: url(img/1.jpg);
-            }
+        .imgNoticia {
+            width: 40vw;
+            height: 50vh;
+            margin-top: 20px;
+        }
+
+        .row {
+            margin-top: 20px;
+            margin-bottom: 30px
+        }
     </style>
-</body>
-</html>
 </asp:Content>

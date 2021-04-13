@@ -46,6 +46,11 @@
     </div>
 
     <style>
+        img {
+            width: 15vw;
+            height: 200px;
+        }
+
         #logo {
             width: 20vw;
             height: 25vh;

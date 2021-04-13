@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -61,9 +62,11 @@ namespace GUI
         {
             var user = Request.QueryString["usuarioBackEnd"];
 
-            bool Insertado = GestorMarca.Agregar(
-                                       nombre.Text.Trim(),
-                                       descripcion.Text.Trim());
+            Marca marca = new Marca();
+            marca.Nombre = nombre.Text.Trim();
+            marca.Descripcion = descripcion.Text.Trim();
+
+            bool Insertado = GestorMarca.Agregar(marca);
 
             if (Insertado)
             {

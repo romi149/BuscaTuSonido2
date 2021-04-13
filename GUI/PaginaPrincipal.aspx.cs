@@ -178,7 +178,7 @@ namespace GUI
         {
             try
             {
-                //cargar Encuesta del dia
+                //cargo Encuesta del dia
                 var Encuestas = GestorOpinion.ListarEncuestas();
                 string respuesta1 = Encuestas[0].Opcion1;
                 string respuesta2 = Encuestas[0].Opcion2;
@@ -202,8 +202,6 @@ namespace GUI
                 return new EncuestaDelDia { titulo = "", Respuesta = new List<Respuestas>() };
 
             }
-
-
            
         }
 
@@ -237,7 +235,7 @@ namespace GUI
             var Porcentaje2 = Math.Round((Punt2 / totalVotos) * 100);
             int Total1 = int.Parse(Porcentaje1.ToString());
             int Total2 = int.Parse(Porcentaje2.ToString());
-            //realizar un store que devuelva ambos valores
+            
             return new ValoresPorcentuales { NombreValor1=Encuestas.FirstOrDefault().Opcion1,
                 NombreValor2 = Encuestas.FirstOrDefault().Opcion2,
                 Valor1 = Total1, Valor2 = Total2 };

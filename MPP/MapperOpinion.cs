@@ -358,5 +358,79 @@ namespace MPP
                 return null;
             }
         }
+
+        public static string ObtenerPregunta(int id)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Id", DbType.Int32, ParameterDirection.Input, id));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ObtenerPreguntaEncuesta", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable().FirstOrDefault().Field<string>("NombrePregunta");
+
+                    return empList;
+                }
+
+                return null;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public static List<Opinion> ObtenerFechaInicio(int id)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Id", DbType.Int32, ParameterDirection.Input, id));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ObtenerFechaInicioEncuesta", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                     .Select(dataRow => new Opinion
+                     {
+                         fechaIni = dataRow.Field<DateTime>("FechaInicio")
+
+                     }).ToList();
+
+                    return empList;
+                }
+                return null;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public static List<Opinion> ObtenerFechaFin(int id)
+        {
+            try
+            {
+                List<SqlParameter> ListaParametros = new List<SqlParameter>();
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Id", DbType.Int32, ParameterDirection.Input, id));
+                var respuesta = Conexion.GetInstance.RetornarDataReaderDeStore("ObtenerFechaFinEncuesta", ListaParametros);
+                if (respuesta != null)
+                {
+                    var empList = respuesta.Tables[0].AsEnumerable()
+                     .Select(dataRow => new Opinion
+                     {
+                         fechaFin = dataRow.Field<DateTime>("FechaFin")
+
+                     }).ToList();
+
+                    return empList;
+                }
+                return null;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
     }
 }

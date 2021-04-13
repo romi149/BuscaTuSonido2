@@ -17,9 +17,9 @@ namespace BLL
 
         }
 
-        public static bool AgregarNC(int NroFactura, string detalleNC, string importe, string estado)
+        public static bool AgregarNC(NotaCredito notaCred)
         {
-            return MapperNC.InsertarNotaDeCredito(NroFactura, detalleNC, importe, estado);
+            return MapperNC.InsertarNotaDeCredito(notaCred);
         }
 
         public static List<NotaCredito> ObtenerImporteNC(string usuario)
@@ -32,9 +32,9 @@ namespace BLL
             return MapperNC.ObtenerNotaDeCredito(usuario);
         }
 
-        public static bool ModificarEstadoNC(string estado, int nro)
+        public static bool ModificarEstadoNC(NotaCredito nc)
         {
-            return MapperNC.ActualizarEstadoNC(estado, nro);
+            return MapperNC.ActualizarEstadoNC(nc);
         }
 
         //public static bool AgregarND()

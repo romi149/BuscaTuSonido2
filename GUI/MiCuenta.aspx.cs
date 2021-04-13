@@ -43,17 +43,18 @@ namespace GUI
 
         protected void sendeditar_Click(object sender, EventArgs e)
         {
-            
-            bool Modificado = GestorCliente.Actualizar (
-                                        int.Parse(codCliente.Text.Trim()),
-                                        nombre.Text.Trim(),
-                                        apellido.Text.Trim(),
-                                        email.Text.Trim(),
-                                        telefono.Text.Trim(),
-                                        domEntrega.Text.Trim(),
-                                        domFactura.Text.Trim(),
-                                        dni.Text.Trim(),
-                                        username.Text.Trim());
+            Cliente cli = new Cliente();
+            cli.CodCliente = int.Parse(codCliente.Text.Trim());
+            cli.Nombre = nombre.Text.Trim();
+            cli.Apellido = apellido.Text.Trim();
+            cli.Email = email.Text.Trim();
+            cli.Telefono = telefono.Text.Trim();
+            cli.DomEntrega = domEntrega.Text.Trim();
+            cli.DomFacturacion = domFactura.Text.Trim();
+            cli.Dni = dni.Text.Trim();
+            cli.Usuario = username.Text.Trim();
+
+            bool Modificado = GestorCliente.Actualizar (cli);
 
             if (Modificado)
             {
@@ -94,12 +95,19 @@ namespace GUI
 
             if (password.Text == repeatPass.Text)
             {
-                bool modificadoCli = GestorCliente.ModificarPassCliente(int.Parse(Iduser),
-                                                                     EnvioEmails.md5(password.Text.Trim()),
-                                                                     int.Parse(codCliente.Text.Trim()));
+                Cliente cli = new Cliente();
+                cli.Pass = EnvioEmails.md5(password.Text.Trim());
+                cli.CodCliente = int.Parse(codCliente.Text.Trim());
 
-                bool modidificadoUs = GestorUsuario.ModificarPass(int.Parse(Iduser), 
-                                                                  EnvioEmails.md5(password.Text.Trim()));
+                Usuario user = new Usuario();
+                user.IdUsuario = int.Parse(Iduser);
+                user.Pass = EnvioEmails.md5(password.Text.Trim());
+                
+                
+                bool modificadoCli = GestorCliente.ModificarPassCliente(user, cli);
+
+
+                bool modidificadoUs = GestorUsuario.ModificarPass(user);
 
                 if (modificadoCli && modidificadoUs)
                 {

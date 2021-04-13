@@ -1,7 +1,39 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Backend.Master" AutoEventWireup="true" CodeBehind="ABMC-Noticias.aspx.cs" Inherits="GUI.ABMC_Noticias" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 
+<script runat="server">
+
+  protected void UploadButton_Click(object sender, EventArgs e)
+  {
+    // Specify the path on the server to
+    // save the uploaded file to.
+    String savePath = @"C:\Users\romina\source\repos\BuscaTuSonido\GUI\Imagenes\";
+ 
+    if (FileUpload.HasFile)
+    {
+      // Get the name of the file to upload.
+      String fileName = FileUpload.FileName;
+      
+      savePath += fileName;
+      
+      FileUpload.SaveAs(savePath);
+      
+      UploadStatusLabel.Text = "El archivo fue guardado con el nombre " + fileName;
+    }
+    else
+    {      
+      // Notify the user that a file was not uploaded.
+      UploadStatusLabel.Text = "You did not specify a file to upload.";
+    }
+
+  }
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head></head>
+<body>
 <div class="AbmNoticas">
         <h3>Listado de Noticas y Eventos</h3>
         <div class="row">
@@ -17,19 +49,19 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Titulo1</label>
-                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="titulo1" />
+                                <asp:TextBox runat="server" type="text" TextMode="MultiLine" CssClass="form-control" ID="titulo1" />
                             </div>
                             <div class="form-group">
                                 <label>Texto1</label>
-                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="texto1" />
+                                <asp:TextBox runat="server" type="text" TextMode="MultiLine" CssClass="form-control" ID="texto1" />
                             </div>
                             <div class="form-group">
                                 <label>Titulo2</label>
-                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="titulo2" />
+                                <asp:TextBox runat="server" type="text" TextMode="MultiLine" CssClass="form-control" ID="titulo2" />
                             </div>
                             <div class="form-group">
                                 <label>Texto2</label>
-                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="texto2" />
+                                <asp:TextBox runat="server" type="text" TextMode="MultiLine" CssClass="form-control" ID="texto2" />
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -61,6 +93,9 @@
                                 <br />
                                 <asp:Button ID="UploadButton" Text="Subir Imagen" CssClass="btn btn-primary btn-md" OnClick="UploadButton_Click" runat="server"></asp:Button>
                             </div>
+                            <asp:Label ID="UploadStatusLabel"
+                                runat="server">
+                            </asp:Label>
                         </div>
                     </div>
                     <div class="row">
@@ -82,6 +117,7 @@
                 <asp:BoundField DataField="Titulo1" HeaderText="Titulo1" />
                 <asp:BoundField DataField="Texto1" HeaderText="Texto1" />
                 <asp:BoundField DataField="Titulo2" HeaderText="Titulo2" />
+                <asp:BoundField DataField="Texto2" HeaderText="Texto2" />
                 <asp:BoundField DataField="Img" HeaderText="Url Imagen" />
                 <asp:BoundField DataField="AltoImg" HeaderText="Alto Img" />
                 <asp:BoundField DataField="AnchoImg" HeaderText="Ancho Img" />
@@ -99,7 +135,8 @@
             </Columns>
         </asp:GridView>
     </div>
-
+    </body>
+    </html>
   <style>
         .abmProductos {
             width: 80vw;

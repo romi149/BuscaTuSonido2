@@ -95,13 +95,13 @@ namespace MPP
         /// </summary>
         /// <param name="marca"></param>
         /// <returns>Devuelve si se inserto o no</returns>
-        public static bool InsertarMarca(string nombre, string descrip)
+        public static bool InsertarMarca(Marca marca)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, nombre));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, descrip));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, marca.Nombre));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, marca.Descripcion));
                 var respuesta = Conexion.GetInstance.EjecutarStore("InsertarMarca", ListaParametros);
 
                 return respuesta;
@@ -119,14 +119,14 @@ namespace MPP
         /// </summary>
         /// <param name="marca"></param>
         /// <returns>Devuelve si se actualiza o no</returns>
-        public static bool ActualizarMarca(int Id, string nombre, string descrip)
+        public static bool ActualizarMarca(Marca marca)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdMarca", DbType.String, ParameterDirection.Input, Id));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, nombre));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, descrip));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdMarca", DbType.String, ParameterDirection.Input, marca.IdMarca));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, marca.Nombre));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, marca.Descripcion));
                 var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarMarca", ListaParametros);
 
                 return respuesta;

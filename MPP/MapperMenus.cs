@@ -71,14 +71,14 @@ namespace MPP
         /// </summary>
         /// <param name="menu"></param>
         /// <returns>Devuelve si se inserto o no</returns>
-        public static bool InsertarMenu(string nombre, string descripcion, string ubicacion)
+        public static bool InsertarMenu(BE.Menu menu)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombreMenu", DbType.String, ParameterDirection.Input, nombre));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, descripcion));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("UbicacionMenu", DbType.String, ParameterDirection.Input, ubicacion));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombreMenu", DbType.String, ParameterDirection.Input, menu.NombreMenu));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, menu.Descripcion));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("UbicacionMenu", DbType.String, ParameterDirection.Input, menu.UbicacionMenu));
                 var respuesta = Conexion.GetInstance.EjecutarStore("InsertarMenu", ListaParametros);
 
                 return respuesta;
@@ -96,15 +96,15 @@ namespace MPP
         /// </summary>
         /// <param name="Id">Menu</param>
         /// <returns>Devuelve si se actualiza o no</returns>
-        public static bool ActualizarMenu(int Id, string nombre, string descripcion, string ubicacion)
+        public static bool ActualizarMenu(BE.Menu menu)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdMenu", DbType.String, ParameterDirection.Input, Id));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombreMenu", DbType.String, ParameterDirection.Input, nombre));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, descripcion));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("UbicacionMenu", DbType.String, ParameterDirection.Input, ubicacion));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdMenu", DbType.String, ParameterDirection.Input, menu.IdMenu));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombreMenu", DbType.String, ParameterDirection.Input, menu.NombreMenu));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, menu.Descripcion));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("UbicacionMenu", DbType.String, ParameterDirection.Input, menu.UbicacionMenu));
                 var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarMenu", ListaParametros);
 
                 return respuesta;

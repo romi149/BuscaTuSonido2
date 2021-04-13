@@ -60,17 +60,16 @@ namespace MPP
         /// </summary>
         /// <param =""></param>
         /// <returns>Devuelve si se inserto o no</returns>
-        public static bool InsertarFactura(string descripcion, int cantidad, string precioTotal, 
-                                            int codCliente, int nroPedido)
+        public static bool InsertarFactura(Factura fact)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, descripcion));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Cantidad", DbType.Int32, ParameterDirection.Input, cantidad));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("PrecioTotal", DbType.String, ParameterDirection.Input, precioTotal));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("CodCliente", DbType.Int32, ParameterDirection.Input, codCliente));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroPedido", DbType.Int32, ParameterDirection.Input, nroPedido));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, fact.Descripcion));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Cantidad", DbType.Int32, ParameterDirection.Input, fact.Cantidad));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("PrecioTotal", DbType.String, ParameterDirection.Input, fact.PrecioTotal));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("CodCliente", DbType.Int32, ParameterDirection.Input, fact.CodCliente));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroPedido", DbType.Int32, ParameterDirection.Input, fact.NroPedido));
                 var respuesta = Conexion.GetInstance.EjecutarStore("InsertarFactura", ListaParametros);
 
                 return respuesta;
@@ -88,14 +87,14 @@ namespace MPP
         /// </summary>
         /// <param name=""></param>
         /// <returns>Devuelve si se actualiza o no</returns>
-        public static bool ActualizarEstadoFactura(int Nro, string estado, string detalle)
+        public static bool ActualizarEstadoFactura(Factura fact)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroFactura", DbType.Int32, ParameterDirection.Input, Nro));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Estado", DbType.String, ParameterDirection.Input, estado));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Detalle", DbType.String, ParameterDirection.Input, detalle));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroFactura", DbType.Int32, ParameterDirection.Input, fact.NroFactura));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Estado", DbType.String, ParameterDirection.Input, fact.Estado));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Detalle", DbType.String, ParameterDirection.Input, fact.Detalle));
                 var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarEstadoFactura", ListaParametros);
 
                 return respuesta;

@@ -67,14 +67,14 @@ namespace MPP
         /// </summary>
         /// <param name="rol">Tipo Rol</param>
         /// <returns>Devuelve si se inserto o no</returns>
-        public static bool InsertarRol(string nombre, string descrip, string tipoRol)
+        public static bool InsertarRol(BE.Rol rol)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, nombre));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, descrip));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("TipoRol", DbType.String, ParameterDirection.Input, tipoRol));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, rol.NombreRol));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, rol.Descripcion));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("TipoRol", DbType.String, ParameterDirection.Input, rol.TipoRol));
                 var respuesta = Conexion.GetInstance.EjecutarStore("InsertarRol", ListaParametros);
 
                 return respuesta;
@@ -92,15 +92,15 @@ namespace MPP
         /// </summary>
         /// <param name="rol">Tipo Rol</param>
         /// <returns>Devuelve si se actualiza o no</returns>
-        public static bool ActualizarRol(int IdRol, string nombre, string descrip, string tipoRol)
+        public static bool ActualizarRol(BE.Rol rol)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdRol", DbType.Int32, ParameterDirection.Input, IdRol));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, nombre));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, descrip));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("TipoRol", DbType.String, ParameterDirection.Input, tipoRol));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdRol", DbType.Int32, ParameterDirection.Input, rol.IdRol));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, rol.NombreRol));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, rol.Descripcion));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("TipoRol", DbType.String, ParameterDirection.Input, rol.TipoRol));
                 var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarRol", ListaParametros);
 
                 return respuesta;

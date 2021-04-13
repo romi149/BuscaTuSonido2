@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -37,10 +38,15 @@ namespace GUI
             string PrecioTotal = row.Cells[4].Text.Trim();
             //int Cantidad = int.Parse(row.Cells[8].Text.Trim().ToString());
 
+            Factura fact = new Factura();
+            fact.NroPedido = NroPedido;
+            fact.CodCliente = CodCliente;
+            fact.Descripcion = Descripcion;
+            fact.PrecioTotal = PrecioTotal;
+            fact.Cantidad = 1;
+            
 
-
-            bool Facturado = GestorFactura.Agregar(Descripcion, 1, PrecioTotal, 
-                                                    CodCliente, NroPedido);
+            bool Facturado = GestorFactura.Agregar(fact);
 
             if (Facturado)
             {

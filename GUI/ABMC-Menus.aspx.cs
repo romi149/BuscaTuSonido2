@@ -94,10 +94,13 @@ namespace GUI
 
         protected void sendAgregar_Click(object sender, EventArgs e)
         {
-            bool Insertado = GestorMenu.Agregar(
-                                       nombreControl.Text.Trim(),
-                                       descripcion.Text.Trim(),
-                                       ubicacion.Text.Trim());
+            BE.Menu menu = new BE.Menu();
+            menu.NombreMenu = nombreControl.Text.Trim();
+            menu.Descripcion = descripcion.Text.Trim();
+            menu.UbicacionMenu = ubicacion.Text.Trim();
+
+
+            bool Insertado = GestorMenu.Agregar(menu);
 
             if (Insertado)
             {

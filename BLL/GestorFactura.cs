@@ -11,16 +11,14 @@ namespace BLL
 {
     public class GestorFactura
     {
-        public static bool Agregar(string descripcion, int cantidad, string precioTotal, int codCliente, 
-                                    int nroPedido)
+        public static bool Agregar(Factura fact)
         {
-            return MapperFactura.InsertarFactura(descripcion, cantidad, precioTotal, codCliente, 
-                                                nroPedido);
+            return MapperFactura.InsertarFactura(fact);
         }
 
-        public static bool ModificarFactura(int nroFactura, string estado, string detalle)
+        public static bool ModificarFactura(Factura fact)
         {
-            return MapperFactura.ActualizarEstadoFactura(nroFactura, estado, detalle);
+            return MapperFactura.ActualizarEstadoFactura(fact);
         }
 
         public static DataSet ListarFacturas()

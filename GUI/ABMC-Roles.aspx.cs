@@ -62,10 +62,10 @@ namespace GUI
 
         protected void sendAgregar_Click(object sender, EventArgs e)
         {
-            bool Insertado = GestorRol.Agregar(
-                                       nombre.Text.Trim(),
-                                       descripcion.Text.Trim(),
-                                       tipoRol.Text.Trim());
+            BE.Rol oRol;
+            oRol = new BE.Rol();
+
+            bool Insertado = GestorRol.Agregar(oRol);
 
             if (Insertado)
             {

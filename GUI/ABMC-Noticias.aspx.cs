@@ -57,12 +57,13 @@ namespace GUI
             string AltoImg = row.Cells[6].Text.Trim();
             string AnchoImg = row.Cells[7].Text.Trim();
             string FechaPub = row.Cells[8].Text.Trim();
-            string FechaFin = row.Cells[8].Text.Trim();
+            string FechaFin = row.Cells[9].Text.Trim();
             
-            Response.Redirect($"/EditarNoticia.aspx?Id={Id}&Titulo1={Titulo1}&Texto1={Texto1}" +
-                $"&Titulo2={Titulo2}&Texto2={Texto2}&AltoImg={AltoImg}&AnchoImg={AnchoImg}&" +
-                $"FechaPub={FechaPub}&FechaFin={FechaFin}");
+            Server.Transfer($"/EditarNoticia.aspx?Id={Id}&Titulo1={Titulo1}&Texto1={Texto1}&Titulo2={Titulo2}&" +
+                $"Texto2={Texto2}&AltoImg={AltoImg}&AnchoImg={AnchoImg}&FechaPub={FechaPub}&FechaFin={FechaFin}");
+
         }
+
 
         protected void sendAgregar_Click(object sender, EventArgs e)
         {
@@ -74,16 +75,24 @@ namespace GUI
             var FechaFin = fechaFin.Text.Trim();
             var AltoImg = altoImg.Text.Trim();
             var AnchoImg = anchoImg.Text.Trim();
-            
+            var NombreImg = nombreImg.Text.Trim();
+
             bool Insertado = GestorNewsletter.Agregar(
                                        Titulo1,
                                        Texto1,
                                        Titulo2,
                                        Texto2,
+                                       NombreImg,
                                        int.Parse(AltoImg),
                                        int.Parse(AnchoImg),
                                        FechaPub,
                                        FechaFin);
+
+            if (Insertado)
+            {
+                var ruta = @"/Imagenes/Catalogo/" + NombreImg;
+                GestorNewsletter.AgregarRutaImagen(ruta, NombreImg);
+            }
 
             Response.Redirect("~/ABMC-Noticias");
 
@@ -93,23 +102,23 @@ namespace GUI
             Response.Redirect("~/ABMC-Noticias");
         }
 
-        protected void UploadButton_Click(object sender, EventArgs e)
-        {
-            var NombreImg = nombreImg.Text.Trim();
-            string ruta;
+        //protected void UploadButton_Click(object sender, EventArgs e)
+        //{
+        //    var NombreImg = nombreImg.Text.Trim();
+        //    string ruta;
 
-            if (string.IsNullOrEmpty(NombreImg))
-            {
-                Response.Write("<script>alert('Debe completar el nombre de la imagen')</script>");
-            }
-            else
-            {
-                ruta = @"/Imagenes/Catalogo/"+ NombreImg;
-                FileUpload.SaveAs(Server.MapPath(".") + ruta);
-                //GestorNewsletter.AgregarImg(ruta);
+        //    if (string.IsNullOrEmpty(NombreImg))
+        //    {
+        //        Response.Write("<script>alert('Debe completar el nombre de la imagen')</script>");
+        //    }
+        //    else
+        //    {
+        //        ruta = @"/Imagenes/Catalogo/"+ NombreImg;
+        //        FileUpload.SaveAs(Server.MapPath(".") + ruta);
+        //        GestorNewsletter.AgregarRutaImagen(ruta,NombreImg);
                 
-            }
+        //    }
 
-        }
+        //}
     }
 }

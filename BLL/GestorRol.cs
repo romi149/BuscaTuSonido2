@@ -21,14 +21,14 @@ namespace BLL
             return MapperRol.ListarRoles();
         }
 
-        public static bool Agregar(string nombre, string descrip, string tipoRol)
+        public static bool Agregar(BE.Rol rol)
         {
-            return MapperRol.InsertarRol(nombre,descrip,tipoRol);
+            return MapperRol.InsertarRol(rol);
         }
 
-        public static bool Modificar(int IdRol, string nombre, string descrip, string tipoRol)
+        public static bool Modificar(BE.Rol rol)
         {
-            return MapperRol.ActualizarRol(IdRol,nombre,descrip,tipoRol);
+            return MapperRol.ActualizarRol(rol);
         }
 
         public static bool Eliminar(int IdRol)

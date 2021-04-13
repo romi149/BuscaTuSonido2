@@ -15,25 +15,23 @@ namespace GUI
             if (IsPostBack)
                 return;
 
-            string Id = Request.QueryString["Id"].ToString();
-            string Nombre = Request.QueryString["Nombre"].ToString();
-            string Descripcion = Request.QueryString["Descripcion"].ToString();
-            string Ubicacion = Request.QueryString["Ubicacion"].ToString();
-            
-            id.Text = Id;
-            nombre.Text = Nombre;
-            descripcion.Text = Descripcion;
-            ubicacion.Text = Ubicacion;
+            id.Text = Request.QueryString["Id"].ToString();
+            nombre.Text = Request.QueryString["Nombre"].ToString();
+            descripcion.Text = Request.QueryString["Descripcion"].ToString();
+            ubicacion.Text = Request.QueryString["Ubicacion"].ToString();
             
         }
 
         protected void sendEditar_Click(object sender, EventArgs e)
         {
-            bool Modificado = GestorMenu.Modificar(
-                                       int.Parse(id.Text.Trim()),
-                                       nombre.Text.Trim(),
-                                       descripcion.Text.Trim(),
-                                       ubicacion.Text.Trim());
+            BE.Menu menu = new BE.Menu();
+            menu.IdMenu = int.Parse(id.Text.Trim());
+            menu.NombreMenu = nombre.Text.Trim();
+            menu.Descripcion = descripcion.Text.Trim();
+            menu.UbicacionMenu = ubicacion.Text.Trim();
+
+
+            bool Modificado = GestorMenu.Modificar(menu);
 
             if (Modificado)
             {

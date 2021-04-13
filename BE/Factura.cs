@@ -15,6 +15,7 @@ namespace BE
         public int CodCliente { get; set; }
         public string Detalle { get; set; }
         public string Estado { get; set; }
+        public int NroPedido { get; set; }
 
 
     }

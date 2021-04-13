@@ -67,14 +67,16 @@ namespace GUI
         
         protected void sendAgregar_Click(object sender, EventArgs e)
         {
-            bool Insertado = GestorUsuario.Agregar(
-                                       usuario.Text.Trim(),
-                                       nombre.Text.Trim(),
-                                       apellido.Text.Trim(),
-                                       EnvioEmails.md5(password.Text.Trim()),
-                                       EstadoCliente.CONFIRMADO,
-                                       1,
-                                       int.Parse(dni.Text.Trim()));
+            Usuario user = new Usuario();
+            user.User = usuario.Text.Trim();
+            user.Nombre = nombre.Text.Trim();
+            user.Apellido = apellido.Text.Trim();
+            user.Pass = EnvioEmails.md5(password.Text.Trim());
+            user.Estado = EstadoCliente.CONFIRMADO;
+            user.IdIdioma = 1;
+            user.Dni = int.Parse(dni.Text.Trim());
+
+            bool Insertado = GestorUsuario.Agregar(user);
 
             if (Insertado)
             {

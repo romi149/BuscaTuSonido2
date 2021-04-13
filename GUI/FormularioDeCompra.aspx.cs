@@ -96,6 +96,7 @@ namespace GUI
                 //var UserCliente = $"{((BE.Usuario)Session["usuarioCliente"])?.User}";
                 Nombre = Nombre.TrimEnd(',');
                 var Productos = new List<string>(Nombre.Split(','));
+
                 var NPGenerada = GestorNP.AgregarNP(UserCliente, Total);
                 var nroNC = GestorNC.ObtenerNC(UserCliente);
 
@@ -117,9 +118,13 @@ namespace GUI
                    
                     GestorNP.AgregarDetalle(NP, cadena);
 
-                    if(nroNC.Count != 0)
+                    NotaCredito nc = new NotaCredito();
+                    nc.Estado = "Aplicado";
+                    nc.NroNotaC = nroNC[0].NroNotaC;
+
+                    if (nroNC.Count != 0)
                     {
-                        GestorNC.ModificarEstadoNC("Aplicado", nroNC[0].NroNotaC);
+                        GestorNC.ModificarEstadoNC(nc);
                     }
                 }
             }

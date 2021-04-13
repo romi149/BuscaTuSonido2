@@ -28,14 +28,14 @@ namespace BLL
 
         }
 
-        public static bool Agregar(string nombre, string descrip)
+        public static bool Agregar(Marca marca)
         {
-            return MapperMarca.InsertarMarca(nombre, descrip);
+            return MapperMarca.InsertarMarca(marca);
         }
 
-        public static bool Modificar(int Id, string nombre, string descrip)
+        public static bool Modificar(Marca marca)
         {
-            return MapperMarca.ActualizarMarca(Id, nombre, descrip);
+            return MapperMarca.ActualizarMarca(marca);
         }
 
         public static bool Eliminar(int Id)

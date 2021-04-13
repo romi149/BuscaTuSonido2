@@ -16,7 +16,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Pregunta</label>
-                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="nombrePregunta" />
+                                <asp:TextBox runat="server" type="text" CssClass="form-control" TextMode="MultiLine" ID="nombrePregunta" />
                             </div>
                             <div class="form-group">
                                 <label>Fecha Inicio</label>

@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,14 +23,21 @@ namespace GUI
 
         protected void confirmar_Click(object sender, EventArgs e)
         {
-            string DetalleFC = detalle.Text.Trim();
-            string DetalleNC = detalleNC.Text.Trim();
-            var NumFactura = Session["NroFactura"].ToString();
-            var importe = Session["PrecioTotal"].ToString();
+            Factura fact = new Factura();
+            fact.Detalle = detalle.Text.Trim();
+            fact.NroFactura = int.Parse(Session["NroFactura"].ToString());
+            fact.PrecioTotal = Session["PrecioTotal"].ToString();
+            fact.Estado = "Anulado";
+                                    
+            GestorFactura.ModificarFactura(fact);
 
-            GestorFactura.ModificarFactura(int.Parse(NumFactura),"Anulado",DetalleFC);
+            NotaCredito nc = new NotaCredito();
+            nc.NroFactura = int.Parse(Session["NroFactura"].ToString());
+            nc.Detalle = detalleNC.Text.Trim();
+            nc.Importe = Session["PrecioTotal"].ToString();
+            nc.Estado = "";
 
-            bool Generado = GestorNC.AgregarNC(int.Parse(NumFactura), DetalleNC, importe, "");
+            bool Generado = GestorNC.AgregarNC(nc);
 
             if (Generado)
             {

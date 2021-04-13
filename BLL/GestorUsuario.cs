@@ -18,21 +18,19 @@ namespace BLL
             return respuesta;
         }
 
-        public static bool Agregar(string user, string nombre, string ape, string pass, string estado,
-                                   int Ididioma, int dni)
+        public static bool Agregar(Usuario user)
         {
-            return MapperUsuario.InsertarUsuario(user, nombre, ape, pass, estado, Ididioma, dni);
+            return MapperUsuario.InsertarUsuario(user);
         }
 
-        public static bool ModificarUsuario(int IdUser, string user, string nombre, string ape, string pass, string estado,
-                                            int Ididioma, int dni)
+        public static bool ModificarUsuario(Usuario user)
         {
-            return MapperUsuario.ActualizarUsuario(IdUser, user, nombre, ape, pass, estado, Ididioma, dni);
+            return MapperUsuario.ActualizarUsuario(user);
         }
 
-        public static bool ModificarPass(int IdUser, string pass)
+        public static bool ModificarPass(Usuario user)
         {
-            return MapperUsuario.ActualizarPass(IdUser, pass);
+            return MapperUsuario.ActualizarPass(user);
         }
 
         public static bool Eliminar(int IdUser)

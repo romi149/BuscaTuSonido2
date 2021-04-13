@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,46 +15,45 @@ namespace GUI
         protected void Page_Load(object sender, EventArgs e)
         {
             CargarPaginaDinamica();
+            //CargarImagen();
         }
 
         protected void CargarPaginaDinamica()
         {
-            var titulo1 = "Proximos eventos";
-            var titulo2 = "Otros eventos";
-            var texto1 = "Hola mundoooooooooooooooooooooo";
-            var texto2 = "Hola a todos";
-            var img = "/imagenes/Portada/pexels.png";
-            var altoimg = "300";
-            var anchoimg = "400";
-            
+            var listaDatos = GestorNewsletter.ListarNoticiaParaPublicar();
+            var titulo1 = listaDatos[0].Titulo1;
+            var titulo2 = listaDatos[0].Titulo2;
+            var texto1 = listaDatos[0].Texto1;
+            var texto2 = listaDatos[0].Texto2;
+            var img = listaDatos[0].Img;
+            //var altoimg = listaDatos[0].AltoImg;
+            //var anchoimg = listaDatos[0].AnchoImg;
+
+            HtmlGenericControl textoTitulo1 = new HtmlGenericControl("h1");
+            HtmlGenericControl textoTitulo2 = new HtmlGenericControl("h2");
+            HtmlGenericControl texto = new HtmlGenericControl("p");
+            textoTitulo1.InnerHtml = $"{titulo1}";
+            textoTitulo2.InnerHtml = $"{titulo2}";
+            texto.InnerHtml = $"{texto1}";
+            TxtTitulo1.Controls.Add(textoTitulo1);
+            TxtTitulo2.Controls.Add(textoTitulo2);
+            TxtTexto1.Controls.Add(texto);
+            this.ImagenNoticia.ImageUrl = img;
+        }
+
+        protected void CargarImagen()
+        {
+            var listaDatos = GestorNewsletter.ListarNoticiaParaPublicar();
+            var img = listaDatos[0].Img;
+            var altoimg = listaDatos[0].AltoImg;
+            var anchoimg = listaDatos[0].AnchoImg;
+
             HtmlGenericControl DivContenedor = new HtmlGenericControl("div");
-
-            DivContenedor.InnerHtml += $"<div>";
-            DivContenedor.InnerHtml += "<div clas='row'>";
+            DivContenedor.InnerHtml += $"<img src={img} width='{anchoimg}' height='{altoimg}'>";
+            DivContenedor.InnerHtml += $"</img>";
+            DivContenedor.InnerHtml += "</div>";
+            this.contenedorImagen.Controls.Add(DivContenedor);
             
-            DivContenedor.InnerHtml += "<div class='col-lg-6'>";
-            DivContenedor.InnerHtml += "<div class='primero'>";
-            DivContenedor.InnerHtml = $"<h2>{titulo1}";
-            DivContenedor.InnerHtml += "</h2>";
-            DivContenedor.InnerHtml += $"<p>{texto1}";
-            DivContenedor.InnerHtml += "</p>";
-            DivContenedor.InnerHtml += "</div>";
-            //DivContenedor.InnerHtml += "<div class='segundo'>";
-            //DivContenedor.InnerHtml = $"<h2>{titulo2}";
-            //DivContenedor.InnerHtml += "</h2>";
-            //DivContenedor.InnerHtml += $"<p>{texto2}";
-            //DivContenedor.InnerHtml += "</p>";
-            //DivContenedor.InnerHtml += "</div>";
-            DivContenedor.InnerHtml += "</div>";
-
-            DivContenedor.InnerHtml += "<div class='col-lg-6'>";
-            DivContenedor.InnerHtml += $"<img src ={img} width='{anchoimg}' height='{altoimg}'";
-            DivContenedor.InnerHtml += "</img>";
-            DivContenedor.InnerHtml += "</div>";
-            
-            DivContenedor.InnerHtml += "</div>";
-            DivContenedor.InnerHtml += "</div>";
-            this.contenedorNews.Controls.Add(DivContenedor);
         }
     }
 }

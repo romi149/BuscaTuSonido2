@@ -94,10 +94,14 @@ namespace GUI
 
                     GestorNP.AgregarProdNP(NP, Nombre);
                     GestorNP.AgregarDetalle(NP, Nombre);
-                    
+
+                    NotaCredito nc = new NotaCredito();
+                    nc.Estado = "Aplicado";
+                    nc.NroNotaC = nroNC[0].NroNotaC;
+
                     if (nroNC.Count != 0)
                     {
-                        GestorNC.ModificarEstadoNC("Aplicado", nroNC[0].NroNotaC);
+                        GestorNC.ModificarEstadoNC(nc);
                     }
                 }
             }
@@ -122,6 +126,7 @@ namespace GUI
             listNotaCred.DataBind();
 
         }
+
     }
     
 }

@@ -15,22 +15,20 @@ namespace GUI
             if (IsPostBack)
                 return;
 
-            string IdMarca = Request.QueryString["IdMarca"].ToString();
-            string Nombre = Request.QueryString["Nombre"].ToString();
-            string Descripcion = Request.QueryString["Descripcion"].ToString();
-            
-            Id.Text = IdMarca;
-            nombre.Text = Nombre;
-            descripcion.Text = Descripcion;
+            Id.Text = Request.QueryString["IdMarca"].ToString();
+            nombre.Text = Request.QueryString["Nombre"].ToString();
+            descripcion.Text = Request.QueryString["Descripcion"].ToString();
             
         }
 
         protected void sendEditar_Click(object sender, EventArgs e)
         {
-            bool Modificado = GestorMarca.Modificar(
-                                       int.Parse(Id.Text.Trim()),
-                                       nombre.Text.Trim(),
-                                       descripcion.Text.Trim());
+            BE.Marca marca = new BE.Marca();
+            marca.IdMarca = int.Parse(Id.Text.Trim());
+            marca.Nombre = nombre.Text.Trim();
+            marca.Descripcion = descripcion.Text.Trim();
+
+            bool Modificado = GestorMarca.Modificar(marca);
 
             if (Modificado)
             {

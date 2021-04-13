@@ -39,25 +39,29 @@ namespace GUI
 
             if (IsReCaptchValid())
             {
-                bool Insertado = GestorCliente.Agregar(
-                                       nombre.Text.Trim(),
-                                       apellido.Text.Trim(),
-                                       email.Text.Trim(),
-                                       telefono.Text.Trim(),
-                                       domEntrega.Text.Trim(),
-                                       domFactura.Text.Trim(),
-                                       EnvioEmails.md5(password.Text.Trim()),
-                                       dni.Text.Trim(),
-                                       username.Text.Trim());
+                Cliente cli = new Cliente();
+                cli.Nombre = nombre.Text.Trim();
+                cli.Apellido = apellido.Text.Trim();
+                cli.Email = email.Text.Trim();
+                cli.Telefono = telefono.Text.Trim();
+                cli.DomEntrega = domEntrega.Text.Trim();
+                cli.DomFacturacion = domFactura.Text.Trim();
+                cli.Pass = EnvioEmails.md5(password.Text.Trim());
+                cli.Dni = dni.Text.Trim();
+                cli.Usuario = username.Text.Trim();
 
-                bool UserNuevo = GestorUsuario.Agregar(
-                                           username.Text.Trim(),
-                                           nombre.Text.Trim(),
-                                           apellido.Text.Trim(),
-                                           EnvioEmails.md5(password.Text.Trim()),
-                                           EstadoCliente.PENDIENTE,
-                                           1,
-                                           int.Parse(dni.Text.Trim()));
+                bool Insertado = GestorCliente.Agregar(cli);
+
+                Usuario user = new Usuario();
+                user.User = username.Text.Trim();
+                user.Nombre = nombre.Text.Trim();
+                user.Apellido = apellido.Text.Trim();
+                user.Pass = EnvioEmails.md5(password.Text.Trim());
+                user.Estado = EstadoCliente.PENDIENTE;
+                user.IdIdioma = 1;
+                user.Dni = int.Parse(dni.Text.Trim());
+
+                bool UserNuevo = GestorUsuario.Agregar(user);
 
                 bool Cliente = GestorGestionRoles.AsignarRolCliente(int.Parse(dni.Text.Trim()), 8);
 

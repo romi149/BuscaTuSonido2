@@ -16,9 +16,10 @@ namespace GUI
                 return;
 
             string Id = Request.QueryString["Id"].ToString();
-            string NombrePregunta = Request.QueryString["NombrePregunta"].ToString();
-            string FechaInicio = Request.QueryString["FechaInicio"].ToString();
-            string FechaFin = Request.QueryString["FechaFin"].ToString();
+            string NombrePregunta = GestorOpinion.ObtenerPregunta(int.Parse(Id));
+            var listaDatos = GestorOpinion.ObtenerFechaInicio(int.Parse(Id));
+            string FechaInicio = listaDatos[0].fechaIni.ToString();
+            string FechaFin = listaDatos[0].fechaFin.ToString();
             string Opcion1 = Request.QueryString["Opcion1"].ToString();
             string Opcion2 = Request.QueryString["Opcion2"].ToString();
             string NombreImg1 = Request.QueryString["NombreImg1"].ToString();

@@ -13,6 +13,7 @@ namespace BE
         public int NroFactura { get; set; }
         public string Detalle { get; set; }
         public string Importe { get; set; }
+        public string Estado { get; set; }
 
     }
 }

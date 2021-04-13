@@ -15,7 +15,7 @@ namespace GUI
         {
             var User = $"{((BE.Usuario)Session["usuarioBackend"])?.User}";
             var IdRol = GestorUsuario.ObtenerRolUsuario(User);
-            var permiso = GestorUsuario.VerificarAcceso(IdRol, "ReporteVentas.aspx");
+            var permiso = GestorUsuario.VerificarAcceso(IdRol, "GestionConsultasClientes.aspx");
 
             if (permiso.Count == 0)
             {

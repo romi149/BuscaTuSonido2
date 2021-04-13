@@ -30,6 +30,7 @@ namespace GUI
             }
         }
 
+        BE.Rol oRol;
         public DataSet CargarDatos()
         {
             return GestorRol.Listar();
@@ -65,14 +66,13 @@ namespace GUI
 
         protected void sendAgregar_Click(object sender, EventArgs e)
         {
-            var Nombre = nombre.Text.Trim();
-            var Descripcion = descripcion.Text.Trim();
-            var TipoRol = tipoRol.Text.Trim();
+            oRol = new BE.Rol();
+
+            oRol.NombreRol = nombre.Text.Trim();
+            oRol.Descripcion = descripcion.Text.Trim();
+            oRol.TipoRol = tipoRol.Text.Trim();
             
-            bool Insertado = GestorRol.Agregar(
-                                       nombre.Text.Trim(),
-                                       descripcion.Text.Trim(),
-                                       tipoRol.Text.Trim());
+            bool Insertado = GestorRol.Agregar(oRol);
 
             if (Insertado)
             {

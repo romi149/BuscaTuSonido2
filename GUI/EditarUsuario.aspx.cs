@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,35 +16,28 @@ namespace GUI
             if (IsPostBack)
                 return;
 
-            string IdUsuario = Request.QueryString["IdUsuario"].ToString();
-            string Usuario = Request.QueryString["Usuario"].ToString();
-            string Nombre = Request.QueryString["Nombre"].ToString();
-            string Apellido = Request.QueryString["Apellido"].ToString();
-            string Pass = Request.QueryString["Password"].ToString();
-            string Dni = Request.QueryString["Dni"].ToString();
-            string Estado = Request.QueryString["Estado"].ToString();
-
-            Id.Text = IdUsuario;
-            username.Text = Usuario;
-            nombre.Text = Nombre;
-            apellido.Text = Apellido;
-            password.Text = Pass;
-            dni.Text = Dni;
-            estado.Text = Estado;
-
+            Id.Text = Request.QueryString["IdUsuario"].ToString();
+            username.Text = Request.QueryString["Usuario"].ToString();
+            nombre.Text = Request.QueryString["Nombre"].ToString();
+            apellido.Text = Request.QueryString["Apellido"].ToString();
+            password.Text = Request.QueryString["Password"].ToString();
+            dni.Text = Request.QueryString["Dni"].ToString();
+            estado.Text = Request.QueryString["Estado"].ToString();
         }
 
         protected void sendEditar_Click(object sender, EventArgs e)
         {
-            bool Modificado = GestorUsuario.ModificarUsuario(
-                                       int.Parse(Id.Text.Trim()),
-                                       username.Text.Trim(),
-                                       nombre.Text.Trim(),
-                                       apellido.Text.Trim(),
-                                       EnvioEmails.md5(password.Text.Trim()),
-                                       estado.Text.Trim(),
-                                       1,
-                                       int.Parse(dni.Text.Trim()));
+            Usuario user = new Usuario();
+            user.IdUsuario = int.Parse(Id.Text.Trim());
+            user.User = username.Text.Trim();
+            user.Nombre = nombre.Text.Trim();
+            user.Apellido = apellido.Text.Trim();
+            user.Pass = EnvioEmails.md5(password.Text.Trim());
+            user.Estado = estado.Text.Trim();
+            user.IdIdioma = 1;
+            user.Dni = int.Parse(dni.Text.Trim());
+
+            bool Modificado = GestorUsuario.ModificarUsuario(user);
 
             if (Modificado)
             {

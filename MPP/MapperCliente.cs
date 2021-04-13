@@ -85,21 +85,20 @@ namespace MPP
         /// </summary>
         /// <param name="cliente"></param>
         /// <returns>Devuelve si se inserto o no</returns>
-        public static bool InsertarCliente(string nombre, string apellido, string email, string tel, 
-                                            string domEntrega,string domFact, string pass, string dni, string usuario)
+        public static bool InsertarCliente(Cliente cli)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, nombre));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Apellido", DbType.String, ParameterDirection.Input, apellido));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Email", DbType.String, ParameterDirection.Input, email));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Telefono", DbType.String, ParameterDirection.Input, tel));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("DomicilioEntrega", DbType.String, ParameterDirection.Input, domEntrega));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("DomicilioFact", DbType.String, ParameterDirection.Input, domFact));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Pass", DbType.String, ParameterDirection.Input, pass));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Dni", DbType.String, ParameterDirection.Input, dni));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, usuario));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, cli.Nombre));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Apellido", DbType.String, ParameterDirection.Input, cli.Apellido));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Email", DbType.String, ParameterDirection.Input, cli.Email));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Telefono", DbType.String, ParameterDirection.Input, cli.Telefono));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("DomicilioEntrega", DbType.String, ParameterDirection.Input, cli.DomEntrega));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("DomicilioFact", DbType.String, ParameterDirection.Input, cli.DomFacturacion));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Pass", DbType.String, ParameterDirection.Input, cli.Pass));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Dni", DbType.String, ParameterDirection.Input, cli.Dni));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, cli.Usuario));
                 var respuesta = Conexion.GetInstance.EjecutarStore("InsertarCliente", ListaParametros);
 
                 return respuesta;
@@ -158,21 +157,20 @@ namespace MPP
         /// </summary>
         /// <param name="Id">Cliente</param>
         /// <returns>Devuelve si se actualiza o no</returns>
-        public static bool ActualizarDatosCliente(int codCliente, string nombre, string apellido, string email,
-                                                string tel, string domiEntrega, string domiFact, string dni, string user)
+        public static bool ActualizarDatosCliente(Cliente cli)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("CodCliente", DbType.Int32, ParameterDirection.Input, codCliente));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, nombre));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Apellido", DbType.String, ParameterDirection.Input, apellido));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Email", DbType.String, ParameterDirection.Input, email));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Telefono", DbType.String, ParameterDirection.Input, tel));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("DomicilioEntrega", DbType.String, ParameterDirection.Input, domiEntrega));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("DomicilioFact", DbType.String, ParameterDirection.Input, domiFact));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Dni", DbType.String, ParameterDirection.Input, dni));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, user));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("CodCliente", DbType.Int32, ParameterDirection.Input, cli.CodCliente));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, cli.Nombre));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Apellido", DbType.String, ParameterDirection.Input, cli.Apellido));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Email", DbType.String, ParameterDirection.Input, cli.Email));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Telefono", DbType.String, ParameterDirection.Input, cli.Telefono));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("DomicilioEntrega", DbType.String, ParameterDirection.Input, cli.DomEntrega));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("DomicilioFact", DbType.String, ParameterDirection.Input, cli.DomFacturacion));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Dni", DbType.String, ParameterDirection.Input, cli.Dni));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Usuario", DbType.String, ParameterDirection.Input, cli.Usuario));
                 var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarCliente", ListaParametros);
 
                 return respuesta;
@@ -191,14 +189,14 @@ namespace MPP
         /// </summary>
         /// <param name="Id">Cliente</param>
         /// <returns>Devuelve si se actualiza o no</returns>
-        public static bool ActualizarPassCliente(int IdUser, string pass, int codigoCliente)
+        public static bool ActualizarPassCliente(Usuario user, Cliente cli)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdUsuario", DbType.Int32, ParameterDirection.Input, IdUser));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Password", DbType.String, ParameterDirection.Input, pass));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("CodigoCliente", DbType.Int32, ParameterDirection.Input, codigoCliente));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdUsuario", DbType.Int32, ParameterDirection.Input, user.IdUsuario));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Password", DbType.String, ParameterDirection.Input, cli.Pass));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("CodigoCliente", DbType.Int32, ParameterDirection.Input, cli.CodCliente));
                 var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarPassCliente", ListaParametros);
 
                 return respuesta;
