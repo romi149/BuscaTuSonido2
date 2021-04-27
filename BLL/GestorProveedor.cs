@@ -31,18 +31,14 @@ namespace BLL
             return MapperProveedor.ListarProveedor();
         }
 
-        public static bool Agregar(string codProveedor, string nombreEmpesa, string razonSocial, string dom,
-                                   string email, string tel, string descrip, string cui)
+        public static bool Agregar(Proveedor prov)
         {
-            return MapperProveedor.InsertarProveedor(codProveedor,nombreEmpesa,razonSocial,dom,email,
-                                                        tel,descrip,cui);
+            return MapperProveedor.InsertarProveedor(prov);
         }
 
-        public static bool Modificar(int IdProveedor, string codProveedor, string nombreEmpesa, string razonSocial, 
-                                    string dom, string email, string tel, string descrip, string cui)
+        public static bool Modificar(Proveedor prov)
         {
-            return MapperProveedor.ActualizarProveedor(IdProveedor, codProveedor, nombreEmpesa, razonSocial, dom, 
-                                                        email,tel, descrip, cui);
+            return MapperProveedor.ActualizarProveedor(prov);
         }
 
         public static bool Eliminar(int IdProveedor)

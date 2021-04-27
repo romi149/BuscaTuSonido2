@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -53,45 +54,33 @@ namespace GUI
             string Titulo1 = row.Cells[1].Text.Trim();
             string Texto1 = row.Cells[2].Text.Trim();
             string Titulo2 = row.Cells[3].Text.Trim();
-            string Texto2 = row.Cells[4].Text.Trim();
-            string AltoImg = row.Cells[6].Text.Trim();
-            string AnchoImg = row.Cells[7].Text.Trim();
-            string FechaPub = row.Cells[8].Text.Trim();
-            string FechaFin = row.Cells[9].Text.Trim();
+            string FechaPub = row.Cells[4].Text.Trim();
+            string FechaFin = row.Cells[5].Text.Trim();
             
-            Server.Transfer($"/EditarNoticia.aspx?Id={Id}&Titulo1={Titulo1}&Texto1={Texto1}&Titulo2={Titulo2}&" +
-                $"Texto2={Texto2}&AltoImg={AltoImg}&AnchoImg={AnchoImg}&FechaPub={FechaPub}&FechaFin={FechaFin}");
+            Server.Transfer($"/EditarNoticia.aspx?Id={Id}&Titulo1={Titulo1}&Texto1={Texto1}&" +
+                $"Titulo2={Titulo2}&FechaPub={FechaPub}&FechaFin={FechaFin}");
 
         }
 
 
         protected void sendAgregar_Click(object sender, EventArgs e)
         {
-            var Titulo1 = titulo1.Text.Trim();
-            var Texto1 = texto1.Text.Trim();
-            var Titulo2 = titulo2.Text.Trim();
-            var Texto2 = texto2.Text.Trim();
-            var FechaPub = fechaPub.Text.Trim();
-            var FechaFin = fechaFin.Text.Trim();
-            var AltoImg = altoImg.Text.Trim();
-            var AnchoImg = anchoImg.Text.Trim();
-            var NombreImg = nombreImg.Text.Trim();
+            Newsletter news = new Newsletter();
+            news.Titulo1 = titulo1.Text.Trim();
+            news.Texto1 = texto1.Text.Trim();
+            news.Titulo2 = titulo2.Text.Trim();
+            news.FechaPub = DateTime.Parse(fechaPub.Text.Trim());
+            news.FechaFin = DateTime.Parse(fechaFin.Text.Trim());
+            news.Img = nombreImg.Text.Trim();
 
-            bool Insertado = GestorNewsletter.Agregar(
-                                       Titulo1,
-                                       Texto1,
-                                       Titulo2,
-                                       Texto2,
-                                       NombreImg,
-                                       int.Parse(AltoImg),
-                                       int.Parse(AnchoImg),
-                                       FechaPub,
-                                       FechaFin);
+            bool Insertado = GestorNewsletter.Agregar(news);
 
             if (Insertado)
             {
-                var ruta = @"/Imagenes/Catalogo/" + NombreImg;
-                GestorNewsletter.AgregarRutaImagen(ruta, NombreImg);
+                //var ruta = @"/Imagenes/Catalogo/" + news.Img;
+                //GestorNewsletter.AgregarRutaImagen(ruta, news.Img);
+                var ruta = @"C:\Users\romina\source\repos\BuscaTuSonido\GUI\Imagenes\";
+                GestorNewsletter.AgregarRutaImagen(ruta, FileUpload.FileName);
             }
 
             Response.Redirect("~/ABMC-Noticias");
@@ -113,10 +102,10 @@ namespace GUI
         //    }
         //    else
         //    {
-        //        ruta = @"/Imagenes/Catalogo/"+ NombreImg;
+        //        ruta = @"/Imagenes/Catalogo/" + NombreImg;
         //        FileUpload.SaveAs(Server.MapPath(".") + ruta);
-        //        GestorNewsletter.AgregarRutaImagen(ruta,NombreImg);
-                
+        //        GestorNewsletter.AgregarRutaImagen(ruta, NombreImg);
+
         //    }
 
         //}

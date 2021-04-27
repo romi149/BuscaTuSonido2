@@ -24,7 +24,7 @@ namespace GUI
             var titulo1 = listaDatos[0].Titulo1;
             var titulo2 = listaDatos[0].Titulo2;
             var texto1 = listaDatos[0].Texto1;
-            var texto2 = listaDatos[0].Texto2;
+            //var texto2 = listaDatos[0].Texto2;
             var img = listaDatos[0].Img;
             //var altoimg = listaDatos[0].AltoImg;
             //var anchoimg = listaDatos[0].AnchoImg;
@@ -41,19 +41,19 @@ namespace GUI
             this.ImagenNoticia.ImageUrl = img;
         }
 
-        protected void CargarImagen()
-        {
-            var listaDatos = GestorNewsletter.ListarNoticiaParaPublicar();
-            var img = listaDatos[0].Img;
-            var altoimg = listaDatos[0].AltoImg;
-            var anchoimg = listaDatos[0].AnchoImg;
+        //protected void CargarImagen()
+        //{
+        //    var listaDatos = GestorNewsletter.ListarNoticiaParaPublicar();
+        //    var img = listaDatos[0].Img;
+        //    //var altoimg = listaDatos[0].AltoImg;
+        //    //var anchoimg = listaDatos[0].AnchoImg;
 
-            HtmlGenericControl DivContenedor = new HtmlGenericControl("div");
-            DivContenedor.InnerHtml += $"<img src={img} width='{anchoimg}' height='{altoimg}'>";
-            DivContenedor.InnerHtml += $"</img>";
-            DivContenedor.InnerHtml += "</div>";
-            this.contenedorImagen.Controls.Add(DivContenedor);
+        //    HtmlGenericControl DivContenedor = new HtmlGenericControl("div");
+        //    DivContenedor.InnerHtml += $"<img src={img}'>";
+        //    DivContenedor.InnerHtml += $"</img>";
+        //    DivContenedor.InnerHtml += "</div>";
+        //    this.contenedorImagen.Controls.Add(DivContenedor);
             
-        }
+        //}
     }
 }

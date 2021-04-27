@@ -83,28 +83,26 @@ namespace GUI
         {
             var marca = listMarca.SelectedItem.ToString();
             var nombreEmpresa = listCodProv.SelectedItem.ToString();
-            var Cat = listCategoria.SelectedItem.ToString();
-            var Tipo = listTipoInstrumento.SelectedItem.ToString();
-            var Estado = listEstado.SelectedItem.ToString();
-
+            
             var IDMarca = GestorMarca.ObtenerId(marca);
             var codProv = GestorProveedor.ObtenerCod(nombreEmpresa);
             var IDProv = GestorProveedor.ObtenerId(nombreEmpresa);
 
-            bool Insertado = GestorProducto.Agregar(
-                                       upc.Text.Trim(),
-                                       nombre.Text.Trim(),
-                                       descripcion.Text.Trim(),
-                                       Cat,
-                                       Tipo,
-                                       IDMarca,
-                                       modelo.Text.Trim(),
-                                       codProv,
-                                       IDProv,
-                                       color.Text.Trim(),
-                                       Estado,
-                                       precio.Text.Trim()
-                                        );
+            Producto prod = new Producto();
+            prod.Upc = upc.Text.Trim();
+            prod.Nombre = nombre.Text.Trim();
+            prod.Descripcion = descripcion.Text.Trim();
+            prod.Categoria = listCategoria.SelectedItem.ToString();
+            prod.TipoInstrumento = listTipoInstrumento.SelectedItem.ToString();
+            prod.IdMarca = IDMarca;
+            prod.Modelo = modelo.Text.Trim();
+            prod.CodProveedor = codProv;
+            prod.IdProveedor = IDProv;
+            prod.Color = color.Text.Trim();
+            prod.Estado = listEstado.SelectedItem.ToString();
+            prod.Precio = precio.Text.Trim();
+
+            bool Insertado = GestorProducto.Agregar(prod);
 
             if (Insertado)
             {

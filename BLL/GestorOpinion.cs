@@ -11,25 +11,19 @@ namespace BLL
 {
     public class GestorOpinion
     {
-        public static bool Agregar(int NroPregunta, string Pregunta, int Puntaje, string tipo)
+        public static bool Agregar(Opinion op)
         {
-            return MapperOpinion.InsertarOpinion(NroPregunta, Pregunta, Puntaje, tipo);
+            return MapperOpinion.InsertarOpinion(op);
         }
 
-        public static bool AgregarEncuesta(int NroPregunta, string Pregunta, string tipo,
-                                            string fechaInicio, string fechaFin, string opcion1,
-                                            string opcion2, string img1, string img2)
+        public static bool AgregarEncuesta(Opinion op)
         {
-            return MapperOpinion.InsertarEncuesta(NroPregunta, Pregunta, tipo, fechaInicio,
-                                                 fechaFin, opcion1, opcion2, img1, img2);
+            return MapperOpinion.InsertarEncuesta(op);
         }
 
-        public static bool ModificarEncuesta(int id, string Pregunta, string fechaInicio, 
-                                            string fechaFin, string opcion1,
-                                            string opcion2, string img1, string img2)
+        public static bool ModificarEncuesta(Opinion op)
         {
-            return MapperOpinion.ActualizarEncuesta(id, Pregunta, fechaInicio, fechaFin, 
-                                                    opcion1, opcion2, img1, img2);
+            return MapperOpinion.ActualizarEncuesta(op);
         }
 
         public static bool Eliminar(int id)

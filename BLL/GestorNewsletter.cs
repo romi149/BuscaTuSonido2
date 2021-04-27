@@ -15,20 +15,14 @@ namespace BLL
         {
             return MapperNewsletter.ListarNoticias();
         }
-        public static bool Agregar(string titulo1, string texto1, string titulo2, string texto2,
-                                    string NombreImg, int altoImg, int anchoImg, string fechaPub,
-                                    string fechaFin)
+        public static bool Agregar(Newsletter news)
         {
-            return MapperNewsletter.InsertarNoticia(titulo1,texto1,titulo2,texto2,NombreImg,altoImg,
-                                                    anchoImg,fechaPub,fechaFin);
+            return MapperNewsletter.InsertarNoticia(news);
         }
 
-        public static bool ModificarNoticia(int id, string titulo1, string texto1, string titulo2, 
-                                            string texto2, int altoImg, int anchoImg, 
-                                            string fechaPub,string fechaFin)
+        public static bool ModificarNoticia(Newsletter news)
         {
-            return MapperNewsletter.ActualizarNoticia(id,titulo1, texto1, titulo2, texto2,altoImg,
-                                                    anchoImg, fechaPub, fechaFin);
+            return MapperNewsletter.ActualizarNoticia(news);
         }
 
         public static bool Eliminar(int id)

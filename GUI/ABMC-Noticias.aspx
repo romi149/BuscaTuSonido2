@@ -48,21 +48,21 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Titulo1</label>
+                                <label>Titulo de la página</label>
                                 <asp:TextBox runat="server" type="text" TextMode="MultiLine" CssClass="form-control" ID="titulo1" />
                             </div>
                             <div class="form-group">
-                                <label>Texto1</label>
-                                <asp:TextBox runat="server" type="text" TextMode="MultiLine" CssClass="form-control" ID="texto1" />
-                            </div>
-                            <div class="form-group">
-                                <label>Titulo2</label>
+                                <label>Subtítulo</label>
                                 <asp:TextBox runat="server" type="text" TextMode="MultiLine" CssClass="form-control" ID="titulo2" />
                             </div>
                             <div class="form-group">
+                                <label>Texto principal</label>
+                                <asp:TextBox runat="server" type="text" TextMode="MultiLine" CssClass="form-control" ID="texto1" />
+                            </div>
+                            <%--<div class="form-group">
                                 <label>Texto2</label>
                                 <asp:TextBox runat="server" type="text" TextMode="MultiLine" CssClass="form-control" ID="texto2" />
-                            </div>
+                            </div>--%>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
@@ -73,14 +73,14 @@
                                 <label>Fecha de Finalización</label>
                                 <asp:TextBox runat="server" type="date" CssClass="form-control" ID="fechaFin" />
                             </div>
-                            <div class="form-group">
+                            <%--<div class="form-group">
                                 <label>Alto Imagen</label>
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="altoImg" />
                             </div>
                             <div class="form-group">
                                 <label>Ancho Imagen</label>
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="anchoImg" />
-                            </div>
+                            </div>--%>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
@@ -117,10 +117,10 @@
                 <asp:BoundField DataField="Titulo1" HeaderText="Titulo1" />
                 <asp:BoundField DataField="Texto1" HeaderText="Texto1" />
                 <asp:BoundField DataField="Titulo2" HeaderText="Titulo2" />
-                <asp:BoundField DataField="Texto2" HeaderText="Texto2" />
+                <%--<asp:BoundField DataField="Texto2" HeaderText="Texto2" />--%>
                 <asp:BoundField DataField="Img" HeaderText="Url Imagen" />
-                <asp:BoundField DataField="AltoImg" HeaderText="Alto Img" />
-                <asp:BoundField DataField="AnchoImg" HeaderText="Ancho Img" />
+                <%--<asp:BoundField DataField="AltoImg" HeaderText="Alto Img" />
+                <asp:BoundField DataField="AnchoImg" HeaderText="Ancho Img" />--%>
                 <asp:BoundField DataField="FechaPublicacion" HeaderText="Fecha Publicación" />
                 <asp:BoundField DataField="FechaFin" HeaderText="Fecha Fin" />
                 <asp:TemplateField HeaderText="Action">

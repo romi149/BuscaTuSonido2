@@ -13,15 +13,15 @@ namespace MPP
 {
     public class MapperOpinion
     {
-        public static bool InsertarOpinion(int NroPregunta, string Pregunta, int Puntaje, string tipo)
+        public static bool InsertarOpinion(Opinion op)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroPregunta", DbType.Int32, ParameterDirection.Input, NroPregunta));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombrePregunta", DbType.String, ParameterDirection.Input, Pregunta));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Puntuacion", DbType.Int32, ParameterDirection.Input, Puntaje));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Tipo", DbType.String, ParameterDirection.Input, tipo));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroPregunta", DbType.Int32, ParameterDirection.Input, op.NroPregunta));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombrePregunta", DbType.String, ParameterDirection.Input, op.NombrePregunta));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Puntuacion", DbType.Int32, ParameterDirection.Input, op.Puntuacion));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Tipo", DbType.String, ParameterDirection.Input, op.Tipo));
                 var respuesta = Conexion.GetInstance.EjecutarStore("InsertarOpinion", ListaParametros);
 
                 return respuesta;
@@ -33,22 +33,20 @@ namespace MPP
             }
         }
 
-        public static bool InsertarEncuesta(int NroPregunta, string Pregunta, string tipo,
-                                            string fechaInicio, string fechaFin, string opcion1,
-                                            string opcion2, string img1, string img2)
+        public static bool InsertarEncuesta(Opinion op)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroPregunta", DbType.Int32, ParameterDirection.Input, NroPregunta));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombrePregunta", DbType.String, ParameterDirection.Input, Pregunta));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Tipo", DbType.String, ParameterDirection.Input, tipo));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaInicio", DbType.String, ParameterDirection.Input, fechaInicio));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaFin", DbType.String, ParameterDirection.Input, fechaFin));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Opcion1", DbType.String, ParameterDirection.Input, opcion1));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Opcion2", DbType.String, ParameterDirection.Input, opcion2));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Img1", DbType.String, ParameterDirection.Input, img1));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Img2", DbType.String, ParameterDirection.Input, img2));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroPregunta", DbType.Int32, ParameterDirection.Input, op.NroPregunta));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombrePregunta", DbType.String, ParameterDirection.Input, op.NombrePregunta));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Tipo", DbType.String, ParameterDirection.Input, op.Tipo));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaInicio", DbType.String, ParameterDirection.Input, op.FechaInicio));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaFin", DbType.String, ParameterDirection.Input, op.FechaFin));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Opcion1", DbType.String, ParameterDirection.Input, op.Opcion1));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Opcion2", DbType.String, ParameterDirection.Input, op.Opcion2));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Img1", DbType.String, ParameterDirection.Input, op.UrlOpcion1));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Img2", DbType.String, ParameterDirection.Input, op.UrlOpcion2));
                 var respuesta = Conexion.GetInstance.EjecutarStore("InsertarEncuesta", ListaParametros);
 
                 return respuesta;
@@ -213,21 +211,19 @@ namespace MPP
 
         }
 
-        public static bool ActualizarEncuesta(int id, string Pregunta, string fechaInicio,
-                                            string fechaFin, string opcion1,
-                                            string opcion2, string img1, string img2)
+        public static bool ActualizarEncuesta(Opinion op)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdEncuesta", DbType.Int32, ParameterDirection.Input, id));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombrePregunta", DbType.String, ParameterDirection.Input, Pregunta));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaInicio", DbType.String, ParameterDirection.Input, fechaInicio));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaFin", DbType.String, ParameterDirection.Input, fechaFin));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Opcion1", DbType.String, ParameterDirection.Input, opcion1));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Opcion2", DbType.String, ParameterDirection.Input, opcion2));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("UrlImagen1", DbType.String, ParameterDirection.Input, img1));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("UrlImagen2", DbType.String, ParameterDirection.Input, img2));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdEncuesta", DbType.Int32, ParameterDirection.Input, op.Id));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombrePregunta", DbType.String, ParameterDirection.Input, op.NombrePregunta));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaInicio", DbType.String, ParameterDirection.Input, op.FechaInicio));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaFin", DbType.String, ParameterDirection.Input, op.FechaFin));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Opcion1", DbType.String, ParameterDirection.Input, op.Opcion1));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Opcion2", DbType.String, ParameterDirection.Input, op.Opcion2));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("UrlImagen1", DbType.String, ParameterDirection.Input, op.UrlOpcion1));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("UrlImagen2", DbType.String, ParameterDirection.Input, op.UrlOpcion2));
                 var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarEncuesta", ListaParametros);
 
                 return respuesta;

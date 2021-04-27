@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -35,7 +36,12 @@ namespace GUI
 
             var nroFactura = GestorFactura.ObtenerFactura(NroPedido);
 
-            bool Generado = GestorRemito.Agregar(NroPedido, nroFactura, "Pendiente");
+            Remito re = new Remito();
+            re.NroNP = NroPedido;
+            re.NroFactura = nroFactura;
+            re.Estado = "Pendiente";
+
+            bool Generado = GestorRemito.Agregar(re);
 
             if (Generado)
             {

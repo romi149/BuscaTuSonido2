@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,51 +16,38 @@ namespace GUI
             if (IsPostBack)
                 return;
 
-            string IdProd = Request.QueryString["Id"].ToString();
-            string UPC = Request.QueryString["UPC"].ToString();
-            string Nombre = Request.QueryString["Nombre"].ToString();
-            string Descripcion = Request.QueryString["Descripcion"].ToString();
-            string Categoria = Request.QueryString["Categoria"]?.ToString();
-            string TipoInst = Request.QueryString["TipoInst"].ToString();
-            //string IdMarca = Request.QueryString["IdMarca"].ToString();
-            string Modelo = Request.QueryString["Modelo"].ToString();
-            string CodProv = Request.QueryString["CodProv"].ToString();
-            //string IdProv = Request.QueryString["IdProv"].ToString();
-            string Color = Request.QueryString["Color"].ToString();
-            string Estado = Request.QueryString["Estado"].ToString();
-            string Precio = Request.QueryString["Precio"].ToString();
+            Id.Text = Request.QueryString["Id"].ToString();
+            upc.Text = Request.QueryString["UPC"].ToString();
+            nombre.Text = Request.QueryString["Nombre"].ToString();
+            descripcion.Text = Request.QueryString["Descripcion"].ToString();
+            categoria.Text = Request.QueryString["Categoria"]?.ToString();
+            tipoInstrumento.Text = Request.QueryString["TipoInst"].ToString();
+            //idMarca.Text = Request.QueryString["IdMarca"].ToString();
+            modelo.Text = Request.QueryString["Modelo"].ToString();
+            codProv.Text = Request.QueryString["CodProv"].ToString();
+            //idProv.Text = Request.QueryString["IdProv"].ToString();
+            color.Text = Request.QueryString["Color"].ToString();
+            estado.Text = Request.QueryString["Estado"].ToString();
+            precio.Text = Request.QueryString["Precio"].ToString();
             
-            Id.Text = IdProd;
-            upc.Text = UPC;
-            nombre.Text = Nombre;
-            categoria.Text = Categoria;
-            tipoInstrumento.Text = TipoInst;
-            //idMarca.Text = IdMarca;
-            modelo.Text = Modelo;
-            codProv.Text = CodProv;
-            //idProv.Text = IdProv;
-            color.Text = Color;
-            precio.Text = Precio;
-            estado.Text = Estado;
-            descripcion.Text = Descripcion;
         }
 
         protected void sendEditar_Click(object sender, EventArgs e)
         {
-            bool Modificado = GestorProducto.Modificar(
-                                        int.Parse(Id.Text.Trim()),
-                                        upc.Text.Trim(),
-                                        nombre.Text.Trim(),
-                                        descripcion.Text.Trim(),
-                                        categoria.Text.Trim(),
-                                        tipoInstrumento.Text.Trim(),
-                                        //int.Parse(idMarca.Text.Trim()),
-                                        modelo.Text.Trim(),
-                                        codProv.Text.Trim(),
-                                        //int.Parse(idProv.Text.Trim()),
-                                        color.Text.Trim(),
-                                        estado.Text.Trim(),
-                                        precio.Text.Trim());
+            Producto prod = new Producto();
+            prod.Id = int.Parse(Id.Text.Trim());
+            prod.Upc = upc.Text.Trim();
+            prod.Nombre = nombre.Text.Trim();
+            prod.Descripcion = descripcion.Text.Trim();
+            prod.Categoria = categoria.Text.Trim();
+            prod.TipoInstrumento = tipoInstrumento.Text.Trim();
+            prod.Modelo = modelo.Text.Trim();
+            prod.CodProveedor = codProv.Text.Trim();
+            prod.Color = color.Text.Trim();
+            prod.Estado = estado.Text.Trim();
+            prod.Precio = precio.Text.Trim();
+
+            bool Modificado = GestorProducto.Modificar(prod);
 
             if (Modificado)
             {

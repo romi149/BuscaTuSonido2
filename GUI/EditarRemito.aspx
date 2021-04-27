@@ -23,7 +23,8 @@
                 </div>
                 <div class="form-group">
                     <label>Estado</label>
-                    <asp:TextBox runat="server" type="text" CssClass="form-control" ID="estado" />
+                    <asp:DropDownList runat="server" CssClass="form-control" ID="listEstado">
+                    </asp:DropDownList>
                 </div>
                 <br />
                 <br />

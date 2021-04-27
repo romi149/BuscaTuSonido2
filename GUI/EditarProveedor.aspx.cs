@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,39 +16,32 @@ namespace GUI
             if (IsPostBack)
                 return;
 
-            string IdProveedor = Request.QueryString["IdProveedor"].ToString();
-            string CodProv = Request.QueryString["CodProveedor"].ToString();
-            string NombreEmp = Request.QueryString["NombreEmpresa"].ToString();
-            string RazonS = Request.QueryString["RazonSocial"].ToString();
-            string Domi = Request.QueryString["Domicilio"].ToString();
-            string Email = Request.QueryString["Email"].ToString();
-            string Telefono = Request.QueryString["Telefono"].ToString();
-            string Descrip = Request.QueryString["Descripcion"].ToString();
-            string Cuit = Request.QueryString["Cuit"].ToString();
-
-            idProv.Text = IdProveedor;
-            codProv.Text = CodProv;
-            nombreEmpresa.Text = NombreEmp;
-            razonSocial.Text = RazonS;
-            domicilio.Text = Domi;
-            email.Text = Email;
-            telefono.Text = Telefono;
-            descrip.Text = Descrip;
-            cuit.Text = Cuit;
+            idProv.Text = Request.QueryString["IdProveedor"].ToString();
+            codProv.Text = Request.QueryString["CodProveedor"].ToString();
+            nombreEmpresa.Text = Request.QueryString["NombreEmpresa"].ToString();
+            razonSocial.Text = Request.QueryString["RazonSocial"].ToString();
+            domicilio.Text = Request.QueryString["Domicilio"].ToString();
+            email.Text = Request.QueryString["Email"].ToString();
+            telefono.Text = Request.QueryString["Telefono"].ToString();
+            descrip.Text = Request.QueryString["Descripcion"].ToString();
+            cuit.Text = Request.QueryString["Cuit"].ToString();
+            
         }
 
         protected void sendEditar_Click(object sender, EventArgs e)
         {
-            bool Modificado = GestorProveedor.Modificar(
-                                       int.Parse(idProv.Text.Trim()), 
-                                       codProv.Text.Trim(),
-                                       nombreEmpresa.Text.Trim(),
-                                       razonSocial.Text.Trim(),
-                                       domicilio.Text.Trim(),
-                                       email.Text.Trim(),
-                                       telefono.Text.Trim(),
-                                       descrip.Text.Trim(),
-                                       cuit.Text.Trim());
+            Proveedor prov = new Proveedor();
+            prov.IdProveedor = int.Parse(idProv.Text.Trim());
+            prov.CodProveedor = codProv.Text.Trim();
+            prov.NombreEmpresa = nombreEmpresa.Text.Trim();
+            prov.RazonSocial = razonSocial.Text.Trim();
+            prov.Domicilio = domicilio.Text.Trim();
+            prov.Email = email.Text.Trim();
+            prov.Telefono = telefono.Text.Trim();
+            prov.Descripcion = descrip.Text.Trim();
+            prov.Cuit = cuit.Text.Trim();
+
+            bool Modificado = GestorProveedor.Modificar(prov);
 
             if (Modificado)
             {

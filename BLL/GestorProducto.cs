@@ -18,20 +18,14 @@ namespace BLL
 
         }
 
-        public static bool Agregar(string upc, string nombre, string descrip, string categ, string TipoInst,
-                                     int IdMarca, string modelo, string codProveedor, int IdProveedor, string color,
-                                     string estado, string precio)
+        public static bool Agregar(Producto prod)
         {
-            return MapperProducto.InsertarProducto(upc,nombre,descrip,categ,TipoInst,IdMarca,modelo,codProveedor,
-                                                    IdProveedor,color,estado,precio);
+            return MapperProducto.InsertarProducto(prod);
         }
 
-        public static bool Modificar(int IdProd, string upc, string nombre, string descrip, string categ, string TipoInst,
-                                     string modelo, string codProveedor, string color,
-                                     string estado, string precio)
+        public static bool Modificar(Producto prod)
         {
-            return MapperProducto.ActualizarProducto(IdProd, upc, nombre, descrip, categ, TipoInst, modelo, 
-                                                    codProveedor, color, estado, precio);
+            return MapperProducto.ActualizarProducto(prod);
         }
 
         public static bool Eliminar(int IdProd)

@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -68,17 +69,18 @@ namespace GUI
 
         protected void sendAgregar_Click(object sender, EventArgs e)
         {
-            var NroPregunta = 1;
-            var NombrePregunta = nombrePregunta.Text.Trim();
-            var Tipo = "Encuesta";
-            var FechaInicio = fechaInicio.Text.Trim();
-            var FechaFin = fechaFin.Text.Trim();
-            var Opcion1 = opcion1.Text.Trim();
-            var Opcion2 = opcion2.Text.Trim();
-            var NombreImg1 = img1.Text.Trim();
-            var NombreImg2 = img2.Text.Trim();
+            Opinion op = new Opinion();
+            op.NroPregunta = 1;
+            op.NombrePregunta = nombrePregunta.Text.Trim();
+            op.Tipo = "Encuesta";
+            op.FechaInicio = fechaInicio.Text.Trim();
+            op.FechaFin = fechaFin.Text.Trim();
+            op.Opcion1 = opcion1.Text.Trim();
+            op.Opcion2 = opcion2.Text.Trim();
+            op.UrlOpcion1 = img1.Text.Trim();
+            op.UrlOpcion2 = img2.Text.Trim();
 
-            var existe = GestorOpinion.VerificarFechaEncuesta(FechaInicio);
+            var existe = GestorOpinion.VerificarFechaEncuesta(op.FechaInicio);
             bool Insertado = false;
 
             //if(existe != null)
@@ -87,22 +89,13 @@ namespace GUI
             //}
             //else
             //{
-            if(string.IsNullOrEmpty(NombreImg1) || string.IsNullOrEmpty(NombreImg2))
+            if(string.IsNullOrEmpty(op.UrlOpcion1) || string.IsNullOrEmpty(op.UrlOpcion2))
             {
                 Response.Write("<script>alert('Debe ingresar los nombres de las imagenes')</script>");
             }
             else
             {
-                Insertado = GestorOpinion.AgregarEncuesta(
-                                       NroPregunta,
-                                       NombrePregunta,
-                                       Tipo,
-                                       FechaInicio,
-                                       FechaFin,
-                                       Opcion1,
-                                       Opcion2,
-                                       NombreImg1,
-                                       NombreImg2);
+                Insertado = GestorOpinion.AgregarEncuesta(op);
             }
                 
             //}

@@ -85,14 +85,14 @@ namespace MPP
         /// </summary>
         /// <param name="remito">Tipo Remito</param>
         /// <returns>Devuelve si se inserto o no</returns>
-        public static bool InsertarRemito(int nroNp, int nroFactura, string estado)
+        public static bool InsertarRemito(Remito re)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroPedido", DbType.Int16, ParameterDirection.Input, nroNp));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroFactura", DbType.Int32, ParameterDirection.Input, nroFactura));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Estado", DbType.String, ParameterDirection.Input, estado));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroPedido", DbType.Int16, ParameterDirection.Input, re.NroNP));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroFactura", DbType.Int32, ParameterDirection.Input, re.NroFactura));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Estado", DbType.String, ParameterDirection.Input, re.Estado));
                 var respuesta = Conexion.GetInstance.EjecutarStore("InsertarRemito", ListaParametros);
 
                 return respuesta;
@@ -127,15 +127,15 @@ namespace MPP
             }
         }
 
-        public static bool ModificarRemito(int nroRemito, string descripcion, string notas, string estado)
+        public static bool ModificarRemito(Remito re)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroRemito", DbType.Int16, ParameterDirection.Input, nroRemito));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, descripcion));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Notas", DbType.String, ParameterDirection.Input, notas));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Estado", DbType.String, ParameterDirection.Input, estado));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NroRemito", DbType.Int16, ParameterDirection.Input, re.NroRemito));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, re.Descripcion));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Notas", DbType.String, ParameterDirection.Input, re.Notas));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Estado", DbType.String, ParameterDirection.Input, re.Estado));
                 var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarRemito", ListaParametros);
 
                 return respuesta;

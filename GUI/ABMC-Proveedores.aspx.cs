@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -74,15 +75,17 @@ namespace GUI
 
         protected void sendAgregar_Click(object sender, EventArgs e)
         {
-            bool Insertado = GestorProveedor.Agregar(
-                                       codProv.Text.Trim(),
-                                       nombreEmp.Text.Trim(),
-                                       razonSocial.Text.Trim(),
-                                       domicilio.Text.Trim(),
-                                       email.Text.Trim(),
-                                       tel.Text.Trim(),
-                                       descripcion.Text.Trim(),
-                                       cuit.Text.Trim());
+            Proveedor prov = new Proveedor();
+            prov.CodProveedor = codProv.Text.Trim();
+            prov.NombreEmpresa = nombreEmp.Text.Trim();
+            prov.RazonSocial = razonSocial.Text.Trim();
+            prov.Domicilio = domicilio.Text.Trim();
+            prov.Email = email.Text.Trim();
+            prov.Telefono = tel.Text.Trim();
+            prov.Descripcion = descripcion.Text.Trim();
+            prov.Cuit = cuit.Text.Trim();
+
+            bool Insertado = GestorProveedor.Agregar(prov);
 
             if (Insertado)
             {

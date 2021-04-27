@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,37 +16,32 @@ namespace GUI
             if (IsPostBack)
                 return;
 
-            string Id = Request.QueryString["Id"].ToString();
-            string NombrePregunta = GestorOpinion.ObtenerPregunta(int.Parse(Id));
-            var listaDatos = GestorOpinion.ObtenerFechaInicio(int.Parse(Id));
-            string FechaInicio = listaDatos[0].fechaIni.ToString();
-            string FechaFin = listaDatos[0].fechaFin.ToString();
-            string Opcion1 = Request.QueryString["Opcion1"].ToString();
-            string Opcion2 = Request.QueryString["Opcion2"].ToString();
-            string NombreImg1 = Request.QueryString["NombreImg1"].ToString();
-            string NombreImg2 = Request.QueryString["NombreImg2"].ToString();
-
-            id.Text = Id;
-            nombrePregunta.Text = NombrePregunta;
-            fechaInicio.Text = FechaInicio;
-            fechaFin.Text = FechaFin;
-            respuesta1.Text = Opcion1;
-            respuesta2.Text = Opcion2;
-            img1.Text = NombreImg1;
-            img2.Text = NombreImg2;
+            id.Text = Request.QueryString["Id"].ToString();
+            nombrePregunta.Text = GestorOpinion.ObtenerPregunta(int.Parse(id.Text));
+            var listaDatos = GestorOpinion.ObtenerFechaInicio(int.Parse(id.Text));
+            fechaInicio.Text = listaDatos[0].fechaIni.ToString();
+            fechaFin.Text = listaDatos[0].fechaFin.ToString();
+            respuesta1.Text = Request.QueryString["Opcion1"].ToString();
+            respuesta2.Text = Request.QueryString["Opcion2"].ToString();
+            img1.Text = Request.QueryString["NombreImg1"].ToString();
+            img2.Text = Request.QueryString["NombreImg2"].ToString();
+            
         }
 
         protected void sendEditar_Click(object sender, EventArgs e)
         {
-            bool Modificado = GestorOpinion.ModificarEncuesta(
-                                       int.Parse(id.Text.Trim()),
-                                       nombrePregunta.Text.Trim(),
-                                       fechaInicio.Text.Trim(),
-                                       fechaFin.Text.Trim(),
-                                       respuesta1.Text.Trim(),
-                                       respuesta2.Text.Trim(),
-                                       img1.Text.Trim(),
-                                       img2.Text.Trim());
+            Opinion op = new Opinion();
+            op.Id = int.Parse(id.Text.Trim());
+            op.NombrePregunta = nombrePregunta.Text.Trim();
+            op.FechaInicio = fechaInicio.Text.Trim();
+            op.FechaFin = fechaFin.Text.Trim();
+            op.Opcion1 = respuesta1.Text.Trim();
+            op.Opcion2 = respuesta2.Text.Trim();
+            op.UrlOpcion1 = img1.Text.Trim();
+            op.UrlOpcion2 = img2.Text.Trim();
+
+
+            bool Modificado = GestorOpinion.ModificarEncuesta(op);
 
             if (Modificado)
             {

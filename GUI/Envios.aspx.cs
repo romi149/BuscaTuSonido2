@@ -36,8 +36,10 @@ namespace GUI
         {
             GridViewRow row = (sender as Button).NamingContainer as GridViewRow;
             string NroRemito = row.Cells[0].Text.Trim();
+            string Descripcion = row.Cells[4].Text.Trim();
             
             Session["NroRemito"] = NroRemito;
+            Session["Descripcion"] = Descripcion;
             
 
         }

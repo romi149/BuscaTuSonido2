@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,39 +16,26 @@ namespace GUI
             if (IsPostBack)
                 return;
 
-            string Id = Request.QueryString["Id"].ToString();
-            string Titulo1 = Request.QueryString["Titulo1"].ToString();
-            string Texto1 = Request.QueryString["Texto1"].ToString();
-            string Titulo2 = Request.QueryString["Titulo2"].ToString();
-            string Texto2 = Request.QueryString["Texto2"].ToString();
-            string AltoImg = Request.QueryString["AltoImg"].ToString();
-            string AnchoImg = Request.QueryString["AnchoImg"].ToString();
-            string FechaPub = Request.QueryString["FechaPub"].ToString();
-            string FechaFin = Request.QueryString["FechaFin"].ToString();
-
-            id.Text = Id;
-            titulo1.Text = Titulo1;
-            texto1.Text = Texto1;
-            titulo2.Text = Titulo2;
-            texto2.Text = Texto2;
-            altoImg.Text = AltoImg;
-            anchoImg.Text = AnchoImg;
-            fechaPub.Text = FechaPub;
-            fechaFin.Text = FechaFin;
+            id.Text = Request.QueryString["Id"].ToString();
+            titulo1.Text = Request.QueryString["Titulo1"].ToString();
+            texto1.Text = Request.QueryString["Texto1"].ToString();
+            titulo2.Text = Request.QueryString["Titulo2"].ToString();
+            fechaPub.Text = Request.QueryString["FechaPub"].ToString();
+            fechaFin.Text = Request.QueryString["FechaFin"].ToString();
+            
         }
 
         protected void sendEditar_Click(object sender, EventArgs e)
         {
-            bool Modificado = GestorNewsletter.ModificarNoticia(
-                                       int.Parse(id.Text.Trim()),
-                                       titulo1.Text.Trim(),
-                                       texto1.Text.Trim(),
-                                       titulo2.Text.Trim(),
-                                       texto2.Text.Trim(),
-                                       int.Parse(altoImg.Text.Trim()),
-                                       int.Parse(anchoImg.Text.Trim()),
-                                       fechaPub.Text.Trim(),
-                                       fechaFin.Text.Trim());
+            Newsletter news = new Newsletter();
+            news.Id = int.Parse(id.Text.Trim());
+            news.Titulo1 = titulo1.Text.Trim();
+            news.Texto1 = texto1.Text.Trim();
+            news.Titulo2 = titulo2.Text.Trim();
+            news.FechaPub = DateTime.Parse(fechaPub.Text.Trim());
+            news.FechaFin = DateTime.Parse(fechaFin.Text.Trim());
+
+            bool Modificado = GestorNewsletter.ModificarNoticia(news);
 
             if (Modificado)
             {

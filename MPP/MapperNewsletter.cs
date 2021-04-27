@@ -29,22 +29,17 @@ namespace MPP
             }
         }
 
-        public static bool InsertarNoticia(string titulo1, string texto1, string titulo2, string texto2,
-                                    string nombreImg, int altoImg, int anchoImg, string fechaPub,
-                                    string fechaFin)
+        public static bool InsertarNoticia(Newsletter nw)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Titulo1", DbType.String, ParameterDirection.Input, titulo1));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Texto1", DbType.String, ParameterDirection.Input, texto1));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Titulo2", DbType.String, ParameterDirection.Input, titulo2));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Texto2", DbType.String, ParameterDirection.Input, texto2));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombreImg", DbType.String, ParameterDirection.Input, nombreImg));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("AltoImg", DbType.Int16, ParameterDirection.Input, altoImg));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("AnchoImg", DbType.Int32, ParameterDirection.Input, anchoImg));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaPub", DbType.String, ParameterDirection.Input, fechaPub));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaFin", DbType.String, ParameterDirection.Input, fechaFin));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Titulo1", DbType.String, ParameterDirection.Input, nw.Titulo1));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Texto1", DbType.String, ParameterDirection.Input, nw.Texto1));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Titulo2", DbType.String, ParameterDirection.Input, nw.Titulo2));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombreImg", DbType.String, ParameterDirection.Input, nw.Img));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaPub", DbType.String, ParameterDirection.Input, nw.FechaPub));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaFin", DbType.String, ParameterDirection.Input, nw.FechaFin));
                 var respuesta = Conexion.GetInstance.EjecutarStore("InsertarNoticia", ListaParametros);
 
                 return respuesta;
@@ -56,22 +51,17 @@ namespace MPP
             }
         }
 
-        public static bool ActualizarNoticia(int id, string titulo1, string texto1, string titulo2,
-                                            string texto2, int altoImg, int anchoImg,
-                                            string fechaPub, string fechaFin)
+        public static bool ActualizarNoticia(Newsletter news)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Id", DbType.String, ParameterDirection.Input, id));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Titulo1", DbType.String, ParameterDirection.Input, titulo1));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Texto1", DbType.String, ParameterDirection.Input, texto1));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Titulo2", DbType.String, ParameterDirection.Input, titulo2));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Texto2", DbType.String, ParameterDirection.Input, texto2));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("AltoImg", DbType.Int16, ParameterDirection.Input, altoImg));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("AnchoImg", DbType.Int32, ParameterDirection.Input, anchoImg));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaPub", DbType.String, ParameterDirection.Input, fechaPub));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaFin", DbType.String, ParameterDirection.Input, fechaFin));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Id", DbType.String, ParameterDirection.Input, news.Id));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Titulo1", DbType.String, ParameterDirection.Input, news.Titulo1));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Texto1", DbType.String, ParameterDirection.Input, news.Texto1));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Titulo2", DbType.String, ParameterDirection.Input, news.Titulo2));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaPub", DbType.String, ParameterDirection.Input, news.FechaPub));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaFin", DbType.String, ParameterDirection.Input, news.FechaFin));
                 var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarNoticia", ListaParametros);
 
                 return respuesta;
@@ -134,10 +124,10 @@ namespace MPP
                           Titulo1 = dataRow.Field<string>("Titulo1"),
                           Texto1 = dataRow.Field<string>("Texto1"),
                           Titulo2 = dataRow.Field<string>("Titulo2"),
-                          Texto2 = dataRow.Field<string>("Texto2"),
+                          //Texto2 = dataRow.Field<string>("Texto2"),
                           Img = dataRow.Field<string>("Img"),
-                          AltoImg = dataRow.Field<Int32>("AltoImg"),
-                          AnchoImg = dataRow.Field<Int32>("AnchoImg"),
+                          //AltoImg = dataRow.Field<Int32>("AltoImg"),
+                          //AnchoImg = dataRow.Field<Int32>("AnchoImg"),
                           FechaPub = dataRow.Field<DateTime>("FechaPublicacion"),
                           FechaFin = dataRow.Field<DateTime>("FechaFin")
 

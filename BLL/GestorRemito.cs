@@ -35,9 +35,9 @@ namespace BLL
 
         //}
 
-        public static bool Agregar(int nroNp, int nroFactura, string estado)
+        public static bool Agregar(Remito re)
         {
-            return MapperRemito.InsertarRemito(nroNp, nroFactura, estado);
+            return MapperRemito.InsertarRemito(re);
         }
 
         public static bool AnularRemito(int nroRemito)
@@ -45,9 +45,9 @@ namespace BLL
             return MapperRemito.AnularRemito(nroRemito);
         }
 
-        public static bool ModificarRemito(int nroRemito, string descripcion, string notas, string estado)
+        public static bool ModificarRemito(Remito re)
         {
-            return MapperRemito.ModificarRemito(nroRemito, descripcion, notas, estado);
+            return MapperRemito.ModificarRemito(re);
         }
 
         public static string ObtenerEstado(int nroFactura)

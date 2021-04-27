@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,9 @@ namespace GUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            CargarComboEstados();
+            descripcion.Text = Session["Descripcion"].ToString();
+            
         }
 
         protected void cancelar_Click(object sender, EventArgs e)
@@ -22,21 +25,36 @@ namespace GUI
 
         protected void confirmar_Click(object sender, EventArgs e)
         {
-            var NroRemito = Session["NroRemito"].ToString();
-            var Descripcion = descripcion.Text;
-            var Notas = notas.Text;
-            var Estado = estado.Text;
+            Remito re = new Remito();
+            re.NroRemito = int.Parse(Session["NroRemito"].ToString());
+            re.Descripcion = descripcion.Text;
+            re.Notas = notas.Text;
+            re.Estado = listEstado.SelectedItem.ToString();
 
-            bool Generado = GestorRemito.ModificarRemito(int.Parse(NroRemito), 
-                                                        Descripcion, 
-                                                        Notas, 
-                                                        Estado);
+            bool Generado = GestorRemito.ModificarRemito(re);
 
             if (Generado)
             {
                 Response.Write("<script>alert('Los cambios se guardaron correctamente')</script>");
             }
 
+        }
+
+        public void CargarComboEstados()
+        {
+            ListItem i;
+            i = new ListItem("--- Seleccionar Estado---", "1");
+            listEstado.Items.Add(i);
+            i = new ListItem("Pendiente", "2");
+            listEstado.Items.Add(i);
+            i = new ListItem("En espera", "3");
+            listEstado.Items.Add(i);
+            i = new ListItem("En preparacion", "4");
+            listEstado.Items.Add(i);
+            i = new ListItem("Despachado", "5");
+            listEstado.Items.Add(i);
+            i = new ListItem("Entregado", "6");
+            listEstado.Items.Add(i);
         }
     }
 }

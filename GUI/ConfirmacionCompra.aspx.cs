@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,94 +19,177 @@ namespace GUI
 
         protected void btnOpinar_Click(object sender, EventArgs e)
         {
+            Opinion op = new Opinion();
+
             //Pregunta 1
-            if(CheckPreg1Punt1.Checked == true)
+            
+            if (CheckPreg1Punt1.Checked == true)
             {
-                GestorOpinion.Agregar(1, "¿Qué tan fácil te pareció el proceso de compra?", 1,"FichaOpinion");
+                op.NroPregunta = 1;
+                op.NombrePregunta = "¿Qué tan fácil te pareció el proceso de compra?";
+                op.Puntuacion = 1;
+                op.Tipo = "FichaOpinion";
+                GestorOpinion.Agregar(op);
             }
             else if(CheckPreg1Punt2.Checked == true)
             {
-                GestorOpinion.Agregar(1, "¿Qué tan fácil te pareció el proceso de compra?", 2, "FichaOpinion");
+                op.NroPregunta = 1;
+                op.NombrePregunta = "¿Qué tan fácil te pareció el proceso de compra?";
+                op.Puntuacion = 2;
+                op.Tipo = "FichaOpinion";
+                GestorOpinion.Agregar(op);
             }
             else if(CheckPreg1Punt3.Checked == true)
             {
-                GestorOpinion.Agregar(1, "¿Qué tan fácil te pareció el proceso de compra?", 3, "FichaOpinion");
+                op.NroPregunta = 1;
+                op.NombrePregunta = "¿Qué tan fácil te pareció el proceso de compra?";
+                op.Puntuacion = 3;
+                op.Tipo = "FichaOpinion";
+                GestorOpinion.Agregar(op);
             }
             else if(CheckPreg1Punt4.Checked == true)
             {
-                GestorOpinion.Agregar(1, "¿Qué tan fácil te pareció el proceso de compra?", 4, "FichaOpinion");
+                op.NroPregunta = 1;
+                op.NombrePregunta = "¿Qué tan fácil te pareció el proceso de compra?";
+                op.Puntuacion = 4;
+                op.Tipo = "FichaOpinion";
+                GestorOpinion.Agregar(op);
             }
             else if(CheckPreg1Punt5.Checked == true)
             {
-                GestorOpinion.Agregar(1, "¿Qué tan fácil te pareció el proceso de compra?", 5, "FichaOpinion");
+                op.NroPregunta = 1;
+                op.NombrePregunta = "¿Qué tan fácil te pareció el proceso de compra?";
+                op.Puntuacion = 5;
+                op.Tipo = "FichaOpinion";
+                GestorOpinion.Agregar(op);
             }
 
             //Pregunta 2
             if (CheckPreg2Punt1.Checked == true)
             {
-                GestorOpinion.Agregar(2, "¿Te resultó fácil encontrar el producto que buscabas?", 1, "FichaOpinion");
+                op.NroPregunta = 2;
+                op.NombrePregunta = "¿Te resultó fácil encontrar el producto que buscabas?";
+                op.Puntuacion = 1;
+                op.Tipo = "FichaOpinion";
+                GestorOpinion.Agregar(op);
             }
             else if (CheckPreg2Punt2.Checked == true)
             {
-                GestorOpinion.Agregar(2, "¿Te resultó fácil encontrar el producto que buscabas?", 2, "FichaOpinion");
+                op.NroPregunta = 2;
+                op.NombrePregunta = "¿Te resultó fácil encontrar el producto que buscabas?";
+                op.Puntuacion = 2;
+                op.Tipo = "FichaOpinion";
+                GestorOpinion.Agregar(op);
             }
             else if (CheckPreg2Punt3.Checked == true)
             {
-                GestorOpinion.Agregar(2, "¿Te resultó fácil encontrar el producto que buscabas?", 3, "FichaOpinion");
+                op.NroPregunta = 2;
+                op.NombrePregunta = "¿Te resultó fácil encontrar el producto que buscabas?";
+                op.Puntuacion = 3;
+                op.Tipo = "FichaOpinion";
+                GestorOpinion.Agregar(op);
             }
             else if (CheckPreg2Punt4.Checked == true)
             {
-                GestorOpinion.Agregar(2, "¿Te resultó fácil encontrar el producto que buscabas?", 4, "FichaOpinion");
+                op.NroPregunta = 2;
+                op.NombrePregunta = "¿Te resultó fácil encontrar el producto que buscabas?";
+                op.Puntuacion = 4;
+                op.Tipo = "FichaOpinion";
+                GestorOpinion.Agregar(op);
             }
             else if (CheckPreg2Punt5.Checked == true)
             {
-                GestorOpinion.Agregar(2, "¿Te resultó fácil encontrar el producto que buscabas?", 5, "FichaOpinion");
+                op.NroPregunta = 2;
+                op.NombrePregunta = "¿Te resultó fácil encontrar el producto que buscabas?";
+                op.Puntuacion = 5;
+                op.Tipo = "FichaOpinion";
+                GestorOpinion.Agregar(op);
             }
 
 
             //Pregunta 3
             if (CheckPreg3Punt1.Checked == true)
             {
-                GestorOpinion.Agregar(3, "¿Qué tan satisfecho estás con la disponibilidad de los productos?", 1, "FichaOpinion");
+                op.NroPregunta = 3;
+                op.NombrePregunta = "¿Qué tan satisfecho estás con la disponibilidad de los productos?";
+                op.Puntuacion = 1;
+                op.Tipo = "FichaOpinion";
+                GestorOpinion.Agregar(op);
             }
             else if (CheckPreg3Punt2.Checked == true)
             {
-                GestorOpinion.Agregar(3, "¿Qué tan satisfecho estás con la disponibilidad de los productos?", 2, "FichaOpinion");
+                op.NroPregunta = 3;
+                op.NombrePregunta = "¿Qué tan satisfecho estás con la disponibilidad de los productos?";
+                op.Puntuacion = 2;
+                op.Tipo = "FichaOpinion";
+                GestorOpinion.Agregar(op);
             }
             else if (CheckPreg3Punt3.Checked == true)
             {
-                GestorOpinion.Agregar(3, "¿Qué tan satisfecho estás con la disponibilidad de los productos?", 3, "FichaOpinion");
+                op.NroPregunta = 3;
+                op.NombrePregunta = "¿Qué tan satisfecho estás con la disponibilidad de los productos?";
+                op.Puntuacion = 3;
+                op.Tipo = "FichaOpinion";
+                GestorOpinion.Agregar(op);
             }
             else if (CheckPreg3Punt4.Checked == true)
             {
-                GestorOpinion.Agregar(3, "¿Qué tan satisfecho estás con la disponibilidad de los productos?", 4, "FichaOpinion");
+                op.NroPregunta = 3;
+                op.NombrePregunta = "¿Qué tan satisfecho estás con la disponibilidad de los productos?";
+                op.Puntuacion = 4;
+                op.Tipo = "FichaOpinion";
+                GestorOpinion.Agregar(op);
             }
             else if (CheckPreg3Punt5.Checked == true)
             {
-                GestorOpinion.Agregar(3, "¿Qué tan satisfecho estás con la disponibilidad de los productos?", 5, "FichaOpinion");
+                op.NroPregunta = 3;
+                op.NombrePregunta = "¿Qué tan satisfecho estás con la disponibilidad de los productos?";
+                op.Puntuacion = 5;
+                op.Tipo = "FichaOpinion";
+                GestorOpinion.Agregar(op);
             }
 
 
             //Pregunta 4
             if (CheckPreg4Punt1.Checked == true)
             {
-                GestorOpinion.Agregar(4, "¿Qué tan probable es que nos recomiendes?", 1, "FichaOpinion");
+                op.NroPregunta = 4;
+                op.NombrePregunta = "¿Qué tan probable es que nos recomiendes?";
+                op.Puntuacion = 1;
+                op.Tipo = "FichaOpinion";
+                GestorOpinion.Agregar(op);
             }
             else if (CheckPreg4Punt2.Checked == true)
             {
-                GestorOpinion.Agregar(4, "¿Qué tan probable es que nos recomiendes?", 2, "FichaOpinion");
+                op.NroPregunta = 4;
+                op.NombrePregunta = "¿Qué tan probable es que nos recomiendes?";
+                op.Puntuacion = 2;
+                op.Tipo = "FichaOpinion";
+                GestorOpinion.Agregar(op);
             }
             else if (CheckPreg4Punt3.Checked == true)
             {
-                GestorOpinion.Agregar(4, "¿Qué tan probable es que nos recomiendes?", 3, "FichaOpinion");
+                op.NroPregunta = 4;
+                op.NombrePregunta = "¿Qué tan probable es que nos recomiendes?";
+                op.Puntuacion = 3;
+                op.Tipo = "FichaOpinion";
+                GestorOpinion.Agregar(op);
             }
             else if (CheckPreg4Punt4.Checked == true)
             {
-                GestorOpinion.Agregar(4, "¿Qué tan probable es que nos recomiendes?", 4, "FichaOpinion");
+                op.NroPregunta = 4;
+                op.NombrePregunta = "¿Qué tan probable es que nos recomiendes?";
+                op.Puntuacion = 4;
+                op.Tipo = "FichaOpinion";
+                GestorOpinion.Agregar(op);
             }
             else if (CheckPreg4Punt5.Checked == true)
             {
-                GestorOpinion.Agregar(4, "¿Qué tan probable es que nos recomiendes?", 5, "FichaOpinion");
+                op.NroPregunta = 4;
+                op.NombrePregunta = "¿Qué tan probable es que nos recomiendes?";
+                op.Puntuacion = 5;
+                op.Tipo = "FichaOpinion";
+                GestorOpinion.Agregar(op);
             }
 
             Response.Redirect("PaginaPrincipal.aspx");

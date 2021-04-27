@@ -90,7 +90,7 @@ namespace MPP
                     var empList = respuesta.Tables[0].AsEnumerable()
                       .Select(dataRow => new Proveedor
                       {
-                          IdProeedor = dataRow.Field<int>("IdProveedor"),
+                          IdProveedor = dataRow.Field<int>("IdProveedor"),
                           CodProveedor = dataRow.Field<string>("CodProveedor"),
                           NombreEmpresa = dataRow.Field<string>("NombreEmpresa"),
                           RazonSocial = dataRow.Field<string>("RazonSocial"),
@@ -117,20 +117,19 @@ namespace MPP
         /// </summary>
         /// <param name="proveedor">Tipo Proveedor</param>
         /// <returns>Devuelve si se inserto o no</returns>
-        public static bool InsertarProveedor(string codProveedor, string nombreEmpesa, string razonSocial, string dom,
-                                       string email, string tel, string descrip, string cuit)
+        public static bool InsertarProveedor(Proveedor prov)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("CodProveedor", DbType.String, ParameterDirection.Input, codProveedor));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombreEmpresa", DbType.String, ParameterDirection.Input, nombreEmpesa));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("RazonSocial", DbType.String, ParameterDirection.Input, razonSocial));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Domicilio", DbType.String, ParameterDirection.Input, dom));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Email", DbType.String, ParameterDirection.Input, email));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Telefono", DbType.String, ParameterDirection.Input, tel));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, descrip));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Cuit", DbType.String, ParameterDirection.Input, cuit));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("CodProveedor", DbType.String, ParameterDirection.Input, prov.CodProveedor));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombreEmpresa", DbType.String, ParameterDirection.Input, prov.NombreEmpresa));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("RazonSocial", DbType.String, ParameterDirection.Input, prov.RazonSocial));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Domicilio", DbType.String, ParameterDirection.Input, prov.Domicilio));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Email", DbType.String, ParameterDirection.Input, prov.Email));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Telefono", DbType.String, ParameterDirection.Input, prov.Telefono));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, prov.Descripcion));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Cuit", DbType.String, ParameterDirection.Input, prov.Cuit));
                 var respuesta = Conexion.GetInstance.EjecutarStore("InsertarProveedor", ListaParametros);
 
                 return respuesta;
@@ -148,21 +147,20 @@ namespace MPP
         /// </summary>
         /// <param name="proveedor">Tipo proveedor</param>
         /// <returns>Devuelve si se actualiza o no</returns>
-        public static bool ActualizarProveedor(int IdProveedor, string codProveedor, string nombreEmpesa, string razonSocial, string dom,
-                                       string email, string tel, string descrip, string cuit)
+        public static bool ActualizarProveedor(Proveedor prov)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdProveedor", DbType.Int32, ParameterDirection.Input, IdProveedor));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("CodProveedor", DbType.String, ParameterDirection.Input, codProveedor));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombreEmpresa", DbType.String, ParameterDirection.Input, nombreEmpesa));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("RazonSocial", DbType.String, ParameterDirection.Input, razonSocial));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Domicilio", DbType.String, ParameterDirection.Input, dom));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Email", DbType.String, ParameterDirection.Input, email));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Telefono", DbType.String, ParameterDirection.Input, tel));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, descrip));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Cuit", DbType.String, ParameterDirection.Input, cuit));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdProveedor", DbType.Int32, ParameterDirection.Input, prov.IdProveedor));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("CodProveedor", DbType.String, ParameterDirection.Input, prov.CodProveedor));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NombreEmpresa", DbType.String, ParameterDirection.Input, prov.NombreEmpresa));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("RazonSocial", DbType.String, ParameterDirection.Input, prov.RazonSocial));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Domicilio", DbType.String, ParameterDirection.Input, prov.Domicilio));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Email", DbType.String, ParameterDirection.Input, prov.Email));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Telefono", DbType.String, ParameterDirection.Input, prov.Telefono));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, prov.Descripcion));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Cuit", DbType.String, ParameterDirection.Input, prov.Cuit));
                 var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarProveedor", ListaParametros);
 
                 return respuesta;

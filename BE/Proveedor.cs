@@ -14,6 +14,6 @@ namespace BE
         public string Telefono { get; set; }
         public string Descripcion { get; set; }
         public string CodProveedor { get; set; }
-        public int IdProeedor { get; set; }
+        public int IdProveedor { get; set; }
     }
 }

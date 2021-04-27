@@ -27,20 +27,8 @@
                                 <label>Titulo2</label>
                                 <asp:TextBox runat="server" type="text" TextMode="MultiLine" CssClass="form-control" ID="titulo2" />
                             </div>
-                            <div class="form-group">
-                                <label>Texto2</label>
-                                <asp:TextBox runat="server" type="text" TextMode="MultiLine" CssClass="form-control" ID="texto2" />
-                            </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Alto Imagen</label>
-                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="altoImg" />
-                            </div>
-                            <div class="form-group">
-                                <label>Ancho Imagen</label>
-                                <asp:TextBox runat="server" type="text" CssClass="form-control" ID="anchoImg" />
-                            </div>
                             <div class="form-group">
                                 <label>Fecha Publicación</label>
                                 <asp:TextBox runat="server" type="date" CssClass="form-control" ID="fechaPub" />

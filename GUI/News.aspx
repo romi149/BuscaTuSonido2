@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6">
                      <asp:Image CssClass="imgNoticia" runat="server" ID="ImagenNoticia" />
-                    <asp:Panel runat="server" ID="contenedorImagen">
+                    <%--<asp:Panel runat="server" ID="contenedorImagen">--%>
                     </asp:Panel>
                 </div>
             </div>

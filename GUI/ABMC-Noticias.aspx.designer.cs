@@ -24,15 +24,6 @@ namespace GUI
         protected global::System.Web.UI.WebControls.TextBox titulo1;
 
         /// <summary>
-        /// Control texto1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox texto1;
-
-        /// <summary>
         /// Control titulo2.
         /// </summary>
         /// <remarks>
@@ -42,13 +33,13 @@ namespace GUI
         protected global::System.Web.UI.WebControls.TextBox titulo2;
 
         /// <summary>
-        /// Control texto2.
+        /// Control texto1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox texto2;
+        protected global::System.Web.UI.WebControls.TextBox texto1;
 
         /// <summary>
         /// Control fechaPub.
@@ -67,24 +58,6 @@ namespace GUI
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox fechaFin;
-
-        /// <summary>
-        /// Control altoImg.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox altoImg;
-
-        /// <summary>
-        /// Control anchoImg.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox anchoImg;
 
         /// <summary>
         /// Control nombreImg.
