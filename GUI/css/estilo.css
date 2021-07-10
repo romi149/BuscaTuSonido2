@@ -70,14 +70,13 @@ header .textos-header{
     justify-content: center;
     flex-direction: column;
     text-align: center;
-
+	
 }
 
 .textos-header h1{ 
 
     font-size: 50px;
     color: #FFF;
-
 }
 
 .textos-header h2{ 

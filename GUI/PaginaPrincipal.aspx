@@ -15,7 +15,7 @@
         <title>BUSCA TU SONIDO</title>
 
         <!-- Bootstrap core CSS -->
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <%--<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">--%>
 
         <!-- Custom fonts for this template -->
         <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
@@ -28,8 +28,13 @@
 
     <body>
         <header>
+            <section class="textos-header">
+                <h1>Busca Tu Sonido</h1>
+                <br />
+                <%--<h2>La Excelencia en Sonido</h2>--%>
+            </section>
             <div class="wave" style="height: 150px; overflow: hidden;">
-                <h1 class="masthead-heading mb-0" style="color:brown" >BUSCA TU SONIDO</h1>
+                <%--<h1 class="masthead-heading mb-0" style="color: brown">BUSCA TU SONIDO</h1>--%>
                 <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
                     <path d="M0.00,49.99 C150.00,150.00 349.21,-49.99 500.00,49.99 L500.00,150.00 L0.00,150.00 Z"
                         style="stroke: none; fill: rgb(255, 255, 255);">
@@ -49,14 +54,14 @@
 
         <section class="portafolio">
             <div class="contenedor">
-                <h2 class="titulo">Portafolio</h2>
+                <h2 class="titulo">Nuestros Instrumentos</h2>
                 <div class="galeria-port">
                     <div class="imagen-port">
                         <img src="./img/Guitarra7.png" alt="">
                         <div class="hover-galeria">
                             <img src="./img/apuntar.svg" alt="">
                             <%--<p>Nuestro Trabajo</p>--%>
-                            <a class="portfolio" runat="server" href="~/Default">Nuestros Productos</a>
+                            <a class="portfolio" runat="server" href="~/Default">Productos</a>
                         </div>
                     </div>
                     <div class="imagen-port">
@@ -64,14 +69,15 @@
                         <div class="hover-galeria">
                             <img src="./img/apuntar.svg" alt="" srcset="">
                             <%--<p>Nuestro Trabajo</p>--%>
-                            <a class="portfolio" runat="server" href="~/Default">Nuestros Productos</a>
+                            <a class="portfolio" runat="server" href="~/Default">Productos</a>
                         </div>
                     </div>
                     <div class="imagen-port">
                         <img src="./img/Violin.png" alt="">
                         <div class="hover-galeria">
                             <img src="./img/apuntar.svg" alt="" srcset="">
-                            <p>Nuestro Trabajo</p>
+                            <%--<p>Nuestro Trabajo</p>--%>
+                            <a class="portfolio" runat="server" href="~/Default">Productos</a>
                         </div>
                     </div>
                     <div class="imagen-port">
@@ -79,7 +85,7 @@
                         <div class="hover-galeria">
                             <img src="./img/apuntar.svg" alt="" srcset="">
                             <%--<p>Nuestro Trabajo</p>--%>
-                            <a class="portfolio" runat="server" href="~/Default">Nuestros Productos</a>
+                            <a class="portfolio" runat="server" href="~/Default">Productos</a>
                         </div>
                     </div>
                     <div class="imagen-port">
@@ -87,7 +93,7 @@
                         <div class="hover-galeria">
                             <img src="./img/apuntar.svg" alt="" srcset="">
                             <%--<p>Nuestro Trabajo</p>--%>
-                            <a class="portfolio" runat="server" href="~/Default">Nuestros Productos</a>
+                            <a class="portfolio" runat="server" href="~/Default">Productos</a>
                         </div>
                     </div>
                     <div class="imagen-port">
@@ -95,7 +101,7 @@
                         <div class="hover-galeria">
                             <img src="./img/apuntar.svg" alt="" srcset="">
                             <%--<p>Nuestro Trabajo</p>--%>
-                            <a class="portfolio" runat="server" href="~/Default">Nuestros Productos</a>
+                            <a class="portfolio" runat="server" href="~/Default">Productos</a>
                         </div>
                     </div>
                     <div class="imagen-port">
@@ -103,7 +109,7 @@
                         <div class="hover-galeria">
                             <img src="./img/apuntar.svg" alt="" srcset="">
                             <%--<p>Nuestro Trabajo</p>--%>
-                            <a class="portfolio" runat="server" href="~/Default">Nuestros Productos</a>
+                            <a class="portfolio" runat="server" href="~/Default">Productos</a>
                         </div>
                     </div>
                     <div class="imagen-port">
@@ -111,7 +117,7 @@
                         <div class="hover-galeria">
                             <img src="./img/apuntar.svg" alt="" srcset="">
                             <%--<p>Nuestro Trabajo</p>--%>
-                            <a class="portfolio" runat="server" href="~/Default">Nuestros Productos</a>
+                            <a class="portfolio" runat="server" href="~/Default">Productos</a>
                         </div>
                     </div>
 
@@ -194,11 +200,12 @@
                 height: 200px;
             }
 
-            h1{
+            /*.hdPortada{
+                text-align:left;
+                color:beige;
                 align-content:center;
-                position:center;
-                
-            }
+                align-items:center !important;
+            }*/
 
             header{
                 background: url(img/b1.jpg) no-repeat center center fixed;
@@ -230,8 +237,8 @@
         </style>
 
         <!-- Bootstrap core JavaScript -->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <%--<script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>--%>
 
     </body>
 
