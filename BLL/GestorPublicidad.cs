@@ -17,16 +17,14 @@ namespace BLL
 
         }
 
-        public static bool Agregar(string imageUrl, string navigateUrl, string fechaInicio,
-                                     string fechaFin)
+        public static bool Agregar(Publicidad pub)
         {
-            return MapperPublicidad.InsertarPublicidad(imageUrl, navigateUrl, fechaInicio, fechaFin);
+            return MapperPublicidad.InsertarPublicidad(pub);
         }
 
-        public static bool Modificar(int Id, string imageUrl, string navigateUrl, string fechaInicio,
-                                     string fechaFin)
+        public static bool Modificar(Publicidad pub)
         {
-            return MapperPublicidad.ActualizarPublicidad(Id, imageUrl, navigateUrl, fechaInicio, fechaFin);
+            return MapperPublicidad.ActualizarPublicidad(pub);
         }
 
         public static bool Eliminar(int Id)

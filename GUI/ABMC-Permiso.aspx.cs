@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -65,14 +66,12 @@ namespace GUI
 
         protected void sendAgregar_Click(object sender, EventArgs e)
         {
-            var Nombre = nombre.Text.Trim();
-            var Descripcion = descripcion.Text.Trim();
-            var TipoPermiso = tipoPermiso.Text.Trim();
+            Permiso per = new Permiso();
+            per.NombrePermiso = nombre.Text.Trim();
+            per.Descripcion = descripcion.Text.Trim();
+            per.TipoPermiso = tipoPermiso.Text.Trim();
 
-            bool Insertado = GestorPermiso.Agregar(
-                                       Nombre,
-                                       Descripcion,
-                                       TipoPermiso);
+            bool Insertado = GestorPermiso.Agregar(per);
 
             if (Insertado)
             {

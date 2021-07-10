@@ -29,16 +29,15 @@ namespace MPP
             }
         }
 
-        public static bool InsertarPublicidad(string imageUrl, string navigateUrl, 
-                                              string fechaInicio, string fechaFin)
+        public static bool InsertarPublicidad(Publicidad pub)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("ImageUrl", DbType.String, ParameterDirection.Input, imageUrl));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("NavigateUrl", DbType.String, ParameterDirection.Input, navigateUrl));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaInicio", DbType.String, ParameterDirection.Input, fechaInicio));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaFin", DbType.String, ParameterDirection.Input, fechaFin));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("ImageUrl", DbType.String, ParameterDirection.Input, pub.ImageUrl));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NavigateUrl", DbType.String, ParameterDirection.Input, pub.NavigateUrl));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaInicio", DbType.String, ParameterDirection.Input, pub.FechaInicio));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaFin", DbType.String, ParameterDirection.Input, pub.FechaFin));
                 var respuesta = Conexion.GetInstance.EjecutarStore("InsertarPublicidad", ListaParametros);
 
                 return respuesta;
@@ -50,17 +49,16 @@ namespace MPP
             }
         }
 
-        public static bool ActualizarPublicidad(int id, string imageUrl, string navigateUrl,
-                                              string fechaInicio, string fechaFin)
+        public static bool ActualizarPublicidad(Publicidad pub)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Id", DbType.Int32, ParameterDirection.Input, id));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("ImageUrl", DbType.String, ParameterDirection.Input, imageUrl));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("NavigateUrl", DbType.String, ParameterDirection.Input, navigateUrl));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaInicio", DbType.String, ParameterDirection.Input, fechaInicio));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaFin", DbType.String, ParameterDirection.Input, fechaFin));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Id", DbType.Int32, ParameterDirection.Input, pub.Id));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("ImageUrl", DbType.String, ParameterDirection.Input, pub.ImageUrl));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("NavigateUrl", DbType.String, ParameterDirection.Input, pub.NavigateUrl));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaInicio", DbType.String, ParameterDirection.Input, pub.FechaInicio));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("FechaFin", DbType.String, ParameterDirection.Input, pub.FechaFin));
                 var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarPublicidad", ListaParametros);
 
                 return respuesta;

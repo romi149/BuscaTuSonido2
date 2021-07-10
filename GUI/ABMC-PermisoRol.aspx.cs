@@ -56,14 +56,15 @@ namespace GUI
             
         protected void sendAgregar_Click(object sender, EventArgs e)
         {
-            var IdPermiso = nombrePermiso.SelectedItem.Value;
-            var NombrePermiso = nombrePermiso.SelectedItem.ToString();
-            var IdRol = nombreRol.SelectedValue.ToString();
-            var NombreRol = nombreRol.SelectedItem.ToString();
+            Permiso per = new Permiso();
+            Rol rol = new Rol();
+
+            per.IdPermiso = int.Parse(nombrePermiso.SelectedItem.Value);
+            per.NombrePermiso = nombrePermiso.SelectedItem.ToString();
+            rol.IdRol = int.Parse(nombreRol.SelectedValue.ToString());
+            rol.NombreRol = nombreRol.SelectedItem.ToString();
                 
-            bool Insertado = GestorPermiso.AgregarPermisoRol(
-                                           int.Parse(IdPermiso),
-                                           int.Parse(IdRol));
+            bool Insertado = GestorPermiso.AgregarPermisoRol(per,rol);
 
             if (Insertado)
             {

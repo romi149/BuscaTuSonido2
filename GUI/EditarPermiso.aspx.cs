@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,24 +16,22 @@ namespace GUI
             if (IsPostBack)
                 return;
 
-            string IdPermiso = Request.QueryString["IdPermiso"].ToString();
-            string Nombre = Request.QueryString["Nombre"].ToString();
-            string Descripcion = Request.QueryString["Descripcion"].ToString();
-            string TipoPermiso = Request.QueryString["TipoPermiso"].ToString();
+            Id.Text = Request.QueryString["IdPermiso"].ToString();
+            nombre.Text = Request.QueryString["Nombre"].ToString();
+            descripcion.Text = Request.QueryString["Descripcion"].ToString();
+            tipoPermiso.Text = Request.QueryString["TipoPermiso"].ToString();
 
-            Id.Text = IdPermiso;
-            nombre.Text = Nombre;
-            descripcion.Text = Descripcion;
-            tipoPermiso.Text = TipoPermiso;
         }
 
         protected void sendEditar_Click(object sender, EventArgs e)
         {
-            bool Modificado = GestorPermiso.Modificar(
-                                       int.Parse(Id.Text.Trim()),
-                                       nombre.Text.Trim(),
-                                       descripcion.Text.Trim(),
-                                       tipoPermiso.Text.Trim());
+            Permiso per = new Permiso();
+            per.IdPermiso = int.Parse(Id.Text.Trim());
+            per.NombrePermiso = nombre.Text.Trim();
+            per.Descripcion = descripcion.Text.Trim();
+            per.TipoPermiso = tipoPermiso.Text.Trim();
+
+            bool Modificado = GestorPermiso.Modificar(per);
 
             if (Modificado)
             {

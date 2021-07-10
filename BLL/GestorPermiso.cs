@@ -22,14 +22,14 @@ namespace BLL
             return MapperPermiso.ListarPermisosDS();
         }
 
-        public static bool Agregar(string nombre, string descrip, string tipoPermiso)
+        public static bool Agregar(Permiso per)
         {
-            return MapperPermiso.InsertarPermiso(nombre, descrip, tipoPermiso);
+            return MapperPermiso.InsertarPermiso(per);
         }
 
-        public static bool Modificar(int IdPermiso, string nombre, string descrip, string tipoPermiso)
+        public static bool Modificar(Permiso per)
         {
-            return MapperPermiso.ActualizarPermiso(IdPermiso, nombre, descrip, tipoPermiso);
+            return MapperPermiso.ActualizarPermiso(per);
         }
 
         public static bool Eliminar(int IdPermiso)
@@ -37,9 +37,9 @@ namespace BLL
             return MapperPermiso.EliminarPermiso(IdPermiso);
         }
 
-        public static bool AgregarPermisoRol(int idPermiso, int idRol)
+        public static bool AgregarPermisoRol(Permiso per, Rol rol)
         {
-            return MapperPermiso.InsertarPermisoRol(idPermiso, idRol);
+            return MapperPermiso.InsertarPermisoRol(per, rol);
         }
 
         public static bool EliminarPermisoRol(int idPermisoRol)

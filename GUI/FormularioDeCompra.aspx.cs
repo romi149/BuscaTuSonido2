@@ -128,8 +128,9 @@ namespace GUI
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception exep)
             {
+                var error = exep;
                 Response.Redirect("Default");
 
             }

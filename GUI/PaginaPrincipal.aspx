@@ -27,7 +27,17 @@
     </head>
 
     <body>
-        <header class="masthead text-center text-white">
+        <header>
+            <div class="wave" style="height: 150px; overflow: hidden;">
+                <h1 class="masthead-heading mb-0" style="color:brown" >BUSCA TU SONIDO</h1>
+                <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                    <path d="M0.00,49.99 C150.00,150.00 349.21,-49.99 500.00,49.99 L500.00,150.00 L0.00,150.00 Z"
+                        style="stroke: none; fill: rgb(255, 255, 255);">
+                    </path>
+                </svg>
+            </div>
+        </header>
+        <%--<header class="masthead text-center text-white">
             <div class="masthead-content">
                 <div class="container">
                     <h1 class="masthead-heading mb-0">BUSCA TU SONIDO</h1>
@@ -35,7 +45,7 @@
                     <a href="/Default" class="btn btn-primary btn-xl rounded-pill mt-5">Nuestros productos</a>
                 </div>
             </div>
-        </header>
+        </header>--%>
 
         <section class="portafolio">
             <div class="contenedor">
@@ -45,14 +55,16 @@
                         <img src="./img/Guitarra7.png" alt="">
                         <div class="hover-galeria">
                             <img src="./img/apuntar.svg" alt="">
-                            <p>Nuestro Trabajo</p>
+                            <%--<p>Nuestro Trabajo</p>--%>
+                            <a class="portfolio" runat="server" href="~/Default">Nuestros Productos</a>
                         </div>
                     </div>
                     <div class="imagen-port">
                         <img src="./img/Guitarra8.png" alt="">
                         <div class="hover-galeria">
                             <img src="./img/apuntar.svg" alt="" srcset="">
-                            <p>Nuestro Trabajo</p>
+                            <%--<p>Nuestro Trabajo</p>--%>
+                            <a class="portfolio" runat="server" href="~/Default">Nuestros Productos</a>
                         </div>
                     </div>
                     <div class="imagen-port">
@@ -66,35 +78,40 @@
                         <img src="./img/bombos.png" alt="">
                         <div class="hover-galeria">
                             <img src="./img/apuntar.svg" alt="" srcset="">
-                            <p>Nuestro Trabajo</p>
+                            <%--<p>Nuestro Trabajo</p>--%>
+                            <a class="portfolio" runat="server" href="~/Default">Nuestros Productos</a>
                         </div>
                     </div>
                     <div class="imagen-port">
                         <img src="./img/Guitarra1.png" alt="">
                         <div class="hover-galeria">
                             <img src="./img/apuntar.svg" alt="" srcset="">
-                            <p>Nuestro Trabajo</p>
+                            <%--<p>Nuestro Trabajo</p>--%>
+                            <a class="portfolio" runat="server" href="~/Default">Nuestros Productos</a>
                         </div>
                     </div>
                     <div class="imagen-port">
                         <img src="./img/Guitarra4.png" alt="">
                         <div class="hover-galeria">
                             <img src="./img/apuntar.svg" alt="" srcset="">
-                            <p>Nuestro Trabajo</p>
+                            <%--<p>Nuestro Trabajo</p>--%>
+                            <a class="portfolio" runat="server" href="~/Default">Nuestros Productos</a>
                         </div>
                     </div>
                     <div class="imagen-port">
                         <img src="./img/Guitarra2.png" alt="">
                         <div class="hover-galeria">
                             <img src="./img/apuntar.svg" alt="" srcset="">
-                            <p>Nuestro Trabajo</p>
+                            <%--<p>Nuestro Trabajo</p>--%>
+                            <a class="portfolio" runat="server" href="~/Default">Nuestros Productos</a>
                         </div>
                     </div>
                     <div class="imagen-port">
                         <img src="./img/pexels.png" alt="">
                         <div class="hover-galeria">
                             <img src="./img/apuntar.svg" alt="" srcset="">
-                            <p>Nuestro Trabajo</p>
+                            <%--<p>Nuestro Trabajo</p>--%>
+                            <a class="portfolio" runat="server" href="~/Default">Nuestros Productos</a>
                         </div>
                     </div>
 
@@ -175,6 +192,21 @@
             img {
                 width: 15vw;
                 height: 200px;
+            }
+
+            h1{
+                align-content:center;
+                position:center;
+                
+            }
+
+            header{
+                background: url(img/b1.jpg) no-repeat center center fixed;
+                background-size: cover;
+            }
+
+            .portfolio{
+                color:white;
             }
 
             footer {

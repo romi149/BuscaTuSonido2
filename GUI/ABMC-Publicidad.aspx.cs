@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -64,11 +65,14 @@ namespace GUI
 
         protected void sendAgregar_Click(object sender, EventArgs e)
         {
-            bool Insertado = GestorPublicidad.Agregar(
-                                       imageUrl.Text.Trim(),
-                                       navigateUrl.Text.Trim(),
-                                       fechaInicio.Text.Trim(),
-                                       fechaFin.Text.Trim());
+            Publicidad pub = new Publicidad();
+            pub.ImageUrl = imageUrl.Text.Trim();
+            pub.NavigateUrl = navigateUrl.Text.Trim();
+            pub.FechaInicio = fechaInicio.Text.Trim();
+            pub.FechaFin = fechaFin.Text.Trim();
+
+
+            bool Insertado = GestorPublicidad.Agregar(pub);
 
             if (Insertado)
             {

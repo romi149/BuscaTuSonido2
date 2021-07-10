@@ -53,14 +53,14 @@ namespace MPP
         /// </summary>
         /// <param name="permiso">Tipo Permiso</param>
         /// <returns>Devuelve si se inserto o no</returns>
-        public static bool InsertarPermiso(string nombre, string descrip, string tipoPermiso)
+        public static bool InsertarPermiso(Permiso per)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, nombre));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, descrip));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("TipoPermiso", DbType.String, ParameterDirection.Input, tipoPermiso));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, per.NombrePermiso));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, per.Descripcion));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("TipoPermiso", DbType.String, ParameterDirection.Input, per.TipoPermiso));
                 var respuesta = Conexion.GetInstance.EjecutarStore("InsertarPermiso", ListaParametros);
 
                 return respuesta;
@@ -78,15 +78,15 @@ namespace MPP
         /// </summary>
         /// <param name="permiso">Tipo permiso</param>
         /// <returns>Devuelve si se actualiza o no</returns>
-        public static bool ActualizarPermiso(int IdPermiso, string nombre, string descrip, string tipoPermiso)
+        public static bool ActualizarPermiso(Permiso per)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdPermiso", DbType.Int32, ParameterDirection.Input, IdPermiso));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, nombre));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, descrip));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("TipoPermiso", DbType.String, ParameterDirection.Input, tipoPermiso));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdPermiso", DbType.Int32, ParameterDirection.Input, per.IdPermiso));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Nombre", DbType.String, ParameterDirection.Input, per.NombrePermiso));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, per.Descripcion));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("TipoPermiso", DbType.String, ParameterDirection.Input, per.TipoPermiso));
                 var respuesta = Conexion.GetInstance.EjecutarStore("ActualizarPermiso", ListaParametros);
 
                 return respuesta;
@@ -136,13 +136,13 @@ namespace MPP
             }
         }
 
-        public static bool InsertarPermisoRol(int idPermiso, int idRol)
+        public static bool InsertarPermisoRol(Permiso per, Rol rol)
         {
             try
             {
                 List<SqlParameter> ListaParametros = new List<SqlParameter>();
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdPermiso", DbType.Int32, ParameterDirection.Input, idPermiso));
-                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdRol", DbType.Int32, ParameterDirection.Input, idRol));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdPermiso", DbType.Int32, ParameterDirection.Input, per.IdPermiso));
+                ListaParametros.Add(StoreProcedureHelper.SetParameter("IdRol", DbType.Int32, ParameterDirection.Input, rol.IdRol));
                 var respuesta = Conexion.GetInstance.EjecutarStore("InsertarPermisoRol", ListaParametros);
 
                 return respuesta;

@@ -59,8 +59,8 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                               <a class="dropdown-item" href="/ABMC-Rol">Roles</a>
                               <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="/ABMC-Permiso">Permisos</a>
-                              <div class="dropdown-divider"></div>
+                              <%--<a class="dropdown-item" href="/ABMC-Permiso">Permisos</a>
+                              <div class="dropdown-divider"></div>--%>
                               <a class="dropdown-item" href="/ABMC-PermisoRol">Permisos por Rol</a>
                               <div class="dropdown-divider"></div>
                               <a class="dropdown-item" href="/ABMC-Usuarios">Usuarios</a>
