@@ -120,7 +120,42 @@
                             <a class="portfolio" runat="server" href="~/Default">Productos</a>
                         </div>
                     </div>
-
+                    <%--1--%>
+                    <div class="imagen-port">
+                        <img src="./img/Saxo2.png" alt="">
+                        <div class="hover-galeria">
+                            <img src="./img/apuntar.svg" alt="" srcset="">
+                            <%--<p>Nuestro Trabajo</p>--%>
+                            <a class="portfolio" runat="server" href="~/Default">Productos</a>
+                        </div>
+                    </div>
+                    <%--2--%>
+                    <div class="imagen-port">
+                        <img src="./img/Guitarra3.png" alt="">
+                        <div class="hover-galeria">
+                            <img src="./img/apuntar.svg" alt="" srcset="">
+                            <%--<p>Nuestro Trabajo</p>--%>
+                            <a class="portfolio" runat="server" href="~/Default">Productos</a>
+                        </div>
+                    </div>
+                    <%--3--%>
+                    <div class="imagen-port">
+                        <img src="./img/pianoBlack.jpg" alt="">
+                        <div class="hover-galeria">
+                            <img src="./img/apuntar.svg" alt="" srcset="">
+                            <%--<p>Nuestro Trabajo</p>--%>
+                            <a class="portfolio" runat="server" href="~/Default">Productos</a>
+                        </div>
+                    </div>
+                    <%--4--%>
+                    <div class="imagen-port">
+                        <img src="./img/bateria.png" alt="">
+                        <div class="hover-galeria">
+                            <img src="./img/apuntar.svg" alt="" srcset="">
+                            <%--<p>Nuestro Trabajo</p>--%>
+                            <a class="portfolio" runat="server" href="~/Default">Productos</a>
+                        </div>
+                    </div>
                 </div>
 
             </div>

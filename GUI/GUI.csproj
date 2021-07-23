@@ -267,6 +267,7 @@
     <Content Include="img\american-express.png" />
     <Content Include="img\apuntar.svg" />
     <Content Include="img\b1.jpg" />
+    <Content Include="img\bateria.png" />
     <Content Include="img\bombos.png" />
     <Content Include="img\doremi.svg" />
     <Content Include="img\elec1.jpg" />
@@ -282,10 +283,13 @@
     <Content Include="img\Guitarra8.png" />
     <Content Include="img\marshmello.svg" />
     <Content Include="img\mastercard.png" />
+    <Content Include="img\personalizada.jpg" />
     <Content Include="img\pexels.png" />
     <Content Include="img\Piano.svg" />
     <Content Include="img\PianoBlack.jpg" />
     <Content Include="img\runnin.svg" />
+    <Content Include="img\saxo.png" />
+    <Content Include="img\Saxo2.png" />
     <Content Include="img\Violin.png" />
     <Content Include="img\visa.png" />
     <Content Include="img\Warlock.png" />

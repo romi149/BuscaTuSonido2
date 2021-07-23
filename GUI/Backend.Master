@@ -67,7 +67,7 @@
                               <div class="dropdown-divider"></div>
                               <a class="dropdown-item" href="/ABM-UsuariosRol">Usuarios por Rol</a>
                               <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="/ABMC-Menus">Menus</a>
+                              <a class="dropdown-item" href="/ABMC-Menus">Menus Productos</a>
                             </div>
                           </li>
                         <li class="nav-item dropdown">
@@ -121,10 +121,10 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                               <a class="dropdown-item" href="/ABMC-Encuestas">Encuestas</a>
                               <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="#">Catálogo de Alquiler</a>
-                              <div class="dropdown-divider"></div>
-                              <a class="dropdown-item" href="/ABMC-Publicidad">Publicidad</a>
-                              <div class="dropdown-divider"></div>
+                              <%--<a class="dropdown-item" href="#">Catálogo de Alquiler</a>
+                              <div class="dropdown-divider"></div>--%>
+                              <%--<a class="dropdown-item" href="/ABMC-Publicidad">Publicidad</a>
+                              <div class="dropdown-divider"></div>--%>
                               <a class="dropdown-item" href="/ABMC-Noticias">Noticias</a>
                             </div>
                           </li>
