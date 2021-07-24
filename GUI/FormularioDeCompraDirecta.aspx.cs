@@ -95,18 +95,19 @@ namespace GUI
                     GestorNP.AgregarProdNP(NP, Nombre);
                     GestorNP.AgregarDetalle(NP, Nombre);
 
-                    NotaCredito nc = new NotaCredito();
-                    nc.Estado = "Aplicado";
-                    nc.NroNotaC = nroNC[0].NroNotaC;
-
                     if (nroNC.Count != 0)
                     {
+                        NotaCredito nc = new NotaCredito();
+                        nc.Estado = "Aplicado";
+                        nc.NroNotaC = nroNC[0].NroNotaC;
+                                            
                         GestorNC.ModificarEstadoNC(nc);
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception err)
             {
+                var error = err;
                 Response.Redirect("Default");
 
             }

@@ -43,8 +43,12 @@ namespace GUI
 
         protected void sendeditar_Click(object sender, EventArgs e)
         {
+            var user = $"{((BE.Usuario)Session["usuarioCliente"])?.User}";
+
+            var codCli = GestorCliente.ObtenerCodCliente(user);
+
             Cliente cli = new Cliente();
-            cli.CodCliente = int.Parse(codCliente.Text.Trim());
+            cli.CodCliente = codCli.CodCliente;
             cli.Nombre = nombre.Text.Trim();
             cli.Apellido = apellido.Text.Trim();
             cli.Email = email.Text.Trim();

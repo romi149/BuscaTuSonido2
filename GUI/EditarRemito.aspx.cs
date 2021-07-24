@@ -14,7 +14,20 @@ namespace GUI
         protected void Page_Load(object sender, EventArgs e)
         {
             CargarComboEstados();
-            descripcion.Text = Session["Descripcion"].ToString();
+            var descAnterior = Session["Descripcion"].ToString();
+
+            if(descAnterior == "&nbsp;")
+            {
+                if(descripcion.Text == "&nbsp;")
+                {
+                    descripcion.Text = "";
+                }
+                
+            }
+            else
+            {
+                descripcion.Text = Session["Descripcion"].ToString();
+            }
             
         }
 
@@ -36,6 +49,7 @@ namespace GUI
             if (Generado)
             {
                 Response.Write("<script>alert('Los cambios se guardaron correctamente')</script>");
+                
             }
 
         }

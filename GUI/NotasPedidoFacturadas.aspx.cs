@@ -40,6 +40,7 @@ namespace GUI
             re.NroNP = NroPedido;
             re.NroFactura = nroFactura;
             re.Estado = "Pendiente";
+            //re.Descripcion = "";
 
             bool Generado = GestorRemito.Agregar(re);
 

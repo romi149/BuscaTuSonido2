@@ -93,6 +93,7 @@ namespace MPP
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("NroPedido", DbType.Int16, ParameterDirection.Input, re.NroNP));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("NroFactura", DbType.Int32, ParameterDirection.Input, re.NroFactura));
                 ListaParametros.Add(StoreProcedureHelper.SetParameter("Estado", DbType.String, ParameterDirection.Input, re.Estado));
+                //ListaParametros.Add(StoreProcedureHelper.SetParameter("Descripcion", DbType.String, ParameterDirection.Input, re.Descripcion));
                 var respuesta = Conexion.GetInstance.EjecutarStore("InsertarRemito", ListaParametros);
 
                 return respuesta;

@@ -30,7 +30,7 @@ namespace BLL
                 SmtpServer.Host = "smtp.gmail.com";
                 SmtpServer.EnableSsl = true;
                 SmtpServer.UseDefaultCredentials = false;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("buscatusonido.org@gmail.com", "Adrian1234");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("buscatusonido.org@gmail.com", "Romina2021");
 
                 SmtpServer.Send(mail);
             }
@@ -59,7 +59,7 @@ namespace BLL
                 SmtpServer.Host = "smtp.gmail.com";
                 SmtpServer.EnableSsl = true;
                 SmtpServer.UseDefaultCredentials = false;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("buscatusonido.org@gmail.com", "Adrian1234");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("buscatusonido.org@gmail.com", "Romina2021");
 
                 SmtpServer.Send(mail);
             }
@@ -88,7 +88,7 @@ namespace BLL
                 SmtpServer.Host = "smtp.gmail.com";
                 SmtpServer.EnableSsl = true;
                 SmtpServer.UseDefaultCredentials = false;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("buscatusonido.org@gmail.com", "Adrian1234");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("buscatusonido.org@gmail.com", "Romina2021");
 
                 SmtpServer.Send(mail);
             }
@@ -117,7 +117,7 @@ namespace BLL
                 SmtpServer.Host = "smtp.gmail.com";
                 SmtpServer.EnableSsl = true;
                 SmtpServer.UseDefaultCredentials = false;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("buscatusonido.org@gmail.com", "Adrian1234");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("buscatusonido.org@gmail.com", "Romina2021");
 
                 SmtpServer.Send(mail);
             }
