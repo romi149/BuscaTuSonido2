@@ -29,7 +29,8 @@
     <body>
         <header>
             <section class="textos-header">
-                <h1>Busca Tu Sonido</h1>
+                <%--<h1>Busca Tu Sonido</h1>--%>
+                <img src="./img/BTSSinFondo.png" class="logo" alt="">
                 <br />
                 <%--<h2>La Excelencia en Sonido</h2>--%>
             </section>
@@ -156,6 +157,42 @@
                             <a class="portfolio" runat="server" href="~/Default">Productos</a>
                         </div>
                     </div>
+                    <%--5--%>
+                    <div class="imagen-port">
+                        <img src="./img/teclado2.jpg" alt="">
+                        <div class="hover-galeria">
+                            <img src="./img/apuntar.svg" alt="" srcset="">
+                            <%--<p>Nuestro Trabajo</p>--%>
+                            <a class="portfolio" runat="server" href="~/Default">Productos</a>
+                        </div>
+                    </div>
+                    <%--6--%>
+                    <div class="imagen-port">
+                        <img src="./img/platillos.jpg" alt="">
+                        <div class="hover-galeria">
+                            <img src="./img/apuntar.svg" alt="" srcset="">
+                            <%--<p>Nuestro Trabajo</p>--%>
+                            <a class="portfolio" runat="server" href="~/Default">Productos</a>
+                        </div>
+                    </div>
+                    <%--7--%>
+                    <div class="imagen-port">
+                        <img src="./img/violonchelo.jpg" alt="">
+                        <div class="hover-galeria">
+                            <img src="./img/apuntar.svg" alt="" srcset="">
+                            <%--<p>Nuestro Trabajo</p>--%>
+                            <a class="portfolio" runat="server" href="~/Default">Productos</a>
+                        </div>
+                    </div>
+                    <%--8--%>
+                    <div class="imagen-port">
+                        <img src="./img/redoblante.jpg" alt="">
+                        <div class="hover-galeria">
+                            <img src="./img/apuntar.svg" alt="" srcset="">
+                            <%--<p>Nuestro Trabajo</p>--%>
+                            <a class="portfolio" runat="server" href="~/Default">Productos</a>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -233,6 +270,10 @@
             img {
                 width: 15vw;
                 height: 200px;
+            }
+
+            .logo{
+                width: 55vw;
             }
 
             /*.hdPortada{

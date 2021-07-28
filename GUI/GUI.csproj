@@ -269,6 +269,8 @@
     <Content Include="img\b1.jpg" />
     <Content Include="img\bateria.png" />
     <Content Include="img\bombos.png" />
+    <Content Include="img\BTSsinFondo.png" />
+    <Content Include="img\BuscaTuSonidoLogoSinFondo.png" />
     <Content Include="img\doremi.svg" />
     <Content Include="img\elec1.jpg" />
     <Content Include="img\Flecha.png" />
@@ -287,10 +289,14 @@
     <Content Include="img\pexels.png" />
     <Content Include="img\Piano.svg" />
     <Content Include="img\PianoBlack.jpg" />
+    <Content Include="img\platillos.jpg" />
+    <Content Include="img\redoblante.jpg" />
     <Content Include="img\runnin.svg" />
     <Content Include="img\saxo.png" />
     <Content Include="img\Saxo2.png" />
+    <Content Include="img\teclado2.jpg" />
     <Content Include="img\Violin.png" />
+    <Content Include="img\violonchelo.jpg" />
     <Content Include="img\visa.png" />
     <Content Include="img\Warlock.png" />
     <Content Include="InicioBackend.aspx" />
