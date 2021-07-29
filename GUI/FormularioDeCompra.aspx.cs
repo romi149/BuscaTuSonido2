@@ -118,12 +118,12 @@ namespace GUI
                    
                     GestorNP.AgregarDetalle(NP, cadena);
 
-                    NotaCredito nc = new NotaCredito();
-                    nc.Estado = "Aplicado";
-                    nc.NroNotaC = nroNC[0].NroNotaC;
-
                     if (nroNC.Count != 0)
                     {
+                        NotaCredito nc = new NotaCredito();
+                        nc.Estado = "Aplicado";
+                        nc.NroNotaC = nroNC[0].NroNotaC;
+
                         GestorNC.ModificarEstadoNC(nc);
                     }
                 }

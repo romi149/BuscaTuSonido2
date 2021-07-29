@@ -48,7 +48,9 @@ namespace GUI
             {
                 CargarDatos();
                 Response.Write("<script>alert('El remito se ha generado correctamente')</script>");
+                Response.Redirect("NotasPedidoFacturadas.aspx");
             }
+
             
 
         }

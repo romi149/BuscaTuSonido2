@@ -40,8 +40,8 @@ namespace GUI
             
             Session["NroRemito"] = NroRemito;
             Session["Descripcion"] = Descripcion;
-            
 
+         
         }
 
         protected void anular_Click(object sender, EventArgs e)

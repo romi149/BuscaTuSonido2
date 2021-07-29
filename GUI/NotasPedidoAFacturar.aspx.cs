@@ -52,8 +52,10 @@ namespace GUI
             {
                 GestorNP.ModificarEstado(NroPedido, "Facturado");
                 Response.Write("<script>alert('La factura se ha generado correctamente')</script>");
+
+                Response.Redirect("NotasPedidoAFacturar.aspx");
             }
-            CargarDatos();
+            //CargarDatos();
 
         }
 
