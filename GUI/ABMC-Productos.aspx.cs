@@ -131,6 +131,7 @@ namespace GUI
             var nombreProd = nombre.Text.Trim();
             var Tipo = listTipoInstrumento.SelectedItem.ToString();
             string ruta;
+            string rutaBD;
 
             if (string.IsNullOrEmpty(nombreProd))
             {
@@ -144,32 +145,44 @@ namespace GUI
                         ruta = @"C:/Users/romina/source/repos/BuscaTuSonido/GUI/Imagenes/Catalogo/Cuerdas/";
                         ruta += FileUpload.FileName;
 
+                        rutaBD = @"/Imagenes/Catalogo/Cuerdas/";
+                        rutaBD += FileUpload.FileName;
+
                         FileUpload.SaveAs(ruta);
-                        GestorProducto.AgregarImg(nombreProd, "Sin categoria", ruta);
+                        GestorProducto.AgregarImg(nombreProd, "Sin categoria", rutaBD);
                         break;
 
                     case "Electronico":
                         ruta = @"C:/Users/romina/source/repos/BuscaTuSonido/GUI/Imagenes/Catalogo/Electronicos/";
                         ruta += FileUpload.FileName;
 
+                        rutaBD = @"/Imagenes/Catalogo/Electronicos/";
+                        rutaBD += FileUpload.FileName;
+
                         FileUpload.SaveAs(ruta);
-                        GestorProducto.AgregarImg(nombreProd, "Sin categoria", ruta);
+                        GestorProducto.AgregarImg(nombreProd, "Sin categoria", rutaBD);
                         break;
 
                     case "Viento":
                         ruta = @"C:/Users/romina/source/repos/BuscaTuSonido/GUI/Imagenes/Catalogo/Viento/";
                         ruta += FileUpload.FileName;
 
+                        rutaBD = @"/Imagenes/Catalogo/Viento/";
+                        rutaBD += FileUpload.FileName;
+
                         FileUpload.SaveAs(ruta);
-                        GestorProducto.AgregarImg(nombreProd, "Sin categoria", ruta);
+                        GestorProducto.AgregarImg(nombreProd, "Sin categoria", rutaBD);
                         break;
 
                     case "Percusion":
                         ruta = @"C:/Users/romina/source/repos/BuscaTuSonido/GUI/Imagenes/Catalogo/Percusion/";
                         ruta += FileUpload.FileName;
 
+                        rutaBD = @"/Imagenes/Catalogo/Percusion/";
+                        rutaBD += FileUpload.FileName;
+
                         FileUpload.SaveAs(ruta);
-                        GestorProducto.AgregarImg(nombreProd, "Sin categoria", ruta);
+                        GestorProducto.AgregarImg(nombreProd, "Sin categoria", rutaBD);
                         break;
                 }
 

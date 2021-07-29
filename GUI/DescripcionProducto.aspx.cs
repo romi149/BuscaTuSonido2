@@ -120,12 +120,25 @@ namespace GUI
             string nombre = Request.QueryString["Nombre"]?.ToString();
             var lista = GestorProducto.ListarValoraciones(nombre);
             decimal total = 0;
-            foreach (var item in lista)
+            decimal totalRetornar = 0;
+            
+            if(lista.Count != 0)
             {
-                total = total + item.Valoracion;
+                foreach (var item in lista)
+                {
+                    total = total + item.Valoracion;
+                }
+                
+                totalRetornar = total / Convert.ToDecimal(lista.Count);
+            }
+            else
+            {
+                totalRetornar = total;
             }
 
-            return total / Convert.ToDecimal(lista.Count);
+            return totalRetornar;
+
+            
         }
 
         protected void sendComprar_Click(object sender, EventArgs e)
