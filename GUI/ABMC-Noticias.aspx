@@ -114,11 +114,11 @@
             ClientIDMode="Static">
             <Columns>
                 <asp:BoundField DataField="Id" HeaderText="Id" />
-                <asp:BoundField DataField="Titulo1" HeaderText="Titulo1" />
-                <asp:BoundField DataField="Texto1" HeaderText="Texto1" />
-                <asp:BoundField DataField="Titulo2" HeaderText="Titulo2" />
+                <asp:BoundField DataField="Titulo1" HeaderText="Titulo Página" />
+                <asp:BoundField DataField="Texto1" HeaderText="Texto Principal" />
+                <asp:BoundField DataField="Titulo2" HeaderText="Subtitulo" />
                 <%--<asp:BoundField DataField="Texto2" HeaderText="Texto2" />--%>
-                <asp:BoundField DataField="Img" HeaderText="Url Imagen" />
+                <asp:BoundField DataField="Img" HeaderText="Url Imagen" Visible="false" />
                 <%--<asp:BoundField DataField="AltoImg" HeaderText="Alto Img" />
                 <asp:BoundField DataField="AnchoImg" HeaderText="Ancho Img" />--%>
                 <asp:BoundField DataField="FechaPublicacion" HeaderText="Fecha Publicación" />

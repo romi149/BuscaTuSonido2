@@ -14,17 +14,17 @@
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="id" ReadOnly="true" />
                             </div>
                             <div class="form-group">
-                                <label>Titulo1</label>
+                                <label>Titulo de la Pagina</label>
                                 <asp:TextBox runat="server" type="text" TextMode="MultiLine" CssClass="form-control" ID="titulo1" />
                             </div>
                             <div class="form-group">
-                                <label>Texto1</label>
+                                <label>Texto Principal</label>
                                 <asp:TextBox runat="server" type="text" TextMode="MultiLine" CssClass="form-control" ID="texto1" />
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Titulo2</label>
+                                <label>Subtitulo</label>
                                 <asp:TextBox runat="server" type="text" TextMode="MultiLine" CssClass="form-control" ID="titulo2" />
                             </div>
                         </div>

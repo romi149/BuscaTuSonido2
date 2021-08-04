@@ -88,7 +88,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label>Nombre Imagen 1</label>
+                                <label>Imagen 1</label>
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="img1" />
                                 <asp:FileUpload ID="FileUpload" runat="server"></asp:FileUpload>
                             </div>
@@ -97,7 +97,7 @@
                             </div>
                             <br />
                             <div class="form-group">
-                                <label>Nombre Imagen 2</label>
+                                <label>Imagen 2</label>
                                 <asp:TextBox runat="server" type="text" CssClass="form-control" ID="img2" />
                                 <asp:FileUpload ID="FileUpload1" runat="server"></asp:FileUpload>
                             </div>

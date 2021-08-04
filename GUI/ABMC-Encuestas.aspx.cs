@@ -27,6 +27,7 @@ namespace GUI
             this.gvEncuesta.DataSource = listaDatos;
             this.gvEncuesta.DataBind();
             //CargarComboTipo();
+
         }
 
         public DataSet CargarDatos()
@@ -77,28 +78,31 @@ namespace GUI
             op.FechaFin = fechaFin.Text.Trim();
             op.Opcion1 = opcion1.Text.Trim();
             op.Opcion2 = opcion2.Text.Trim();
-            op.UrlOpcion1 = img1.Text.Trim();
-            op.UrlOpcion2 = img2.Text.Trim();
-
+            //op.UrlOpcion1 = img1.Text.Trim();
+            op.UrlOpcion1 = FileUpload.FileName;
+            //op.UrlOpcion2 = img2.Text.Trim();
+            op.UrlOpcion2 = FileUpload1.FileName;
+            
             var existe = GestorOpinion.VerificarFechaEncuesta(op.FechaInicio);
             bool Insertado = false;
 
-            //if(existe != null)
+            //if (existe != null)
             //{
             //    Response.Write("<script>alert('Ya existe una fecha de inicio para la fecha ingresada, debe ingresar una fecha de inicio superior')</script>");
             //}
             //else
             //{
-            if(string.IsNullOrEmpty(op.UrlOpcion1) || string.IsNullOrEmpty(op.UrlOpcion2))
-            {
-                Response.Write("<script>alert('Debe ingresar los nombres de las imagenes')</script>");
-            }
-            else
-            {
-                Insertado = GestorOpinion.AgregarEncuesta(op);
-            }
-                
+            ////    if (string.IsNullOrEmpty(op.UrlOpcion1) || string.IsNullOrEmpty(op.UrlOpcion2))
+            ////{
+            ////    Response.Write("<script>alert('Debe ingresar los nombres de las imagenes')</script>");
+            ////}
+            ////else
+            ////{
+            //    Insertado = GestorOpinion.AgregarEncuesta(op);
             //}
+
+            //}
+            Insertado = GestorOpinion.AgregarEncuesta(op);
 
             if (Insertado)
             {
